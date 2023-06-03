@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqsgobxhcq3d7"]
+
+[ext_resource type="Texture2D" uid="uid://dbic8vqqcxlnj" path="res://frames/wall_mid.png" id="1_41cub"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cgc3p"]
+radius = 8.0
+height = 16.0
+
+[node name="Walls" type="StaticBody2D"]
+position = Vector2(56, 32)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_cgc3p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_41cub")

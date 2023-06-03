@@ -1,71 +1,29 @@
-[gd_scene load_steps=13 format=3 uid="uid://k1de1llgl8k"]
+[gd_scene load_steps=4 format=3 uid="uid://k1de1llgl8k"]
 
-[ext_resource type="Texture2D" uid="uid://h16y5keja7p4" path="res://frames/angel_idle_anim_f0.png" id="1_3agw4"]
 [ext_resource type="Texture2D" uid="uid://6ro3b42bb5wj" path="res://frames/big_demon_idle_anim_f0.png" id="1_15ovg"]
-[ext_resource type="Texture2D" uid="uid://l2ntq2yao16m" path="res://frames/floor_5.png" id="1_lv4rp"]
-[ext_resource type="Script" path="res://Player/Player.gd" id="2_um1t3"]
-[ext_resource type="Texture2D" uid="uid://bne3qi5mjs23t" path="res://frames/angel_idle_anim_f1.png" id="3_tor2d"]
-[ext_resource type="Texture2D" uid="uid://bwsqfl821lqfh" path="res://frames/angel_idle_anim_f2.png" id="4_785lo"]
-[ext_resource type="Texture2D" uid="uid://geotym5agxmq" path="res://frames/angel_idle_anim_f3.png" id="5_v32b4"]
-[ext_resource type="Texture2D" uid="uid://drcvyxelo7bko" path="res://frames/angel_run_anim_f0.png" id="6_l7hvr"]
-[ext_resource type="Texture2D" uid="uid://c5xxxqvpvom63" path="res://frames/angel_run_anim_f1.png" id="7_voitf"]
-[ext_resource type="Texture2D" uid="uid://bdvd0tvtmvdqh" path="res://frames/angel_run_anim_f2.png" id="8_tc0qx"]
-[ext_resource type="Texture2D" uid="uid://wjl5jvqlr5fc" path="res://frames/angel_run_anim_f3.png" id="9_8sg2t"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_uj5mq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_3agw4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_tor2d")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_785lo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_v32b4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_l7hvr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_voitf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_tc0qx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_8sg2t")
-}],
-"loop": true,
-"name": &"run",
-"speed": 5.0
-}]
+[ext_resource type="PackedScene" uid="uid://kma828pwdjle" path="res://Player/player.tscn" id="5_bpg8k"]
+[ext_resource type="PackedScene" uid="uid://cqsgobxhcq3d7" path="res://World/walls.tscn" id="12_qjswu"]
 
 [node name="DungeonWorld" type="Node2D"]
-position = Vector2(0, 1)
+y_sort_enabled = true
 
-[node name="Floor5" type="Sprite2D" parent="."]
-position = Vector2(195, 165)
-texture = ExtResource("1_lv4rp")
+[node name="Player" parent="." instance=ExtResource("5_bpg8k")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor5"]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(16, 79)
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(60, 64)
-script = ExtResource("2_um1t3")
-metadata/_edit_group_ = true
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 0, -16, 0, -16, 24, 8, 24, 8, 0, -8, 0)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(2, 0)
-sprite_frames = SubResource("SpriteFrames_uj5mq")
-animation = &"run"
-speed_scale = 2.0
-metadata/_edit_group_ = true
+[node name="Walls" parent="." instance=ExtResource("12_qjswu")]
+y_sort_enabled = true
+position = Vector2(72, 95)
+
+[node name="Walls2" parent="." instance=ExtResource("12_qjswu")]
+y_sort_enabled = true
+position = Vector2(96, 127)
 
 [node name="BigDemonIdleAnimF0" type="Sprite2D" parent="."]
-position = Vector2(243, 80)
+position = Vector2(184, 31)
 scale = Vector2(0.9375, 1)
 texture = ExtResource("1_15ovg")

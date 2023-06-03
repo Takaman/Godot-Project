@@ -1,28 +1,30 @@
 extends CharacterBody2D
 
-
-const SPEED = 50
+const SPEED = 5000
+const MAX_SPEED = 100
+const FRICTION = 350
 const JUMP_VELOCITY = -400.0
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
-
-
-
-
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity");
+#Needs the ready function to instantiate the animationPlayer. Need to get access to the node of your child
+@onready var animationPlayer = get_node("AnimatedSprite2D")
 
 func _physics_process(delta):
-	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
+	#Getting the input direction and handle movement and acceleration
+	#Normalising means speed will be the same with two keys pressed when compared to one key
+	velocity.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	velocity.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	velocity = velocity.normalized()
+	
+	
+	#For more natural movement to hit max speed and bringing it down for natural movement\
+	if velocity != Vector2.ZERO:
+		animationPlayer.play("runright")
+		velocity = velocity.move_toward(velocity * MAX_SPEED, SPEED * delta)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		animationPlayer.play("idleright")
+		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+	
+	
+	
 	move_and_slide()
