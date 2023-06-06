@@ -54,7 +54,7 @@ animations = [{
 radius = 4.0
 height = 8.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 y_sort_enabled = true
 position = Vector2(48, 88)
 script = ExtResource("1_7n5v5")
@@ -64,7 +64,6 @@ metadata/_edit_group_ = true
 position = Vector2(3, 2)
 sprite_frames = SubResource("SpriteFrames_l3ucm")
 animation = &"idleright"
-frame_progress = 0.36686
 speed_scale = 2.0
 metadata/_edit_group_ = true
 

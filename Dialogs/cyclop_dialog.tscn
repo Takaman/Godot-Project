@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm4glchrtkrhl"]
+
+[ext_resource type="Texture2D" uid="uid://coti8vouhqdvg" path="res://frames/Dialog/DialogBox.png" id="1_nd3ub"]
+[ext_resource type="FontFile" uid="uid://cj1v84ckemfpw" path="res://frames/Dialog/Font/NormalFont.ttf" id="2_ymaa8"]
+
+[node name="cyclop_dialog" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 144.0
+offset_right = 316.0
+offset_bottom = 202.0
+texture = ExtResource("1_nd3ub")
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 136.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ymaa8")
+theme_override_font_sizes/font_size = 8
+text = "Cyclops    boss"
+
+[node name="Label" type="Label" parent="TextureRect/Label"]
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 261.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ymaa8")
+theme_override_font_sizes/font_size = 8
+text = "Choose the most correct answer before I   DEFEAT   YOU !!!!"
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

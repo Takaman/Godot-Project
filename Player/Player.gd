@@ -11,6 +11,13 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity");
 #Needs the ready function to instantiate the animationPlayer. Need to get access to the node of your child
 @onready var animationPlayer = get_node("AnimatedSprite2D")
 
+#Add the player to a group
+func _ready():
+	add_to_group("Player") 
+
+#Signal for collision detection
+signal collided_with_boss
+
 func _physics_process(delta):
 	#Getting the input direction and handle movement and acceleration
 	#Normalising means speed will be the same with two keys pressed when compared to one key
