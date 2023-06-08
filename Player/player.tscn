@@ -56,7 +56,7 @@ height = 8.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 y_sort_enabled = true
-position = Vector2(48, 88)
+position = Vector2(40, 80)
 script = ExtResource("1_7n5v5")
 metadata/_edit_group_ = true
 
@@ -70,3 +70,8 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, 6)
 shape = SubResource("CapsuleShape2D_khce2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+metadata/_edit_group_ = true

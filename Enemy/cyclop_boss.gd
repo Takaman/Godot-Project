@@ -11,8 +11,8 @@ var dialog_shown = false #Tracking whether dialog has already been shown
 var dialog_open_time = 0 #Tracking how long the dialog has already been open
 var close_dialog = false #Whether dialog can be closed or not
 @onready var animationPlayer = get_node("AnimatedSprite2D")
-@onready var cyclop_dialog_box = get_node("/root/DungeonWorld/cyclop_dialog")
-@onready var cyclop_dialog_label = get_node("/root/DungeonWorld/cyclop_dialog/TextureRect/Label2")
+@onready var cyclop_dialog_box = get_node("/root/DungeonWorld/CanvasLayer/cyclop_dialog")
+@onready var cyclop_dialog_label = get_node("/root/DungeonWorld/CanvasLayer/cyclop_dialog/TextureRect/Label2")
 
 func _ready():
 	add_to_group("Boss")
@@ -30,7 +30,8 @@ func _process(delta):
 		dialog_open_time += delta
 		if dialog_open_time > 2:
 			close_dialog = true
-	pass
+
+
 		
 	
 func _input(event):

@@ -12,7 +12,7 @@ y_sort_enabled = true
 script = ExtResource("1_87pf4")
 
 [node name="Player" parent="." instance=ExtResource("2_rwmkl")]
-position = Vector2(38, 90)
+position = Vector2(-96, 72)
 
 [node name="Walls" parent="." instance=ExtResource("3_2ppl1")]
 y_sort_enabled = true
@@ -37,13 +37,6 @@ position = Vector2(24, 112)
 [node name="CyclopBoss" parent="." instance=ExtResource("5_lwpgy")]
 position = Vector2(152, 40)
 
-[node name="cyclop_dialog" parent="." instance=ExtResource("6_kixqa")]
-visible = false
-offset_left = 8.0
-offset_top = 40.0
-offset_right = 8.0
-offset_bottom = 40.0
-
 [node name="Walls5" parent="." instance=ExtResource("3_2ppl1")]
 position = Vector2(8, 72)
 
@@ -62,3 +55,8 @@ offset_left = 304.0
 offset_top = 160.0
 offset_right = 312.0
 offset_bottom = 168.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="cyclop_dialog" parent="CanvasLayer" instance=ExtResource("6_kixqa")]
+visible = false
