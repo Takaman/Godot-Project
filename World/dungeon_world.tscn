@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://k1de1llgl8k"]
+
+[ext_resource type="Script" path="res://World/dungeon_world.gd" id="1_87pf4"]
+[ext_resource type="PackedScene" uid="uid://kma828pwdjle" path="res://Player/player.tscn" id="2_rwmkl"]
+[ext_resource type="PackedScene" uid="uid://cqsgobxhcq3d7" path="res://World/walls.tscn" id="3_2ppl1"]
+[ext_resource type="Texture2D" uid="uid://6ro3b42bb5wj" path="res://frames/big_demon_idle_anim_f0.png" id="4_rv5b3"]
+[ext_resource type="PackedScene" uid="uid://bkv7vbdsk5sj0" path="res://Enemy/cyclop_boss.tscn" id="5_lwpgy"]
+[ext_resource type="PackedScene" uid="uid://bm4glchrtkrhl" path="res://Dialogs/cyclop_dialog.tscn" id="6_kixqa"]
+
+[node name="DungeonWorld" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_87pf4")
+
+[node name="Player" parent="." instance=ExtResource("2_rwmkl")]
+position = Vector2(38, 90)
+
+[node name="Walls" parent="." instance=ExtResource("3_2ppl1")]
+y_sort_enabled = true
+position = Vector2(40, 112)
+
+[node name="Walls2" parent="." instance=ExtResource("3_2ppl1")]
+y_sort_enabled = true
+position = Vector2(56, 112)
+
+[node name="BigDemonIdleAnimF0" type="Sprite2D" parent="."]
+position = Vector2(232, 32)
+scale = Vector2(0.9375, 1)
+texture = ExtResource("4_rv5b3")
+
+[node name="Walls3" parent="." instance=ExtResource("3_2ppl1")]
+position = Vector2(8, 112)
+
+[node name="Walls4" parent="." instance=ExtResource("3_2ppl1")]
+y_sort_enabled = true
+position = Vector2(24, 112)
+
+[node name="CyclopBoss" parent="." instance=ExtResource("5_lwpgy")]
+position = Vector2(152, 40)
+
+[node name="cyclop_dialog" parent="." instance=ExtResource("6_kixqa")]
+visible = false
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 8.0
+offset_bottom = 40.0
+
+[node name="Walls5" parent="." instance=ExtResource("3_2ppl1")]
+position = Vector2(8, 72)
+
+[node name="Walls6" parent="." instance=ExtResource("3_2ppl1")]
+position = Vector2(24, 72)
+
+[node name="Walls7" parent="." instance=ExtResource("3_2ppl1")]
+position = Vector2(40, 72)
+
+[node name="Walls8" parent="." instance=ExtResource("3_2ppl1")]
+position = Vector2(56, 72)
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 304.0
+offset_top = 160.0
+offset_right = 312.0
+offset_bottom = 168.0
