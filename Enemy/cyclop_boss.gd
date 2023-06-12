@@ -11,13 +11,13 @@ var dialog_shown = false #Tracking whether dialog has already been shown
 var dialog_open_time = 0 #Tracking how long the dialog has already been open
 var close_dialog = false #Whether dialog can be closed or not
 @onready var animationPlayer = get_node("AnimatedSprite2D")
-@onready var cyclop_dialog_box = get_node("/root/DungeonWorld/CanvasLayer/cyclop_dialog")
-@onready var cyclop_dialog_label = get_node("/root/DungeonWorld/CanvasLayer/cyclop_dialog/TextureRect/Label2")
+@onready var cyclop_dialog_box = get_node("/root/Level1/CanvasLayer2/cyclop_dialog")
+@onready var cyclop_dialog_label = get_node("/root/Level1/CanvasLayer2/cyclop_dialog/TextureRect/Label2")
 
 func _ready():
 	add_to_group("Boss")
 	#Connecting with player signal
-	var player = get_node("/root/DungeonWorld/Player")
+	var player = get_node("/root/Level1/Player")
 	player.connect("collided_with_boss", Callable(self , "_on_player_collided_with_boss"))
 	animationPlayer.play("idle")
 	process_mode = Node.PROCESS_MODE_ALWAYS #So that the node still processes after pausing for dialog
@@ -35,12 +35,20 @@ func _process(delta):
 		
 	
 func _input(event):
-	if event is InputEventKey and event.is_pressed() and close_dialog:
-		#A key pressed. Means skip the dialog
-		cyclop_dialog_box.hide()
-		get_tree().paused = false
-		dialog_open_time = 0
-		close_dialog = false
+	if event is InputEventKey and event.is_pressed():
+		
+		#Check if the dialog is still typing
+		if cyclop_dialog_label.typing: 
+				cyclop_dialog_label.text = cyclop_dialog_label.full_text
+				cyclop_dialog_label.typing = false
+				cyclop_dialog_label.timer.stop()
+		
+		#A key is pressed to close the dialog
+		elif close_dialog:
+			cyclop_dialog_box.hide()
+			get_tree().paused = false
+			dialog_open_time = 0
+			close_dialog = false
 
 func show_popout_interface():
 	cyclop_dialog_label.start_typing()

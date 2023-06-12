@@ -9,6 +9,7 @@
 
 [node name="DungeonWorld" type="Node2D"]
 y_sort_enabled = true
+position = Vector2(-3, 0)
 script = ExtResource("1_87pf4")
 
 [node name="Player" parent="." instance=ExtResource("2_rwmkl")]
@@ -60,3 +61,6 @@ offset_bottom = 168.0
 
 [node name="cyclop_dialog" parent="CanvasLayer" instance=ExtResource("6_kixqa")]
 visible = false
+
+[node name="CyclopBoss2" parent="." instance=ExtResource("5_lwpgy")]
+position = Vector2(107, 40)

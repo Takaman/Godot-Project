@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bs0vl6q11f6um" path="res://frames/DemonCyclop/Walk.png" id="4_f1j0u"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w25mt"]
-radius = 24.0
-height = 48.0
+radius = 16.0
+height = 32.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tt8c8"]
 atlas = ExtResource("2_c8gqh")
@@ -125,13 +125,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ses6e"]
-radius = 16.0
-height = 48.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_kb5v2"]
+radius = 8.0
 
 [node name="CyclopBoss" type="StaticBody2D"]
 y_sort_enabled = true
-position = Vector2(120, 104)
+position = Vector2(136, 112)
 script = ExtResource("1_8tu4w")
 metadata/_edit_group_ = true
 
@@ -142,13 +141,14 @@ shape = SubResource("CapsuleShape2D_w25mt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
+position = Vector2(-0.249995, 0)
+scale = Vector2(0.65, 0.66)
 sprite_frames = SubResource("SpriteFrames_moenx")
-animation = &"idle"
-frame_progress = 0.860948
+animation = &"hit"
 speed_scale = 0.8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
-shape = SubResource("CapsuleShape2D_ses6e")
+shape = SubResource("CircleShape2D_kb5v2")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

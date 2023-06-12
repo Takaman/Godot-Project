@@ -56,14 +56,15 @@ height = 8.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 y_sort_enabled = true
-position = Vector2(40, 80)
+position = Vector2(40, 88)
 script = ExtResource("1_7n5v5")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, 2)
 sprite_frames = SubResource("SpriteFrames_l3ucm")
-animation = &"idleright"
+animation = &"runright"
+frame_progress = 0.227489
 speed_scale = 2.0
 metadata/_edit_group_ = true
 

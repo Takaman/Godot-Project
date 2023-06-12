@@ -13,7 +13,7 @@ func _process(delta):
 
 # assuming your button is a Button node
 @onready var button = get_node("Button")  # replace with the actual path to your button
-@onready var cyclop_dialog_box = get_node("cyclop_dialog")
+
 
 
 
