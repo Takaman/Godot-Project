@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dypgbh2k0v4eq"]
 
 [ext_resource type="Script" path="res://World/level_1.gd" id="1_d3jsn"]
-[ext_resource type="PackedScene" uid="uid://b58yb2cp0td8e" path="res://World/tile_map.tscn" id="1_ghufb"]
+[ext_resource type="PackedScene" uid="uid://b1nr5r3nw3i27" path="res://World/tile_map.tscn" id="1_ghufb"]
 [ext_resource type="PackedScene" uid="uid://kma828pwdjle" path="res://Player/player.tscn" id="2_l503l"]
 [ext_resource type="PackedScene" uid="uid://d322o0o5wflr4" path="res://Player/h_box_container.tscn" id="4_8drrw"]
 [ext_resource type="PackedScene" uid="uid://bkv7vbdsk5sj0" path="res://Enemy/cyclop_boss.tscn" id="5_twcai"]
@@ -11,12 +11,9 @@
 script = ExtResource("1_d3jsn")
 
 [node name="TileMap" parent="." instance=ExtResource("1_ghufb")]
-position = Vector2(0, 0)
-layer_0/y_sort_enabled = false
-layer_1/y_sort_enabled = false
 
 [node name="Player" parent="." instance=ExtResource("2_l503l")]
-position = Vector2(40, 248)
+position = Vector2(104, 304)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -30,7 +27,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="CyclopBoss" parent="." instance=ExtResource("5_twcai")]
-position = Vector2(160, 224)
+position = Vector2(232, 280)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
