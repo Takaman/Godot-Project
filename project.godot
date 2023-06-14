@@ -15,6 +15,10 @@ run/main_scene="res://World/dungeon_world.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+
 [display]
 
 window/size/viewport_width=360
@@ -25,7 +29,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/YATI/plugin.cfg")
+enabled=PackedStringArray("res://addons/YATI/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")
 
 [importer_defaults]
 
@@ -48,3 +52,7 @@ texture={
 "roughness/mode": 0,
 "roughness/src_normal": ""
 }
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://main.dialogue", "res://dialogue/main.dialogue")
