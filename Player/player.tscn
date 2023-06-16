@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://kma828pwdjle"]
+[gd_scene load_steps=13 format=3 uid="uid://kma828pwdjle"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_7n5v5"]
 [ext_resource type="Texture2D" uid="uid://h16y5keja7p4" path="res://frames/angel_idle_anim_f0.png" id="2_7dllf"]
@@ -54,21 +54,22 @@ animations = [{
 radius = 4.0
 height = 8.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ugqi6"]
+radius = 10.0499
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 y_sort_enabled = true
-position = Vector2(40, 88)
+position = Vector2(39, 87)
 script = ExtResource("1_7n5v5")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, 2)
 sprite_frames = SubResource("SpriteFrames_l3ucm")
 animation = &"runright"
-frame_progress = 0.227489
 speed_scale = 2.0
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(4, 6)
 shape = SubResource("CapsuleShape2D_khce2")
 
@@ -76,3 +77,14 @@ shape = SubResource("CapsuleShape2D_khce2")
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 metadata/_edit_group_ = true
+
+[node name="Direction" type="Marker2D" parent="."]
+
+[node name="ActionableFinder" type="Area2D" parent="Direction"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/ActionableFinder"]
+z_index = 1
+position = Vector2(4, 4)
+shape = SubResource("CircleShape2D_ugqi6")

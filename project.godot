@@ -27,6 +27,10 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 
+[dotnet]
+
+project/assembly_name="Godot Project"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/YATI/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")
@@ -56,3 +60,7 @@ texture={
 [internationalization]
 
 locale/translations_pot_files=PackedStringArray("res://main.dialogue", "res://dialogue/main.dialogue")
+
+[layer_names]
+
+2d_physics/layer_5="Actionables"
