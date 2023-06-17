@@ -1,7 +1,12 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=9 format=3 uid="uid://dypgbh2k0v4eq"]
+=======
+[gd_scene load_steps=8 format=3 uid="uid://dypgbh2k0v4eq"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://World/level_1.gd" id="1_d3jsn"]
 [ext_resource type="PackedScene" uid="uid://b1nr5r3nw3i27" path="res://World/tile_map.tscn" id="1_ghufb"]
+[ext_resource type="Script" path="res://World/ServerConn.gd" id="2_ce7p6"]
 [ext_resource type="PackedScene" uid="uid://kma828pwdjle" path="res://Player/player.tscn" id="2_l503l"]
 [ext_resource type="PackedScene" uid="uid://d322o0o5wflr4" path="res://Player/h_box_container.tscn" id="4_8drrw"]
 [ext_resource type="PackedScene" uid="uid://bkv7vbdsk5sj0" path="res://Enemy/cyclop_boss.tscn" id="5_twcai"]
@@ -12,6 +17,9 @@
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_d3jsn")
+
+[node name="ServerConn" type="Node" parent="."]
+script = ExtResource("2_ce7p6")
 
 [node name="TileMap" parent="." instance=ExtResource("1_ghufb")]
 
