@@ -1,0 +1,143 @@
+[gd_scene load_steps=7 format=3 uid="uid://s3joyis3qqdy"]
+
+[ext_resource type="Texture2D" uid="uid://bwbr77naoy7yg" path="res://menu/image/Dungeons-Featured-Image-Elden-Ring-1024x576.jpg" id="1_7waa0"]
+[ext_resource type="Script" path="res://menu/Options.gd" id="1_v0kbh"]
+[ext_resource type="Script" path="res://menu/Back.gd" id="3_sm76d"]
+[ext_resource type="AudioStream" uid="uid://ch0pduc0o4gyn" path="res://menu/music/Driving Ambition.mp3" id="4_8ykw3"]
+
+[sub_resource type="Theme" id="Theme_wo8vu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_84i7g"]
+bg_color = Color(0.6, 0.0196078, 0, 1)
+border_color = Color(0.0509804, 0.913725, 0.905882, 1)
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 486.0
+offset_bottom = 251.0
+script = ExtResource("1_v0kbh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 360.0
+offset_bottom = 178.0
+texture = ExtResource("1_7waa0")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 49.0
+offset_right = 116.0
+offset_bottom = 135.0
+
+[node name="Fullscreen" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Fullscreen"
+
+[node name="Maximized" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Maximized"
+
+[node name="Minimized" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Minimized"
+
+[node name="Button" type="Button" parent="VBoxContainer/Minimized"]
+layout_mode = 0
+offset_left = -31.0
+offset_top = 39.0
+offset_right = 14.0
+offset_bottom = 70.0
+text = "Back"
+script = ExtResource("3_sm76d")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 45.0
+offset_right = 164.0
+offset_bottom = 129.0
+
+[node name="FullScreen" type="CheckBox" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="CheckBox2" type="CheckBox" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="CheckBox3" type="CheckBox" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="Video" type="Label" parent="."]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 25.0
+offset_right = 115.0
+offset_bottom = 51.0
+theme_override_colors/font_color = Color(1, 0, 0.717647, 1)
+theme_override_colors/font_shadow_color = Color(0.686275, 0, 0, 1)
+text = "Video"
+
+[node name="Audio" type="Label" parent="."]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 25.0
+offset_right = 260.0
+offset_bottom = 51.0
+theme_override_colors/font_color = Color(0.196078, 0.980392, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.643137, 0, 1)
+text = "Audio"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 48.0
+offset_right = 352.0
+offset_bottom = 148.0
+
+[node name="Master" type="Label" parent="VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Master"
+
+[node name="Master" type="HSlider" parent="VBoxContainer3/Master"]
+layout_mode = 2
+offset_left = 67.0
+offset_top = 1.0
+offset_right = 169.0
+offset_bottom = 17.0
+min_value = -10.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Master2" type="Label" parent="VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Mute"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer3/Master2"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 4.0
+offset_right = 86.0
+offset_bottom = 20.0
+theme = SubResource("Theme_wo8vu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_84i7g")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(266, 81)
+stream = ExtResource("4_8ykw3")
+pitch_scale = 2.08
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/Minimized/Button" to="." method="Back_on_button_pressed"]
+[connection signal="toggled" from="VBoxContainer2/FullScreen" to="." method="Fullscreen_on_check_box_toggled"]
+[connection signal="toggled" from="VBoxContainer2/CheckBox2" to="." method="borderless_on_check_box_2_toggled"]
+[connection signal="toggled" from="VBoxContainer2/CheckBox3" to="." method="Minimized_on_check_box_3_toggled"]
+[connection signal="value_changed" from="VBoxContainer3/Master/Master" to="." method="master_on_h_slider_value_changed"]
+[connection signal="toggled" from="VBoxContainer3/Master2/CheckBox" to="." method="mute_on_check_box_toggled"]
