@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cubrjr2l8853t"
-path="res://.godot/imported/TilesetWallSimple.png-012bae8fddf2e539a8419910c547974c.ctex"
+uid="uid://cxo46gpvtucun"
+path="res://.godot/imported/Alex_idle_16x16.png-2e6469102cc0b811811eb56820f06eba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilemap builder/Interior/TilesetWallSimple.png"
-dest_files=["res://.godot/imported/TilesetWallSimple.png-012bae8fddf2e539a8419910c547974c.ctex"]
+source_file="res://Tilemap builder/Interior/Alex_idle_16x16.png"
+dest_files=["res://.godot/imported/Alex_idle_16x16.png-2e6469102cc0b811811eb56820f06eba.ctex"]
 
 [params]
 

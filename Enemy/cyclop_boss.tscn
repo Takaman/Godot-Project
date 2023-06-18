@@ -144,7 +144,7 @@ y_sort_enabled = true
 position = Vector2(-0.249995, 0)
 scale = Vector2(0.65, 0.66)
 sprite_frames = SubResource("SpriteFrames_moenx")
-animation = &"hit"
+animation = &"new_animation"
 speed_scale = 0.8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
