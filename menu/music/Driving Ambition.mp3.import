@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ch0pduc0o4gyn"
+path="res://.godot/imported/Driving Ambition.mp3-28ea12b40e90204c33b2257bf15d73b1.mp3str"
+
+[deps]
+
+source_file="res://menu/music/Driving Ambition.mp3"
+dest_files=["res://.godot/imported/Driving Ambition.mp3-28ea12b40e90204c33b2257bf15d73b1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
