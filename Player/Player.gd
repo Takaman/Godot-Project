@@ -25,6 +25,8 @@ func _trigger_decreasehealth():
 	currentHealth -= 1
 	healthChanged.emit(currentHealth)
 
+func player():
+	pass
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
@@ -60,3 +62,11 @@ func _physics_process(delta) -> void:
 		
 		#Moving and sliding the character
 		move_and_slide()
+
+
+func _on_area_2d_body_entered(body):
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_exited(body):
+	pass # Replace with function body.

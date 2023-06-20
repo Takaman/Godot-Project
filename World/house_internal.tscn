@@ -9294,7 +9294,7 @@ sources/5 = SubResource("TileSetAtlasSource_jo2f5")
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_erav1"]
 
 [node name="HouseInternal" type="TileMap"]
-position = Vector2(168, -625)
+position = Vector2(112, -624)
 tile_set = SubResource("TileSet_1hesj")
 format = 2
 layer_0/name = "Floor"
@@ -9306,10 +9306,9 @@ layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(-1310727, 262148, 6, -1245191, 262148, 7, -1179655, 262148, 8, -1310726, 327684, 6, -1245190, 327684, 7, -1179654, 327684, 8, -1441795, 1441796, 5, -1376259, 1441796, 6, -1310723, 1441796, 7, -1245187, 1441796, 8, -1179651, 1441796, 9, -1441794, 1507332, 5, -1376258, 1507332, 6, -1310722, 1507332, 7, -1245186, 1507332, 8, -1179650, 1507332, 9, -1310721, 4, 12, -1245185, 4, 13, -1179649, 4, 14, -1376256, 65540, 12, -1310720, 65540, 13, -1245184, 65540, 14, -1245183, 1835012, 0, -1179647, 1835012, 1, -1114111, 1835012, 2, -1048575, 1835012, 3, -983039, 1835012, 4, -917503, 1835012, 5, -1245182, 1900548, 0, -1179646, 1900548, 1, -1114110, 1900548, 2, -1048574, 1900548, 3, -983038, 1900548, 4, -917502, 1900548, 5, -1048581, 1703940, 4, -983045, 1703940, 5, -1048580, 1769476, 4, -983044, 1769476, 5)
-metadata/_edit_group_ = true
 
 [node name="Player" parent="." instance=ExtResource("7_akb82")]
-position = Vector2(-8, -200)
+position = Vector2(-96, -208)
 
 [node name="SpriteSheet" type="StaticBody2D" parent="."]
 position = Vector2(-128, -264)

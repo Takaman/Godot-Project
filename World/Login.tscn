@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1kiv5nh4whed"]
+[gd_scene load_steps=2 format=3 uid="uid://dg2233ephoglo"]
 
 [ext_resource type="Script" path="res://World/Login.gd" id="1_blpnc"]
 
@@ -91,5 +91,5 @@ text = "Login"
 
 [connection signal="button_down" from="Control/Login/RegisterBtn" to="Control/Login" method="_on_button_button_down"]
 [connection signal="button_down" from="Control/Login/RegisterBtn" to="Control/Login" method="_on_register_btn_button_down"]
-[connection signal="button_down" from="Control/Login/LoginBtn" to="Control/Login" method="_on_login_btn_button_down"]
 [connection signal="button_down" from="Control/Login/LoginBtn" to="Control/Login" method="_on_button_button_down"]
+[connection signal="button_down" from="Control/Login/LoginBtn" to="Control/Login" method="_on_login_btn_button_down"]
