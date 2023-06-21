@@ -30,18 +30,24 @@ func player():
 	pass
 
 func _unhandled_input(_event: InputEvent) -> void:
-	if ontouch_finder.has_overlapping_areas() == true && Global.sam_check == false:
-		var ontouch = ontouch_finder.get_overlapping_areas()
-		if ontouch.size() > 0:
-			dialoguecheck = true
-			ontouch[0].action()
-			return
 	if Input.is_action_just_pressed("ui_accept"):
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0:
 			dialoguecheck = true
 			actionables[0].action()
 			return
+	if ontouch_finder.has_overlapping_areas() == true:
+		var ontouch = ontouch_finder.get_overlapping_areas()
+		if ontouch.size() > 0:
+			var check = ontouch[0].check()
+			if check:
+				dialoguecheck = true
+				ontouch[0].action()
+				ontouch[0].queue_free()
+				return
+			else:
+				return
+	
 	dialoguecheck = false
 
 func _physics_process(delta) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bgwsoiq1qofe"]
+[gd_scene load_steps=22 format=3 uid="uid://bgwsoiq1qofe"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_e066w"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_1x1d0"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://kma828pwdjle" path="res://Player/player.tscn" id="7_beivg"]
 [ext_resource type="Texture2D" uid="uid://cxo46gpvtucun" path="res://Tilemap builder/Interior/Alex_idle_16x16.png" id="8_2n7rn"]
 [ext_resource type="PackedScene" uid="uid://mwieirwnnb6x" path="res://helpers/ontouch.tscn" id="9_twn3x"]
+[ext_resource type="Script" path="res://World/AlexIdle16x16.gd" id="9_wer4e"]
 [ext_resource type="Resource" uid="uid://cfpbyqfu711cb" path="res://dialogue/phishmain.dialogue" id="10_7l6hq"]
 [ext_resource type="PackedScene" uid="uid://iqn08315hsf" path="res://helpers/actionable.tscn" id="11_3enfb"]
 
@@ -3348,7 +3349,7 @@ radius = 17.1905
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80xsb"]
 size = Vector2(1.44195, 0.613824)
 
-[node name="house_internal2" type="TileMap"]
+[node name="house_internal_phishingemail" type="TileMap"]
 position = Vector2(0, 5)
 tile_set = SubResource("TileSet_dpobp")
 format = 2
@@ -3378,6 +3379,7 @@ position = Vector2(-100, 162)
 position = Vector2(-135, 110)
 texture = ExtResource("8_2n7rn")
 hframes = 5
+script = ExtResource("9_wer4e")
 
 [node name="Actionable" parent="AlexIdle16x16" instance=ExtResource("11_3enfb")]
 dialogue_resource = ExtResource("10_7l6hq")

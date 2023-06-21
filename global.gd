@@ -16,4 +16,7 @@ func finish_changescenes():
 		else:
 			current_scene = "world"
 
+<<<<<<< Updated upstream
 var sam_check = true
+=======
+>>>>>>> Stashed changes
