@@ -46,6 +46,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 				ontouch[0].queue_free()
 				return
 			else:
+				dialoguecheck = true
 				return
 	
 	dialoguecheck = false
