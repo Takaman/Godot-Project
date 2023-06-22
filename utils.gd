@@ -44,5 +44,5 @@ func dialog_part(text: String) -> String:
 
 	text = text.dedent()
 	text = text.strip_edges()
-
+	
 	return text

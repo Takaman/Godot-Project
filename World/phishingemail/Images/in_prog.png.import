@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbtb65a6aa0uh"
-path="res://.godot/imported/exclamation_mark.png-d8b466c9f5a81a5dba117336d1888df2.ctex"
+uid="uid://dur1s22rmxnqf"
+path="res://.godot/imported/in_prog.png-d59ab3218ac72338c27937af058ac913.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/office1/images/exclamation_mark.png"
-dest_files=["res://.godot/imported/exclamation_mark.png-d8b466c9f5a81a5dba117336d1888df2.ctex"]
+source_file="res://World/phishingemail/Images/in_prog.png"
+dest_files=["res://.godot/imported/in_prog.png-d59ab3218ac72338c27937af058ac913.ctex"]
 
 [params]
 

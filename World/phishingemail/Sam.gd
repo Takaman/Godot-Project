@@ -37,9 +37,9 @@ func interact_ontouch() -> void:
 			"$begin":
 			Utils.dialog_part(
 				"""
-				Sam: Hey, we'd like your help to sort through some emails we've been receiving.
+				Sam: Hey, we'd like your help to look through some emails we've been receiving.
 				
-				<?[url=$next]Next [/url]?>
+				<?[url=$next]Is there a problem?[/url]?>
 				"""
 			),
 			"$next":
@@ -47,7 +47,7 @@ func interact_ontouch() -> void:
 				"""
 				Sam: Some of them seem kinda weird - someone might be trying to phish us!
 				
-				<?[url=$end]EXIT[/url]?>
+				<?[url=$end]Alright, I'll help.[/url]?>
 				"""
 				),
 		},

@@ -17,6 +17,8 @@ const BOTTOM_PANEL_OUTSIDE_Y := 500
 const BOTTOM_PANEL_SLIDE_DURATION := 0.5
 
 signal dialogue_closed
+signal correct
+signal wrong
 var dialogue_content := {}
 var is_dialoguesmall_visible := false
 
@@ -40,8 +42,10 @@ func _handle_interaction(sound: String = "") -> void:
 	match sound:
 		"correct":
 			sound_correct.play()
+			emit_signal("correct")
 		"wrong":
 			sound_wrong.play()
+			emit_signal("wrong")
 		_:
 			sound_default.play()
 
