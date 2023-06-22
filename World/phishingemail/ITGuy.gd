@@ -58,3 +58,4 @@ func interact() -> void:
 			"training"
 		)
 		emit_signal("john_next")
+		get_node("marker").queue_free()
