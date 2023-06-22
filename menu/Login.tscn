@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dg2233ephoglo"]
 
-[ext_resource type="Script" path="res://World/Login.gd" id="1_blpnc"]
+[ext_resource type="Script" path="res://menu/Login.gd" id="1_2mvoa"]
 
 [node name="Login" type="Node2D"]
 
@@ -25,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_blpnc")
+script = ExtResource("1_2mvoa")
 
 [node name="NamelLbl" type="RichTextLabel" parent="Control/Login"]
 layout_mode = 0

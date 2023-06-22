@@ -1,7 +1,7 @@
 extends Control
 
 const scheme = "http"
-const host = "192.168.0.101"
+const host = "165.22.246.221"
 const port = 7350
 const server_key = "nakama_godot_itp"
 var client := Nakama.create_client(server_key, host, port, scheme)
