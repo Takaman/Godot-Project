@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2aaal1n44kt5"]
+[gd_scene load_steps=8 format=3 uid="uid://u2dp1l6114pk"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_f75mx"]
-[ext_resource type="PackedScene" uid="uid://csk5ts7r33amx" path="res://World/base_map.tscn" id="2_7pm26"]
+[ext_resource type="PackedScene" uid="uid://c8dwnnlhhn27a" path="res://World/base_map.tscn" id="2_7pm26"]
 [ext_resource type="PackedScene" uid="uid://kma828pwdjle" path="res://Player/player.tscn" id="3_3yceo"]
 [ext_resource type="PackedScene" uid="uid://bb6shdk0blv6i" path="res://World/HUD/hud.tscn" id="4_r08jp"]
 [ext_resource type="PackedScene" uid="uid://bbbqn3ivnkm3h" path="res://World/Actors/Poster/poster.tscn" id="5_picxq"]

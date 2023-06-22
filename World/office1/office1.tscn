@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://ddmwhp02tpc25"]
+[gd_scene load_steps=61 format=3 uid="uid://ddmwhp02tpc25"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_826uy"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_kxpn7"]
@@ -8,10 +8,10 @@
 [ext_resource type="Script" path="res://World/house_internal_2.gd" id="6_pybxl"]
 [ext_resource type="PackedScene" uid="uid://kma828pwdjle" path="res://Player/player.tscn" id="7_ncsrh"]
 [ext_resource type="Texture2D" uid="uid://dtooj7aeo0cbo" path="res://World/office1/images/pc.png" id="9_py07e"]
-[ext_resource type="Script" path="res://helpers/actionable.gd" id="10_qmbls"]
 [ext_resource type="Script" path="res://World/office1/Laptop3 - question.gd" id="10_w4jnn"]
 [ext_resource type="Texture2D" uid="uid://cg5yrfw0250gu" path="res://World/office1/images/table.png" id="10_wgdyt"]
 [ext_resource type="Script" path="res://World/office1/Laptop5 - question.gd" id="11_tso52"]
+[ext_resource type="Script" path="res://World/office1/Laptop9 - question.gd" id="12_1nc7q"]
 [ext_resource type="Texture2D" uid="uid://c8o8rfih41o1t" path="res://World/office1/images/TilesetLogic.png" id="14_05v6t"]
 [ext_resource type="Texture2D" uid="uid://bple8jbdjsyhe" path="res://World/office1/images/character/Alex_idle_16x16.png" id="14_ehper"]
 [ext_resource type="Texture2D" uid="uid://66pn3c6a84yu" path="res://World/office1/images/character/Bei.png" id="15_ljdjd"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://b4nf3qfe7c5y0" path="res://World/office1/images/character/Mary.png" id="17_qbbda"]
 [ext_resource type="Texture2D" uid="uid://e6cjid72ddfs" path="res://World/office1/images/character/Tim.png" id="18_mmvlc"]
 [ext_resource type="Texture2D" uid="uid://dla4xya6q7uei" path="res://World/office1/images/character/Tom.png" id="19_vkd58"]
+[ext_resource type="Script" path="res://World/office1/Vendingmachinebig1 - question.gd" id="22_e0sit"]
 [ext_resource type="Texture2D" uid="uid://bihj2imcpwh1e" path="res://World/office1/images/purpletable.png" id="23_tae56"]
 [ext_resource type="Texture2D" uid="uid://bo1ay8tija27r" path="res://World/office1/images/sofa.png" id="24_5x4ht"]
 [ext_resource type="Texture2D" uid="uid://cwnsk1w6h02yv" path="res://World/office1/images/foood.png" id="24_dukyo"]
@@ -6973,12 +6974,12 @@ z_index = 1
 position = Vector2(-228.75, -25.375)
 scale = Vector2(1.15625, 0.923913)
 texture = ExtResource("9_py07e")
+script = ExtResource("12_1nc7q")
 metadata/_edit_group_ = true
 
 [node name="Actionable" type="Area2D" parent="LaptopFolder/Laptop9 - question"]
 collision_layer = 16
 collision_mask = 0
-script = ExtResource("10_qmbls")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LaptopFolder/Laptop9 - question/Actionable"]
 position = Vector2(-1.5135, 0.332352)
@@ -7395,12 +7396,12 @@ scale = Vector2(0.666667, 0.764706)
 position = Vector2(-237, 479.923)
 rotation = 3.14159
 texture = ExtResource("16_1phy0")
+script = ExtResource("22_e0sit")
 metadata/_edit_group_ = true
 
 [node name="Actionable" type="Area2D" parent="VendingMachineFolder/Vendingmachinebig - question"]
 collision_layer = 16
 collision_mask = 0
-script = ExtResource("10_qmbls")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VendingMachineFolder/Vendingmachinebig - question/Actionable"]
 position = Vector2(-1.24999, 0.653831)
