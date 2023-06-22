@@ -32,13 +32,14 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="CyclopBoss" parent="." instance=ExtResource("5_twcai")]
-position = Vector2(232, 285)
+position = Vector2(224, 288)
 
 [node name="Actionable" parent="CyclopBoss" instance=ExtResource("6_f31xl")]
+position = Vector2(16, -8)
 dialogue_resource = ExtResource("7_c6p5j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CyclopBoss/Actionable"]
-position = Vector2(0, 10)
+position = Vector2(-16, 19)
 shape = SubResource("CircleShape2D_0b071")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

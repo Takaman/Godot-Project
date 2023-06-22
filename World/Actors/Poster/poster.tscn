@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbbqn3ivnkm3h"]
+
+[ext_resource type="Script" path="res://World/Actors/Poster/Poster.gd" id="1_8yx5k"]
+[ext_resource type="Texture2D" uid="uid://btxdi1lkyq5xd" path="res://World/Actors/Poster/poster.png" id="2_ek1oi"]
+
+[node name="Poster" type="CharacterBody2D"]
+script = ExtResource("1_8yx5k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(24, 0)
+scale = Vector2(1.21, 1.21)
+texture = ExtResource("2_ek1oi")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(39, -32)
+polygon = PackedVector2Array(-16, 24, -24, 24, -24, 40, -16, 40)

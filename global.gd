@@ -2,6 +2,7 @@ extends Node
 
 var current_scene = "world"
 var transition_scene = false 
+var is_player_frozen = true
 
 var player_exit_basemap_x = 0
 var player_exit_basemap_y = 0
@@ -16,4 +17,3 @@ func finish_changescenes():
 		else:
 			current_scene = "world"
 
-var sam_check = true

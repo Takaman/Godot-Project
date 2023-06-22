@@ -7,6 +7,7 @@ const FRICTION = 350
 const JUMP_VELOCITY = -400.0
 signal healthChanged
 
+
 @export var maxHealth = 3
 @onready var currentHealth: int = 3
 
@@ -14,13 +15,17 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity");
 #Needs the ready function to instantiate the animationPlayer. Need to get access to the node of your child
 @onready var animationPlayer = get_node("AnimatedSprite2D")
 @onready var actionable_finder: Area2D = $Direction/ActionableFinder
-@onready var ontouch_finder: Area2D = $Direction/OnTouchFinder
-var dialoguecheck: bool = false
+var dialoguecheck: bool = true
 var input_vector: Vector2 = Vector2.ZERO
 
-#Add the player to a group
+#Called when its started in the scene for the first time
 func _ready():
 	add_to_group("Player") 
+	var hud = get_tree().get_nodes_in_group("HUD_Group")
+	hud[0].connect("dialogue_closed", Callable(self,"_on_dialogue_closed"))
+	if not Global.is_player_frozen:
+		dialoguecheck = false
+	#$"/root/Base_Map/HUD".connect("dialogue_closed",Callable(self,"_on_dialogue_closed"))
 
 func _trigger_decreasehealth():
 	currentHealth -= 1
@@ -30,19 +35,41 @@ func player():
 	pass
 
 func _unhandled_input(_event: InputEvent) -> void:
-	if ontouch_finder.has_overlapping_areas() == true && Global.sam_check == false:
-		var ontouch = ontouch_finder.get_overlapping_areas()
-		if ontouch.size() > 0:
-			dialoguecheck = true
-			ontouch[0].action()
-			return
-	if Input.is_action_just_pressed("ui_accept"):
+	#if Input.is_action_just_pressed("ui_accept"):
+			#var actionables = actionable_finder.get_overlapping_areas()
+			#if actionables.size() > 0:
+				#dialoguecheck = true
+				#actionables[0].action()
+				#return
+	#dialoguecheck = false
+	
+	if Input.is_action_just_pressed("interact"):
+		print("test!")
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0:
-			dialoguecheck = true
-			actionables[0].action()
-			return
-	dialoguecheck = false
+			print("ACTIONABLE detected!")
+			var interactable = actionables[0].get_parent()
+			if interactable.has_method("interact"):
+				dialoguecheck=true
+				Global.is_player_frozen=true
+				print("action")
+				
+				interactable.interact()
+	#if ontouch_finder.has_overlapping_areas() == true:
+		#var ontouch = ontouch_finder.get_overlapping_areas()
+		#if ontouch.size() > 0:
+			#var check = ontouch[0].check()
+			#if check:
+				#dialoguecheck = true
+				#ontouch[0].action()
+				#ontouch[0].queue_free()
+				#return
+			#else:
+				#dialoguecheck = true
+				#return
+	
+	#dialoguecheck = false
+	
 
 func _physics_process(delta) -> void:
 	if dialoguecheck == false:
@@ -70,6 +97,9 @@ func _physics_process(delta) -> void:
 		#Moving and sliding the character
 		move_and_slide()
 
+func _on_dialogue_closed():
+	dialoguecheck = false
+	Global.is_player_frozen = false
 
 func _on_area_2d_body_entered(body):
 	pass # Replace with function body.

@@ -1,13 +1,37 @@
 extends Node2D
 
 signal world_changed(map_name)
+signal dialogue_closed
 
-
+@onready var hud := $HUD
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	hud.show_dialog(		
+		"welcome",
+		{
+			"$begin":
+			Utils.dialog_part(
+				"""
+				We at ITPGroup11 welcome you as our new employeee :) Give yourself some time to explore this part of building and then complete challenges in the building! 
+				
+				Remember to have fun!
+
+				Use the arrow keys <! ↑ ↓ → ← !> to move, <! E !>to interact, and use your mouse to select options.
+
+				[center]<?[url=$end]CLOSE[/url]?>[/center]
+				"""
+			),
+		},
+		"training"
+		
+		)
+	
 	pass # Replace with function body.
 
+func _on_dialogue_closed():
+	print("Dialogue closed!")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
