@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dd0bexaicfyga"]
+[gd_scene load_steps=17 format=3 uid="uid://dd0bexaicfyga"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_ul0cs"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_m72sd"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b6qwv2y4akkn6" path="res://Tilemap builder/TilesetLogic.png" id="5_kqqrd"]
 [ext_resource type="Texture2D" uid="uid://cxo46gpvtucun" path="res://Tilemap builder/Interior/Alex_idle_16x16.png" id="6_7vjbh"]
 [ext_resource type="Script" path="res://World/house_internal_2.gd" id="6_haotx"]
+[ext_resource type="PackedScene" uid="uid://bb6shdk0blv6i" path="res://World/HUD/hud.tscn" id="7_gbpc0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4xy4"]
 texture = ExtResource("1_ul0cs")
@@ -6734,6 +6735,9 @@ layer_2/y_sort_origin = 0
 layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(65520, 589826, 35, 131056, 589826, 36, 196607, 65538, 24, 262143, 65538, 25, 196606, 2, 24, 262142, 2, 25, 131074, 65538, 22, 196610, 65538, 23, 131073, 2, 22, 196609, 2, 23, 393203, 65538, 40, 65519, 65540, 4, 327669, 196610, 76, 393205, 196610, 77, 458741, 196610, 78, 327670, 262146, 76, 393206, 262146, 77, 458742, 262146, 78, 262140, 196610, 25, -131087, 196610, 8, -65551, 196610, 9, -131085, 196610, 8, -65549, 196610, 9, -131083, 196610, 8, -65547, 196610, 9, -262155, 196610, 8, -196619, 196610, 9, -262157, 196610, 8, -196621, 196610, 9, -262159, 196610, 8, -196623, 196610, 9)
 script = ExtResource("6_haotx")
+
+[node name="HUD" parent="." instance=ExtResource("7_gbpc0")]
+visible = false
 
 [node name="Player" parent="." instance=ExtResource("5_k43ek")]
 position = Vector2(-112, 56)
