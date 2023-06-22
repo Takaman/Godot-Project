@@ -1,0 +1,10 @@
+~ start
+
+Laptop:  It appears that you have left your laptop unlocked and unattended.
+- Player: Oops, I forgot. Next time, I will definitely make sure to lock my laptop and keep an eye on it.
+	Laptop: Great, you have learnt a valuable lesson. It's important to prioritize the security of your personal information.
+- Player: I don't really care. I just leave it unattended and unlocked whenever I want.
+	Laptop: Bad choice. It's essential to understand that leaving your laptop unattended without supervision significantly increases the risk of unauthorized access and potential data breaches.
+- End the conversation => END
+
+=> END

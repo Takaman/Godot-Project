@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://w8yt7g4e460u"
+path="res://.godot/imported/Unattended.dialogue-02849700520704b0552f2fc866545c52.tres"
+
+[deps]
+
+source_file="res://dialogue/Unattended.dialogue"
+dest_files=["res://.godot/imported/Unattended.dialogue-02849700520704b0552f2fc866545c52.tres"]
+
+[params]
+
+defaults=true

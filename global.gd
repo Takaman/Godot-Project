@@ -16,4 +16,4 @@ func finish_changescenes():
 		else:
 			current_scene = "world"
 
-var sam_check = false
+var sam_check = true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://c5ssnqcnrartf"
+path="res://.godot/imported/LatestOS.dialogue-86977a1e2834b65eabe275f461c6bc58.tres"
+
+[deps]
+
+source_file="res://dialogue/LatestOS.dialogue"
+dest_files=["res://.godot/imported/LatestOS.dialogue-86977a1e2834b65eabe275f461c6bc58.tres"]
+
+[params]
+
+defaults=true

@@ -61,8 +61,9 @@ texture={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://main.dialogue", "res://dialogue/main.dialogue", "res://phishmain.dialogue", "res://dialogue/phishmain.dialogue")
+locale/translations_pot_files=PackedStringArray("res://main.dialogue", "res://dialogue/main.dialogue", "res://phishmain.dialogue", "res://dialogue/phishmain.dialogue", "res://dialogue/city1.dialogue", "res://dialogue/office1.dialogue", "res://dialogue/LatestOS.dialogue", "res://dialogue/weakpassword.dialogue", "res://dialogue/Unattended.dialogue", "res://dialogue/qrcode.dialogue")
 
 [layer_names]
 
+2d_render/layer_5="Actionable"
 2d_physics/layer_5="Actionables"

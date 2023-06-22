@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://cwvx5lynef0f1"
+path="res://.godot/imported/qrcode.dialogue-78b60535284c4ceef55f3344a39a907c.tres"
+
+[deps]
+
+source_file="res://dialogue/qrcode.dialogue"
+dest_files=["res://.godot/imported/qrcode.dialogue-78b60535284c4ceef55f3344a39a907c.tres"]
+
+[params]
+
+defaults=true
