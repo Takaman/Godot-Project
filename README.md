@@ -28,16 +28,16 @@ You'll need to setup the server and database before you can connect with the cli
 
 4. Use the connection credentials to build a client object using the singleton.
 
-    ```gdscript
-    extends Node
+	```gdscript
+	extends Node
 
-    func _ready():
-    	var scheme = "http"
-    	var host = "127.0.0.1"
-    	var port = 7350
-    	var server_key = "defaultkey"
-    	var client := Nakama.create_client(server_key, host, port, scheme)
-    ```
+	func _ready():
+		var scheme = "http"
+		var host = "127.0.0.1"
+		var port = 7350
+		var server_key = "defaultkey"
+		var client := Nakama.create_client(server_key, host, port, scheme)
+	```
 
 ## Usage
 

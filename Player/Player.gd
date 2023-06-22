@@ -15,8 +15,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity");
 #Needs the ready function to instantiate the animationPlayer. Need to get access to the node of your child
 @onready var animationPlayer = get_node("AnimatedSprite2D")
 @onready var actionable_finder: Area2D = $Direction/ActionableFinder
-#@onready var ontouch_finder: Area2D = $Direction/OnTouchFinder
-var dialoguecheck: bool = true
+@onready var ontouch_finder: Area2D = $Direction/OnTouchFinder
+var dialoguecheck: bool = false
 var input_vector: Vector2 = Vector2.ZERO
 
 #Called when its started in the scene for the first time
@@ -38,15 +38,8 @@ func player():
 	pass
 
 func _unhandled_input(_event: InputEvent) -> void:
-#	if Input.is_action_just_pressed("ui_accept"):
-#			var actionables = actionable_finder.get_overlapping_areas()
-#			if actionables.size() > 0:
-#				dialoguecheck = true
-#				actionables[0].action()
-#				dialoguecheck=false
-#				return
 	
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") && dialoguecheck == false:
 		print("test!")
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0:
@@ -57,19 +50,20 @@ func _unhandled_input(_event: InputEvent) -> void:
 				Global.is_player_frozen=true
 				print("action")
 				interactable.interact()
-
-#	if ontouch_finder.has_overlapping_areas() == true:
-#		var ontouch = ontouch_finder.get_overlapping_areas()
-#		if ontouch.size() > 0:
-#			var check = ontouch[0].check()
-#			if check:
-#				dialoguecheck = true
-#				ontouch[0].action()
-#				ontouch[0].queue_free()
-#				return
-#			else:
-#				dialoguecheck = true
-#				return
+	
+	#For ontouch.tscn under helpers - uses collision layer 6 so shouldn't affect actionable
+	if ontouch_finder.has_overlapping_areas() == true && dialoguecheck == false:
+		var ontouch = ontouch_finder.get_overlapping_areas()
+		if ontouch.size() > 0:
+			print("ONTOUCH detected!")
+			var interact_ontouch = ontouch[0].get_parent()
+			if interact_ontouch.has_method("interact_ontouch"):
+				dialoguecheck = true
+				Global.is_player_frozen = true
+				interact_ontouch.interact_ontouch()
+				#deletes collision instance so it only works once
+				ontouch[0].queue_free()
+				return
 #	dialoguecheck = false
 	
 
