@@ -8,4 +8,4 @@ func action() -> void:
 	DialogueManager.show_example_dialogue_balloon(dialogue_resource, dialogue_start)
 
 func check() -> bool:
-	return false
+	return true

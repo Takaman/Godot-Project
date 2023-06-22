@@ -15,3 +15,4 @@ func finish_changescenes():
 			current_scene = "house_internal2"
 		else:
 			current_scene = "world"
+

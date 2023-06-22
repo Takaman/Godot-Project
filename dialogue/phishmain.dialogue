@@ -1,0 +1,14 @@
+~ start
+
+Sam: Hey, we'd like your help to sort through some emails we've been receiving.
+Sam: Some of them seem kinda weird - someone might be trying to phish us!
+=> END
+
+Sam: Theres been a lot of phishing attacks nowadays, we all need to stay vigilant.
+- Can you tell me more about phishing?
+	Sam: Sure. Someone pretends to be a person you trust to trick you into revealing information or downloading a virus.
+	- I see, thanks for the warning. => END
+- I see, thanks for the warning. => END
+=> END
+=> END!
+
