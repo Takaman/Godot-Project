@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://ddmwhp02tpc25"]
+[gd_scene load_steps=60 format=3 uid="uid://ddmwhp02tpc25"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_826uy"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_kxpn7"]
@@ -9,16 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://kma828pwdjle" path="res://Player/player.tscn" id="7_ncsrh"]
 [ext_resource type="Texture2D" uid="uid://dtooj7aeo0cbo" path="res://World/office1/images/pc.png" id="9_py07e"]
 [ext_resource type="Script" path="res://helpers/actionable.gd" id="10_qmbls"]
-[ext_resource type="Resource" uid="uid://w8yt7g4e460u" path="res://dialogue/Unattended.dialogue" id="10_rr04y"]
+[ext_resource type="Script" path="res://World/office1/Laptop3 - question.gd" id="10_w4jnn"]
 [ext_resource type="Texture2D" uid="uid://cg5yrfw0250gu" path="res://World/office1/images/table.png" id="10_wgdyt"]
-[ext_resource type="Resource" uid="uid://bitcowc1ahjel" path="res://dialogue/weakpassword.dialogue" id="11_c83we"]
-[ext_resource type="Resource" uid="uid://c5ssnqcnrartf" path="res://dialogue/LatestOS.dialogue" id="11_cfe0q"]
+[ext_resource type="Script" path="res://World/office1/Laptop5 - question.gd" id="11_tso52"]
 [ext_resource type="Texture2D" uid="uid://c8o8rfih41o1t" path="res://World/office1/images/TilesetLogic.png" id="14_05v6t"]
 [ext_resource type="Texture2D" uid="uid://bple8jbdjsyhe" path="res://World/office1/images/character/Alex_idle_16x16.png" id="14_ehper"]
 [ext_resource type="Texture2D" uid="uid://66pn3c6a84yu" path="res://World/office1/images/character/Bei.png" id="15_ljdjd"]
 [ext_resource type="Texture2D" uid="uid://d3hhcp0du7ujx" path="res://World/office1/images/vendingmachinebig.png" id="16_1phy0"]
 [ext_resource type="Texture2D" uid="uid://i8trdu4hit8l" path="res://World/office1/images/character/jerry.png" id="16_bwfhu"]
-[ext_resource type="Resource" uid="uid://cwvx5lynef0f1" path="res://dialogue/qrcode.dialogue" id="17_ougds"]
 [ext_resource type="Texture2D" uid="uid://b4nf3qfe7c5y0" path="res://World/office1/images/character/Mary.png" id="17_qbbda"]
 [ext_resource type="Texture2D" uid="uid://e6cjid72ddfs" path="res://World/office1/images/character/Tim.png" id="18_mmvlc"]
 [ext_resource type="Texture2D" uid="uid://dla4xya6q7uei" path="res://World/office1/images/character/Tom.png" id="19_vkd58"]
@@ -32,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://bpkwuttjk6jkf" path="res://World/office1/images/rectangleshapewall.png" id="28_yad2y"]
 [ext_resource type="Texture2D" uid="uid://dyqonyva4om1i" path="res://World/office1/images/staircase.png" id="29_8p83v"]
 [ext_resource type="Texture2D" uid="uid://kykyxo0nc1sy" path="res://World/office1/images/tv.png" id="32_l7tb4"]
+[ext_resource type="PackedScene" uid="uid://bb6shdk0blv6i" path="res://World/HUD/hud.tscn" id="33_sh7jl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4xy4"]
 texture = ExtResource("1_826uy")
@@ -6775,7 +6774,7 @@ size = Vector2(16.4324, 22)
 size = Vector2(13.8379, 21.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqlug"]
-size = Vector2(15.5676, 21.5)
+size = Vector2(17.2973, 29.0765)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5q8ao"]
 size = Vector2(11.2432, 19.3353)
@@ -6847,14 +6846,16 @@ layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array()
 script = ExtResource("6_pybxl")
 
-[node name="Player" parent="." instance=ExtResource("7_ncsrh")]
-position = Vector2(-108, 106)
+[node name="HUD" parent="." instance=ExtResource("33_sh7jl")]
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-96, 176)
 shape = SubResource("CapsuleShape2D_p36uo")
+
+[node name="Player" parent="." instance=ExtResource("7_ncsrh")]
+position = Vector2(-108, 106)
 
 [node name="LaptopFolder" type="Node2D" parent="."]
 
@@ -6876,13 +6877,12 @@ z_index = 1
 position = Vector2(-250.75, -92.375)
 scale = Vector2(1.15625, 0.923913)
 texture = ExtResource("9_py07e")
+script = ExtResource("10_w4jnn")
 metadata/_edit_group_ = true
 
 [node name="Actionable" type="Area2D" parent="LaptopFolder/Laptop3 - question"]
 collision_layer = 16
 collision_mask = 0
-script = ExtResource("10_qmbls")
-dialogue_resource = ExtResource("10_rr04y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LaptopFolder/Laptop3 - question/Actionable"]
 position = Vector2(-1.08107, -0.75)
@@ -6912,16 +6912,15 @@ z_index = 1
 position = Vector2(-208.75, -92.375)
 scale = Vector2(1.15625, 0.923913)
 texture = ExtResource("9_py07e")
+script = ExtResource("11_tso52")
 metadata/_edit_group_ = true
 
 [node name="Actionable" type="Area2D" parent="LaptopFolder/Laptop5 - question"]
 collision_layer = 16
 collision_mask = 0
-script = ExtResource("10_qmbls")
-dialogue_resource = ExtResource("11_c83we")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LaptopFolder/Laptop5 - question/Actionable"]
-position = Vector2(-1.08109, -0.75)
+position = Vector2(-0.216232, -4.53823)
 shape = SubResource("RectangleShape2D_vqlug")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="LaptopFolder/Laptop5 - question"]
@@ -6980,7 +6979,6 @@ metadata/_edit_group_ = true
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("10_qmbls")
-dialogue_resource = ExtResource("11_cfe0q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LaptopFolder/Laptop9 - question/Actionable"]
 position = Vector2(-1.5135, 0.332352)
@@ -7403,7 +7401,6 @@ metadata/_edit_group_ = true
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("10_qmbls")
-dialogue_resource = ExtResource("17_ougds")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VendingMachineFolder/Vendingmachinebig - question/Actionable"]
 position = Vector2(-1.24999, 0.653831)

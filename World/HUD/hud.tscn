@@ -80,12 +80,15 @@ wait_time = 0.025
 
 [node name="soundcorrect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_6m2wm")
+volume_db = -10.914
 
 [node name="soundwrong" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_pwomy")
+volume_db = -10.272
 
 [node name="sounddefault" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ikf5w")
+volume_db = -10.272
 
 [connection signal="meta_clicked" from="Control/DialogueBig/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
 [connection signal="timeout" from="Control/DialogueBig/Timer" to="." method="_on_timer_timeout"]

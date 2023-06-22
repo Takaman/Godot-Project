@@ -9,3 +9,4 @@ func action() -> void:
 
 func check() -> bool:
 	return false
+

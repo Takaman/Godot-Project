@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bgwsoiq1qofe"]
+[gd_scene load_steps=22 format=3 uid="uid://bh1q45tkuuuy6"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_e066w"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_1x1d0"]
@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://World/house_internal_phishingemail.gd" id="6_uhpgm"]
 [ext_resource type="PackedScene" uid="uid://kma828pwdjle" path="res://Player/player.tscn" id="7_beivg"]
 [ext_resource type="Texture2D" uid="uid://cxo46gpvtucun" path="res://Tilemap builder/Interior/Alex_idle_16x16.png" id="8_2n7rn"]
-[ext_resource type="PackedScene" uid="uid://mwieirwnnb6x" path="res://helpers/ontouch.tscn" id="9_twn3x"]
+[ext_resource type="PackedScene" path="res://helpers/ontouch.tscn" id="9_twn3x"]
 [ext_resource type="Script" path="res://World/AlexIdle16x16.gd" id="9_wer4e"]
 [ext_resource type="Resource" uid="uid://cfpbyqfu711cb" path="res://dialogue/phishmain.dialogue" id="10_7l6hq"]
 [ext_resource type="PackedScene" uid="uid://iqn08315hsf" path="res://helpers/actionable.tscn" id="11_3enfb"]

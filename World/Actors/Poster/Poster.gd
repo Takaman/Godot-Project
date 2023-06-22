@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @onready var hud := $"/root/Base_Map/HUD"
-
 signal dialogue_closed
 
 func interact() -> void:

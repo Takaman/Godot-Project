@@ -51,5 +51,5 @@ func _on_area_2d_body_exited(body):
 func change_scene():
 	if Global.transition_scene == true:
 		if Global.current_scene == "world":
-			get_tree().change_scene_to_file("res://World/house_internal_2.tscn")
+			get_tree().change_scene_to_file("res://World/office1/office1.tscn")
 			Global.finish_changescenes() 
