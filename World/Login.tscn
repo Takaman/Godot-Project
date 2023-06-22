@@ -90,9 +90,5 @@ offset_bottom = 169.0
 text = "Login"
 
 [connection signal="button_down" from="Control/Login/RegisterBtn" to="Control/Login" method="_on_register_btn_button_down"]
-<<<<<<< HEAD
-=======
-[connection signal="button_down" from="Control/Login/RegisterBtn" to="Control/Login" method="_on_button_button_down"]
->>>>>>> 2cad22e498732665563e20bd24e8d44f6af730bb
-[connection signal="button_down" from="Control/Login/LoginBtn" to="Control/Login" method="_on_button_button_down"]
 [connection signal="button_down" from="Control/Login/LoginBtn" to="Control/Login" method="_on_login_btn_button_down"]
+[connection signal="button_down" from="Control/Login/LoginBtn" to="Control/Login" method="_on_button_button_down"]

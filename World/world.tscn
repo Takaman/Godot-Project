@@ -1,12 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2aaal1n44kt5"]
+[gd_scene load_steps=8 format=3 uid="uid://c2aaal1n44kt5"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_f75mx"]
 [ext_resource type="PackedScene" uid="uid://csk5ts7r33amx" path="res://World/base_map.tscn" id="2_7pm26"]
 [ext_resource type="PackedScene" uid="uid://kma828pwdjle" path="res://Player/player.tscn" id="3_3yceo"]
+[ext_resource type="PackedScene" uid="uid://bb6shdk0blv6i" path="res://World/HUD/hud.tscn" id="4_r08jp"]
+[ext_resource type="PackedScene" uid="uid://bbbqn3ivnkm3h" path="res://World/Actors/Poster/poster.tscn" id="5_picxq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i7u18"]
 radius = 24.0
 height = 48.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ttjd6"]
+radius = 16.0
+height = 32.0
 
 [node name="Base_Map" type="Node2D"]
 script = ExtResource("1_f75mx")
@@ -24,5 +30,20 @@ metadata/_edit_group_ = true
 [node name="Player" parent="." instance=ExtResource("3_3yceo")]
 position = Vector2(24, 24)
 
+[node name="HUD" parent="." instance=ExtResource("4_r08jp")]
+
+[node name="Poster" parent="." instance=ExtResource("5_picxq")]
+position = Vector2(168, -16)
+
+[node name="Area2D" type="Area2D" parent="Poster"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Poster/Area2D"]
+position = Vector2(24, 8)
+shape = SubResource("CapsuleShape2D_ttjd6")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="Poster/Area2D" to="Poster" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Poster/Area2D" to="Poster" method="_on_area_2d_area_exited"]

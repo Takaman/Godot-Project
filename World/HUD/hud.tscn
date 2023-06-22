@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://bb6shdk0blv6i"]
+
+[ext_resource type="Script" path="res://World/HUD/hud.gd" id="1_fxqy1"]
+[ext_resource type="Texture2D" uid="uid://ditp4sf8l66nu" path="res://World/HUD/HUD2.png" id="2_psq7d"]
+[ext_resource type="AudioStream" uid="uid://b1e8jif62ylnf" path="res://World/HUD/sound_correct.mp3" id="3_6m2wm"]
+[ext_resource type="AudioStream" uid="uid://bnjvr8njtqvxy" path="res://World/HUD/sound_wrong.mp3" id="4_pwomy"]
+[ext_resource type="AudioStream" uid="uid://1wh3hm2nhp4g" path="res://World/HUD/sound_default.mp3" id="5_ikf5w"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_fxqy1")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 360.0
+offset_bottom = 184.0
+
+[node name="DialogueBig" type="NinePatchRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.957
+offset_left = 32.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.088
+texture = ExtResource("2_psq7d")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/DialogueBig"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.975
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 7
+theme_override_font_sizes/bold_font_size = 7
+theme_override_font_sizes/italics_font_size = 5
+theme_override_font_sizes/bold_italics_font_size = 5
+theme_override_font_sizes/mono_font_size = 5
+bbcode_enabled = true
+text_direction = 1
+
+[node name="Timer" type="Timer" parent="Control/DialogueBig"]
+wait_time = 0.01
+
+[node name="DialogueSmall" type="NinePatchRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 40.0
+offset_top = 192.0
+offset_right = 328.0
+offset_bottom = 248.0
+texture = ExtResource("2_psq7d")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/DialogueSmall"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 272.0
+offset_bottom = 48.0
+bbcode_enabled = true
+
+[node name="Close" type="Button" parent="Control/DialogueSmall"]
+layout_mode = 0
+offset_left = 264.0
+offset_right = 280.0
+offset_bottom = 22.0
+theme_override_font_sizes/font_size = 10
+text = "X"
+
+[node name="Timer" type="Timer" parent="Control/DialogueSmall"]
+wait_time = 0.025
+
+[node name="soundcorrect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6m2wm")
+
+[node name="soundwrong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_pwomy")
+
+[node name="sounddefault" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ikf5w")
+
+[connection signal="meta_clicked" from="Control/DialogueBig/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="timeout" from="Control/DialogueBig/Timer" to="." method="_on_timer_timeout"]
