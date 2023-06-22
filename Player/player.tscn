@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://kma828pwdjle"]
+[gd_scene load_steps=14 format=3 uid="uid://kma828pwdjle"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_7n5v5"]
 [ext_resource type="Texture2D" uid="uid://h16y5keja7p4" path="res://frames/angel_idle_anim_f0.png" id="2_7dllf"]
@@ -57,6 +57,8 @@ height = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_ugqi6"]
 radius = 10.0499
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_uti7c"]
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 y_sort_enabled = true
 position = Vector2(39, 87)
@@ -88,3 +90,11 @@ collision_mask = 16
 z_index = 1
 position = Vector2(4, 4)
 shape = SubResource("CircleShape2D_ugqi6")
+
+[node name="OnTouchFinder" type="Area2D" parent="Direction"]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/OnTouchFinder"]
+position = Vector2(4, 4)
+shape = SubResource("CircleShape2D_uti7c")
