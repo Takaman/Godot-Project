@@ -14,7 +14,7 @@ func _ready():
 			"$begin":
 			Utils.dialog_part(
 				"""
-				We at ITPGroup11 welcome you as our new employeee :) Give yourself some time to explore this part of building and then complete challenges in the building! 
+				We at ITPGroup11 welcome you as our new employee :) Give yourself some time to explore this part of building and then complete challenges in the building! 
 				
 				Remember to have fun!
 

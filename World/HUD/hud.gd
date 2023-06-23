@@ -19,6 +19,8 @@ const BOTTOM_PANEL_SLIDE_DURATION := 0.5
 signal dialogue_closed
 signal correct
 signal wrong
+signal lvl1
+signal lvl2
 var dialogue_content := {}
 var is_dialoguesmall_visible := false
 
@@ -46,6 +48,10 @@ func _handle_interaction(sound: String = "") -> void:
 		"wrong":
 			sound_wrong.play()
 			emit_signal("wrong")
+		"lvl1":
+			emit_signal("lvl1")
+		"lvl2":
+			emit_signal("lvl2")
 		_:
 			sound_default.play()
 
