@@ -3,7 +3,8 @@ extends Sprite2D
 @onready var hud := $"/root/house_internal_phishingemail/HUD"
 
 func interact() -> void:
-	get_node("marker").queue_free()
+	if get_node("marker") is Node:
+		get_node("marker").queue_free()
 	print("interaction started")
 	hud.show_dialog(
 		"Sam",
