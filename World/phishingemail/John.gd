@@ -7,12 +7,14 @@ signal IT_Guy
 func _on_hud_correct():
 	if state == 0:
 		state = 1
-		get_node("marker").queue_free()
+		if get_node("marker") is Node:
+			get_node("marker").queue_free()
 
 func _on_hud_wrong():
 	if state == 0:
 		state = 2
-		get_node("marker").texture = load("res://World/phishingemail/Images/in_prog.png")
+		if get_node("marker") is Node:
+			get_node("marker").texture = load("res://World/phishingemail/Images/in_prog.png")
 
 func _on_it_guy_john_next():
 	state = 4
@@ -140,7 +142,8 @@ func interact() -> void:
 			},
 			"training"
 		)
-		get_node("marker").queue_free()
+		if get_node("marker") is Node:
+			get_node("marker").queue_free()
 		state == 5
 	elif state == 5:
 		hud.show_dialog(

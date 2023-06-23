@@ -6,7 +6,8 @@ signal john_next
 
 func _on_john_it_guy():
 	state = 1
-	get_node("marker").texture = load("res://World/phishingemail/Images/in_prog.png")
+	if get_node("marker") is Node:
+		get_node("marker").texture = load("res://World/phishingemail/Images/in_prog.png")
 
 func interact() -> void:
 	print("interaction started")
@@ -58,4 +59,5 @@ func interact() -> void:
 			"training"
 		)
 		emit_signal("john_next")
-		get_node("marker").queue_free()
+		if get_node("marker") is Node:
+			get_node("marker").queue_free()
