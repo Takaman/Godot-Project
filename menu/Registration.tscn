@@ -87,6 +87,5 @@ offset_left = 19.0
 offset_top = 119.0
 offset_right = 353.0
 offset_bottom = 149.0
-text = "<error iz here>"
 
 [connection signal="button_down" from="Control/Registration/RegisterBtn" to="Control/Registration" method="_on_register_btn_button_down"]

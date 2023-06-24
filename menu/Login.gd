@@ -5,11 +5,14 @@ const host = "165.22.246.221"
 const port = 7350
 const server_key = "nakama_godot_itp"
 var client := Nakama.create_client(server_key, host, port, scheme)
-var _session: NakamaSession # global session object
+
+@onready var sessionVar = get_node("/root/SeshVar")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,6 +37,7 @@ func _on_login_btn_button_down():
 	else:
 		print("::::::::::::::USER AUTHENTICATED::::::::::::::")
 		print(session)
+		sessionVar._session = session
 		if("admin" in email):
 			get_tree().change_scene_to_file("res://../menu/Registration.tscn") # Shows registration screen
 		else:
