@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://burm3cumbtarl"]
+
+[ext_resource type="Texture2D" uid="uid://bwd61s1ytuse1" path="res://frames/Characters/Boy/SpriteSheet.png" id="1_l2ryb"]
+
+[node name="Node2D" type="CharacterBody2D"]
+
+[node name="SpriteSheet" type="Sprite2D" parent="."]
+position = Vector2(56, 16)
+texture = ExtResource("1_l2ryb")
+hframes = 4
+vframes = 6
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(48, 8, 64, 8, 64, 24, 48, 24, 48, 8, 48, 8)

@@ -33,7 +33,7 @@ func interact() -> void:
 				"""
 				),
 		},
-		"training"
+		"policy"
 	)
 	
 func _on_area_2d_area_entered(area):

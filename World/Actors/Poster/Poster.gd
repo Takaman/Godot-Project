@@ -54,7 +54,7 @@ func interact() -> void:
 				
 			),
 		},
-		"training"
+		"socialengineering"
 		
 	)
 

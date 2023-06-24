@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bb6shdk0blv6i" path="res://World/HUD/hud.tscn" id="7_2yo4s"]
 [ext_resource type="PackedScene" uid="uid://kma828pwdjle" path="res://Player/player.tscn" id="7_beivg"]
 [ext_resource type="Texture2D" uid="uid://cxo46gpvtucun" path="res://Tilemap builder/Interior/Alex_idle_16x16.png" id="8_2n7rn"]
-[ext_resource type="PackedScene" uid="uid://mwieirwnnb6x" path="res://helpers/ontouch.tscn" id="9_twn3x"]
+[ext_resource type="PackedScene" path="res://helpers/ontouch.tscn" id="9_twn3x"]
 [ext_resource type="Script" path="res://World/phishingemail/Sam.gd" id="10_4igdu"]
 [ext_resource type="PackedScene" uid="uid://iqn08315hsf" path="res://helpers/actionable.tscn" id="11_3enfb"]
 [ext_resource type="Texture2D" uid="uid://dbtb65a6aa0uh" path="res://World/phishingemail/Images/exclamation_mark.png" id="11_yd03p"]
