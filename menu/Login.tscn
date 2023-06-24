@@ -56,6 +56,7 @@ offset_left = 109.0
 offset_top = 72.0
 offset_right = 350.0
 offset_bottom = 103.0
+secret = true
 
 [node name="ErrorLbl" type="RichTextLabel" parent="Control/Login"]
 layout_mode = 0
