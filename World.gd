@@ -3,30 +3,32 @@ extends Node2D
 signal world_changed(map_name)
 signal dialogue_closed
 
-@onready var hud := $HUD
+@onready var hud := $"/root/Base_Map/HUD"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	hud.show_dialog(		
-		"welcome",
-		{
-			"$begin":
-			Utils.dialog_part(
-				"""
-				We at ITPGroup11 welcome you as our new employee :) Give yourself some time to explore this part of building and then complete challenges in the building! 
-				
-				Remember to have fun!
-
-				Use the arrow keys <! ↑ ↓ → ← !> to move, <! E !>to interact, and use your mouse to select options.
-
-				[center]<?[url=$end]CLOSE[/url]?>[/center]
-				"""
-			),
-		},
-		"training"
+	if Global.hud_shown == false:
 		
-		)
+		hud.show_dialog(		
+			"welcome",
+			{
+				"$begin":
+				Utils.dialog_part(
+					"""
+					We at ITPGroup11 welcome you as our new employee :) Give yourself some time to explore this part of building and then complete challenges in the building! 
+					
+					Remember to have fun!
+
+					Use the arrow keys <! ↑ ↓ → ← !> to move, <! E !>to interact, and use your mouse to select options.
+
+					[center]<?[url=$end]CLOSE[/url]?>[/center]
+					"""
+				),
+			},
+			"training"
+			
+			)
+		Global.hud_shown = true
 	
 	pass # Replace with function body.
 

@@ -2,10 +2,12 @@ extends Sprite2D
 
 
 @onready var hud := $"/root/Office1/HUD"
+@onready var interactable := $"/root/Office1/QuestionmarkFolder/Interactable4"
+
 func interact() -> void:
 	print("interaction started")
 	hud.show_dialog(
-		"laptop5",
+		"vendingmachine1",
 		{
 			"$begin":
 			Utils.dialog_part(
@@ -27,7 +29,9 @@ Scanning the QR code... Processing... Oh no! It seems the QR code you scanned is
 			"$nochange":
 				Utils.dialog_part(
 				"""
-Wise decision! It's important to prioritize your security and privacy. Scanning unknown QR codes can expose you to potential risks and threats. By avoiding scanning unverified QR codes, you're taking a proactive step to safeguard your personal information and device.				<?[url=$end]EXIT[/url]?>
+Wise decision! It's important to prioritize your security and privacy. Scanning unknown QR codes can expose you to potential risks and threats. By avoiding scanning unverified QR codes, you're taking a proactive step to safeguard your personal information and device.				
+
+<?[url=$end]EXIT[/url]?>
 				"""
 				),
 		},
@@ -38,3 +42,7 @@ func _on_area_2d_area_entered(area):
 	print("interactable!")
 	if area.is_in_group("Player"):
 		interact()
+		
+func _physics_process(delta: float) -> void:
+	interactable.visible  = !Score.has_interacted("vendingmachine1","socialengineering")
+	

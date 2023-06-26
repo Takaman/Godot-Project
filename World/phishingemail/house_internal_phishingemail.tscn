@@ -3442,7 +3442,7 @@ script = ExtResource("6_uhpgm")
 
 [node name="Player" parent="." instance=ExtResource("7_beivg")]
 z_index = 5
-position = Vector2(-100, 162)
+position = Vector2(-99, 139)
 
 [node name="Sam" type="Sprite2D" parent="."]
 position = Vector2(-135, 110)

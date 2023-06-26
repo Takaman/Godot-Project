@@ -61,6 +61,7 @@ func _close_panel() -> void:
 	dialogue_content = {}
 	dialogue_big.hide()
 	print("emit signals")
+	self.visible  = false
 	emit_signal("dialogue_closed")
 
 func _next_panel_part(part: String) -> void:
@@ -96,6 +97,9 @@ func _on_rich_text_label_meta_clicked(meta):
 	#Updating the results of the interaction
 	Score.new_interaction(dialogue_interaction, interaction_result, dialogue_phase)
 	
+	#Marking interaction as completed
+	Score.mark_as_completed(dialogue_interaction, dialogue_phase)
+	
 
 func _on_timer_timeout():
 	if dialogue_big_label.visible_characters == dialogue_big_label.text.length():
@@ -113,10 +117,13 @@ func show_dialog(interaction: String, content: Dictionary, phase: String) -> voi
 	if not content.has("$begin"):
 		push_error("Need to start with $begin" % interaction)
 		return
-
+	
 	Score.new_interaction(interaction, "", phase)
 	dialogue_interaction = interaction
 	dialogue_content = content
 	dialogue_phase = phase
 	_next_panel_part("$begin")
+	self.visible = true 
 	dialogue_big.show()
+
+

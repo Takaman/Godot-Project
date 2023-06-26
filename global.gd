@@ -4,6 +4,8 @@ var current_scene = "world"
 var transition_scene = false 
 var is_player_frozen = true
 
+var hud_shown: bool = false
+
 var player_exit_basemap_x = 0
 var player_exit_basemap_y = 0
 var player_start_basemap_posx = 0

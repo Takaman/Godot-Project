@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5rftkrhv5l1f"]
+
+[ext_resource type="Script" path="res://World/Actors/IsInteractable/IsInteractable.gd" id="1_1hn1s"]
+[ext_resource type="Texture2D" uid="uid://c8o8rfih41o1t" path="res://World/office1/images/TilesetLogic.png" id="2_ks1ki"]
+
+[node name="Interactable" type="Node2D"]
+script = ExtResource("1_1hn1s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ks1ki")
