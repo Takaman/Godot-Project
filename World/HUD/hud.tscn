@@ -1,13 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bb6shdk0blv6i"]
+[gd_scene load_steps=7 format=3 uid="uid://bb6shdk0blv6i"]
 
 [ext_resource type="Script" path="res://World/HUD/hud.gd" id="1_fxqy1"]
 [ext_resource type="Texture2D" uid="uid://ditp4sf8l66nu" path="res://World/HUD/HUD2.png" id="2_psq7d"]
+[ext_resource type="Script" path="res://World/HUD/PlayerInput.gd" id="3_5wpxi"]
 [ext_resource type="AudioStream" uid="uid://b1e8jif62ylnf" path="res://World/HUD/sound_correct.mp3" id="3_6m2wm"]
 [ext_resource type="AudioStream" uid="uid://bnjvr8njtqvxy" path="res://World/HUD/sound_wrong.mp3" id="4_pwomy"]
 [ext_resource type="AudioStream" uid="uid://1wh3hm2nhp4g" path="res://World/HUD/sound_default.mp3" id="5_ikf5w"]
 
 [node name="HUD" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_fxqy1")
 
 [node name="Control" type="Control" parent="."]
@@ -17,6 +17,7 @@ offset_right = 360.0
 offset_bottom = 184.0
 
 [node name="DialogueBig" type="NinePatchRect" parent="Control"]
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -80,6 +81,14 @@ text = "X"
 [node name="Timer" type="Timer" parent="Control/DialogueSmall"]
 wait_time = 0.025
 
+[node name="PlayerInput" type="LineEdit" parent="Control"]
+layout_mode = 0
+offset_left = 76.2182
+offset_top = 71.6919
+offset_right = 303.218
+offset_bottom = 102.692
+script = ExtResource("3_5wpxi")
+
 [node name="soundcorrect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_6m2wm")
 volume_db = -10.914
@@ -95,3 +104,4 @@ volume_db = -10.272
 [connection signal="lvl1" from="." to="." method="_on_hud_lvl_1"]
 [connection signal="meta_clicked" from="Control/DialogueBig/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
 [connection signal="timeout" from="Control/DialogueBig/Timer" to="." method="_on_timer_timeout"]
+[connection signal="text_submitted" from="Control/PlayerInput" to="." method="_on_player_input_text_submitted"]

@@ -12,18 +12,20 @@ func interact() -> void:
 			"$begin":
 			Utils.dialog_part(
 				"""
-				Sam: Theres been a lot of phishing attacks nowadays, we all need to stay vigilant.
+				[b]Sam[/b]
+				Theres been a lot of phishing attacks nowadays, we all need to stay vigilant.
 				
-				<?[url=$more]Can you tell me more about phishing? [/url]?>
-				<?[url=$end]I see, thanks for the warning. [/url]?>
+				<?[url=$more][right]Can you tell me more about phishing?[/right][/url]?>
+				<?[url=$end][right]I see, thanks for the warning.[/right][/url]?>
 				"""
 			),
 			"$more":
 				Utils.dialog_part(
 				"""
-				Sam: Sure. Someone pretends to be a person you trust to trick you into revealing information or downloading a virus.
+				[b]Sam[/b]
+				Sure. Someone pretends to be a person you trust to trick you into revealing information or downloading a virus.
 				
-				<?[url=$end]I see, thanks for the warning.[/url]?>
+				<?[url=$end][right]I see, thanks for the warning.[/right][/url]?>
 				"""
 				),
 		},
@@ -38,17 +40,19 @@ func interact_ontouch() -> void:
 			"$begin":
 			Utils.dialog_part(
 				"""
-				Sam: Hey, we'd like your help to look through some emails we've been receiving.
+				[b]Sam[/b]
+				Hey, we'd like your help to look through some emails we've been receiving.
 				
-				<?[url=$next]Is there a problem?[/url]?>
+				<?[url=$next][right]Is there a problem?[/right][/url]?>
 				"""
 			),
 			"$next":
 				Utils.dialog_part(
 				"""
-				Sam: Some of them seem kinda weird - someone might be trying to phish us!
+				[b]Sam[/b]
+				Some of them seem kinda weird - someone might be trying to phish us!
 				
-				<?[url=$end]Alright, I'll help.[/url]?>
+				<?[url=$end][right]Alright, I'll help.[/right][/url]?>
 				"""
 				),
 		},

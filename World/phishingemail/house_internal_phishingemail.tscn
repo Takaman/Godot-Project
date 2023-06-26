@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cbf1syaoh1ufp"]
+[gd_scene load_steps=31 format=3 uid="uid://cbf1syaoh1ufp"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_e066w"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_1x1d0"]
@@ -9,13 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://bb6shdk0blv6i" path="res://World/HUD/hud.tscn" id="7_2yo4s"]
 [ext_resource type="PackedScene" uid="uid://kma828pwdjle" path="res://Player/player.tscn" id="7_beivg"]
 [ext_resource type="Texture2D" uid="uid://cxo46gpvtucun" path="res://Tilemap builder/Interior/Alex_idle_16x16.png" id="8_2n7rn"]
-[ext_resource type="PackedScene" path="res://helpers/ontouch.tscn" id="9_twn3x"]
+[ext_resource type="PackedScene" uid="uid://mwieirwnnb6x" path="res://helpers/ontouch.tscn" id="9_twn3x"]
 [ext_resource type="Script" path="res://World/phishingemail/Sam.gd" id="10_4igdu"]
 [ext_resource type="PackedScene" uid="uid://iqn08315hsf" path="res://helpers/actionable.tscn" id="11_3enfb"]
 [ext_resource type="Texture2D" uid="uid://dbtb65a6aa0uh" path="res://World/phishingemail/Images/exclamation_mark.png" id="11_yd03p"]
 [ext_resource type="Script" path="res://World/phishingemail/John.gd" id="14_28v8n"]
 [ext_resource type="Texture2D" uid="uid://bt6w5xinbgkbs" path="res://World/phishingemail/Images/question_mark.png" id="15_bb6iu"]
 [ext_resource type="Script" path="res://World/phishingemail/ITGuy.gd" id="16_jblpt"]
+[ext_resource type="Script" path="res://World/phishingemail/Elevator.gd" id="17_nafkr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4xy4"]
 texture = ExtResource("1_e066w")
@@ -3415,6 +3416,9 @@ radius = 12.1722
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1rtl"]
 size = Vector2(16.3075, 22.9489)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uj7iy"]
+size = Vector2(31.7182, 16.0795)
+
 [node name="house_internal_phishingemail" type="TileMap"]
 position = Vector2(0, 5)
 tile_set = SubResource("TileSet_dpobp")
@@ -3516,7 +3520,18 @@ shape = SubResource("CircleShape2D_4jbbm")
 position = Vector2(0.0436401, 4.93921)
 shape = SubResource("RectangleShape2D_t1rtl")
 
+[node name="Elevator" type="Sprite2D" parent="."]
+script = ExtResource("17_nafkr")
+
+[node name="Actionable" parent="Elevator" instance=ExtResource("11_3enfb")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Elevator/Actionable"]
+position = Vector2(-95.8796, 167.814)
+shape = SubResource("RectangleShape2D_uj7iy")
+
 [connection signal="correct" from="HUD" to="John" method="_on_hud_correct"]
+[connection signal="lvl1" from="HUD" to="Elevator" method="_on_hud_lvl_1"]
+[connection signal="lvlbase" from="HUD" to="Elevator" method="_on_hud_lvlbase"]
 [connection signal="wrong" from="HUD" to="John" method="_on_hud_wrong"]
 [connection signal="IT_Guy" from="John" to="ITGuy" method="_on_john_it_guy"]
 [connection signal="john_next" from="ITGuy" to="John" method="_on_it_guy_john_next"]

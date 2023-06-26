@@ -8,6 +8,8 @@ extends CanvasLayer
 @onready var dialogue_small_label := $Control/DialogueSmall/RichTextLabel
 @onready var dialogue_small_timer := $Control/DialogueSmall/Timer
 
+@onready var player_input := $Control/PlayerInput
+
 @onready var sound_default := $sounddefault
 @onready var sound_correct := $soundcorrect
 @onready var sound_wrong := $soundwrong
@@ -17,14 +19,18 @@ const BOTTOM_PANEL_OUTSIDE_Y := 500
 const BOTTOM_PANEL_SLIDE_DURATION := 0.5
 
 signal dialogue_closed
+signal input_closed
+signal input_submitted
 signal correct
 signal wrong
+signal lvlbase
 signal lvl1
 signal lvl2
 var dialogue_content := {}
 var dialogue_interaction := ""
 var dialogue_phase := ""
 var is_dialoguesmall_visible := false
+var player_input_text : String = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -50,6 +56,8 @@ func _handle_interaction(sound: String = "") -> void:
 		"wrong":
 			sound_wrong.play()
 			emit_signal("wrong")
+		"lvlbase":
+			emit_signal("lvlbase")
 		"lvl1":
 			emit_signal("lvl1")
 		"lvl2":
@@ -61,7 +69,7 @@ func _close_panel() -> void:
 	dialogue_content = {}
 	dialogue_big.hide()
 	print("emit signals")
-	self.visible  = false
+	dialogue_big.visible  = false
 	emit_signal("dialogue_closed")
 
 func _next_panel_part(part: String) -> void:
@@ -123,7 +131,22 @@ func show_dialog(interaction: String, content: Dictionary, phase: String) -> voi
 	dialogue_content = content
 	dialogue_phase = phase
 	_next_panel_part("$begin")
-	self.visible = true 
+	dialogue_big.visible = true
 	dialogue_big.show()
 
+func show_player_input() -> void:
+	print("showing input box")
+	player_input.visible = true
+	player_input.show()
 
+func close_player_input() -> void:
+	player_input.clear()
+	player_input_text = ""
+	player_input.hide()
+	print("emit signals")
+	player_input.visible = false
+
+func _on_player_input_text_submitted(new_text):
+	player_input_text = new_text
+	emit_signal("input_submitted")
+	emit_signal("input_closed")

@@ -21,7 +21,7 @@ func interact() -> void:
 			),
 			"$change":
 				Utils.dialog_part(
-				"""				
+				"""
 				Correct. It is a good practice to download the latest window features update. This update enhances security measures, ensuring a safer system environment.
 				<?[url=$end]EXIT[/url]?>
 				"""

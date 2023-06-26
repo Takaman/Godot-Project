@@ -7,6 +7,8 @@ signal dialogue_closed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	hud._close_panel()
+	hud.close_player_input()
 	if Global.hud_shown == false:
 		
 		hud.show_dialog(		
@@ -15,11 +17,11 @@ func _ready():
 				"$begin":
 				Utils.dialog_part(
 					"""
-					We at ITPGroup11 welcome you as our new employee :) Give yourself some time to explore this part of building and then complete challenges in the building! 
+					[center]Welcome to the ITPGRP11 Company! You've been hired as a new junior cybersecurity consultant. The cybersecurity awareness of the employees here isn't the greatest, so do your best to help them out.[/center]
 					
-					Remember to have fun!
-
-					Use the arrow keys <! ↑ ↓ → ← !> to move, <! E !>to interact, and use your mouse to select options.
+					[center][b]Remember to have fun![/b][/center]
+					\n\n
+					[center]Use the arrow keys <! ↑ ↓ → ← !> to move, <! E !>to interact, and use your mouse to select options.[/center]
 
 					[center]<?[url=$end]CLOSE[/url]?>[/center]
 					"""

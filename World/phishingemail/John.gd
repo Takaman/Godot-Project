@@ -29,29 +29,32 @@ func interact() -> void:
 				"$begin":
 				Utils.dialog_part(
 					"""
-					John: Hey... I just received this email and it looks quite important. Do you think I should follow the link and change my password?
+					[b]John[/b]
+					Hey... I just received this email and it looks quite important. Do you think I should follow the link and change my password?
 					
 					[center][img=240x200]res://World/phishingemail/Images/email1.png[/img][/center]
 					
-					<?[url=$correct:correct]Have you checked with the IT department?[/url]?>
-					<?[url=$wrong:wrong]There's not much time left! You'd better change your password now.[/url]?>
-					<?[url=$end]Give me some time to think about it.[/url]?>
+					<?[url=$correct:correct][right]Have you checked with the IT department?[/right][/url]?>
+					<?[url=$wrong:wrong][right]There's not much time left! You'd better change your password now.[/right][/url]?>
+					<?[url=$end][right]Give me some time to think about it.[/right][/url]?>
 					"""
 					),
 				"$correct":
 					Utils.dialog_part(
 					"""
-					John: Hmm... that seems like a good idea! I'll drop them an email to check.
+					[b]John[/b]
+					Hmm... that seems like a good idea! I'll drop them an email to check.
 					
-					<?[url=$end]No problem, better safe than sorry.[/url]?>
+					<?[url=$end][right]No problem, better safe than sorry.[/right][/url]?>
 					"""
 					),
 				"$wrong":
 					Utils.dialog_part(
 						"""
-						John: You're right, I'd better do it quickly. Let's see... that's strange, the website looks a little different from usual, but I guess it's been a while.
+						[b]John[/b]
+						You're right, I'd better do it quickly. Let's see... that's strange, the website looks a little different from usual, but I guess it's been a while.
 						
-						<?[url=$end]... ?[/url]?>
+						<?[url=$end][right]... ?[/right][/url]?>
 						"""
 					),
 			},
@@ -64,9 +67,10 @@ func interact() -> void:
 				"$begin":
 					Utils.dialog_part(
 						"""
-						John: Hey, its you again! Thanks for your help! I managed to avoid falling for a phishing email thanks to you.
+						[b]John[/b]
+						Hey, its you again! Thanks for your help! I managed to avoid falling for a phishing email thanks to you.
 						
-						<?[url=$end]No problem, I was glad to be of help.[url]
+						<?[url=$end][right]No problem, I was glad to be of help.[/right][url]
 						"""
 					)
 			},
@@ -79,25 +83,28 @@ func interact() -> void:
 				"$begin":
 					Utils.dialog_part(
 						"""
-						John: I should download the PDF file to check if I did it correctly as well. Huh? My antivirus says its not safe... what's going on?
+						[b]John[/b]
+						I should download the PDF file to check if I did it correctly as well. Huh? My antivirus says its not safe... what's going on?
 						
-						<?[url=$wrong3]... ![/url]?>
+						<?[url=$wrong3][right]... ![/right][/url]?>
 						"""
 					),
 				"$wrong3":
 				Utils.dialog_part(
 					"""
-					John: Oh well, I'll just submit my password.
+					[b]John[/b]
+					Oh well, I'll just submit my password.
 					
-					<?[url=$wrong4]Hold on! That might have been a phishing email![/url]?>
+					<?[url=$wrong4][right]Hold on! That might have been a phishing email![/right][/url]?>
 					"""
 					),
 				"$wrong4":
 					Utils.dialog_part(
 						"""
-						John: What!? But I already gave them my password... Oh no... Could you help me inform the IT department?
+						[b]John[/b]
+						What!? But I already gave them my password... Oh no... Could you help me inform the IT department?
 						
-						<?[url=$end]OK.[/url]?>
+						<?[url=$end][right]OK.[/right][/url]?>
 						"""
 					)
 			},
@@ -112,9 +119,10 @@ func interact() -> void:
 				"$begin":
 					Utils.dialog_part(
 						"""
-						John: Have you informed the IT department? Please help me do so... I hope nothing bad happens...
+						[b]John[/b]
+						Have you informed the IT department? Please help me do so... I hope nothing bad happens...
 						
-						<?[url=$end]OK.[/url]?>
+						<?[url=$end][right]OK.[/right][/url]?>
 						"""
 					)
 			}
@@ -126,17 +134,19 @@ func interact() -> void:
 				"$begin":
 					Utils.dialog_part(
 						"""
-						John: What did they tell you? I should change my password and run an antivirus scan?
+						[b]John[/b]
+						What did they tell you? I should change my password and run an antivirus scan?
 						
-						<?[url=$next]Thankfully we reported it quickly.[/url]?>
+						<?[url=$next][right]Thankfully we reported it quickly.[/right][/url]?>
 						"""
 					),
 				"$next":
 					Utils.dialog_part(
 						"""
-						John: No kidding... Falling for a phishing email is really scary. I should have paid more attention to the [b]posters at the back of the office[/b]...
+						[b]John[/b]
+						No kidding... Falling for a phishing email is really scary. I should have paid more attention to the [b]posters at the back of the office[/b]...
 						
-						<?[url=$end]Posters? Maybe I should check them out myself.[/url]?>
+						<?[url=$end][right]Posters? Maybe I should check them out myself.[/right][/url]?>
 						"""
 					)
 			},
@@ -152,9 +162,10 @@ func interact() -> void:
 				"$begin":
 					Utils.dialog_part(
 						"""
-						John: Did you check those posters out? I hope I don't fall for another phishing email...
+						[b]John[/b]
+						Did you check those posters out? I hope I don't fall for another phishing email...
 						
-						<?[url=$end]I hope so too.[/url]?>
+						<?[url=$end][right]I hope so too.[/right][/url]?>
 						"""
 					)
 			},

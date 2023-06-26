@@ -18,9 +18,10 @@ func interact() -> void:
 				"$begin":
 					Utils.dialog_part(
 						"""
-						IT Guy: Hi, I'm the IT guy.
+						[b]IT Guy[/b]
+						Hi, I'm the IT guy.
 						
-						<?[url=$end]I see.[/url]
+						<?[url=$end][right]I see.[/right][/url]
 						"""
 					)
 			},
@@ -33,26 +34,29 @@ func interact() -> void:
 				"$begin":
 					Utils.dialog_part(
 						"""
-						IT Guy: Hi, I'm the IT guy.
+						[b]IT Guy[/b]
+						Hi, I'm the IT guy.
 						
-						<?[url=$next]Hey, John fell for a phishing email. What should we do?[/url]
-						<?[url=$end]I see.[/url]
+						<?[url=$next][right]Hey, John fell for a phishing email. What should we do?[/right][/url]
+						<?[url=$end][right]I see.[/right][/url]
 						"""
 					),
 				"$next":
 					Utils.dialog_part(
 						"""
-						IT Guy: What!? That's bad news... for starters, please get him to change his password and run an antivirus scan.
+						[b]IT Guy[/b]
+						What!? That's bad news... for starters, please get him to [b]change his password[/b] and [b]run an antivirus scan[/b].
 						
-						<?[url=$next2]Will do. What else?[/url]
+						<?[url=$next2][right]Will do. What else?[/right][/url]
 						"""
 					),
 				"$next2":
 					Utils.dialog_part(
 						"""
-						IT Guy: Well, since you reported it so quickly, there shouldn't be much else we need to do, but I'll check through our systems on my side just to be safe.
+						[b]IT Guy[/b]
+						Well, since you reported it so quickly, there shouldn't be much else we need to do, but I'll check through our systems on my side just to be safe.
 						
-						<?[url=$end]Alright.[/url]
+						<?[url=$end][right]Alright.[/right][/url]
 						"""
 					)
 			},

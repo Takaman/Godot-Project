@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://ddmwhp02tpc25"]
+[gd_scene load_steps=69 format=3 uid="uid://ddmwhp02tpc25"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_826uy"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_kxpn7"]
@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://c5rftkrhv5l1f" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="33_d72if"]
 [ext_resource type="PackedScene" uid="uid://bb6shdk0blv6i" path="res://World/HUD/hud.tscn" id="33_sh7jl"]
 [ext_resource type="PackedScene" uid="uid://d08er855jdoi6" path="res://World/Actors/MessyArea/messy_area.tscn" id="36_3ypd4"]
+[ext_resource type="Script" path="res://World/office1/Elevator.gd" id="38_govki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4xy4"]
 texture = ExtResource("1_826uy")
@@ -6769,10 +6770,6 @@ sources/2 = SubResource("TileSetAtlasSource_b4vbl")
 sources/3 = SubResource("TileSetAtlasSource_g3dcp")
 sources/4 = SubResource("TileSetAtlasSource_s1j5t")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p36uo"]
-radius = 24.0
-height = 48.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dbc8l"]
 size = Vector2(16.4324, 22)
 
@@ -6838,6 +6835,9 @@ size = Vector2(42, 47.9826)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kuw1o"]
 size = Vector2(32, 49)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_deu4a"]
+size = Vector2(32, 17)
+
 [node name="Office1" type="TileMap"]
 position = Vector2(-25, -2)
 tile_set = SubResource("TileSet_dpobp")
@@ -6862,13 +6862,8 @@ script = ExtResource("6_pybxl")
 
 [node name="HUD" parent="." instance=ExtResource("33_sh7jl")]
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-96, 176)
-shape = SubResource("CapsuleShape2D_p36uo")
-
 [node name="Player" parent="." instance=ExtResource("7_ncsrh")]
+z_index = 10
 position = Vector2(-108, 106)
 
 [node name="LaptopFolder" type="Node2D" parent="."]
@@ -7200,7 +7195,7 @@ shape = SubResource("CapsuleShape2D_ks2nm")
 position = Vector2(-270, -113)
 
 [node name="Alex" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(-3, 8)
+position = Vector2(18, 9)
 texture = ExtResource("14_ehper")
 metadata/_edit_group_ = true
 
@@ -7210,7 +7205,7 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_mmvsx")
 
 [node name="Alex2" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(39, 8)
+position = Vector2(61, 10)
 texture = ExtResource("14_ehper")
 metadata/_edit_group_ = true
 
@@ -7220,7 +7215,7 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_mmvsx")
 
 [node name="Alex3" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(82, 9)
+position = Vector2(82, 12)
 texture = ExtResource("14_ehper")
 metadata/_edit_group_ = true
 
@@ -7744,5 +7739,18 @@ texture = ExtResource("32_l7tb4")
 position = Vector2(-99, -230)
 texture = ExtResource("32_l7tb4")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="Elevator" type="Sprite2D" parent="."]
+script = ExtResource("38_govki")
+
+[node name="Actionable" parent="Elevator" instance=ExtResource("16_5ehio")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Elevator/Actionable"]
+position = Vector2(-96, 167.5)
+shape = SubResource("RectangleShape2D_deu4a")
+
+[connection signal="correct" from="HUD" to="LaptopFolder/Laptop3 - question" method="_on_hud_correct"]
+[connection signal="input_closed" from="HUD" to="LaptopFolder/Laptop3 - question" method="_on_hud_input_closed"]
+[connection signal="input_submitted" from="HUD" to="LaptopFolder/Laptop3 - question" method="_on_hud_input_submitted"]
+[connection signal="lvl1" from="HUD" to="Elevator" method="_on_hud_lvl_1"]
+[connection signal="lvl2" from="HUD" to="Elevator" method="_on_hud_lvl_2"]
+[connection signal="lvlbase" from="HUD" to="Elevator" method="_on_hud_lvlbase"]
