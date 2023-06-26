@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://t13nepmn3e8u"]
+[gd_scene load_steps=14 format=3 uid="uid://t13nepmn3e8u"]
 
 [ext_resource type="Texture2D" uid="uid://bwbr77naoy7yg" path="res://menu/image/Dungeons-Featured-Image-Elden-Ring-1024x576.jpg" id="1_fearb"]
 [ext_resource type="Texture2D" uid="uid://b0o4rbfc0kdlp" path="res://menu/image/icons8-left-arrow-key-64.png" id="2_v2unp"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bdvd0tvtmvdqh" path="res://frames/angel_run_anim_f2.png" id="9_ny68r"]
 [ext_resource type="Texture2D" uid="uid://wjl5jvqlr5fc" path="res://frames/angel_run_anim_f3.png" id="10_dpo12"]
 [ext_resource type="Script" path="res://menu/PlayerAnimated.gd" id="11_lve2g"]
+[ext_resource type="Texture2D" uid="uid://briblwafgf8a0" path="res://menu/image/e -interact.png" id="12_8i225"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vd3rf"]
 animations = [{
@@ -54,14 +55,15 @@ text = "Instruction"
 [node name="Label2" type="Label" parent="TextureRect"]
 layout_mode = 0
 offset_left = 81.0
-offset_top = 26.0
-offset_right = 308.0
-offset_bottom = 82.0
+offset_top = 23.0
+offset_right = 355.0
+offset_bottom = 93.0
 theme_override_font_sizes/font_size = 7
-text = "1.   You start the game with a certain number of lives. 
-2.   Each wrong answer will deduct one life.
-3.   To answer a question select the correct answer by clicking on it.
-4.   Be careful! Once you run out of lives, the game will end."
+text = "1.   Begin your quest with scenario-based questions.
+2.   Earn points by selecting the correct answers.
+3.   Watch out! Wrong answers lead to point deductions..
+4.   Complete the game by answering all the questions.
+5.   Check the leaderboard to see the top scorers."
 
 [node name="Left" type="TextureRect" parent="."]
 offset_left = 132.0
@@ -127,6 +129,14 @@ offset_bottom = 132.0
 theme_override_font_sizes/font_size = 6
 text = "Move Up"
 
+[node name="Label7" type="Label" parent="."]
+offset_left = 273.0
+offset_top = 131.0
+offset_right = 339.0
+offset_bottom = 155.0
+theme_override_font_sizes/font_size = 6
+text = "Interact with object"
+
 [node name="Label5" type="Label" parent="."]
 offset_left = 147.0
 offset_top = 99.0
@@ -136,6 +146,16 @@ theme_override_colors/font_color = Color(0.482353, 0.65098, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.258824, 0.290196, 0.705882, 1)
 theme_override_font_sizes/font_size = 15
 text = "Player 1"
+
+[node name="Label8" type="Label" parent="."]
+offset_left = 274.0
+offset_top = 101.0
+offset_right = 334.0
+offset_bottom = 126.0
+theme_override_colors/font_color = Color(0.823529, 0.54902, 0.968627, 1)
+theme_override_colors/font_shadow_color = Color(0.258824, 0.290196, 0.705882, 1)
+theme_override_font_sizes/font_size = 15
+text = "Press E"
 
 [node name="Back" type="Button" parent="."]
 offset_left = 9.0
@@ -152,5 +172,10 @@ sprite_frames = SubResource("SpriteFrames_vd3rf")
 frame_progress = 0.374889
 speed_scale = 3.0
 script = ExtResource("11_lve2g")
+
+[node name="E-interact" type="Sprite2D" parent="."]
+position = Vector2(300, 155)
+scale = Vector2(0.405, 0.314531)
+texture = ExtResource("12_8i225")
 
 [connection signal="pressed" from="Back" to="Back" method="back_on_pressed"]

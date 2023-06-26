@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8hq1j5pah8ct"
-path="res://.godot/imported/chair.png-36b9aaaba31077dabc03f0375eb0e0f1.ctex"
+uid="uid://bpu8xavio7njb"
+path="res://.godot/imported/75_pudding.png-0463fd9333b9ff9321ee7939dd58191f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/office1/images/chair.png"
-dest_files=["res://.godot/imported/chair.png-36b9aaaba31077dabc03f0375eb0e0f1.ctex"]
+source_file="res://World/foodcourt1/food/75_pudding.png"
+dest_files=["res://.godot/imported/75_pudding.png-0463fd9333b9ff9321ee7939dd58191f.ctex"]
 
 [params]
 

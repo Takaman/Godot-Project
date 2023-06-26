@@ -1,7 +1,7 @@
 extends Sprite2D
 
 
-@onready var hud := $"/root/Office1/HUD"
+@onready var hud := $"/root/FoodCourt/HUD"
 func interact() -> void:
 	print("interaction started")
 	hud.show_dialog(
