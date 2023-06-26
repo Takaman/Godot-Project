@@ -1,6 +1,7 @@
 extends Sprite2D
 
 @onready var hud := $"/root/house_internal_phishingemail/HUD"
+@onready var scene = PackedScene.new()
 
 func interact() -> void:
 	print("interaction started")
@@ -20,9 +21,25 @@ func interact() -> void:
 			"training"
 		)
 
+func save_state():
+	var result = scene.pack(get_node("/root/house_internal_phishingemail"))
+	if result == OK:
+		var error = ResourceSaver.save(scene, "res://Save_States/house_internal_phishingemail_saved.tscn")
+		if error != OK:
+			push_error("An error occurred while saving the scene to disk.")
+		else:
+			print("SAVED")
 
 func _on_hud_lvlbase():
-	get_tree().change_scene_to_file("res://World/world.tscn")
+	save_state()
+	if ResourceLoader.exists("res://Save_States/world_saved.tscn"):
+		get_tree().change_scene_to_file("res://Save_States/world_saved.tscn")
+	else:
+		get_tree().change_scene_to_file("res://World/world.tscn")
 
 func _on_hud_lvl_1():
-	get_tree().change_scene_to_file("res://World/office1/office1.tscn")
+	save_state()
+	if ResourceLoader.exists("res://Save_States/office1_saved.tscn"):
+		get_tree().change_scene_to_file("res://Save_States/office1_saved.tscn")
+	else:
+		get_tree().change_scene_to_file("res://World/office1/office1.tscn")

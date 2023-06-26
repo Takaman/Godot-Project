@@ -38,22 +38,22 @@ func _on_dialogue_closed():
 	print("Dialogue closed!")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	change_scene()
-
-
-func _on_area_2d_body_entered(body):
-	if body.has_method("player"):
-		Global.transition_scene = true
-		
-
-
-func _on_area_2d_body_exited(body):
-	if body.has_method("player"):
-		Global.transition_scene = false
-	
-func change_scene():
-	if Global.transition_scene == true:
-		if Global.current_scene == "world":
-			get_tree().change_scene_to_file("res://World/office1/office1.tscn")
-			Global.finish_changescenes() 
+#func _process(delta):
+#	change_scene()
+#
+#
+#func _on_area_2d_body_entered(body):
+#	if body.has_method("player"):
+#		Global.transition_scene = true
+#
+#
+#
+#func _on_area_2d_body_exited(body):
+#	if body.has_method("player"):
+#		Global.transition_scene = false
+#
+#func change_scene():
+#	if Global.transition_scene == true:
+#		if Global.current_scene == "world":
+#			get_tree().change_scene_to_file("res://World/office1/office1.tscn")
+#			Global.finish_changescenes() 

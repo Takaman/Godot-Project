@@ -6,24 +6,3 @@ func _ready():
 	hud._close_panel()
 	hud.close_player_input()
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	change_scene()
-
-
-func _on_area_2d_body_entered(body):
-	if body.has_method("player"):
-		Global.transition_scene = true
-		
-
-func _on_area_2d_body_exited(body):
-	if body.has_method("player"):
-		Global.transition_scene = false
-		
-func change_scene():
-	if Global.transition_scene == true:
-		if Global.current_scene == "world":
-			get_tree().change_scene_to_file("res://World/world.tscn")
-			Global.finish_changescenes() 
