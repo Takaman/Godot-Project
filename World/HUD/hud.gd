@@ -19,7 +19,11 @@ const BOTTOM_PANEL_SLIDE_DURATION := 0.5
 signal dialogue_closed
 signal correct
 signal wrong
+signal lvl1
+signal lvl2
 var dialogue_content := {}
+var dialogue_interaction := ""
+var dialogue_phase := ""
 var is_dialoguesmall_visible := false
 
 # Called when the node enters the scene tree for the first time.
@@ -46,6 +50,10 @@ func _handle_interaction(sound: String = "") -> void:
 		"wrong":
 			sound_wrong.play()
 			emit_signal("wrong")
+		"lvl1":
+			emit_signal("lvl1")
+		"lvl2":
+			emit_signal("lvl2")
 		_:
 			sound_default.play()
 
@@ -53,6 +61,7 @@ func _close_panel() -> void:
 	dialogue_content = {}
 	dialogue_big.hide()
 	print("emit signals")
+	self.visible  = false
 	emit_signal("dialogue_closed")
 
 func _next_panel_part(part: String) -> void:
@@ -81,8 +90,16 @@ func _on_rich_text_label_meta_clicked(meta):
 		return
 		
 	var parts = meta.split(":")
+	var interaction_result = Utils.at(parts, 1, "default")
 	_handle_interaction(Utils.at(parts, 1, "default"))
 	_next_panel_part(parts[0])
+	
+	#Updating the results of the interaction
+	Score.new_interaction(dialogue_interaction, interaction_result, dialogue_phase)
+	
+	#Marking interaction as completed
+	Score.mark_as_completed(dialogue_interaction, dialogue_phase)
+	
 
 func _on_timer_timeout():
 	if dialogue_big_label.visible_characters == dialogue_big_label.text.length():
@@ -98,10 +115,15 @@ func is_interacting() -> bool:
 
 func show_dialog(interaction: String, content: Dictionary, phase: String) -> void:
 	if not content.has("$begin"):
-		push_error("Panel content for %s must have a beginning" % interaction)
+		push_error("Need to start with $begin" % interaction)
 		return
-
+	
 	Score.new_interaction(interaction, "", phase)
+	dialogue_interaction = interaction
 	dialogue_content = content
+	dialogue_phase = phase
 	_next_panel_part("$begin")
+	self.visible = true 
 	dialogue_big.show()
+
+

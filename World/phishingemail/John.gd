@@ -55,7 +55,7 @@ func interact() -> void:
 						"""
 					),
 			},
-			"training"
+			"socialengineering"
 		)
 	elif state == 1:
 		hud.show_dialog(

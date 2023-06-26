@@ -22,6 +22,7 @@ Nakama="*res://addons/com.heroiclabs.nakama/Nakama.gd"
 Global="*res://global.gd"
 Score="*res://score.gd"
 Utils="*res://utils.gd"
+SeshVar="*res://SeshVar.gd"
 
 [display]
 

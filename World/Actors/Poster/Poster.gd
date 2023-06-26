@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var hud := $"/root/Base_Map/HUD"
+@onready var interactable := $/root/Base_Map/Interactable
 signal dialogue_closed
 
 func interact() -> void:
@@ -54,7 +55,7 @@ func interact() -> void:
 				
 			),
 		},
-		"training"
+		"socialengineering"
 		
 	)
 
@@ -66,5 +67,5 @@ func _on_area_2d_area_entered(area):
 		interact()
 
 
-func _on_area_2d_area_exited(area):
-	pass # Replace with function body.
+func _physics_process(delta: float) -> void:
+	interactable.visible  = !Score.has_interacted("poster1","socialengineering")

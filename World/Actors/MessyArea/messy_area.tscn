@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d08er855jdoi6"]
+
+[ext_resource type="Texture2D" uid="uid://cdkycg6uahb62" path="res://World/office1/images/food2.png" id="1_yl57x"]
+[ext_resource type="Texture2D" uid="uid://ckoy2ib4xkffm" path="res://World/Actors/MessyArea/part-Slice 426.png" id="2_djuqb"]
+[ext_resource type="Texture2D" uid="uid://c0bj7yvm855bq" path="res://World/Actors/MessyArea/PixelOfficeAssets.png" id="3_0bu1v"]
+
+[node name="MessyArea" type="Sprite2D"]
+
+[node name="Food2" type="Sprite2D" parent="."]
+texture = ExtResource("1_yl57x")
+
+[node name="Part-slice426" type="Sprite2D" parent="."]
+position = Vector2(9, 0.5)
+scale = Vector2(0.8, 0.916667)
+texture = ExtResource("2_djuqb")
+
+[node name="PixelOfficeAssets" type="Sprite2D" parent="."]
+position = Vector2(5, 8)
+texture = ExtResource("3_0bu1v")

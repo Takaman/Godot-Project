@@ -6737,7 +6737,6 @@ layer_2/tile_data = PackedInt32Array(65520, 589826, 35, 131056, 589826, 36, 1966
 script = ExtResource("6_haotx")
 
 [node name="HUD" parent="." instance=ExtResource("7_gbpc0")]
-visible = false
 
 [node name="Player" parent="." instance=ExtResource("5_k43ek")]
 position = Vector2(-112, 56)

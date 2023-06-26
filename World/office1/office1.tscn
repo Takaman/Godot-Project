@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://ddmwhp02tpc25"]
+[gd_scene load_steps=68 format=3 uid="uid://ddmwhp02tpc25"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_826uy"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_kxpn7"]
@@ -12,12 +12,15 @@
 [ext_resource type="Texture2D" uid="uid://cg5yrfw0250gu" path="res://World/office1/images/table.png" id="10_wgdyt"]
 [ext_resource type="Script" path="res://World/office1/Laptop5 - question.gd" id="11_tso52"]
 [ext_resource type="Script" path="res://World/office1/Laptop9 - question.gd" id="12_1nc7q"]
-[ext_resource type="Texture2D" uid="uid://c8o8rfih41o1t" path="res://World/office1/images/TilesetLogic.png" id="14_05v6t"]
+[ext_resource type="Texture2D" uid="uid://bqtsiuw4wf582" path="res://World/Actors/Thumbdrive/part-Slice 81.png" id="14_0xjun"]
 [ext_resource type="Texture2D" uid="uid://bple8jbdjsyhe" path="res://World/office1/images/character/Alex_idle_16x16.png" id="14_ehper"]
 [ext_resource type="Texture2D" uid="uid://66pn3c6a84yu" path="res://World/office1/images/character/Bei.png" id="15_ljdjd"]
+[ext_resource type="Script" path="res://World/Actors/Thumbdrive/Thumbdrive1.gd" id="15_qj26a"]
 [ext_resource type="Texture2D" uid="uid://d3hhcp0du7ujx" path="res://World/office1/images/vendingmachinebig.png" id="16_1phy0"]
+[ext_resource type="PackedScene" uid="uid://iqn08315hsf" path="res://helpers/actionable.tscn" id="16_5ehio"]
 [ext_resource type="Texture2D" uid="uid://i8trdu4hit8l" path="res://World/office1/images/character/jerry.png" id="16_bwfhu"]
 [ext_resource type="Texture2D" uid="uid://b4nf3qfe7c5y0" path="res://World/office1/images/character/Mary.png" id="17_qbbda"]
+[ext_resource type="Script" path="res://World/Actors/MessyArea/MessyArea1.gd" id="18_lecwi"]
 [ext_resource type="Texture2D" uid="uid://e6cjid72ddfs" path="res://World/office1/images/character/Tim.png" id="18_mmvlc"]
 [ext_resource type="Texture2D" uid="uid://dla4xya6q7uei" path="res://World/office1/images/character/Tom.png" id="19_vkd58"]
 [ext_resource type="Script" path="res://World/office1/Vendingmachinebig1 - question.gd" id="22_e0sit"]
@@ -31,8 +34,9 @@
 [ext_resource type="Texture2D" uid="uid://bpkwuttjk6jkf" path="res://World/office1/images/rectangleshapewall.png" id="28_yad2y"]
 [ext_resource type="Texture2D" uid="uid://dyqonyva4om1i" path="res://World/office1/images/staircase.png" id="29_8p83v"]
 [ext_resource type="Texture2D" uid="uid://kykyxo0nc1sy" path="res://World/office1/images/tv.png" id="32_l7tb4"]
+[ext_resource type="PackedScene" uid="uid://c5rftkrhv5l1f" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="33_d72if"]
 [ext_resource type="PackedScene" uid="uid://bb6shdk0blv6i" path="res://World/HUD/hud.tscn" id="33_sh7jl"]
-[ext_resource type="Texture2D" uid="uid://n7odrefk0hfa" path="res://World/office1/images/lamplight.png" id="33_xs1bt"]
+[ext_resource type="PackedScene" uid="uid://d08er855jdoi6" path="res://World/Actors/MessyArea/messy_area.tscn" id="36_3ypd4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4xy4"]
 texture = ExtResource("1_826uy")
@@ -6784,6 +6788,14 @@ size = Vector2(11.2432, 19.3353)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kfrhh"]
 size = Vector2(27, 20)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_77f2k"]
+radius = 16.0
+height = 32.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ks2nm"]
+radius = 19.0
+height = 38.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_mmvsx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_46gea"]
@@ -7165,6 +7177,28 @@ metadata/_edit_group_ = true
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_kfrhh")
 
+[node name="Thumdrive" type="Sprite2D" parent="TableFolder"]
+position = Vector2(33, -94)
+texture = ExtResource("14_0xjun")
+script = ExtResource("15_qj26a")
+
+[node name="Actionable" parent="TableFolder/Thumdrive" instance=ExtResource("16_5ehio")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TableFolder/Thumdrive/Actionable"]
+shape = SubResource("CapsuleShape2D_77f2k")
+
+[node name="MessyArea" parent="TableFolder" instance=ExtResource("36_3ypd4")]
+top_level = true
+position = Vector2(-248, 92)
+script = ExtResource("18_lecwi")
+
+[node name="Actionable" parent="TableFolder/MessyArea" instance=ExtResource("16_5ehio")]
+position = Vector2(453.059, -95.325)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TableFolder/MessyArea/Actionable"]
+position = Vector2(-448.059, 99.325)
+shape = SubResource("CapsuleShape2D_ks2nm")
+
 [node name="CharacterFolder" type="Node2D" parent="."]
 position = Vector2(-270, -113)
 
@@ -7370,26 +7404,24 @@ shape = SubResource("CircleShape2D_uy2dx")
 
 [node name="QuestionmarkFolder" type="Node2D" parent="."]
 
-[node name="TilesetLogic" type="Sprite2D" parent="QuestionmarkFolder"]
-z_index = 2
-position = Vector2(-229, -41)
-texture = ExtResource("14_05v6t")
+[node name="Interactable" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
+position = Vector2(-231, -46)
 
-[node name="TilesetLogic2" type="Sprite2D" parent="QuestionmarkFolder"]
-z_index = 2
-position = Vector2(-208, -108)
-texture = ExtResource("14_05v6t")
+[node name="Interactable2" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
+position = Vector2(-209, -113)
 
-[node name="TilesetLogic3" type="Sprite2D" parent="QuestionmarkFolder"]
-z_index = 2
-position = Vector2(-251, -108)
-texture = ExtResource("14_05v6t")
+[node name="Interactable3" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
+position = Vector2(-252, -110)
 
-[node name="TilesetLogic4" type="Sprite2D" parent="QuestionmarkFolder"]
-z_index = 2
-position = Vector2(110, 29)
-rotation = 1.5708
-texture = ExtResource("14_05v6t")
+[node name="Interactable4" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
+position = Vector2(113, 30)
+rotation = 1.61094
+
+[node name="Interactable5" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
+position = Vector2(33, -110)
+
+[node name="Interactable6" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
+position = Vector2(-214, 82)
 
 [node name="VendingMachineFolder" type="Node2D" parent="."]
 position = Vector2(-273, -128)
@@ -7639,7 +7671,8 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_3mhdm")
 
 [node name="Purpletable" type="Sprite2D" parent="."]
-position = Vector2(-228, 111)
+visibility_layer = 2
+position = Vector2(-226, 108)
 texture = ExtResource("23_tae56")
 metadata/_edit_group_ = true
 

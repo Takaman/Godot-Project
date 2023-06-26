@@ -1,16 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://u2dp1l6114pk"]
+[gd_scene load_steps=14 format=3 uid="uid://u2dp1l6114pk"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_f75mx"]
 [ext_resource type="PackedScene" uid="uid://c8dwnnlhhn27a" path="res://World/base_map.tscn" id="2_7pm26"]
 [ext_resource type="PackedScene" uid="uid://kma828pwdjle" path="res://Player/player.tscn" id="3_3yceo"]
 [ext_resource type="PackedScene" uid="uid://bb6shdk0blv6i" path="res://World/HUD/hud.tscn" id="4_r08jp"]
 [ext_resource type="PackedScene" uid="uid://bbbqn3ivnkm3h" path="res://World/Actors/Poster/poster.tscn" id="5_picxq"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i7u18"]
-radius = 24.0
-height = 48.0
+[ext_resource type="Script" path="res://World/Elevator.gd" id="6_286xa"]
+[ext_resource type="PackedScene" uid="uid://iqn08315hsf" path="res://helpers/actionable.tscn" id="7_vhdfk"]
+[ext_resource type="PackedScene" uid="uid://burm3cumbtarl" path="res://World/Actors/TopicCheck/TopicCheck.tscn" id="8_ssfie"]
+[ext_resource type="Script" path="res://World/Actors/TopicCheck/TopicCheck.gd" id="9_av4dh"]
+[ext_resource type="PackedScene" uid="uid://c5rftkrhv5l1f" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="10_0plad"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ttjd6"]
+radius = 16.0
+height = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15wvt"]
+size = Vector2(25, 31)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_havpn"]
 radius = 16.0
 height = 32.0
 
@@ -21,13 +29,6 @@ script = ExtResource("1_f75mx")
 
 [node name="Base Map" parent="." instance=ExtResource("2_7pm26")]
 position = Vector2(-40, -16)
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(136, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CapsuleShape2D_i7u18")
-metadata/_edit_group_ = true
 
 [node name="Player" parent="." instance=ExtResource("3_3yceo")]
 position = Vector2(24, 24)
@@ -43,7 +44,31 @@ collision_mask = 0
 position = Vector2(24, 8)
 shape = SubResource("CapsuleShape2D_ttjd6")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="Elevator" type="Sprite2D" parent="."]
+script = ExtResource("6_286xa")
+
+[node name="Actionable" parent="Elevator" instance=ExtResource("7_vhdfk")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Elevator/Actionable"]
+position = Vector2(136.5, -15.5)
+shape = SubResource("RectangleShape2D_15wvt")
+
+[node name="TopicCheck" parent="." instance=ExtResource("8_ssfie")]
+position = Vector2(208, -64)
+script = ExtResource("9_av4dh")
+
+[node name="Area2D" type="Area2D" parent="TopicCheck"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopicCheck/Area2D"]
+position = Vector2(56, 16)
+shape = SubResource("CapsuleShape2D_havpn")
+
+[node name="Interactable" parent="." instance=ExtResource("10_0plad")]
+position = Vector2(188, -39)
+
+[connection signal="lvl1" from="HUD" to="Elevator" method="_on_hud_lvl_1"]
+[connection signal="lvl2" from="HUD" to="Elevator" method="_on_hud_lvl_2"]
 [connection signal="area_entered" from="Poster/Area2D" to="Poster" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Poster/Area2D" to="Poster" method="_on_area_2d_area_exited"]
