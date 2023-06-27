@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgix7ehtilmt6"]
+
+[ext_resource type="Script" path="res://World/Actors/Phone/phonePopup.gd" id="1_ul2kq"]
+[ext_resource type="Texture2D" uid="uid://cubga0tktnlpx" path="res://World/Actors/Phone/phone.png" id="2_ru41j"]
+
+[node name="phonePopup" type="Node2D"]
+script = ExtResource("1_ul2kq")
+
+[node name="phone" type="Sprite2D" parent="."]
+position = Vector2(179, 90)
+scale = Vector2(0.195833, 0.195833)
+texture = ExtResource("2_ru41j")
