@@ -1,10 +1,15 @@
 extends Sprite2D
 
 @onready var hud := $"/root/house_internal_phishingemail/HUD"
+@onready var marker := get_node("marker")
+
+func _ready():
+	marker.exclamation_mark()
+	pass
 
 func interact() -> void:
-	if get_node("marker") is Node:
-		get_node("marker").queue_free()
+	if marker is Node:
+		marker.remove_mark()
 	print("interaction started")
 	hud.show_dialog(
 		"Sam",

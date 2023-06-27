@@ -1,20 +1,21 @@
 extends Sprite2D
 
 @onready var hud := $"/root/house_internal_phishingemail/HUD"
+@onready var marker := get_node("marker")
 @onready var state = -1
 signal IT_Guy
 
 func _on_hud_correct():
 	if state == 0:
 		state = 1
-		if get_node("marker") is Node:
-			get_node("marker").queue_free()
+		if marker is Node:
+			marker.remove_mark()
 
 func _on_hud_wrong():
 	if state == 0:
 		state = 2
-		if get_node("marker") is Node:
-			get_node("marker").texture = load("res://World/phishingemail/Images/in_prog.png")
+		if marker is Node:
+			marker.in_progress()
 
 func _on_it_guy_john_next():
 	state = 4
@@ -152,8 +153,8 @@ func interact() -> void:
 			},
 			"training"
 		)
-		if get_node("marker") is Node:
-			get_node("marker").queue_free()
+		if marker is Node:
+			marker.remove_mark()
 		state == 5
 	elif state == 5:
 		hud.show_dialog(

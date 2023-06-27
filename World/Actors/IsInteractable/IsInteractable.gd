@@ -9,3 +9,22 @@ var _delta := 0.0
 func _physics_process(delta: float) -> void:
 	_delta += delta
 	sprite.position.y = sin(_delta * BOUNCE_SPEED_MULTIPLIER) * BOUNCE_MAGNITUDE
+
+func exclamation_mark() -> void:
+	if get_node("Sprite2D") is Node:
+		get_node("Sprite2D").texture = load("res://World/Actors/IsInteractable/exclamation_mark.png")
+		
+func in_progress() -> void:
+	if get_node("Sprite2D") is Node:
+		get_node("Sprite2D").texture = load("res://World/Actors/IsInteractable/in_prog.png")
+
+func remove_mark() -> void:
+	if self is Node:
+		self.queue_free()
+
+func toggle_visibility(vis: bool) -> void:
+	if get_node("Sprite2D") is Node:
+		if vis == true:
+			self.visible = true
+		elif vis == false:
+			self.visible = false
