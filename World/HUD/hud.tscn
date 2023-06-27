@@ -101,7 +101,6 @@ volume_db = -10.272
 stream = ExtResource("5_ikf5w")
 volume_db = -10.272
 
-[connection signal="lvl1" from="." to="." method="_on_hud_lvl_1"]
 [connection signal="meta_clicked" from="Control/DialogueBig/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
 [connection signal="timeout" from="Control/DialogueBig/Timer" to="." method="_on_timer_timeout"]
 [connection signal="text_submitted" from="Control/PlayerInput" to="." method="_on_player_input_text_submitted"]

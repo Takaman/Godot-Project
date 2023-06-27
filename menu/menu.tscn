@@ -96,10 +96,10 @@ text = "Dungeon King"
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 246.0
-offset_top = 224.0
-offset_right = 363.0
-offset_bottom = 302.0
+offset_left = 259.0
+offset_top = 187.0
+offset_right = 376.0
+offset_bottom = 265.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_7pc5p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel"]

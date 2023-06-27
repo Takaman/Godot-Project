@@ -79,14 +79,19 @@ func _physics_process(delta) -> void:
 			if velocity.x > 0:
 				animationPlayer.play("runright")
 				$AnimatedSprite2D.flip_h = false
-			else:
-				animationPlayer.play("runright")
-				$AnimatedSprite2D.flip_h = true
+			elif velocity.x <0 :
+				animationPlayer.play("runleft")
+				#$AnimatedSprite2D.flip_h = true
+			elif velocity.y > 0:
+				animationPlayer.play("runbottom")
+			elif velocity.y < 0:
+				animationPlayer.play("runtop")
+			
 			
 			#For more natural movement to hit max speed and bringing it down for natural movement
 			velocity = velocity.move_toward(velocity * MAX_SPEED, SPEED * delta)
 		else:		
-			animationPlayer.play("idleright")
+			animationPlayer.play("idle")
 			velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 		
 		

@@ -83,6 +83,11 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("Player"):
 		interact()
 
+
+func _physics_process(delta: float) -> void:
+	interactable.visible  = !Score.has_interacted("laptop3","policy")
+
+
 func _on_hud_correct():
 	state = 1
 
