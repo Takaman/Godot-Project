@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3i03ey1pln8d"]
+[gd_scene load_steps=11 format=3 uid="uid://b3i03ey1pln8d"]
 
 [ext_resource type="Script" path="res://menu/menu.gd" id="1_mraxn"]
 [ext_resource type="Texture2D" uid="uid://bp6v2t7jdal3" path="res://menu/image/istockphoto-1308121289-612x612.jpg" id="2_3ogix"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bttqgc5ymwqxc" path="res://frames/big_demon_idle_anim_f2.png" id="5_734sn"]
 [ext_resource type="Texture2D" uid="uid://bk3dkxmqgbdea" path="res://frames/big_demon_idle_anim_f3.png" id="6_42gln"]
 [ext_resource type="Script" path="res://menu/AnimatedSprite2D.gd" id="7_7tc4q"]
+[ext_resource type="PackedScene" uid="uid://dg2233ephoglo" path="res://menu/Login.tscn" id="8_a1vny"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pc5p"]
 bg_color = Color(0.74902, 0.243137, 0.129412, 0.14902)
@@ -109,6 +110,9 @@ sprite_frames = SubResource("SpriteFrames_itjca")
 frame_progress = 0.783048
 speed_scale = 2.0
 script = ExtResource("7_7tc4q")
+
+[node name="Login" parent="." instance=ExtResource("8_a1vny")]
+position = Vector2(-1, 117)
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Instruction" to="." method="_on_instruction_pressed"]

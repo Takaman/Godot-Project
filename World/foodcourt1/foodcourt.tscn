@@ -6901,7 +6901,8 @@ position = Vector2(-94, 177)
 shape = SubResource("CapsuleShape2D_p36uo")
 
 [node name="Player" parent="." instance=ExtResource("8_kdafc")]
-position = Vector2(-97, 141)
+top_level = true
+position = Vector2(-125, 129)
 
 [node name="QuestionmarkFolder" type="Node2D" parent="."]
 

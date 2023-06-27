@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dd0bexaicfyga"]
+[gd_scene load_steps=18 format=3 uid="uid://dd0bexaicfyga"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_ul0cs"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_m72sd"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cxo46gpvtucun" path="res://Tilemap builder/Interior/Alex_idle_16x16.png" id="6_7vjbh"]
 [ext_resource type="Script" path="res://World/house_internal_2.gd" id="6_haotx"]
 [ext_resource type="PackedScene" uid="uid://bb6shdk0blv6i" path="res://World/HUD/hud.tscn" id="7_gbpc0"]
+[ext_resource type="PackedScene" uid="uid://c5rftkrhv5l1f" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="10_7dsvh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4xy4"]
 texture = ExtResource("1_ul0cs")
@@ -6751,6 +6752,9 @@ hframes = 5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-96, 176)
 shape = SubResource("CapsuleShape2D_p36uo")
+
+[node name="Interactable" parent="." instance=ExtResource("10_7dsvh")]
+position = Vector2(-168, -42)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
