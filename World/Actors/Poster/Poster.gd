@@ -17,8 +17,8 @@ func interact() -> void:
 					[b]Poster Guy[/b]
 					Hey, look at this poster! It says we can win a free drink!
 					
-					<?[url=$see]Really? Let me see too![/url]?>
-					<?[url=$end]I see.[/url]?>
+					<?[url=$see][right]Really? Let me see too![/right][/url]?>
+					<?[url=$end][right]I see.[/right][/url]?>
 					"""
 				),
 				"$see":
@@ -30,8 +30,8 @@ func interact() -> void:
 					
 					[center][img=50x50]res://World/Actors/Poster/frame.png[/img][/center]
 					
-					<?[url=$correct:correct]This looks a little strange...[/url]?>
-					<?[url=$end:wrong]Wow, I can win a free drink? Let's give it a go.[/url]?>
+					<?[url=$correct:correct][right]This looks a little strange...[/right][/url]?>
+					<?[url=$end:wrong][right]Wow, I can win a free drink? Let's give it a go.[/right][/url]?>
 					"""
 				),
 				"$correct":
@@ -40,7 +40,7 @@ func interact() -> void:
 					[b]Poster Guy[/b]
 					What? You don't trust it? Suit yourself, but I'm gonna win a free drink!
 					
-					<?[url=$end]I don't think that scanning that QR code is a good idea...[/url]?>
+					<?[url=$end][right]I don't think that scanning that QR code is a good idea...[/right][/url]?>
 					"""
 					
 				)
@@ -58,7 +58,7 @@ func interact() -> void:
 					[b]Poster Guy[/b]
 					What's going on? My phone keeps saying that the app I downloaded is a virus! Did the poster trick me?
 					
-					<?[url=$next]I guess you can't trust random QR codes.[/url]?>
+					<?[url=$next][right]I guess you can't trust random QR codes.[/right][/url]?>
 					"""
 				),
 				"$next":
@@ -67,7 +67,7 @@ func interact() -> void:
 					[b]Poster Guy[/b]
 					You're right... I should have followed what <#[url=https://www.straitstimes.com/tech/can-i-trust-this-qr-code-csa-police-issue-alert-on-qr-code-scams-and-how-to-avoid-being-tricked]this article[/url]#> says. Luckily I had an antivirus app running on my phone - who knows what could have happened if I didn't!
 					
-					<?[url=$end]Make sure to keep that article in mind in the future.[/url]?>
+					<?[url=$end][right]Make sure to keep that article in mind in the future.[/right][/url]?>
 					"""
 				)
 			},
@@ -85,7 +85,7 @@ func interact() -> void:
 					"""
 					Your phone is unusable... the app you downloaded seems to have been some kind of ransomware.
 					
-					<?[url=$next]I made a mistake.[/url]?>
+					<?[url=$next][right]I think I made a mistake.[/right][/url]?>
 					"""
 				),
 				"$next":
@@ -94,16 +94,16 @@ func interact() -> void:
 					[b]Poster Guy[/b]
 					What's going on? I can't use my phone anymore!
 					
-					<?[url=$next2]We got hit by a ransomware. We can only pay the ransom or reset our phones and delete our data...[/url]?>
+					<?[url=$next2][right]We downloaded a ransomware. We can only pay the ransom or reset our phones and delete our data...[/right][/url]?>
 					"""
 				),
 				"$next2":
 				Utils.dialog_part(
 					"""
 					[b]Poster Guy[/b]
-					We made a big mistake... thankfully, I backed up my data before this. We should have paid more attention to what <#[url=https://www.straitstimes.com/tech/can-i-trust-this-qr-code-csa-police-issue-alert-on-qr-code-scams-and-how-to-avoid-being-tricked]this article[/url]#> says.
+					We made a big mistake... thankfully, my data was backed up. We should have paid more attention to what <#[url=https://www.straitstimes.com/tech/can-i-trust-this-qr-code-csa-police-issue-alert-on-qr-code-scams-and-how-to-avoid-being-tricked]this article[/url]#> says.
 					
-					<?[url=$end]We should be more careful in the future.[/url]?>
+					<?[url=$end][right]We should be more careful in the future.[/right][/url]?>
 					"""
 				)
 			},
@@ -112,6 +112,38 @@ func interact() -> void:
 		state = 4
 		if interactable is Node:
 			interactable.remove_mark()
+	elif state == 3:
+		hud.show_dialog(
+			"poster1",
+			{
+				"$begin":
+				Utils.dialog_part(
+					"""
+					[b]Poster Guy[/b]
+					I should have followed what <#[url=https://www.straitstimes.com/tech/can-i-trust-this-qr-code-csa-police-issue-alert-on-qr-code-scams-and-how-to-avoid-being-tricked]this article[/url]#> says. Luckily I had an antivirus app running on my phone - who knows what could have happened if I didn't!
+					
+					<?[url=$end][right]You should be more careful in the future.[/right][/url]?>
+					"""
+				)
+			},
+			"socialengineering"
+		)
+	elif state == 4:
+		hud.show_dialog(
+			"poster1",
+			{
+				"$begin":
+				Utils.dialog_part(
+					"""
+					[b]Poster Guy[/b]
+					We should have followed what <#[url=https://www.straitstimes.com/tech/can-i-trust-this-qr-code-csa-police-issue-alert-on-qr-code-scams-and-how-to-avoid-being-tricked]this article[/url]#> says. Luckily I had an antivirus app running on my phone - who knows what could have happened if I didn't!
+					
+					<?[url=$end][right]We should be more careful in the future.[/right][/url]?>
+					"""
+				)
+			},
+			"socialengineering"
+		)
 
 
 func _on_area_2d_area_entered(area):
