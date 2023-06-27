@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://u2dp1l6114pk"]
+[gd_scene load_steps=15 format=3 uid="uid://u2dp1l6114pk"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_f75mx"]
 [ext_resource type="PackedScene" uid="uid://c8dwnnlhhn27a" path="res://World/base_map.tscn" id="2_7pm26"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bb6shdk0blv6i" path="res://World/HUD/hud.tscn" id="4_r08jp"]
 [ext_resource type="PackedScene" uid="uid://bbbqn3ivnkm3h" path="res://World/Actors/Poster/poster.tscn" id="5_picxq"]
 [ext_resource type="Script" path="res://World/Elevator.gd" id="6_286xa"]
+[ext_resource type="Texture2D" uid="uid://pyl5lndr7kni" path="res://World/office1/images/elevator.png" id="6_yrkks"]
 [ext_resource type="PackedScene" uid="uid://iqn08315hsf" path="res://helpers/actionable.tscn" id="7_vhdfk"]
 [ext_resource type="PackedScene" uid="uid://burm3cumbtarl" path="res://World/Actors/TopicCheck/TopicCheck.tscn" id="8_ssfie"]
 [ext_resource type="Script" path="res://World/Actors/TopicCheck/TopicCheck.gd" id="9_av4dh"]
@@ -16,7 +17,7 @@ radius = 16.0
 height = 32.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_15wvt"]
-size = Vector2(25, 31)
+size = Vector2(35.4583, 24.5164)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_havpn"]
 radius = 16.0
@@ -45,12 +46,15 @@ position = Vector2(24, 8)
 shape = SubResource("CapsuleShape2D_ttjd6")
 
 [node name="Elevator" type="Sprite2D" parent="."]
+position = Vector2(136, -16)
+scale = Vector2(1.26316, 1.22)
+texture = ExtResource("6_yrkks")
 script = ExtResource("6_286xa")
 
 [node name="Actionable" parent="Elevator" instance=ExtResource("7_vhdfk")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Elevator/Actionable"]
-position = Vector2(136.5, -15.5)
+position = Vector2(0, 0.0368853)
 shape = SubResource("RectangleShape2D_15wvt")
 
 [node name="TopicCheck" parent="." instance=ExtResource("8_ssfie")]
