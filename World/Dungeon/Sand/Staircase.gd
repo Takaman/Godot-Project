@@ -53,13 +53,13 @@ func _process(delta):
 
 func next_level(where):
 	if where == "OneToTwo":
-		get_tree().change_scene_to_file("res://World/Dungeon/Sand/Level_2.tscn")
+		SceneTransition.change_scene_to_file("res://World/Dungeon/Sand/Level_2.tscn")
 	if where == "TwoToOne":
-		get_tree().change_scene_to_file("res://World/Dungeon/Sand/Level_1.tscn")
+		SceneTransition.change_scene_to_file("res://World/Dungeon/Sand/Level_1.tscn")
 	if where == "TwoToThree":
-		get_tree().change_scene_to_file("res://World/Dungeon/Sand/Level_3.tscn")
+		SceneTransition.change_scene_to_file("res://World/Dungeon/Sand/Level_3.tscn")
 	if where == "ThreeToTwo":
-		get_tree().change_scene_to_file("res://World/Dungeon/Sand/Level_2.tscn")
+		SceneTransition.change_scene_to_file("res://World/Dungeon/Sand/Level_2.tscn")
 	if where == "Exit":
 		pass
 	downAt1 = false

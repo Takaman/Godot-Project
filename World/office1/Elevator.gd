@@ -33,14 +33,14 @@ func save_state():
 func _on_hud_lvlbase():
 	save_state()
 	if ResourceLoader.exists("res://Save_States/world_saved.tscn"):
-		get_tree().change_scene_to_file("res://Save_States/world_saved.tscn")
+		SceneTransition.change_scene("res://Save_States/world_saved.tscn")
 	else:
-		get_tree().change_scene_to_file("res://World/world.tscn")
+		SceneTransition.change_scene("res://World/world.tscn")
 
 
 func _on_hud_lvl_2():
 	save_state()
 	if ResourceLoader.exists("res://Save_States/house_internal_phishingemail_saved.tscn"):
-		get_tree().change_scene_to_file("res://Save_States/house_internal_phishingemail_saved.tscn")
+		SceneTransition.change_scene("res://Save_States/house_internal_phishingemail_saved.tscn")
 	else:
-		get_tree().change_scene_to_file("res://World/phishingemail/house_internal_phishingemail.tscn")
+		SceneTransition.change_scene("res://World/phishingemail/house_internal_phishingemail.tscn")

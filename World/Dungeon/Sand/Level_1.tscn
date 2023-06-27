@@ -4440,9 +4440,6 @@ y_sort_enabled = true
 position = Vector2(-1, -2)
 script = ExtResource("10_s478y")
 
-[node name="Player" parent="." instance=ExtResource("9_21lp0")]
-position = Vector2(543, 379)
-
 [node name="Level_1" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_03had")
 format = 2
@@ -4461,6 +4458,8 @@ layer_1/tile_data = PackedInt32Array(1441829, 131075, 3, 1507365, 131075, 4, 144
 [node name="Down" type="CollisionShape2D" parent="Staircase1"]
 position = Vector2(56, 41)
 shape = SubResource("RectangleShape2D_jlla7")
+
+[node name="Player" parent="." instance=ExtResource("9_21lp0")]
 
 [connection signal="body_entered" from="Staircase1" to="." method="_on_staircase_1_body_entered"]
 [connection signal="body_exited" from="Staircase1" to="." method="_on_staircase_1_body_exited"]
