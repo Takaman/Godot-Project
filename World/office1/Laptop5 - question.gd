@@ -12,7 +12,7 @@ func interact() -> void:
 			Utils.dialog_part(
 				"""
 				Important updates are pending. The newest Windows feature update is ready to install. Would you like to initiate the download now or choose a later time?
-				\
+				
 				[center][img=180x180]res://World/office1/images/Question/Windows11Update.jpg[/img][/center]
 				<?[url=$change:correct]1) Yes, I'll download it right away. [/url]?>
 				<?[url=$nochange:wrong]2) No,  I'm currently busy. I'll download it next time. [/url]?>

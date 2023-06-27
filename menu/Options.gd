@@ -9,7 +9,7 @@ func _process(delta):
 	pass
 
 func Back_on_button_pressed():
-	get_tree().change_scene_to_file("res://menu/menu.tscn")
+	SceneTransition.change_scene("res://menu/menu.tscn")
 
 func Fullscreen_on_check_box_toggled(button_pressed):
 	if button_pressed:
@@ -21,13 +21,6 @@ func Fullscreen_on_check_box_toggled(button_pressed):
 func borderless_on_check_box_2_toggled(button_pressed):
 	if button_pressed:
 		DisplayServer.window_set_mode(2) # 
-	else:
-		DisplayServer.window_set_mode(0) # Set default mode	 
-
-
-func Minimized_on_check_box_3_toggled(button_pressed):
-	if button_pressed:
-		DisplayServer.window_set_mode(1) # 
 	else:
 		DisplayServer.window_set_mode(0) # Set default mode	 
 

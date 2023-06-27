@@ -30,6 +30,7 @@ script = ExtResource("1_f75mx")
 
 [node name="Base Map" parent="." instance=ExtResource("2_7pm26")]
 position = Vector2(-40, -16)
+layer_2/tile_data = PackedInt32Array(-65526, 1900547, 24, 10, 1900547, 25, -65525, 1966083, 24, 11, 1966083, 25, -131063, 2228227, 6, -131062, 2293763, 6, -131061, 2293763, 6, -131060, 2359299, 6, -1179637, 1769475, 23, -1179636, 1835011, 23, 196608, 1376259, 19, 196609, 1376259, 19, 196610, 1376259, 19, 196611, 1376259, 19, 196612, 1376259, 19, 196613, 1376259, 19, 196614, 1376259, 19, 196615, 1376259, 19, 196616, 1376259, 19, 196617, 1376259, 19, 196618, 1376259, 19, 196619, 1376259, 19, 196620, 1376259, 19, 196621, 1376259, 19, 196622, 1376259, 19, 196623, 1376259, 19, 196624, 1376259, 19, 196625, 1376259, 19, 196626, 1376259, 19, 196627, 1376259, 19, 196628, 1376259, 19, 196629, 1376259, 19, 196632, 1376259, 19, 196633, 1572867, 19, 131097, 1572867, 18, 65561, 1572867, 18, 65541, 1114115, 15, 65542, 1179651, 15, -65535, 2031619, 10, 1, 2031619, 11, 19, 2031619, 10, 65555, 2031619, 11, 262167, 720899, 22, 327703, 720899, 22, 393239, 720899, 22, 458775, 720899, 22, 524311, 720899, 22, 196630, 1376259, 19, 2, 2031619, 11, 3, 2031619, 11, 4, 2031619, 11, -65534, 2031619, 10, -65533, 2031619, 10, -65532, 2031619, 10)
 
 [node name="Player" parent="." instance=ExtResource("3_3yceo")]
 position = Vector2(24, 24)
@@ -58,15 +59,16 @@ position = Vector2(0, 0.0368853)
 shape = SubResource("RectangleShape2D_15wvt")
 
 [node name="TopicCheck" parent="." instance=ExtResource("8_ssfie")]
-position = Vector2(208, -64)
+position = Vector2(191, -16)
 script = ExtResource("9_av4dh")
+metadata/_edit_group_ = true
 
 [node name="Area2D" type="Area2D" parent="TopicCheck"]
 collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopicCheck/Area2D"]
-position = Vector2(56, 16)
+position = Vector2(58, 19)
 shape = SubResource("CapsuleShape2D_havpn")
 
 [node name="Interactable" parent="." instance=ExtResource("10_0plad")]

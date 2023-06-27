@@ -1,35 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3i03ey1pln8d"]
+[gd_scene load_steps=3 format=3 uid="uid://b3i03ey1pln8d"]
 
 [ext_resource type="Script" path="res://menu/menu.gd" id="1_mraxn"]
-[ext_resource type="Texture2D" uid="uid://bp6v2t7jdal3" path="res://menu/image/istockphoto-1308121289-612x612.jpg" id="2_3ogix"]
-[ext_resource type="Texture2D" uid="uid://6ro3b42bb5wj" path="res://frames/big_demon_idle_anim_f0.png" id="3_ji5bt"]
-[ext_resource type="Texture2D" uid="uid://bidmmdsdaqqvt" path="res://frames/big_demon_idle_anim_f1.png" id="4_6x660"]
-[ext_resource type="Texture2D" uid="uid://bttqgc5ymwqxc" path="res://frames/big_demon_idle_anim_f2.png" id="5_734sn"]
-[ext_resource type="Texture2D" uid="uid://bk3dkxmqgbdea" path="res://frames/big_demon_idle_anim_f3.png" id="6_42gln"]
-[ext_resource type="Script" path="res://menu/AnimatedSprite2D.gd" id="7_7tc4q"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pc5p"]
-bg_color = Color(0.74902, 0.243137, 0.129412, 0.14902)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_itjca"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_6x660")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_734sn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_42gln")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_ji5bt")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://ditp4sf8l66nu" path="res://World/HUD/HUD2.png" id="2_ksemx"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -50,27 +22,21 @@ offset_left = -1.0
 offset_top = 113.0
 offset_right = 358.0
 offset_bottom = 294.0
-texture = ExtResource("2_3ogix")
+texture = ExtResource("2_ksemx")
 expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 188.0
-offset_right = 77.0
-offset_bottom = 323.0
+offset_left = 140.0
+offset_top = 142.0
+offset_right = 216.0
+offset_bottom = 242.0
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Start"
-
-[node name="Instruction" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = "Instruction"
 
 [node name="Options" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
@@ -84,33 +50,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Quit"
 
-[node name="Dungeon King" type="Label" parent="."]
-layout_mode = 0
-offset_left = 248.0
-offset_top = 268.0
-offset_right = 377.0
-offset_bottom = 295.0
-theme_override_colors/font_color = Color(0.188235, 0.992157, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.239216, 0.47451, 0.541176, 1)
-text = "Dungeon King"
-
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 259.0
-offset_top = 187.0
-offset_right = 376.0
-offset_bottom = 265.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_7pc5p")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel"]
-position = Vector2(55.375, 20.5)
-scale = Vector2(2.83594, 1.47222)
-sprite_frames = SubResource("SpriteFrames_itjca")
-frame_progress = 0.783048
-speed_scale = 2.0
-script = ExtResource("7_7tc4q")
-
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Instruction" to="." method="_on_instruction_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
