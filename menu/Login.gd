@@ -39,9 +39,9 @@ func _on_login_btn_button_down():
 		print(session)
 		sessionVar._session = session
 		if("admin" in email):
-			get_tree().change_scene_to_file("res://../menu/Registration.tscn") # Shows registration screen
+			SceneTransition.change_scene("res://../menu/Registration.tscn") # Shows registration screen
 		else:
-			get_tree().change_scene_to_file("res://../World/world.tscn") # Starts the game
+			SceneTransition.change_scene("res://menu/menu.tscn") # Starts the game
 		
 		#testing session user's detail retrieval
 		var account = await client.get_account_async(session)
