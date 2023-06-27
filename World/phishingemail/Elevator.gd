@@ -31,14 +31,14 @@ func save_state():
 			print("SAVED")
 
 func _on_hud_lvlbase():
-	save_state()
+	#save_state()
 	if ResourceLoader.exists("res://Save_States/world_saved.tscn"):
 		SceneTransition.change_scene("res://Save_States/world_saved.tscn")
 	else:
 		SceneTransition.change_scene("res://World/world.tscn")
 
 func _on_hud_lvl_1():
-	save_state()
+	#save_state()
 	if ResourceLoader.exists("res://Save_States/office1_saved.tscn"):
 		SceneTransition.change_scene("res://Save_States/office1_saved.tscn")
 	else:
