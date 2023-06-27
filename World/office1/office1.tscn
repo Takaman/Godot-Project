@@ -6774,7 +6774,7 @@ sources/4 = SubResource("TileSetAtlasSource_s1j5t")
 size = Vector2(16.4324, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_300au"]
-size = Vector2(13.8379, 21.5)
+size = Vector2(15.5676, 36.8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqlug"]
 size = Vector2(17.2973, 29.0765)
@@ -6894,7 +6894,7 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LaptopFolder/Laptop3 - question/Actionable"]
-position = Vector2(-1.08107, -0.75)
+position = Vector2(-0.216232, -7.17058)
 shape = SubResource("RectangleShape2D_300au")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="LaptopFolder/Laptop3 - question"]
@@ -7403,7 +7403,7 @@ position = Vector2(-231, -46)
 position = Vector2(-209, -113)
 
 [node name="Interactable3" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
-position = Vector2(-252, -110)
+position = Vector2(-252, -122)
 
 [node name="Interactable4" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
 position = Vector2(113, 30)

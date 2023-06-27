@@ -85,6 +85,8 @@ func _on_area_2d_area_entered(area):
 
 func _on_hud_correct():
 	state = 1
+	if interactable is Node:
+		interactable.in_progress()
 
 func _on_hud_input_submitted():
 	password = hud.player_input_text
@@ -134,4 +136,5 @@ func _on_hud_input_closed():
 			"policy"
 		)
 		state = 2
-		interactable.queue_free()
+		if interactable is Node:
+			interactable.remove_mark()
