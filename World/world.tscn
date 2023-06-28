@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://u2dp1l6114pk"]
+[gd_scene load_steps=16 format=3 uid="uid://u2dp1l6114pk"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_f75mx"]
 [ext_resource type="PackedScene" uid="uid://c8dwnnlhhn27a" path="res://World/base_map.tscn" id="2_7pm26"]
@@ -6,22 +6,25 @@
 [ext_resource type="PackedScene" uid="uid://bb6shdk0blv6i" path="res://World/HUD/hud.tscn" id="4_r08jp"]
 [ext_resource type="PackedScene" uid="uid://bbbqn3ivnkm3h" path="res://World/Actors/Poster/poster.tscn" id="5_picxq"]
 [ext_resource type="Script" path="res://World/Elevator.gd" id="6_286xa"]
-[ext_resource type="Texture2D" uid="uid://pyl5lndr7kni" path="res://World/office1/images/elevator.png" id="6_yrkks"]
 [ext_resource type="PackedScene" uid="uid://iqn08315hsf" path="res://helpers/actionable.tscn" id="7_vhdfk"]
 [ext_resource type="PackedScene" uid="uid://burm3cumbtarl" path="res://World/Actors/TopicCheck/TopicCheck.tscn" id="8_ssfie"]
 [ext_resource type="Script" path="res://World/Actors/TopicCheck/TopicCheck.gd" id="9_av4dh"]
 [ext_resource type="PackedScene" uid="uid://c5rftkrhv5l1f" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="10_0plad"]
+[ext_resource type="Texture2D" uid="uid://cxo46gpvtucun" path="res://Tilemap builder/Interior/Alex_idle_16x16.png" id="11_0wks2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ttjd6"]
 radius = 16.0
-height = 32.0
+height = 48.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_15wvt"]
-size = Vector2(35.4583, 24.5164)
+size = Vector2(25, 31)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_havpn"]
 radius = 16.0
 height = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvq3y"]
+size = Vector2(16, 25)
 
 [node name="Base_Map" type="Node2D"]
 script = ExtResource("1_f75mx")
@@ -30,7 +33,6 @@ script = ExtResource("1_f75mx")
 
 [node name="Base Map" parent="." instance=ExtResource("2_7pm26")]
 position = Vector2(-40, -16)
-layer_2/tile_data = PackedInt32Array(-65526, 1900547, 24, 10, 1900547, 25, -65525, 1966083, 24, 11, 1966083, 25, -131063, 2228227, 6, -131062, 2293763, 6, -131061, 2293763, 6, -131060, 2359299, 6, -1179637, 1769475, 23, -1179636, 1835011, 23, 196608, 1376259, 19, 196609, 1376259, 19, 196610, 1376259, 19, 196611, 1376259, 19, 196612, 1376259, 19, 196613, 1376259, 19, 196614, 1376259, 19, 196615, 1376259, 19, 196616, 1376259, 19, 196617, 1376259, 19, 196618, 1376259, 19, 196619, 1376259, 19, 196620, 1376259, 19, 196621, 1376259, 19, 196622, 1376259, 19, 196623, 1376259, 19, 196624, 1376259, 19, 196625, 1376259, 19, 196626, 1376259, 19, 196627, 1376259, 19, 196628, 1376259, 19, 196629, 1376259, 19, 196632, 1376259, 19, 196633, 1572867, 19, 131097, 1572867, 18, 65561, 1572867, 18, 65541, 1114115, 15, 65542, 1179651, 15, -65535, 2031619, 10, 1, 2031619, 11, 19, 2031619, 10, 65555, 2031619, 11, 262167, 720899, 22, 327703, 720899, 22, 393239, 720899, 22, 458775, 720899, 22, 524311, 720899, 22, 196630, 1376259, 19, 2, 2031619, 11, 3, 2031619, 11, 4, 2031619, 11, -65534, 2031619, 10, -65533, 2031619, 10, -65532, 2031619, 10)
 
 [node name="Player" parent="." instance=ExtResource("3_3yceo")]
 position = Vector2(24, 24)
@@ -43,38 +45,48 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Poster/Area2D"]
-position = Vector2(24, 8)
+position = Vector2(19, 7)
 shape = SubResource("CapsuleShape2D_ttjd6")
 
 [node name="Elevator" type="Sprite2D" parent="."]
-position = Vector2(136, -16)
-scale = Vector2(1.26316, 1.22)
-texture = ExtResource("6_yrkks")
 script = ExtResource("6_286xa")
 
 [node name="Actionable" parent="Elevator" instance=ExtResource("7_vhdfk")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Elevator/Actionable"]
-position = Vector2(0, 0.0368853)
+position = Vector2(136.5, -15.5)
 shape = SubResource("RectangleShape2D_15wvt")
 
 [node name="TopicCheck" parent="." instance=ExtResource("8_ssfie")]
-position = Vector2(191, -16)
+position = Vector2(208, -64)
 script = ExtResource("9_av4dh")
-metadata/_edit_group_ = true
 
 [node name="Area2D" type="Area2D" parent="TopicCheck"]
 collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopicCheck/Area2D"]
-position = Vector2(58, 19)
+position = Vector2(56, 16)
 shape = SubResource("CapsuleShape2D_havpn")
 
 [node name="Interactable" parent="." instance=ExtResource("10_0plad")]
 position = Vector2(188, -39)
 
+[node name="PosterGuy" type="Sprite2D" parent="."]
+position = Vector2(187, -11)
+texture = ExtResource("11_0wks2")
+hframes = 4
+frame = 1
+
+[node name="Area2D" type="Area2D" parent="PosterGuy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PosterGuy/Area2D"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_qvq3y")
+
+[connection signal="correct" from="HUD" to="Poster" method="_on_hud_correct"]
 [connection signal="lvl1" from="HUD" to="Elevator" method="_on_hud_lvl_1"]
 [connection signal="lvl2" from="HUD" to="Elevator" method="_on_hud_lvl_2"]
+[connection signal="wrong" from="HUD" to="Poster" method="_on_hud_wrong"]
 [connection signal="area_entered" from="Poster/Area2D" to="Poster" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Poster/Area2D" to="Poster" method="_on_area_2d_area_exited"]
