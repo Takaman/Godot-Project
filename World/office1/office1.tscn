@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://ddmwhp02tpc25"]
+[gd_scene load_steps=71 format=3 uid="uid://ddmwhp02tpc25"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_826uy"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_kxpn7"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cg5yrfw0250gu" path="res://World/office1/images/table.png" id="10_wgdyt"]
 [ext_resource type="Script" path="res://World/office1/Laptop5 - question.gd" id="11_tso52"]
 [ext_resource type="Script" path="res://World/office1/Laptop9 - question.gd" id="12_1nc7q"]
+[ext_resource type="Script" path="res://World/office1/Laptop16 - Question.gd" id="13_vcibo"]
 [ext_resource type="Texture2D" uid="uid://bqtsiuw4wf582" path="res://World/Actors/Thumbdrive/part-Slice 81.png" id="14_0xjun"]
 [ext_resource type="Texture2D" uid="uid://bple8jbdjsyhe" path="res://World/office1/images/character/Alex_idle_16x16.png" id="14_ehper"]
 [ext_resource type="Texture2D" uid="uid://66pn3c6a84yu" path="res://World/office1/images/character/Bei.png" id="15_ljdjd"]
@@ -6771,16 +6772,19 @@ sources/3 = SubResource("TileSetAtlasSource_g3dcp")
 sources/4 = SubResource("TileSetAtlasSource_s1j5t")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dbc8l"]
-size = Vector2(16.4324, 22)
+size = Vector2(16.8648, 24.6647)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_300au"]
 size = Vector2(15.5676, 36.8)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqlug"]
-size = Vector2(17.2973, 29.0765)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5q8ao"]
 size = Vector2(11.2432, 19.3353)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1uwjj"]
+size = Vector2(15.5676, 22.7294)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_poc7k"]
+size = Vector2(19.8919, 24.0706)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kfrhh"]
 size = Vector2(27, 20)
@@ -6918,24 +6922,25 @@ shape = SubResource("RectangleShape2D_dbc8l")
 
 [node name="Laptop5 - question" type="Sprite2D" parent="LaptopFolder"]
 z_index = 1
-position = Vector2(-208.75, -92.375)
+position = Vector2(-209, -91)
 scale = Vector2(1.15625, 0.923913)
 texture = ExtResource("9_py07e")
 script = ExtResource("11_tso52")
-metadata/_edit_group_ = true
 
 [node name="Actionable" type="Area2D" parent="LaptopFolder/Laptop5 - question"]
+position = Vector2(15.5676, -18.4)
 collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LaptopFolder/Laptop5 - question/Actionable"]
-position = Vector2(-0.216232, -4.53823)
-shape = SubResource("RectangleShape2D_vqlug")
+position = Vector2(-14.7027, 17.3176)
+shape = SubResource("RectangleShape2D_dbc8l")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="LaptopFolder/Laptop5 - question"]
+position = Vector2(12.1081, -1.08235)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LaptopFolder/Laptop5 - question/StaticBody2D"]
-position = Vector2(-0.216217, 0)
+position = Vector2(-11.2432, 1.08235)
 shape = SubResource("RectangleShape2D_dbc8l")
 
 [node name="Laptop6" type="Sprite2D" parent="LaptopFolder"]
@@ -7077,18 +7082,25 @@ metadata/_edit_group_ = true
 position = Vector2(-0.216217, 0)
 shape = SubResource("RectangleShape2D_dbc8l")
 
-[node name="Laptop16" type="Sprite2D" parent="LaptopFolder"]
+[node name="Laptop16 - Question" type="Sprite2D" parent="LaptopFolder"]
 z_index = 1
-position = Vector2(-186.75, 29.625)
-scale = Vector2(1.15625, 0.923913)
+position = Vector2(-187.125, 30)
+scale = Vector2(1.14063, 0.923913)
 texture = ExtResource("9_py07e")
+script = ExtResource("13_vcibo")
 metadata/_edit_group_ = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="LaptopFolder/Laptop16"]
+[node name="StaticBody2D" type="StaticBody2D" parent="LaptopFolder/Laptop16 - Question"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LaptopFolder/Laptop16/StaticBody2D"]
-position = Vector2(-0.216217, 0)
-shape = SubResource("RectangleShape2D_dbc8l")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaptopFolder/Laptop16 - Question/StaticBody2D"]
+position = Vector2(0, 0.541182)
+shape = SubResource("RectangleShape2D_1uwjj")
+
+[node name="Actionable" parent="LaptopFolder/Laptop16 - Question" instance=ExtResource("16_5ehio")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaptopFolder/Laptop16 - Question/Actionable"]
+position = Vector2(0.432434, -2.03529)
+shape = SubResource("RectangleShape2D_poc7k")
 
 [node name="TableFolder" type="Node2D" parent="."]
 
@@ -7285,7 +7297,7 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_mmvsx")
 
 [node name="Alex10" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(82, 130)
+position = Vector2(82, 131)
 texture = ExtResource("14_ehper")
 metadata/_edit_group_ = true
 
@@ -7400,7 +7412,7 @@ shape = SubResource("CircleShape2D_uy2dx")
 position = Vector2(-231, -46)
 
 [node name="Interactable2" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
-position = Vector2(-209, -113)
+position = Vector2(-209, -123)
 
 [node name="Interactable3" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
 position = Vector2(-252, -122)
@@ -7414,6 +7426,9 @@ position = Vector2(33, -110)
 
 [node name="Interactable6" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
 position = Vector2(-214, 82)
+
+[node name="Interactable7" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
+position = Vector2(-188, 0)
 
 [node name="VendingMachineFolder" type="Node2D" parent="."]
 position = Vector2(-273, -128)
