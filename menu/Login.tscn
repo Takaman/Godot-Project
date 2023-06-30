@@ -74,5 +74,7 @@ offset_right = 221.0
 offset_bottom = 165.0
 text = "Login"
 
+[node name="HTTPRequest" type="HTTPRequest" parent="Control/Login"]
+
 [connection signal="button_down" from="Control/Login/LoginBtn" to="Control/Login" method="_on_login_btn_button_down"]
 [connection signal="button_down" from="Control/Login/LoginBtn" to="Control/Login" method="_on_button_button_down"]
