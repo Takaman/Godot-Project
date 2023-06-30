@@ -85,7 +85,7 @@ func _on_area_2d_area_entered(area):
 
 func _on_hud_correct():
 	state = 1
-	if interactable is Node:
+	if interactable != null and interactable is Node:
 		interactable.in_progress()
 
 func _on_hud_input_submitted():
@@ -138,3 +138,4 @@ func _on_hud_input_closed():
 		state = 2
 		if interactable is Node:
 			interactable.remove_mark()
+			interactable = null

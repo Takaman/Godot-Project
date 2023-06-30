@@ -14,8 +14,8 @@ func interact() -> void:
 				"""
 				There's a note accompanying the QR code attached to the vending machine that claims scanning it will grant you free food from the vending machine
 
-				<?[url=$change:correct]1) I like free food. I am scanning the QR code. [/url]?>
-				<?[url=$nochange:wrong]2) I rather not scan the QR code. I'd rather not take the risk. [/url]?>
+				<?[url=$change:wrong]1) I like free food. I am scanning the QR code. [/url]?>
+				<?[url=$nochange:correct]2) I rather not scan the QR code. I'd rather not take the risk. [/url]?>
 				
 				"""
 			),

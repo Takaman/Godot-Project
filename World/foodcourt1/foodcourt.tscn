@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://ndj2inv5qle0"]
+[gd_scene load_steps=122 format=3 uid="uid://ndj2inv5qle0"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_5nmgp"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_ee5eg"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://dqxn6kt0rjjnj" path="res://World/foodcourt1/images/character/Tom.png" id="13_jjra0"]
 [ext_resource type="Script" path="res://World/foodcourt1/tailgate.gd" id="14_10a4o"]
 [ext_resource type="Texture2D" uid="uid://66pn3c6a84yu" path="res://World/office1/images/character/Bei.png" id="15_is0gt"]
-[ext_resource type="Texture2D" uid="uid://i8trdu4hit8l" path="res://World/office1/images/character/jerry.png" id="16_od8xa"]
 [ext_resource type="Texture2D" uid="uid://dsb4vpraxopp2" path="res://World/foodcourt1/images/objects/gantrymaybe.png" id="17_myfbt"]
 [ext_resource type="Texture2D" uid="uid://btr6qaaem6py2" path="res://World/foodcourt1/images/objects/cookingutilse.png" id="17_qnrjv"]
 [ext_resource type="Texture2D" uid="uid://idqfiy0xttv1" path="res://World/foodcourt1/images/objects/kitchensetutilise.png" id="18_qvjat"]
@@ -55,7 +54,7 @@
 [ext_resource type="Texture2D" uid="uid://bk2syaj5qndm" path="res://World/foodcourt1/images/objects/lamplight.png" id="53_1k03s"]
 [ext_resource type="Script" path="res://World/foodcourt1/sensitiveinformation-dustbin.gd" id="53_vdrp0"]
 [ext_resource type="Texture2D" uid="uid://dsu3j6dcajscd" path="res://World/foodcourt1/images/objects/sofa-facingleft.png" id="54_2o364"]
-[ext_resource type="Texture2D" uid="uid://i8trdu4hit8l" path="res://World/foodcourt1/character/jerry.png" id="54_5v7lc"]
+[ext_resource type="Texture2D" uid="uid://i8trdu4hit8l" path="res://World/office1/images/character/jerry.png" id="54_5v7lc"]
 [ext_resource type="Texture2D" uid="uid://bcyjpa6uwtr1b" path="res://World/foodcourt1/images/objects/woodcabin.png" id="56_ni1vl"]
 [ext_resource type="Texture2D" uid="uid://c4u4n77ppld4r" path="res://World/foodcourt1/images/objects/floortv.png" id="57_2e63c"]
 
@@ -9194,7 +9193,7 @@ shape = SubResource("CircleShape2D_h7axn")
 
 [node name="Jerry" type="Sprite2D" parent="CharacterFolder"]
 position = Vector2(15, 76)
-texture = ExtResource("16_od8xa")
+texture = ExtResource("54_5v7lc")
 metadata/_edit_group_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="CharacterFolder/Jerry"]

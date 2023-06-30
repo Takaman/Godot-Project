@@ -23,8 +23,7 @@ func interact() -> void:
 	
 	dialogue = (
 		"""
-		<~Hello, Mr name here! :-)~>
-		
+		To be put into a leaderboard.
 		Here are your topic completion rates! 
 		In the "Social Engineering' category, you have completed <!%s!>/10 questions  and got <!%s!> correct!
 		In the 'Policy' category, you have completed <!%s!>/10 questions and got <!%s!> correct!
