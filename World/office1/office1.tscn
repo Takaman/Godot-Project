@@ -6867,7 +6867,6 @@ script = ExtResource("6_pybxl")
 [node name="HUD" parent="." instance=ExtResource("33_sh7jl")]
 
 [node name="Player" parent="." instance=ExtResource("7_ncsrh")]
-z_index = 10
 position = Vector2(-99, 161)
 
 [node name="LaptopFolder" type="Node2D" parent="."]

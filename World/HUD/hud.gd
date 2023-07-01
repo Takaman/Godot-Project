@@ -23,6 +23,7 @@ signal input_closed
 signal input_submitted
 signal correct
 signal wrong
+signal partsignaller
 signal lvlbase
 signal lvl1
 signal lvl2
@@ -31,6 +32,7 @@ var dialogue_interaction := ""
 var dialogue_phase := ""
 var is_dialoguesmall_visible := false
 var player_input_text : String = ""
+var part_name : String = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -74,6 +76,7 @@ func _close_panel() -> void:
 
 func _next_panel_part(part: String) -> void:
 	if part == "$end":
+		part_name = ""
 		_close_panel()
 		return
 
@@ -81,7 +84,10 @@ func _next_panel_part(part: String) -> void:
 		push_error("Panel content does not have part '%s'" % part)
 		_close_panel()
 		return
-
+	
+	part_name = part
+	print(part_name)
+	emit_signal("partsignaller")
 	dialogue_big_label.text = dialogue_content[part]
 	dialogue_big_label.visible_characters = 0
 	dialogue_big_timer.start()
