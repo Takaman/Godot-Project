@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://ndj2inv5qle0"]
+[gd_scene load_steps=125 format=3 uid="uid://ndj2inv5qle0"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_5nmgp"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_ee5eg"]
@@ -48,6 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://dkkdleil1a46f" path="res://World/foodcourt1/images/objects/chair-front.png" id="47_btm7y"]
 [ext_resource type="Texture2D" uid="uid://ds45kyxweanaf" path="res://World/foodcourt1/images/objects/chairleft.png" id="48_nhqxu"]
 [ext_resource type="Texture2D" uid="uid://u0cbx52lrl1w" path="res://World/foodcourt1/images/objects/chairright.png" id="49_0egln"]
+[ext_resource type="Script" path="res://World/foodcourt1/sharepassword(question).gd" id="49_lkbyb"]
 [ext_resource type="Texture2D" uid="uid://ewmngwyfib6a" path="res://World/foodcourt1/images/objects/whiteboard.png" id="50_kplsx"]
 [ext_resource type="Texture2D" uid="uid://caky0i7w2m3dl" path="res://World/foodcourt1/images/objects/dustbin.png" id="51_3ca3i"]
 [ext_resource type="Texture2D" uid="uid://bukvhmrx3cjq7" path="res://World/foodcourt1/images/objects/waterecooler.png" id="52_3x13s"]
@@ -8769,6 +8770,9 @@ size = Vector2(38.7936, 48.9412)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g5m3p"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4u4g"]
+size = Vector2(33, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y48px"]
 size = Vector2(28, 23)
 
@@ -8842,7 +8846,7 @@ shape = SubResource("CapsuleShape2D_p36uo")
 
 [node name="Player" parent="." instance=ExtResource("8_kdafc")]
 top_level = true
-position = Vector2(-123, 159)
+position = Vector2(191, 383)
 
 [node name="QuestionmarkFolder" type="Node2D" parent="."]
 
@@ -9942,7 +9946,16 @@ shape = SubResource("CircleShape2D_g5m3p")
 [node name="Whiteboard" type="Sprite2D" parent="DiscussionTableFolder"]
 position = Vector2(256, 405)
 texture = ExtResource("50_kplsx")
+script = ExtResource("49_lkbyb")
 metadata/_edit_group_ = true
+
+[node name="Actionable" type="Area2D" parent="DiscussionTableFolder/Whiteboard"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DiscussionTableFolder/Whiteboard/Actionable"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_q4u4g")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="DiscussionTableFolder/Whiteboard"]
 
