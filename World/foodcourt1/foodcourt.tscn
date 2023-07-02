@@ -8858,6 +8858,10 @@ position = Vector2(-83, 66)
 z_index = 1
 position = Vector2(142, 142)
 
+[node name="Interactable3" parent="QuestionmarkFolder" instance=ExtResource("11_yvexh")]
+z_index = 1
+position = Vector2(254, 391)
+
 [node name="gantryFolder" type="Node2D" parent="."]
 
 [node name="Gantry" type="Sprite2D" parent="gantryFolder"]
