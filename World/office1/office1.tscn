@@ -38,7 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://c5rftkrhv5l1f" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="33_d72if"]
 [ext_resource type="PackedScene" uid="uid://bb6shdk0blv6i" path="res://World/HUD/hud.tscn" id="33_sh7jl"]
 [ext_resource type="PackedScene" uid="uid://d08er855jdoi6" path="res://World/Actors/MessyArea/messy_area.tscn" id="36_3ypd4"]
-[ext_resource type="Script" path="res://World/office1/Elevator.gd" id="38_govki"]
+[ext_resource type="Script" path="res://helpers/elevator.gd" id="39_iy146"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4xy4"]
 texture = ExtResource("1_826uy")
@@ -7757,7 +7757,7 @@ position = Vector2(-99, -230)
 texture = ExtResource("32_l7tb4")
 
 [node name="Elevator" type="Sprite2D" parent="."]
-script = ExtResource("38_govki")
+script = ExtResource("39_iy146")
 
 [node name="Actionable" parent="Elevator" instance=ExtResource("16_5ehio")]
 

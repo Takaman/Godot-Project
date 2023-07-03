@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://ndj2inv5qle0"]
+[gd_scene load_steps=130 format=3 uid="uid://ndj2inv5qle0"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_5nmgp"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_ee5eg"]
@@ -59,7 +59,7 @@
 [ext_resource type="Texture2D" uid="uid://bcyjpa6uwtr1b" path="res://World/foodcourt1/images/objects/woodcabin.png" id="56_ni1vl"]
 [ext_resource type="Texture2D" uid="uid://c4u4n77ppld4r" path="res://World/foodcourt1/images/objects/floortv.png" id="57_2e63c"]
 [ext_resource type="Script" path="res://World/foodcourt1/WhitewallsGantryEnter.gd" id="58_tg0vt"]
-[ext_resource type="Script" path="res://World/foodcourt1/elevatorfoodcourt.gd" id="60_nrw2o"]
+[ext_resource type="Script" path="res://helpers/elevator.gd" id="60_jqtte"]
 [ext_resource type="PackedScene" uid="uid://iqn08315hsf" path="res://helpers/actionable.tscn" id="61_pau16"]
 [ext_resource type="PackedScene" uid="uid://burm3cumbtarl" path="res://World/Actors/TopicCheck/TopicCheck.tscn" id="62_7iobq"]
 [ext_resource type="Script" path="res://World/Actors/TopicCheck/TopicCheck.gd" id="63_07uvh"]
@@ -8669,10 +8669,6 @@ pattern_4 = SubResource("TileMapPattern_8n2yd")
 pattern_5 = SubResource("TileMapPattern_ntvpi")
 pattern_6 = SubResource("TileMapPattern_10l8n")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p36uo"]
-radius = 24.0
-height = 48.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_640wi"]
 size = Vector2(36.1667, 13)
 
@@ -8848,12 +8844,6 @@ layer_2/tile_data = PackedInt32Array()
 script = ExtResource("6_cwf0r")
 
 [node name="HUD" parent="." instance=ExtResource("7_o8174")]
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-94, 177)
-shape = SubResource("CapsuleShape2D_p36uo")
 
 [node name="Player" parent="." instance=ExtResource("8_kdafc")]
 top_level = true
@@ -10425,7 +10415,7 @@ position = Vector2(14, 0)
 [node name="Timer" type="Timer" parent="WhitewallsGantryEnter"]
 
 [node name="Elevator" type="Sprite2D" parent="."]
-script = ExtResource("60_nrw2o")
+script = ExtResource("60_jqtte")
 
 [node name="Actionable" parent="Elevator" instance=ExtResource("61_pau16")]
 
@@ -10450,8 +10440,6 @@ shape = SubResource("CapsuleShape2D_6g7w8")
 [connection signal="partsignaller" from="HUD" to="GantryEnter" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="GantryExit" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="WhitewallsGantryEnter" method="_on_hud_partsignaller"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="GantryEnter/Timer" to="GantryEnter" method="_on_timer_timeout"]
 [connection signal="timeout" from="GantryExit/Timer" to="GantryExit" method="_on_timer_timeout"]
 [connection signal="timeout" from="WhitewallsGantryEnter/Timer" to="WhitewallsGantryEnter" method="_on_timer_timeout"]
