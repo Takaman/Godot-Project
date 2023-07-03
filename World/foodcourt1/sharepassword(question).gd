@@ -2,10 +2,12 @@ extends Sprite2D
 
 
 @onready var hud := $"/root/FoodCourt/HUD"
+@onready var interactable := $"/root/FoodCourt/QuestionmarkFolder/Interactablewhiteboard"
+
 func interact() -> void:
 	print("interaction started")
 	hud.show_dialog(
-		"sensitiveinformation",
+		"sharepassword",
 		{
 			"$begin":
 			Utils.dialog_part(
@@ -35,10 +37,14 @@ It's important to prioritize data protection by removing the password from the w
 				"""
 				),
 		},
-		"training"
+		"policy"
 	)
 	
 func _on_area_2d_area_entered(area):
 	print("interactable!")
 	if area.is_in_group("Player"):
 		interact()
+
+
+func _physics_process(delta: float) -> void:
+	interactable.visible  = !Score.has_interacted("sharepassword","policy")
