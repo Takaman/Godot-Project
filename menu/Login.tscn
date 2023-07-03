@@ -27,8 +27,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2mvoa")
 
-[node name="HTTPRequest" type="HTTPRequest" parent="Control/Login"]
-
 [node name="EmailLbl" type="RichTextLabel" parent="Control/Login"]
 layout_mode = 0
 offset_left = 21.0
