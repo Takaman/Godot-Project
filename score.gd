@@ -52,7 +52,7 @@ func new_interaction(interaction: String, result: String, phase: String) -> void
 		"points": previous["points"] + new_points,  # Update points with new points for this attempt
 		"has_correct": previous["has_correct"] or result == "correct"  # Update whether the player has gotten this interaction correct before
 		}
-		send_interactions_to_server(_interactions)
+		#send_interactions_to_server(_interactions)
 
 		
 	#Initialize the phase in _has_interacted 
@@ -89,8 +89,20 @@ func has_interacted(interaction: String, phase: String) -> bool:
 	else:
 		return false
 
-#Check if interaction is correct
-func is_correct(interaction: String, phase: String) -> bool:
+#Check the result of interaction
+func get_result(interaction: String, phase: String) -> int:
+	if _interactions[phase].has(interaction) and _interactions[phase][interaction]["result"] == "correct":
+		#returns 1 if interaction is correct
+		return 1
+	elif _interactions[phase].has(interaction) and _interactions[phase][interaction]["result"] == "wrong":
+		#returns 2 if interaction is wrong
+		return 2
+	else:
+		#returns 0 if interaction is not completed
+		return 0
+
+#Check if player has reached the correct label for interaction
+func get_has_correct(interaction: String, phase: String) -> bool:
 	if _interactions[phase].has(interaction) and _interactions[phase][interaction]["has_correct"] == true:
 		return true
 	else:

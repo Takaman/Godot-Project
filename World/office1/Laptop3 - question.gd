@@ -17,7 +17,7 @@ func interact() -> void:
 					What? Our company is implementing a new password policy? Well, I think my current password [i]hunter2[/i] is really strong.
 					
 					<?[url=$change][right]I think you need a new password.[/right][/url]?>
-					<?[url=$nochange][right]That password is pretty strong.[/right][/url]?>
+					<?[url=$nochange:wrong][right]That password is pretty strong.[/right][/url]?>
 					<?[url=$end][right]I see.[/right][/url]?>
 					"""
 				),
@@ -142,5 +142,7 @@ func _on_hud_input_closed():
 			interactable = null
 
 func _physics_process(delta: float) -> void:
-	if interactable != null and interactable is Node:
-		interactable.visible  = !Score.is_correct("laptop3","policy")
+	if Score.get_has_correct("laptop3","policy") == true:
+		state = 2
+		if interactable != null and interactable is Node:
+			interactable.visible = false
