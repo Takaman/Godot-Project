@@ -44,5 +44,4 @@ func _on_area_2d_area_entered(area):
 
 func _physics_process(delta: float) -> void:
 	if interactable!= null and interactable is Node:
-		interactable.visible  = !Score.has_interacted("laptop5","policy")
-	
+		interactable.visible  = !Score.get_has_correct("laptop5","policy")
