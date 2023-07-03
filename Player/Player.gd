@@ -16,7 +16,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity");
 @onready var animationPlayer = get_node("AnimatedSprite2D")
 @onready var actionable_finder: Area2D = $Direction/ActionableFinder
 @onready var ontouch_finder: Area2D = $Direction/OnTouchFinder
-var dialoguecheck: bool = false
+@onready var dialoguecheck: bool = false
+@onready var inputcheck: bool = false
 var input_vector: Vector2 = Vector2.ZERO
 
 #Called when its started in the scene for the first time
@@ -24,7 +25,10 @@ func _ready():
 	add_to_group("Player") 
 	var hud = get_tree().get_nodes_in_group("HUD_Group")
 	
+	hud[0].connect("dialogue_opened", Callable(self,"_on_dialogue_opened"))
 	hud[0].connect("dialogue_closed", Callable(self,"_on_dialogue_closed"))
+	hud[0].connect("input_opened", Callable(self,"_on_input_opened"))
+	hud[0].connect("input_closed", Callable(self,"_on_input_closed"))
 	
 	if not Global.is_player_frozen:
 		dialoguecheck = false
@@ -68,7 +72,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 	
 
 func _physics_process(delta) -> void:
-	if dialoguecheck == false:
+	if dialoguecheck == false and inputcheck == false:
 		#Getting the input direction and handle movement and acceleration
 		#Normalising means speed will be the same with two keys pressed when compared to one key
 		velocity.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -98,9 +102,20 @@ func _physics_process(delta) -> void:
 		#Moving and sliding the character
 		move_and_slide()
 
+func _on_dialogue_opened():
+	dialoguecheck = true
+	Global.is_player_frozen = true
+
 func _on_dialogue_closed():
 	dialoguecheck = false
 	Global.is_player_frozen = false
+
+func _on_input_closed():
+	inputcheck = false
+
+func _on_input_opened():
+	print("on_input_opened")
+	inputcheck = true
 
 func _on_area_2d_body_entered(body):
 	pass # Replace with function body.
