@@ -1,41 +1,62 @@
 extends Sprite2D
 
 @onready var hud := $"/root/FoodCourt/HUD"
+@onready var interactable := $"/root/FoodCourt/GantryExit/Interactable4"
 
+func _ready():
+	interactable.exclamation_mark()
+	pass
+	
 func interact() -> void:
 	print("interaction started")
-	queue_free()
 	hud.show_dialog(
 		"gantryexit",
 		{
 			"$begin":
 				Utils.dialog_part(
 					"""
-					Please scan your access card to enter the facility. 
-					<?[url=$enter]1) Sure [/url]?>
-					<?[url=$noenter]2) Okay [/url]?>
+					Please scan your access card to exit the facility. 
+					<?[url=$exit:signaller1]Scan[/url]?>
+					<?[url=$noexit:signaller2]Don't scan[/url]?>
 					"""
 				),
-			"$enter":
+			"$exit":
 				Utils.dialog_part(
 					"""
-					You have entered the room.
-					<?[url=$end]EXIT[/url]?>
+					The gantry has opened.
+					<?[url=$end]Exit[/url]?>
 					"""
 				),
-			"$noenter":
+			"$noexit":
 				Utils.dialog_part(
 					"""
-					You have entered the room.
-					<?[url=$end]EXIT[/url]?>
+					The gantry has not opened.
+					<?[url=$end]Exit[/url]?>
 					"""
 				),
 			"$end":
-				Utils.dialog_part("Thank you for your response!")
+				Utils.dialog_part("You can now exit the facility.")
 		},
 		"training"
 	)
 
-func _on_dialogue_closed(option_chosen: String) -> void:
-	if option_chosen == "$enter":
-		queue_free()  # Remove the object when the player chooses to enter
+func _on_hud_partsignaller():
+	if hud.part_name == "$exit":
+		open_gantry()
+		var timer = get_node("/root/FoodCourt/GantryExit/Timer")
+		timer.timeout.connect(_on_timer_timeout)
+		timer.start(5)
+		
+func open_gantry():
+	if interactable != null and interactable is Node:
+		interactable.remove_mark()
+	self.visible = false
+	get_node("/root/FoodCourt/GantryExit/StaticBody2D/CollisionShape2D").set_deferred("disabled", true)
+
+func _on_timer_timeout():
+	print("TIEMR")
+	self.visible = true
+	get_node("/root/FoodCourt/GantryExit/StaticBody2D/CollisionShape2D").set_deferred("disabled", false)
+
+
+

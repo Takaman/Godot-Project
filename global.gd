@@ -1,5 +1,6 @@
 extends Node
 
+@onready var scene = PackedScene.new()
 var current_scene = "world"
 var transition_scene = false 
 var is_player_frozen = true
@@ -19,3 +20,15 @@ func finish_changescenes():
 		else:
 			current_scene = "world"
 
+func save_state(tscn_name : String, save_name : String) -> bool:
+	var result = scene.pack(get_node("/root/" + tscn_name))
+	if result == OK:
+		var error = ResourceSaver.save(scene, "res://Save_States/" + save_name +  ".tscn")
+		if error != OK:
+			push_error("An error occurred while saving the scene to disk.")
+			return false
+		else:
+			print("SAVED")
+			return true
+	else:
+		return false
