@@ -137,7 +137,7 @@ func interact() -> void:
 					Utils.dialog_part(
 						"""
 						[b]John[/b]
-						What did they tell you? I should change my password and run an antivirus scan?
+						What did they tell you? I should [b]change my password[/b] and [b]run an antivirus scan[/b]?
 						
 						<?[url=$next][right]Thankfully we reported it quickly.[/right][/url]?>
 						"""

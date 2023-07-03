@@ -6,13 +6,13 @@ extends Sprite2D
 signal john_next
 
 func _ready():
-	if marker is Node:
+	if marker != null and marker is Node:
 		marker.toggle_visibility(false)
 	pass
 
 func _on_john_it_guy():
 	state = 1
-	if marker is Node:
+	if marker != null and marker is Node:
 		marker.toggle_visibility(true)
 
 func interact() -> void:
@@ -69,5 +69,5 @@ func interact() -> void:
 			"training"
 		)
 		emit_signal("john_next")
-		if marker is Node:
+		if marker != null and marker is Node:
 			marker.remove_mark()
