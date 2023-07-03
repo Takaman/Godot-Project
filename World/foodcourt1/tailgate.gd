@@ -2,6 +2,7 @@ extends Sprite2D
 
 
 @onready var hud := $"/root/FoodCourt/HUD"
+@onready var interactable := $"/root/FoodCourt/QuestionmarkFolder/Interactabletailgateperson"
 func interact() -> void:
 	print("interaction started")
 	hud.show_dialog(
@@ -32,10 +33,13 @@ That's risky. Allowing someone to tailgate can have severe consequences, such as
 				"""
 				),
 		},
-		"training"
+		"socialengineering"
 	)
 	
 func _on_area_2d_area_entered(area):
 	print("interactable!")
 	if area.is_in_group("Player"):
 		interact()
+		
+func _physics_process(delta: float) -> void:
+	interactable.visible  = !Score.has_interacted("tailgate","socialengineering")

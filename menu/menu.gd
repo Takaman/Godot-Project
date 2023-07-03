@@ -5,7 +5,7 @@ extends Control
 func _ready():
 	var username = sessionVar._session
 	print("SHOWING MENU")
-	print(username)#test for session logged in 
+	print(username.get("username"))#test for session logged in 
 
 func _on_start_pressed():
 	SceneTransition.change_scene("res://menu/instruction.tscn")

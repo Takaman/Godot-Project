@@ -30,11 +30,11 @@ func interact() -> void:
 					
 					[center][img=50x50]res://World/Actors/Poster/frame.png[/img][/center]
 					
-					<?[url=$correct:correct][right]This looks a little strange...[/right][/url]?>
-					<?[url=$end:wrong][right]Wow, I can win a free drink? Let's give it a go.[/right][/url]?>
+					<?[url=$noscan:correct][right]This looks a little strange...[/right][/url]?>
+					<?[url=$scan:wrong][right]Wow, I can win a free drink? Let's give it a go.[/right][/url]?>
 					"""
 				),
-				"$correct":
+				"$noscan":
 				Utils.dialog_part(
 					"""
 					[b]Poster Guy[/b]
@@ -42,7 +42,15 @@ func interact() -> void:
 					
 					<?[url=$end][right]I don't think that scanning that QR code is a good idea...[/right][/url]?>
 					"""
+				),
+				"$scan":
+					Utils.dialog_part(
+					"""
+					[b]Poster Guy[/b]
+					Let's scan it together!
 					
+					<?[url=$end][right]Scan QR code[/right][/url]?>
+					"""
 				)
 			},
 			"socialengineering"
@@ -58,7 +66,7 @@ func interact() -> void:
 					[b]Poster Guy[/b]
 					What's going on? My phone keeps saying that the app I downloaded is a virus! Did the poster trick me?
 					
-					<?[url=$next][right]I guess you can't trust random QR codes.[/right][/url]?>
+					<?[url=$next:correct][right]I guess you can't trust random QR codes.[/right][/url]?>
 					"""
 				),
 				"$next":
@@ -74,7 +82,7 @@ func interact() -> void:
 			"socialengineering"
 		)
 		state = 3
-		if interactable is Node:
+		if interactable!= null and interactable is Node:
 			interactable.remove_mark()
 	elif state == 2:
 		hud.show_dialog(
@@ -94,7 +102,7 @@ func interact() -> void:
 					[b]Poster Guy[/b]
 					What's going on? I can't use my phone anymore!
 					
-					<?[url=$next2][right]We downloaded a ransomware. We can only pay the ransom or reset our phones and delete our data...[/right][/url]?>
+					<?[url=$next2:wrong][right]We downloaded a ransomware. We can only pay the ransom or reset our phones and delete our data...[/right][/url]?>
 					"""
 				),
 				"$next2":
@@ -110,7 +118,7 @@ func interact() -> void:
 			"socialengineering"
 		)
 		state = 4
-		if interactable is Node:
+		if interactable!= null and interactable is Node:
 			interactable.remove_mark()
 	elif state == 3:
 		hud.show_dialog(
@@ -145,20 +153,21 @@ func interact() -> void:
 			"socialengineering"
 		)
 
-
 func _on_area_2d_area_entered(area):
 	print("interactable!")
 	if area.is_in_group("Player"):
 		interact()
 
+func _on_hud_partsignaller():
+	if hud.part_name == "$scan":
+		state = 2
+		if interactable!= null and interactable is Node:
+			interactable.in_progress()
+	elif hud.part_name == "$noscan":
+		state = 1
+		if interactable!= null and interactable is Node:
+			interactable.in_progress()
 
-func _on_hud_correct():
-	state = 1
-	if interactable is Node:
-		interactable.in_progress()
-
-
-func _on_hud_wrong():
-	state = 2
-	if interactable is Node:
-		interactable.in_progress()
+func _physics_process(delta: float) -> void:
+	if interactable!= null and interactable is Node:
+		interactable.visible  = !Score.has_interacted("poster1","socialengineering")

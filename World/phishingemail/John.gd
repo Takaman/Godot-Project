@@ -5,17 +5,17 @@ extends Sprite2D
 @onready var state = -1
 signal IT_Guy
 
-func _on_hud_correct():
-	if state == 0:
-		state = 1
-		if marker is Node:
+func _on_hud_partsignaller():
+	if hud.part_name == "$noclick":
+		if state == 0:
+			state = 1
+		if marker != null and marker is Node:
 			marker.remove_mark()
-
-func _on_hud_wrong():
-	if state == 0:
-		state = 2
-		if marker is Node:
-			marker.in_progress()
+	elif hud.part_name == "$click":
+		if state == 0:
+			state = 2
+		if marker != null and marker is Node:
+			marker.in_prog()
 
 func _on_it_guy_john_next():
 	state = 4
@@ -25,7 +25,7 @@ func interact() -> void:
 	if state == -1:
 		state = 0
 		hud.show_dialog(
-			"John",
+			"email",
 			{
 				"$begin":
 				Utils.dialog_part(
@@ -35,12 +35,12 @@ func interact() -> void:
 					
 					[center][img=240x200]res://World/phishingemail/Images/email1.png[/img][/center]
 					
-					<?[url=$correct:correct][right]Have you checked with the IT department?[/right][/url]?>
-					<?[url=$wrong:wrong][right]There's not much time left! You'd better change your password now.[/right][/url]?>
+					<?[url=$noclick:correct][right]Have you checked with the IT department?[/right][/url]?>
+					<?[url=$click][right]There's not much time left! You'd better change your password now.[/right][/url]?>
 					<?[url=$end][right]Give me some time to think about it.[/right][/url]?>
 					"""
 					),
-				"$correct":
+				"$noclick":
 					Utils.dialog_part(
 					"""
 					[b]John[/b]
@@ -49,7 +49,7 @@ func interact() -> void:
 					<?[url=$end][right]No problem, better safe than sorry.[/right][/url]?>
 					"""
 					),
-				"$wrong":
+				"$click":
 					Utils.dialog_part(
 						"""
 						[b]John[/b]
@@ -63,7 +63,7 @@ func interact() -> void:
 		)
 	elif state == 1:
 		hud.show_dialog(
-			"John",
+			"email",
 			{
 				"$begin":
 					Utils.dialog_part(
@@ -75,11 +75,11 @@ func interact() -> void:
 						"""
 					)
 			},
-			"training"
+			"socialengineering"
 		)
 	elif state == 2:
 		hud.show_dialog(
-			"John",
+			"email",
 			{
 				"$begin":
 					Utils.dialog_part(
@@ -109,13 +109,13 @@ func interact() -> void:
 						"""
 					)
 			},
-			"training"
+			"socialengineering"
 		)
 		state = 3
 		emit_signal("IT_Guy")
 	elif state == 3:
 		hud.show_dialog(
-			"John",
+			"email",
 			{
 				"$begin":
 					Utils.dialog_part(
@@ -126,11 +126,12 @@ func interact() -> void:
 						<?[url=$end][right]OK.[/right][/url]?>
 						"""
 					)
-			}
+			},
+			"socialengineering"
 		)
 	elif state == 4:
 		hud.show_dialog(
-			"John",
+			"email",
 			{
 				"$begin":
 					Utils.dialog_part(
@@ -147,18 +148,18 @@ func interact() -> void:
 						[b]John[/b]
 						No kidding... Falling for a phishing email is really scary. I should have paid more attention to the [b]posters at the back of the office[/b]...
 						
-						<?[url=$end][right]Posters? Maybe I should check them out myself.[/right][/url]?>
+						<?[url=$end:correct][right]Posters? Maybe I should check them out myself.[/right][/url]?>
 						"""
 					)
 			},
-			"training"
+			"socialengineering"
 		)
-		if marker is Node:
+		if marker != null and marker is Node:
 			marker.remove_mark()
 		state == 5
 	elif state == 5:
 		hud.show_dialog(
-			"John",
+			"email",
 			{
 				"$begin":
 					Utils.dialog_part(
@@ -170,10 +171,16 @@ func interact() -> void:
 						"""
 					)
 			},
-			"training"
+			"socialengineering"
 		)
 
 func _on_area_2d_area_entered(area):
 	print("interactable!")
 	if area.is_in_group("Player"):
 		interact()
+
+func _physics_process(delta: float) -> void:
+	if marker != null and marker is Node:
+		marker.visible  = !Score.has_interacted("email","socialengineering")
+	if Score.has_interacted("email","socialengineering"):
+		state == 1
