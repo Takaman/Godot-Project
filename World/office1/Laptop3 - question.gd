@@ -143,4 +143,4 @@ func _on_hud_input_closed():
 
 func _physics_process(delta: float) -> void:
 	if interactable != null and interactable is Node:
-		interactable.visible  = !Score.has_interacted("laptop3","policy")
+		interactable.visible  = !Score.is_correct("laptop3","policy")

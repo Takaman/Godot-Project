@@ -24,7 +24,7 @@ var _has_interacted := {}
 func new_interaction(interaction: String, result: String, phase: String) -> void:
 	
 	
-	print("Updating score: interaction =", interaction, "result =", result, "phase =", phase)
+	print("Updating score: interaction =", interaction, " result =", result, " phase =", phase)
 	if not _interactions.has(phase) or typeof(_interactions[phase]) != TYPE_DICTIONARY:
 		_interactions[phase] = {}
 		
@@ -88,7 +88,14 @@ func has_interacted(interaction: String, phase: String) -> bool:
 		return _has_interacted[phase][interaction]
 	else:
 		return false
-	
+
+#Check if interaction is correct
+func is_correct(interaction: String, phase: String) -> bool:
+	if _interactions[phase].has(interaction) and _interactions[phase][interaction]["has_correct"] == true:
+		return true
+	else:
+		return false
+
 func get_training_scores(type) -> Dictionary:
 	var scores = {"correct": 0, "wrong": 0}
 	
