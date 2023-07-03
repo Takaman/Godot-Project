@@ -114,18 +114,31 @@ def ep_update_score():
     print("---Updating Database----")
     conn = sqlite3.connect(database)
     cursor = conn.cursor()
-    try:
-        cursor.execute("UPDATE PlayerProgress SET points = ? , comp_rate = ?, last_played = DateTime('now', 'localtime'), se_completed = ?, se_correct = ?, policy_correct = ?, policy_completed = ?, breakdown = ? WHERE username = ?", (score,comp_rate, se_completed, se_correct, policy_correct, policy_completed, breakdown, email))
-        conn.commit()
     
-    except sqlite3.Error as er:
-        print('SQLite error: %s' % (' '.join(er.args)))
-        print("Exception class is: ", er.__class__)
-        print('SQLite traceback: ')
-        exc_type, exc_value, exc_tb = sys.exc_info()
-        print(traceback.format_exception(exc_type, exc_value, exc_tb))
+    cursor.execute("UPDATE PlayerProgress SET points = ? , comp_rate = ?, last_played = DateTime('now', 'localtime'), se_completed = ?, se_correct = ?, policy_correct = ?, policy_completed = ?, breakdown = ? WHERE username = ?", (score,comp_rate, se_completed, se_correct, policy_correct, policy_completed, breakdown, email))
+    conn.commit()
     conn.close()
     return data #TODO change to a success or sth
+
+# Update of score
+@app.route('/get_Progress', methods=['POST'])
+def ep_get_Progress():
+    # JSON input parameters:
+        # Email
+    # Recieve JSON request
+    data = json.loads(request.data)
+    print("RECIEVED JSON REQUEST: ")
+    email = data.get("email")
+    print("Email: " + email)
+
+    print("---Retrieving Player Progress----")
+    conn = sqlite3.connect(database)
+    cursor = conn.cursor()
+    
+    cursor.execute("SELECT breakdown FROM PlayerProgress WHERE username = ?",(email,))
+    score = cursor.fetchall()
+    conn.close()
+    return score #TODO change to a success or sth
 
 # Retrieve leaderboard for users based on company
 @app.route('/get_Leader_Player', methods=['POST'])

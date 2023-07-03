@@ -29,6 +29,10 @@ curl -X POST http://127.0.0.1:5000/get_Leader_Player -H 'Content-Type: applicati
     "company":"Great Eastern"
     }'
 
+curl -X POST http://127.0.0.1:5000/get_Leader_Player -H 'Content-Type: application/json' -d '{
+    "email":"teo259@gmail.com"
+    }'
+
 curl -X POST http://127.0.0.1:5000/send_Mail -H 'Content-Type: application/json' -d '{
 
     "email":"teo259@gmail.com",
