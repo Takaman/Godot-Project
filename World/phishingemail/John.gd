@@ -15,7 +15,7 @@ func _on_hud_partsignaller():
 		if state == 0:
 			state = 2
 		if marker != null and marker is Node:
-			marker.in_prog()
+			marker.in_progress()
 
 func _on_it_guy_john_next():
 	state = 4
@@ -35,8 +35,8 @@ func interact() -> void:
 					
 					[center][img=240x200]res://World/phishingemail/Images/email1.png[/img][/center]
 					
-					<?[url=$noclick:correct][right]Have you checked with the IT department?[/right][/url]?>
 					<?[url=$click][right]There's not much time left! You'd better change your password now.[/right][/url]?>
+					<?[url=$noclick:correct][right]Have you checked with the IT department?[/right][/url]?>
 					<?[url=$end][right]Give me some time to think about it.[/right][/url]?>
 					"""
 					),
@@ -137,7 +137,7 @@ func interact() -> void:
 					Utils.dialog_part(
 						"""
 						[b]John[/b]
-						What did they tell you? I should change my password and run an antivirus scan?
+						What did they tell you? I should [b]change my password[/b] and [b]run an antivirus scan[/b]?
 						
 						<?[url=$next][right]Thankfully we reported it quickly.[/right][/url]?>
 						"""
@@ -148,7 +148,7 @@ func interact() -> void:
 						[b]John[/b]
 						No kidding... Falling for a phishing email is really scary. I should have paid more attention to the [b]posters at the back of the office[/b]...
 						
-						<?[url=$end:correct][right]Posters? Maybe I should check them out myself.[/right][/url]?>
+						<?[url=$end:wrong][right]Posters? Maybe I should check them out myself.[/right][/url]?>
 						"""
 					)
 			},
@@ -180,7 +180,10 @@ func _on_area_2d_area_entered(area):
 		interact()
 
 func _physics_process(delta: float) -> void:
-	if marker != null and marker is Node:
-		marker.visible  = !Score.has_interacted("email","socialengineering")
-	if Score.has_interacted("email","socialengineering"):
+	if Score.get_result("email","socialengineering") != 0:
+		if marker != null and marker is Node:
+				marker.visible = false
+	if Score.get_result("email","socialengineering") == 1:
 		state == 1
+	elif Score.get_result("email","socialengineering") == 2:
+		state == 5

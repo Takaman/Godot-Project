@@ -8,7 +8,7 @@ func _ready():
 	pass
 
 func interact() -> void:
-	if marker is Node:
+	if marker != null and marker is Node:
 		marker.remove_mark()
 	print("interaction started")
 	hud.show_dialog(
@@ -21,7 +21,6 @@ func interact() -> void:
 				Theres been a lot of phishing attacks nowadays, we all need to stay vigilant.
 				
 				<?[url=$more][right]Can you tell me more about phishing?[/right][/url]?>
-				<?[url=$end][right]I see, thanks for the warning.[/right][/url]?>
 				"""
 			),
 			"$more":
@@ -30,7 +29,7 @@ func interact() -> void:
 				[b]Sam[/b]
 				Sure. Someone pretends to be a person you trust to trick you into revealing information or downloading a virus.
 				
-				<?[url=$end][right]I see, thanks for the warning.[/right][/url]?>
+				<?[url=$end:correct][right]I see, thanks for the warning.[/right][/url]?>
 				"""
 				),
 		},
@@ -68,3 +67,8 @@ func _on_area_2d_area_entered(area):
 	print("interactable!")
 	if area.is_in_group("Player"):
 		interact()
+
+func _physics_process(delta: float) -> void:
+	if Score.get_has_correct("Sam","training") == true:
+		if marker != null and marker is Node:
+				marker.visible = false

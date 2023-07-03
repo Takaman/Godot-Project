@@ -1,7 +1,11 @@
 extends Node
 
+@onready var sessionVar = get_node("/root/SeshVar")
+const api_svr = "http://127.0.0.1:5000"
+
 const TOTAL_SCORE = 200
 const FIRST_ATTEMPT_POINTS = 10 #Points for the first attempt
+
 
 #_interactions Dictionary storing all interactions by their categories
 #E.g socialengineering: {laptop1:wrong, laptop2:correct} etc 
@@ -18,7 +22,9 @@ var _interactions := {
 var _has_interacted := {}
 
 func new_interaction(interaction: String, result: String, phase: String) -> void:
-	print("Updating score: interaction =", interaction, "result =", result, "phase =", phase)
+	
+	
+	print("Updating score: interaction =", interaction, " result =", result, " phase =", phase)
 	if not _interactions.has(phase) or typeof(_interactions[phase]) != TYPE_DICTIONARY:
 		_interactions[phase] = {}
 		
@@ -46,6 +52,8 @@ func new_interaction(interaction: String, result: String, phase: String) -> void
 		"points": previous["points"] + new_points,  # Update points with new points for this attempt
 		"has_correct": previous["has_correct"] or result == "correct"  # Update whether the player has gotten this interaction correct before
 		}
+		#send_interactions_to_server(_interactions)
+
 		
 	#Initialize the phase in _has_interacted 
 	if not _has_interacted.has(phase) or typeof(_has_interacted[phase]) != TYPE_DICTIONARY:
@@ -58,6 +66,7 @@ func new_interaction(interaction: String, result: String, phase: String) -> void
 		
 		
 	print("Current scores: ", _interactions)
+	print("Has interacted: ", _has_interacted)
 
 func get_interaction_result(interaction: String, phase: String) -> String:
 	if _interactions.has(phase) and _interactions[phase].has(interaction):
@@ -79,7 +88,26 @@ func has_interacted(interaction: String, phase: String) -> bool:
 		return _has_interacted[phase][interaction]
 	else:
 		return false
-	
+
+#Check the result of interaction
+func get_result(interaction: String, phase: String) -> int:
+	if _interactions[phase].has(interaction) and _interactions[phase][interaction]["result"] == "correct":
+		#returns 1 if interaction is correct
+		return 1
+	elif _interactions[phase].has(interaction) and _interactions[phase][interaction]["result"] == "wrong":
+		#returns 2 if interaction is wrong
+		return 2
+	else:
+		#returns 0 if interaction is not completed
+		return 0
+
+#Check if player has reached the correct label for interaction
+func get_has_correct(interaction: String, phase: String) -> bool:
+	if _interactions[phase].has(interaction) and _interactions[phase][interaction]["has_correct"] == true:
+		return true
+	else:
+		return false
+
 func get_training_scores(type) -> Dictionary:
 	var scores = {"correct": 0, "wrong": 0}
 	
@@ -105,3 +133,40 @@ func get_total_points() -> float:
 		for interaction in _interactions[phase]:
 			total_points += _interactions[phase][interaction]["points"]
 	return total_points
+
+#To be completed 
+func send_interactions_to_server(breakdown: Dictionary):
+
+	var username = sessionVar._session.get("username")
+
+	var url = api_svr + "/update_Score"
+	var headers = ["Content-Type: application/json"]
+	
+	var policy_scores = Score.get_training_scores("policy")
+	var socialeng_scores = Score.get_training_scores("socialengineering")
+	
+	var socialengineering_completed = socialeng_scores["correct"] + socialeng_scores["wrong"]
+	var socialengineering_correct = socialeng_scores["correct"]
+	
+	var policy_completed = policy_scores["correct"] + policy_scores["wrong"]
+	var policy_correct = policy_scores["correct"]
+	
+	var comp_rate = (policy_completed + socialengineering_completed)/ 20.0 * 100
+	print("COMPLETION RATE:")
+	print(comp_rate)
+	var breakdownJSON = JSON.stringify(breakdown)	
+	var data_to_send = {"email":username, "score":get_total_points(), "comp_rate": comp_rate, "se_correct": socialengineering_correct,"se_completed":socialengineering_completed, "policy_correct":policy_correct,"policy_completed":policy_completed,"breakdown":breakdownJSON  }
+	var jsonPayload = JSON.stringify(data_to_send)
+	print("DATA TO SEND:")
+	print(data_to_send)
+	print("data_to_send")
+	var http_request = HTTPRequest.new() 
+	self.add_child(http_request)
+	http_request.connect("request_completed", Callable(self, "_on_request_completed"))
+	http_request.request(url,headers,HTTPClient.METHOD_POST, jsonPayload)
+
+func _on_request_completed(result, response_code, headers, body):
+	if response_code == 200:
+		print("Data sent successfully")
+	else:
+		print("An error occurred when trying to send data to server: ", response_code)
