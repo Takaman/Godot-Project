@@ -3526,9 +3526,7 @@ script = ExtResource("17_nafkr")
 position = Vector2(-95.8796, 167.814)
 shape = SubResource("RectangleShape2D_uj7iy")
 
-[connection signal="correct" from="HUD" to="John" method="_on_hud_correct"]
-[connection signal="lvl1" from="HUD" to="Elevator" method="_on_hud_lvl_1"]
-[connection signal="lvlbase" from="HUD" to="Elevator" method="_on_hud_lvlbase"]
-[connection signal="wrong" from="HUD" to="John" method="_on_hud_wrong"]
+[connection signal="partsignaller" from="HUD" to="John" method="_on_hud_partsignaller"]
+[connection signal="partsignaller" from="HUD" to="Elevator" method="_on_hud_partsignaller"]
 [connection signal="IT_Guy" from="John" to="ITGuy" method="_on_john_it_guy"]
 [connection signal="john_next" from="ITGuy" to="John" method="_on_it_guy_john_next"]

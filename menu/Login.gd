@@ -38,6 +38,8 @@ func _on_login_btn_button_down():
 		print("::::::::::::::USER AUTHENTICATED::::::::::::::")
 		print(session)
 		sessionVar._session = session
+		
+		#TODO STORE THE USER's company in the session
 		if("admin" in email):
 			SceneTransition.change_scene("res://../menu/Registration.tscn") # Shows registration screen
 		else:

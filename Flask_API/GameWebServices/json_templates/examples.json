@@ -1,0 +1,51 @@
+/* /update_Score */
+{
+"email":"test123@gmail.com",
+"score":30,
+"comp_rate":56.4,
+
+"se_correct":5,
+"se_completed":4,
+"policy_correct":3,
+"policy_completed":2,
+"breakdown":"Eventually they landed on a problem that starts with a grid, like a sheet of graph paper that goes on forever. The goal is to fill it with numbers. There’s just one constraint: The distance between each occurrence of the same number must be greater than the number itself. (Distance is measured by adding together the vertical and horizontal separation, a metric known as “taxicab” distance for the way it resembles moving on gridded urban streets.) A pair of 1s cannot occupy adjoining cells, which have a taxicab distance of 1, but they can be placed in directly diagonal cells, which have a distance of 2."
+}
+
+/* /init_Player */
+{
+    "email":"test123@gmail.com",
+    "company":"Delaware Consulting",
+    "name":"Sean Dlw"
+    }
+
+    /* /send_Mail */
+{
+    "email":"test123@gmail.com",
+    "subject":"Delaware Consulting",
+    "body":"This is not delaware consulting"
+    }
+
+curl -X POST http://127.0.0.1:5000/get_Leader_Player -H 'Content-Type: application/json' -d '{
+    "company":"Great Eastern"
+    }'
+
+curl -X POST http://127.0.0.1:5000/send_Mail -H 'Content-Type: application/json' -d '{
+
+    "email":"teo259@gmail.com",
+    "subject":"CURL TEST",
+    "body":"Hello its curl"
+
+    }'
+
+
+curl -X POST http://127.0.0.1:5000/update_Score -H 'Content-Type: application/json' -d '{
+    "email":"teo259@gmail.com",
+    "score":30,
+    "comp_rate":56.4,
+    
+    "se_correct":5,
+    "se_completed":4,
+    "policy_correct":3,
+    "policy_completed":2,
+    "breakdown":"Eventually they landed on a problem that starts with a grid, like a sheet of graph paper that goes on forever. The goal is to fill it with numbers. There’s just one constraint: The distance between each occurrence of the same number must be greater than the number itself. (Distance is measured by adding together the vertical and horizontal separation, a metric known as “taxicab” distance for the way it resembles moving on gridded urban streets.) A pair of 1s cannot occupy adjoining cells, which have a taxicab distance of 1, but they can be placed in directly diagonal cells, which have a distance of 2.Eventually they landed on a problem that starts with a grid, like a sheet of graph paper that goes on forever. The goal is to fill it with numbers. There’s just one constraint: The distance between each occurrence of the same number must be greater than the number itself. (Distance is measured by adding together the vertical and horizontal separation, a metric known as “taxicab” distance for the way it resembles moving on gridded urban streets.) A pair of 1s cannot occupy adjoining cells, which have a taxicab distance of 1, but they can be placed in directly diagonal cells, which have a distance of 2.Eventually they landed on a problem that starts with a grid, like a sheet of graph paper that goes on forever. The goal is to fill it with numbers. There’s just one constraint: The distance between each occurrence of the same number must be greater than the number itself. (Distance is measured by adding together the vertical and horizontal separation, a metric known as “taxicab” distance for the way it resembles moving on gridded urban streets.) A pair of 1s cannot occupy adjoining cells, which have a taxicab distance of 1, but they can be placed in directly diagonal cells, which have a distance of 2."
+    }'
