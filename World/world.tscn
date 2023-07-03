@@ -84,9 +84,7 @@ frame = 1
 position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_qvq3y")
 
-[connection signal="correct" from="HUD" to="Poster" method="_on_hud_correct"]
-[connection signal="lvl1" from="HUD" to="Elevator" method="_on_hud_lvl_1"]
-[connection signal="lvl2" from="HUD" to="Elevator" method="_on_hud_lvl_2"]
-[connection signal="wrong" from="HUD" to="Poster" method="_on_hud_wrong"]
+[connection signal="partsignaller" from="HUD" to="Poster" method="_on_hud_partsignaller"]
+[connection signal="partsignaller" from="HUD" to="Elevator" method="_on_hud_partsignaller"]
 [connection signal="area_entered" from="Poster/Area2D" to="Poster" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Poster/Area2D" to="Poster" method="_on_area_2d_area_exited"]

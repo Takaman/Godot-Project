@@ -13,27 +13,36 @@ func interact() -> void:
 				"""
 				Where would you like to go?
 							 
-				<?[url=$end:lvlbase][right]Outside[/right][/url]?>
-				<?[url=$end:lvl2][right]Phishing[/right][/url]?>
+				<?[url=$lvl0][right]Ground Floor[/right][/url]?>
+				<?[url=$lvl2][right]Phishing[/right][/url]?>
 				"""
-				)
+				),
+				"$lvl0":Utils.dialog_part("""Going to ground floor."""), 
+				"$lvl2":Utils.dialog_part("""Going to phishing.""")
 			},
 			"training"
 		)
-		
-func _on_hud_lvlbase():
-#	if Global.save_state("Office1", "office1_saved") == true:
-#		print("saved")
-	if ResourceLoader.exists("res://Save_States/world_saved.tscn"):
-		SceneTransition.change_scene("res://Save_States/world_saved.tscn")
-	else:
+
+func _on_hud_partsignaller():
+	if hud.part_name == "$lvl0":
 		SceneTransition.change_scene("res://World/world.tscn")
-
-
-func _on_hud_lvl_2():
-#	if Global.save_state("Office1", "office1_saved") == true:
-#		print("saved")
-	if ResourceLoader.exists("res://Save_States/house_internal_phishingemail_saved.tscn"):
-		SceneTransition.change_scene("res://Save_States/house_internal_phishingemail_saved.tscn")
-	else:
+	elif hud.part_name == "$lvl2":
 		SceneTransition.change_scene("res://World/phishingemail/house_internal_phishingemail.tscn")
+		
+#func _on_hud_lvlbase():
+##	if Global.save_state("Office1", "office1_saved") == true:
+##		print("saved")
+#	if ResourceLoader.exists("res://Save_States/world_saved.tscn"):
+#		SceneTransition.change_scene("res://Save_States/world_saved.tscn")
+#	else:
+#		SceneTransition.change_scene("res://World/world.tscn")
+#
+#
+#func _on_hud_lvl_2():
+##	if Global.save_state("Office1", "office1_saved") == true:
+##		print("saved")
+#	if ResourceLoader.exists("res://Save_States/house_internal_phishingemail_saved.tscn"):
+#		SceneTransition.change_scene("res://Save_States/house_internal_phishingemail_saved.tscn")
+#	else:
+#		SceneTransition.change_scene("res://World/phishingemail/house_internal_phishingemail.tscn")
+

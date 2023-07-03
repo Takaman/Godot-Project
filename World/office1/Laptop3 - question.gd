@@ -16,8 +16,8 @@ func interact() -> void:
 					[b]Joe[/b]
 					What? Our company is implementing a new password policy? Well, I think my current password [i]hunter2[/i] is really strong.
 					
-					<?[url=$change:correct][right]I think you need a new password.[/right][/url]?>
-					<?[url=$nochange:wrong][right]That password is pretty strong.[/right][/url]?>
+					<?[url=$change][right]I think you need a new password.[/right][/url]?>
+					<?[url=$nochange][right]That password is pretty strong.[/right][/url]?>
 					<?[url=$end][right]I see.[/right][/url]?>
 					"""
 				),
@@ -83,10 +83,11 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("Player"):
 		interact()
 
-func _on_hud_correct():
-	state = 1
-	if interactable != null and interactable is Node:
-		interactable.in_progress()
+func _on_hud_partsignaller():
+	if hud.part_name == "$change":
+		state = 1
+		if interactable != null and interactable is Node:
+			interactable.in_progress()
 
 func _on_hud_input_submitted():
 	password = hud.player_input_text
@@ -129,7 +130,7 @@ func _on_hud_input_closed():
 					
 					[i]Disclaimer: Please do not reveal your password to anyone.[/i]
 					
-					<?[url=$end][right]No problem, I'm glad to be of help.[/right][/url]?>
+					<?[url=$end:correct][right]No problem, I'm glad to be of help.[/right][/url]?>
 					"""
 				)
 			},
@@ -139,3 +140,7 @@ func _on_hud_input_closed():
 		if interactable is Node:
 			interactable.remove_mark()
 			interactable = null
+
+func _physics_process(delta: float) -> void:
+	if interactable!= null and interactable is Node:
+		interactable.visible  = !Score.has_interacted("laptop3","policy")

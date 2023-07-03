@@ -24,9 +24,6 @@ signal input_submitted
 signal correct
 signal wrong
 signal partsignaller
-signal lvlbase
-signal lvl1
-signal lvl2
 var dialogue_content := {}
 var dialogue_interaction := ""
 var dialogue_phase := ""
@@ -58,20 +55,15 @@ func _handle_interaction(sound: String = "") -> void:
 		"wrong":
 			sound_wrong.play()
 			emit_signal("wrong")
-		"lvlbase":
-			emit_signal("lvlbase")
-		"lvl1":
-			emit_signal("lvl1")
-		"lvl2":
-			emit_signal("lvl2")
 		_:
 			sound_default.play()
 
 func _close_panel() -> void:
 	dialogue_content = {}
+	part_name = ""
 	dialogue_big.hide()
 	print("emit signals")
-	dialogue_big.visible  = false
+	dialogue_big.visible = false
 	emit_signal("dialogue_closed")
 
 func _next_panel_part(part: String) -> void:
