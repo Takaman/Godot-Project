@@ -1,8 +1,5 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdagh318mdtyf"]
-
-[ext_resource type="AudioStream" uid="uid://il0i8jkbeq2" path="res://menu/music/PitcherPerfectTheme.wav" id="1_oussa"]
+[gd_scene format=3 uid="uid://bdagh318mdtyf"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
-stream = ExtResource("1_oussa")
 volume_db = -30.953
 autoplay = true
