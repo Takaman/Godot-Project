@@ -32,13 +32,14 @@ func _on_register_btn_button_down():
 	var company = $CompanyTxt.text.strip_edges()
 	var name = $NameTxt.text.strip_edges()
 	var result := OK
+	var createPwd = pwd
 	
 	
-	print("Creating with PASSWORD :" + pwd)
+	print("Creating with PASSWORD :" + createPwd)
 	
 
 	print("********* CREATING USER *********")
-	var x: NakamaSession = await client.authenticate_email_async(email, pwd, email, true)
+	var x: NakamaSession = await client.authenticate_email_async(email, createPwd, email, true)
 	if not x.is_exception():
 		print(x)
 		
@@ -46,13 +47,25 @@ func _on_register_btn_button_down():
 			$ErrorLbl.text="User already registered"
 		else:
 			$ErrorLbl.text="User created."
-			print("^^^^^^^^^ USER HAS BEEN CREATED ^^^^^^^^^")
+			
+			print("********* USER HAS BEEN CREATED *********")
+			print("********* INITIALISING PLAYER DATA ********* ")
 			#TODO ADD THE INITIALISE PLAYER API CALL
 			var data_to_send = {"email":email,"company":company,"name":name}
 			var url = api_svr + "/init_Player"
 			var jsonPayload = JSON.stringify(data_to_send)
 			var headers = ["Content-Type: application/json"]
 			$HTTPRequest.request(url,headers,HTTPClient.METHOD_POST, jsonPayload)
+			
+			print("********* Attempting to send email *********")
+			var subject = "Your xxx account has been created" #TODO CHANGE THE APP NAME
+			#var body = "An xxx account has been Created for you on behalf of "+company+".\n Username: "+email+"\nPassword: "+createPwd
+			var body = "An xxx account has been Created for you on behalf of xxx.\n Username: kdfjk@fas.com \nPassword: sdfsdf"
+			data_to_send = {"email":email,"subject":subject,"body":body}
+			url = api_svr+"/send_Mail"
+			jsonPayload = JSON.stringify(data_to_send)
+			$HTTPRequest.request(url,headers,HTTPClient.METHOD_POST, jsonPayload)
+			print("EMAIL SENT...")
 			
 	else:
 		result = x.get_exception().status_code
@@ -72,7 +85,6 @@ func _on_register_btn_button_down():
 	pass
 	
 func _on_request_completed_pwd(result, response_code, headers, body):
-	print("GENERATING")
 	pwd = body.get_string_from_utf8()
 	print(pwd)
 
