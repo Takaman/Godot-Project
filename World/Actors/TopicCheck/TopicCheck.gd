@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-#@onready var hud := $"/root/Base_Map/HUD"
-@onready var hud := $"/root/FoodCourt/HUD"
+@onready var hud := $"/root/Base_Map/HUD"
+
 
 
 
