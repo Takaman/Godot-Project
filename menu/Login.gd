@@ -11,16 +11,6 @@ const api_svr = "http://127.0.0.1:5000"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# TODO REMOVE
-	print("********* Attempting to send email *********")
-	var subject = "Your xxx account has been created" #TODO CHANGE THE APP NAME
-	var body = "An xxx account has been Created for you on behalf of xxx.\n Username: kdfjk@fas.com \nPassword: sdfsdf"
-	var data_to_send = {"email":"teo259@gmail.com","subject":subject,"body":body}
-	var url = api_svr+"/send_Mail"
-	var jsonPayload = JSON.stringify(data_to_send)
-	var headers = ["Content-Type: application/json"]
-	$HTTPRequest.request(url,headers,HTTPClient.METHOD_POST, jsonPayload)
-	print("EMAIL SENT...")
 	pass # Replace with function body.
 	
 
