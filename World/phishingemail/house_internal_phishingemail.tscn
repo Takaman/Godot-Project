@@ -14,8 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://iqn08315hsf" path="res://helpers/actionable.tscn" id="11_3enfb"]
 [ext_resource type="PackedScene" uid="uid://c5rftkrhv5l1f" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="11_dl61b"]
 [ext_resource type="Script" path="res://World/phishingemail/John.gd" id="14_28v8n"]
+[ext_resource type="Script" path="res://helpers/elevator.gd" id="16_1l6xp"]
 [ext_resource type="Script" path="res://World/phishingemail/ITGuy.gd" id="16_jblpt"]
-[ext_resource type="Script" path="res://World/phishingemail/Elevator.gd" id="17_nafkr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4xy4"]
 texture = ExtResource("1_e066w")
@@ -3518,7 +3518,7 @@ position = Vector2(0.0436401, 4.93921)
 shape = SubResource("RectangleShape2D_t1rtl")
 
 [node name="Elevator" type="Sprite2D" parent="."]
-script = ExtResource("17_nafkr")
+script = ExtResource("16_1l6xp")
 
 [node name="Actionable" parent="Elevator" instance=ExtResource("11_3enfb")]
 
