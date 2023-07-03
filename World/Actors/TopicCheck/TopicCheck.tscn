@@ -1,14 +1,15 @@
 [gd_scene load_steps=2 format=3 uid="uid://burm3cumbtarl"]
 
-[ext_resource type="Texture2D" uid="uid://bwd61s1ytuse1" path="res://frames/Characters/Boy/SpriteSheet.png" id="1_l2ryb"]
+[ext_resource type="Texture2D" uid="uid://b71r643cchku7" path="res://World/Actors/TopicCheck/Prototype_Worksheet.png" id="1_bi0tl"]
 
 [node name="Node2D" type="CharacterBody2D"]
 
 [node name="SpriteSheet" type="Sprite2D" parent="."]
 position = Vector2(56, 16)
-texture = ExtResource("1_l2ryb")
+texture = ExtResource("1_bi0tl")
 hframes = 4
-vframes = 6
+vframes = 10
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -2)
 polygon = PackedVector2Array(48, 8, 64, 8, 64, 24, 48, 24, 48, 8, 48, 8)

@@ -1,8 +1,6 @@
 extends CharacterBody2D
 
-#@onready var hud := $"/root/Base_Map/HUD"
-@onready var hud := $"/root/FoodCourt/HUD"
-
+@onready var hud := $"/root/Base_Map/HUD"
 
 
 var last_scores := {"socialengineering": {"correct": -1, "wrong": -1}, "policy": {"correct": -1, "wrong": -1}}
