@@ -18,7 +18,9 @@ const BOTTOM_PANEL_INSIDE_Y := 230
 const BOTTOM_PANEL_OUTSIDE_Y := 500
 const BOTTOM_PANEL_SLIDE_DURATION := 0.5
 
+signal dialogue_opened
 signal dialogue_closed
+signal input_opened
 signal input_closed
 signal input_submitted
 signal correct
@@ -131,9 +133,11 @@ func show_dialog(interaction: String, content: Dictionary, phase: String) -> voi
 	_next_panel_part("$begin")
 	dialogue_big.visible = true
 	dialogue_big.show()
+	emit_signal("dialogue_opened")
 
 func show_player_input() -> void:
 	print("showing input box")
+	emit_signal("input_opened")
 	player_input.visible = true
 	player_input.show()
 

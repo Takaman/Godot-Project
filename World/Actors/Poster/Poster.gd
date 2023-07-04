@@ -30,8 +30,8 @@ func interact() -> void:
 					
 					[center][img=50x50]res://World/Actors/Poster/frame.png[/img][/center]
 					
-					<?[url=$noscan:correct][right]This looks a little strange...[/right][/url]?>
-					<?[url=$scan:wrong][right]Wow, I can win a free drink? Let's give it a go.[/right][/url]?>
+					<?[url=$noscan][right]This looks a little strange...[/right][/url]?>
+					<?[url=$scan][right]Wow, I can win a free drink? Let's give it a go.[/right][/url]?>
 					"""
 				),
 				"$noscan":
@@ -169,5 +169,10 @@ func _on_hud_partsignaller():
 			interactable.in_progress()
 
 func _physics_process(delta: float) -> void:
-	if interactable!= null and interactable is Node:
-		interactable.visible  = !Score.has_interacted("poster1","socialengineering")
+	if Score.get_result("poster1", "socialengineering") != 0:
+		if interactable!= null and interactable is Node:
+			interactable.visible = false
+	if Score.get_result("poster1", "socialengineering") == 1:
+		state = 3
+	elif Score.get_result("poster1", "socialengineering") == 2:
+		state = 4

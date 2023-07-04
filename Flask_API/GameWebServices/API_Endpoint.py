@@ -179,7 +179,7 @@ def ep_Get_Leader_All():
     print(f"---Retrieving Leaderboards from Database for all players---")
     conn = sqlite3.connect(database)
     cursor = conn.cursor()
-    cursor.execute("SELECT username, name, points FROM PlayerProgress WHERE accountStatus = 'Active' ORDER BY points DESC")
+    cursor.execute("SELECT name, username, company, points , comp_rate FROM PlayerProgress WHERE accountStatus = 'Active' ORDER BY points DESC")
     board = cursor.fetchall()
     conn.close()
     print(f"Found {str(len(board))} results.")

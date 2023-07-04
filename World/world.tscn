@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://kma828pwdjle" path="res://Player/player.tscn" id="3_3yceo"]
 [ext_resource type="PackedScene" uid="uid://bb6shdk0blv6i" path="res://World/HUD/hud.tscn" id="4_r08jp"]
 [ext_resource type="PackedScene" uid="uid://bbbqn3ivnkm3h" path="res://World/Actors/Poster/poster.tscn" id="5_picxq"]
-[ext_resource type="Script" path="res://World/Elevator.gd" id="6_286xa"]
+[ext_resource type="Script" path="res://helpers/elevator.gd" id="6_1s7wi"]
 [ext_resource type="PackedScene" uid="uid://iqn08315hsf" path="res://helpers/actionable.tscn" id="7_vhdfk"]
 [ext_resource type="PackedScene" uid="uid://burm3cumbtarl" path="res://World/Actors/TopicCheck/TopicCheck.tscn" id="8_ssfie"]
 [ext_resource type="Script" path="res://World/Actors/TopicCheck/TopicCheck.gd" id="9_av4dh"]
@@ -49,7 +49,7 @@ position = Vector2(19, 7)
 shape = SubResource("CapsuleShape2D_ttjd6")
 
 [node name="Elevator" type="Sprite2D" parent="."]
-script = ExtResource("6_286xa")
+script = ExtResource("6_1s7wi")
 
 [node name="Actionable" parent="Elevator" instance=ExtResource("7_vhdfk")]
 

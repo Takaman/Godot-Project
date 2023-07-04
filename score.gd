@@ -24,7 +24,7 @@ var _has_interacted := {}
 func new_interaction(interaction: String, result: String, phase: String) -> void:
 	
 	
-	print("Updating score: interaction =", interaction, "result =", result, "phase =", phase)
+	print("Updating score: interaction =", interaction, " result =", result, " phase =", phase)
 	if not _interactions.has(phase) or typeof(_interactions[phase]) != TYPE_DICTIONARY:
 		_interactions[phase] = {}
 		
@@ -88,7 +88,26 @@ func has_interacted(interaction: String, phase: String) -> bool:
 		return _has_interacted[phase][interaction]
 	else:
 		return false
-	
+
+#Check the result of interaction
+func get_result(interaction: String, phase: String) -> int:
+	if _interactions[phase].has(interaction) and _interactions[phase][interaction]["result"] == "correct":
+		#returns 1 if interaction is correct
+		return 1
+	elif _interactions[phase].has(interaction) and _interactions[phase][interaction]["result"] == "wrong":
+		#returns 2 if interaction is wrong
+		return 2
+	else:
+		#returns 0 if interaction is not completed
+		return 0
+
+#Check if player has reached the correct label for interaction
+func get_has_correct(interaction: String, phase: String) -> bool:
+	if _interactions[phase].has(interaction) and _interactions[phase][interaction]["has_correct"] == true:
+		return true
+	else:
+		return false
+
 func get_training_scores(type) -> Dictionary:
 	var scores = {"correct": 0, "wrong": 0}
 	
