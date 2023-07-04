@@ -120,7 +120,7 @@ def ep_update_score():
     conn.close()
     return data #TODO change to a success or sth
 
-# Update of score
+# Getting the progress of the player through dictionary
 @app.route('/get_Progress', methods=['POST'])
 def ep_get_Progress():
     # JSON input parameters:
@@ -136,8 +136,14 @@ def ep_get_Progress():
     cursor = conn.cursor()
     
     cursor.execute("SELECT breakdown FROM PlayerProgress WHERE username = ?",(email,))
-    score = cursor.fetchall()
-    conn.close()
+    score = cursor.fetchone()
+    # conn.close()
+    if score is None:
+        return jsonify({"error": "No score found"})
+    else:
+        return score[0] 
+    
+    
     return score #TODO change to a success or sth
 
 # Retrieve leaderboard for users based on company

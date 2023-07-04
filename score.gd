@@ -52,7 +52,7 @@ func new_interaction(interaction: String, result: String, phase: String) -> void
 		"points": previous["points"] + new_points,  # Update points with new points for this attempt
 		"has_correct": previous["has_correct"] or result == "correct"  # Update whether the player has gotten this interaction correct before
 		}
-		send_interactions_to_server(_interactions)
+		#send_interactions_to_server(_interactions)
 
 		
 	#Initialize the phase in _has_interacted 
@@ -151,3 +151,6 @@ func _on_request_completed(result, response_code, headers, body):
 		print("Data sent successfully")
 	else:
 		print("An error occurred when trying to send data to server: ", response_code)
+		
+func set_Interactions_from_DB(interactionDB : Dictionary):
+	_interactions = interactionDB

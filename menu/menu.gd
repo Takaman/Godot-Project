@@ -1,11 +1,22 @@
 extends Control
 @onready var sessionVar = get_node("/root/SeshVar")
-
+const api_svr = "http://127.0.0.1:5000"
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var username = sessionVar._session
+	var username = sessionVar._session.get("username")
 	print("SHOWING MENU")
-	print(username.get("username"))#test for session logged in 
+	print(username)
+	#print(username.get("username"))#test for session logged in 
+	var url = api_svr + "/get_Progress"
+	var data_to_send = {"email":username}
+	var jsonPayload = JSON.stringify(data_to_send)
+	var headers = ["Content-Type: application/json"]
+	var http_request = HTTPRequest.new() 
+	self.add_child(http_request)
+	
+	http_request.connect("request_completed", Callable(self, "_on_request_completed"))
+	http_request.request(url,headers,HTTPClient.METHOD_POST, jsonPayload)
+	
 
 func _on_start_pressed():
 	SceneTransition.change_scene("res://menu/instruction.tscn")
@@ -16,3 +27,30 @@ func _on_options_pressed():
 
 func _on_quit_pressed():
 	get_tree().quit()
+	
+func _on_request_completed(result, response_code, headers, body):
+	if response_code == 200:
+		print("Data Received succesfully")
+		var body_text = body.get_string_from_utf8()
+		print("BODY text")
+		print(body_text)
+		var json = JSON.new()
+		var parse_result = json.parse(body_text, false)
+
+		print("AFTER PARSE")
+		print(parse_result)
+		if parse_result == OK:  # OK is equivalent to 0
+			print("Parse successful")
+			var data = json.get_data()
+			print("Data:")
+			print(data)
+			#Uncomment this line below to set if you have running DB
+			#Score.set_Interactions_from_DB(data)
+		else:
+			print("Parse error on line ", json.get_error_line())
+			print("Error message: ", json.get_error_message())
+		#Score.set_Interactions_from_DB(parse_result)
+		
+		
+	else:
+		print("An error occurred when trying to send data to server: ", response_code)
