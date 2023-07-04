@@ -1,11 +1,6 @@
 extends CharacterBody2D
 
 @onready var hud := $"/root/Base_Map/HUD"
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 299dbe6bead680b65317cfe3c53cd975a7a04482
 
 
 var last_scores := {"socialengineering": {"correct": -1, "wrong": -1}, "policy": {"correct": -1, "wrong": -1}}
