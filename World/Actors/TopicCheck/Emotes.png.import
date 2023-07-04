@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b71r643cchku7"
-path="res://.godot/imported/Prototype_Worksheet.png-00906c4358ac842d9d8d0415da470309.ctex"
+uid="uid://bol5fwjt144s4"
+path="res://.godot/imported/Emotes.png-118bd54d0f91b57a00b07ebdf8abf156.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/Actors/TopicCheck/Prototype_Worksheet.png"
-dest_files=["res://.godot/imported/Prototype_Worksheet.png-00906c4358ac842d9d8d0415da470309.ctex"]
+source_file="res://World/Actors/TopicCheck/Emotes.png"
+dest_files=["res://.godot/imported/Emotes.png-118bd54d0f91b57a00b07ebdf8abf156.ctex"]
 
 [params]
 
