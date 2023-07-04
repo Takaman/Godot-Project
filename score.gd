@@ -52,7 +52,11 @@ func new_interaction(interaction: String, result: String, phase: String) -> void
 		"points": previous["points"] + new_points,  # Update points with new points for this attempt
 		"has_correct": previous["has_correct"] or result == "correct"  # Update whether the player has gotten this interaction correct before
 		}
-		#send_interactions_to_server(_interactions)
+		#Uncomment if you handling server side
+		send_interactions_to_server(_interactions)
+		send_has_interacted_to_server(_has_interacted)
+		
+		
 
 		
 	#Initialize the phase in _has_interacted 
@@ -134,6 +138,20 @@ func get_total_points() -> float:
 			total_points += _interactions[phase][interaction]["points"]
 	return total_points
 
+
+func send_has_interacted_to_server(pastinteractions: Dictionary):
+	var username = sessionVar._session.get("username")
+	var url = api_svr + "/update_Interactions"
+	var headers = ["Content-Type: application/json"]
+	
+	var pastinteractionsJSON = JSON.stringify(pastinteractions)
+	var data_to_send = {"email":username, "has_interacted": pastinteractionsJSON}
+	var jsonPayload = JSON.stringify(data_to_send)
+	var http_request = HTTPRequest.new() 
+	self.add_child(http_request)
+	http_request.connect("request_completed", Callable(self, "_on_request_completed2"))
+	http_request.request(url,headers,HTTPClient.METHOD_POST, jsonPayload)
+
 #To be completed 
 func send_interactions_to_server(breakdown: Dictionary):
 
@@ -170,6 +188,16 @@ func _on_request_completed(result, response_code, headers, body):
 		print("Data sent successfully")
 	else:
 		print("An error occurred when trying to send data to server: ", response_code)
-		
+
+func _on_request_completed2(result, response_code, headers, body):
+	if response_code == 200:
+		print("Data sent successfully")
+	else:
+		print("An error occurred when trying to send data to server: ", response_code)
+
 func set_Interactions_from_DB(interactionDB : Dictionary):
 	_interactions = interactionDB
+
+func set_has_interacted_from_DB(hasinteractedDB: Dictionary):
+	_has_interacted = hasinteractedDB
+

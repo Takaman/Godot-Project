@@ -120,7 +120,28 @@ def ep_update_score():
     conn.close()
     return data #TODO change to a success or sth
 
-# Getting the progress of the player through dictionary
+# Update of interactions
+@app.route('/update_Interactions', methods=['POST'])
+def ep_update_Interactions():
+    # JSON input parameters:
+        # Email, Interactions
+    # Recieve JSON request
+    data = json.loads(request.data)
+    print("RECIEVED JSON REQUEST: ")
+    email = data.get("email")
+    interactions = data.get("has_interacted")
+    print("Email: " + email)
+    print("---Updating Database----")
+    conn = sqlite3.connect(database)
+    cursor = conn.cursor()
+    
+    cursor.execute("UPDATE PlayerProgress SET has_interacted = ? WHERE username = ?", (interactions, email))
+    conn.commit()
+    conn.close()
+    return data
+
+
+# Getting the progress of the player through the player dictionary
 @app.route('/get_Progress', methods=['POST'])
 def ep_get_Progress():
     # JSON input parameters:
@@ -139,12 +160,33 @@ def ep_get_Progress():
     score = cursor.fetchone()
     # conn.close()
     if score is None:
-        return jsonify({"error": "No score found"})
+        return jsonify({"error": "No player progress found"})
     else:
         return score[0] 
-    
-    
-    return score #TODO change to a success or sth
+
+#Getting the interactions the player had through the player dicitionary
+@app.route('/get_Interactions', methods=['POST'])
+def ep_get_Interactions():
+    #JSON input parameters:
+        #Email
+    #Recieve JSON request
+    data = json.loads(request.data)
+    print("RECIEVED JSON REQUEST: ")
+    email = data.get("email")
+    print("Email: " + email)
+
+    print("---Retrieving Player Interactions----")
+    conn = sqlite3.connect(database)
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT has_interacted FROM PlayerProgress WHERE username = ?",(email,))
+    score = cursor.fetchone()
+
+    if score is None:
+        return jsonify({"error": "No has_interaction found"})
+    else:
+        return score[0]
+
 
 # Retrieve leaderboard for users based on company
 @app.route('/get_Leader_Player', methods=['POST'])
