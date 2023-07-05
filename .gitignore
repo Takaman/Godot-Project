@@ -2,3 +2,4 @@
 .godot/
 */.DS_Store
 Flask_API/GameWebServices/static_csv/
+.DS_Store

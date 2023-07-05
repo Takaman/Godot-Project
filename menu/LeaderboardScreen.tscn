@@ -42,3 +42,16 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="ExportBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 289.0
+offset_top = 7.0
+offset_right = 350.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 8
+text = "Generate CSV"
+
+[node name="HTTPRequest_export" type="HTTPRequest" parent="."]
+
+[connection signal="button_down" from="ExportBtn" to="." method="_on_export_btn_button_down"]

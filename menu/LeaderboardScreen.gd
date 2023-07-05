@@ -46,3 +46,11 @@ func _on_request_completed(result, response_code, headers, body):
 		record_node = LeaderboardRecord.instantiate()
 		record_container.add_child(record_node)
 		record_node.setup(record[0],record[1],record[2],str(record[3]),str(record[4]))
+
+
+func _on_export_btn_button_down():
+	print("Triggering the export")
+	var url = api_svr+"/generate_report"
+	var headers = ["Content-Type: application/json"]
+	$HTTPRequest_export.request(url, headers, HTTPClient.METHOD_POST)
+	pass # Replace with function body.

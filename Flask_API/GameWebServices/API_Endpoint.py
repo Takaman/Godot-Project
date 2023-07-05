@@ -1,5 +1,6 @@
 from flask import Flask, request, json, jsonify
-import sqlite3, string, random
+import sqlite3, string, random, csv
+from datetime import datetime
 from flask_mail import Mail, Message
 
 app = Flask(__name__)
@@ -141,6 +142,46 @@ def ep_update_Interactions():
     return data
 
 
+# Retrieve leaderboard for users based on company
+@app.route('/generate_report', methods=['POST'])
+def ep_Generate_report():
+    # JSON input parameters:
+        # ---
+    # Generate the csv file''
+    print("Starting CSV export.....")
+    print("Fetching records to export.....")
+    conn = sqlite3.connect(database)
+    print("DB Connected...")
+    cursor = conn.cursor()
+    cursor.execute(f"SELECT name,username,company,date_joined,points,comp_rate,last_played, accountStatus FROM PlayerProgress ") # TODO CHANGE TO PREPARED STATEMENTS
+    users = cursor.fetchall()
+    conn.close()
+    print("No. of fetched player records..." + str(len(users)))
+
+    now = datetime.now()
+    csv_name = f"""{now.strftime("%Y_%m_%d,%H_%M_%S")}-PlayerStats.csv"""
+    print("Creating file..."+csv_name)
+    with open("static_csv/"+csv_name,"x") as file:
+        writer = csv.writer(file, dialect='excel')
+        field = ["Name", "Email","Company", "Date Joined", "Score","Completion Rate (%)","Last Played", "Account Status"]
+        writer.writerow(field)
+        for user in users:
+            writer.writerow(user)
+            
+    # send the csv in the email    
+    print("Sending csv email...")
+    email="teo259@gmail.com" #TODO CHANGE TO TAKE IN FROM JSON FOR DYNAMIC
+    name = "Sean" #TODO CHANGE TO RETRIEVE FROM DB FOR DYNAMIC
+    subject = "Your Report has Arrived"
+    email_csv = Message(subject, sender = 'sititpgroup11@gmail.com', recipients = [email])
+    email_csv.body = f"Hi {name},\nAttached is the csv report generated."
+    with app.open_resource(f"static_csv/{csv_name}") as file:
+        email_csv.attach(csv_name,"text/csv",file.read())
+
+    mail.send(email_csv)
+    # send back json reply with status as sent 
+    return "Sent"
+
 # Getting the progress of the player through the player dictionary
 @app.route('/get_Progress', methods=['POST'])
 def ep_get_Progress():
@@ -222,6 +263,26 @@ def ep_Get_Leader_All():
     conn = sqlite3.connect(database)
     cursor = conn.cursor()
     cursor.execute("SELECT name, username, company, points , comp_rate FROM PlayerProgress WHERE accountStatus = 'Active' ORDER BY points DESC")
+    board = cursor.fetchall()
+    conn.close()
+    print(f"Found {str(len(board))} results.")
+
+    # send back json reply
+    return jsonify(board)
+
+# Retrieve leaderboard for all users 
+@app.route('/get_Leader_Admin_Sort', methods=['POST'])
+def ep_Get_Leader_All_Sort():
+    # JSON input parameters:
+        # column_name
+    # Recieve request
+    data = json.loads(request.data)
+    print("RECIEVED JSON REQUEST: ")
+    column_name = data.get("column_name")
+    print(f"---Retrieving Leaderboards from Database for all players order by {column_name}---")
+    conn = sqlite3.connect(database)
+    cursor = conn.cursor()
+    cursor.execute(f"SELECT name, username, company, points , comp_rate FROM PlayerProgress WHERE accountStatus = 'Active' ORDER BY {column_name}")
     board = cursor.fetchall()
     conn.close()
     print(f"Found {str(len(board))} results.")
