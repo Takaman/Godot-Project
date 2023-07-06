@@ -10647,6 +10647,7 @@ texture = ExtResource("69_7ljdq")
 [connection signal="partsignaller" from="HUD" to="GantryEnter" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="GantryExit" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="WhitewallsGantryEnter" method="_on_hud_partsignaller"]
+[connection signal="partsignaller" from="HUD" to="Elevator" method="_on_hud_partsignaller"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="GantryEnter/Timer" to="GantryEnter" method="_on_timer_timeout"]

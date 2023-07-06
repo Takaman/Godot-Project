@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d322o0o5wflr4" path="res://Player/h_box_container.tscn" id="4_8drrw"]
 [ext_resource type="PackedScene" uid="uid://bkv7vbdsk5sj0" path="res://Enemy/cyclop_boss.tscn" id="5_twcai"]
 [ext_resource type="PackedScene" uid="uid://iqn08315hsf" path="res://helpers/actionable.tscn" id="6_f31xl"]
-[ext_resource type="AudioStream" uid="uid://rbdleph6o6to" path="res://menu/music/mixkit-tech-house-vibes-130.mp3" id="8_k6k3g"]
+[ext_resource type="AudioStream" path="res://menu/music/mixkit-tech-house-vibes-130.mp3" id="8_k6k3g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0b071"]
 
