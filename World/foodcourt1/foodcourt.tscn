@@ -10215,11 +10215,7 @@ position = Vector2(0.299881, 0)
 shape = SubResource("RectangleShape2D_rm5dh")
 
 [node name="Bei2" type="Sprite2D" parent="WaitingroomFolder"]
-<<<<<<< Updated upstream
 position = Vector2(248, -5)
-=======
-position = Vector2(248, 2)
->>>>>>> Stashed changes
 texture = ExtResource("15_is0gt")
 script = ExtResource("59_rqshe")
 metadata/_edit_group_ = true
