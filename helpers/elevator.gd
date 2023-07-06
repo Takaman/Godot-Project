@@ -3,7 +3,7 @@ extends Sprite2D
 @onready var hud := get_tree().get_nodes_in_group("HUD_Group")[0]
 
 func _ready():
-	hud.connect("part_signaller", Callable(self,"_on_hud_partsignaller"))
+	hud.connect("partsignaller", Callable(self,"_on_hud_partsignaller"))
 	pass
 
 func interact() -> void:

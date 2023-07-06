@@ -8,7 +8,7 @@ func interact() -> void:
 	print("interaction started")
 	if state == 0:
 		hud.show_dialog(
-			"laptop3",
+			"passwordpolicy",
 			{
 				"$begin":
 				Utils.dialog_part(
@@ -44,7 +44,7 @@ func interact() -> void:
 		)
 	elif state == 1:
 		hud.show_dialog(
-			"laptop3",
+			"passwordpolicy",
 			{
 				"$begin":
 				Utils.dialog_part(
@@ -61,7 +61,7 @@ func interact() -> void:
 		hud.show_player_input()
 	elif state == 2:
 		hud.show_dialog(
-			"laptop3",
+			"passwordpolicy",
 			{
 				"$begin":
 				Utils.dialog_part(
@@ -104,7 +104,7 @@ func _on_hud_input_closed():
 		check = true
 	if check == false or password.length() < 8:
 		hud.show_dialog(
-			"laptop3",
+			"passwordpolicy",
 			{
 				"$begin":
 				Utils.dialog_part(
@@ -120,7 +120,7 @@ func _on_hud_input_closed():
 		)
 	else:
 		hud.show_dialog(
-			"laptop3",
+			"passwordpolicy",
 			{
 				"$begin":
 				Utils.dialog_part(
@@ -142,7 +142,7 @@ func _on_hud_input_closed():
 			interactable = null
 
 func _physics_process(delta: float) -> void:
-	if Score.get_has_correct("laptop3","policy") == true:
+	if Score.get_has_correct("passwordpolicy","policy") == true:
 		state = 2
 		if interactable != null and interactable is Node:
 			interactable.visible = false
