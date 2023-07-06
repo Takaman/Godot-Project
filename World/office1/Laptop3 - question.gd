@@ -16,12 +16,12 @@ func interact() -> void:
 					[b]Joe[/b]
 					What? Our company is implementing a new password policy? Well, I think my current password [i]hunter2[/i] is really strong.
 					
-					<?[url=$change][right]I think you need a new password.[/right][/url]?>
-					<?[url=$nochange:wrong][right]That password is pretty strong.[/right][/url]?>
+					<?[url=$changepass][right]I think you need a new password.[/right][/url]?>
+					<?[url=$nochangepass:wrong][right]That password is pretty strong.[/right][/url]?>
 					<?[url=$end][right]I see.[/right][/url]?>
 					"""
 				),
-				"$change":
+				"$changepass":
 					Utils.dialog_part(
 					"""
 					[b]Joe[/b]
@@ -30,7 +30,7 @@ func interact() -> void:
 					<?[url=$end][right]Of course.[/right][/url]?>
 					"""
 					),
-				"$nochange":
+				"$nochangepass":
 					Utils.dialog_part(
 					"""
 					[b]Joe[/b]
@@ -84,7 +84,7 @@ func _on_area_2d_area_entered(area):
 		interact()
 
 func _on_hud_partsignaller():
-	if hud.part_name == "$change":
+	if hud.part_name == "$changepass":
 		state = 1
 		if interactable != null and interactable is Node:
 			interactable.in_progress()
