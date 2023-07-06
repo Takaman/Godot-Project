@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bb6shdk0blv6i" path="res://World/HUD/hud.tscn" id="7_2yo4s"]
 [ext_resource type="PackedScene" uid="uid://kma828pwdjle" path="res://Player/player.tscn" id="7_beivg"]
 [ext_resource type="Texture2D" uid="uid://cxo46gpvtucun" path="res://Tilemap builder/Interior/Alex_idle_16x16.png" id="8_2n7rn"]
-[ext_resource type="PackedScene" path="res://helpers/ontouch.tscn" id="9_twn3x"]
+[ext_resource type="PackedScene" uid="uid://quf6e4pbvkcj" path="res://helpers/ontouch.tscn" id="9_twn3x"]
 [ext_resource type="Script" path="res://World/phishingemail/Sam.gd" id="10_4igdu"]
 [ext_resource type="PackedScene" uid="uid://iqn08315hsf" path="res://helpers/actionable.tscn" id="11_3enfb"]
 [ext_resource type="PackedScene" uid="uid://c5rftkrhv5l1f" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="11_dl61b"]
@@ -3448,7 +3448,8 @@ z_index = 5
 position = Vector2(-99, 162)
 
 [node name="Sam" type="Sprite2D" parent="."]
-position = Vector2(-135, 110)
+position = Vector2(-134, 113)
+scale = Vector2(0.958333, 0.75)
 texture = ExtResource("8_2n7rn")
 hframes = 5
 script = ExtResource("10_4igdu")
@@ -3473,6 +3474,7 @@ shape = SubResource("RectangleShape2D_msspi")
 [node name="John" type="Sprite2D" parent="."]
 z_index = -5
 position = Vector2(-152.765, 45.0422)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("8_2n7rn")
 hframes = 4
 frame = 3
@@ -3497,6 +3499,7 @@ shape = SubResource("RectangleShape2D_yt6t3")
 [node name="ITGuy" type="Sprite2D" parent="."]
 z_index = -5
 position = Vector2(38, -134)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("8_2n7rn")
 hframes = 4
 frame = 3
