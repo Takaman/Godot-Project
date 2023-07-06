@@ -21,7 +21,7 @@ size = Vector2(25, 31)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_havpn"]
 radius = 18.0
-height = 36.0
+height = 44.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvq3y"]
 size = Vector2(16, 25)
@@ -66,7 +66,7 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopicCheck/Area2D"]
-position = Vector2(52, 25)
+position = Vector2(51, 31)
 shape = SubResource("CapsuleShape2D_havpn")
 
 [node name="Interactable" parent="." instance=ExtResource("10_0plad")]
