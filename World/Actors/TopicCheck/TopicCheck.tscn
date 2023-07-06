@@ -1,12 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://burm3cumbtarl"]
+[gd_scene load_steps=3 format=3 uid="uid://burm3cumbtarl"]
 
 [ext_resource type="Texture2D" uid="uid://bol5fwjt144s4" path="res://World/Actors/TopicCheck/Emotes.png" id="2_5rvvh"]
+[ext_resource type="Texture2D" uid="uid://bmcj7hjgrswij" path="res://Tilemap builder/City/tilemap.png" id="2_nact1"]
 
 [node name="Node2D" type="CharacterBody2D"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-10.25, 1.225)
-scale = Vector2(1.09375, 1.55469)
+position = Vector2(-10, -2)
+scale = Vector2(1.09375, 2.0625)
 polygon = PackedVector2Array(48, 8, 64, 8, 64, 24, 48, 24, 48, 8, 48, 8)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -28,3 +29,10 @@ offset_bottom = 64.0
 theme_override_font_sizes/font_size = 9
 text = "Progress"
 metadata/_edit_use_anchors_ = true
+
+[node name="Statue" type="Sprite2D" parent="."]
+position = Vector2(51, 30)
+texture = ExtResource("2_nact1")
+hframes = 38
+vframes = 14
+frame = 75
