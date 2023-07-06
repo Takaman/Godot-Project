@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=3 uid="uid://ndj2inv5qle0"]
+[gd_scene load_steps=145 format=3 uid="uid://ndj2inv5qle0"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_5nmgp"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_ee5eg"]
@@ -66,7 +66,9 @@
 [ext_resource type="Texture2D" uid="uid://dq8my8inckwx3" path="res://World/foodcourt1/images/objects/sofa-right.png" id="65_kiexv"]
 [ext_resource type="Texture2D" uid="uid://cxgh4dmd2pvlv" path="res://World/foodcourt1/images/objects/bluetaable.png" id="66_u7d6q"]
 [ext_resource type="Texture2D" uid="uid://qlotrf6c5fqp" path="res://World/foodcourt1/images/objects/bluetableback.png" id="67_r148e"]
+[ext_resource type="Texture2D" uid="uid://b4nf3qfe7c5y0" path="res://World/foodcourt1/character/Mary.png" id="68_qns23"]
 [ext_resource type="Texture2D" uid="uid://bao0knkoyjxd5" path="res://World/foodcourt1/images/objects/exclamation_mark1.png" id="69_7ljdq"]
+[ext_resource type="Script" path="res://World/foodcourt1/sensitiveinformation-mary(advanced).gd" id="69_h16l1"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_iaydh"]
 tile_data = PackedInt32Array(0, 393219, 0)
@@ -8847,6 +8849,12 @@ radius = 8.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3amu1"]
 size = Vector2(15, 29)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rf2s3"]
+size = Vector2(31.5609, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7g7k"]
+size = Vector2(16.5853, 21.5489)
+
 [node name="FoodCourt" type="TileMap"]
 position = Vector2(-25, -2)
 tile_set = SubResource("TileSet_dpobp")
@@ -8879,7 +8887,7 @@ shape = SubResource("CapsuleShape2D_p36uo")
 
 [node name="Player" parent="." instance=ExtResource("8_kdafc")]
 top_level = true
-position = Vector2(-123, 160)
+position = Vector2(-126, 161)
 
 [node name="QuestionmarkFolder" type="Node2D" parent="."]
 
@@ -8887,13 +8895,17 @@ position = Vector2(-123, 160)
 z_index = 4
 position = Vector2(-83, 66)
 
+[node name="Interactablewhiteboard" parent="QuestionmarkFolder" instance=ExtResource("11_yvexh")]
+z_index = 1
+position = Vector2(345, 294)
+
 [node name="Interactabledustbin" parent="QuestionmarkFolder" instance=ExtResource("11_yvexh")]
 z_index = 1
 position = Vector2(228, 255)
 
-[node name="Interactablewhiteboard" parent="QuestionmarkFolder" instance=ExtResource("11_yvexh")]
+[node name="Interactable-sensitiveinformation(advanced)" parent="QuestionmarkFolder" instance=ExtResource("11_yvexh")]
 z_index = 1
-position = Vector2(345, 294)
+position = Vector2(244, 282)
 
 [node name="gantryFolder" type="Node2D" parent="."]
 
@@ -10653,10 +10665,33 @@ metadata/_edit_group_ = true
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_3amu1")
 
-[node name="ExclamationMark1" type="Sprite2D" parent="."]
+[node name="ExclamationMark-helpdesk1" type="Sprite2D" parent="."]
 z_index = 2
-position = Vector2(249, -20)
+position = Vector2(248, -12)
 texture = ExtResource("69_7ljdq")
+
+[node name="Mary" type="Sprite2D" parent="."]
+position = Vector2(243, 296)
+scale = Vector2(0.602943, 0.692708)
+texture = ExtResource("68_qns23")
+script = ExtResource("69_h16l1")
+metadata/_edit_group_ = true
+
+[node name="Actionable" type="Area2D" parent="Mary"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mary/Actionable"]
+position = Vector2(5.78052, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_rf2s3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Mary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mary/StaticBody2D"]
+position = Vector2(0, 0.774506)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_p7g7k")
 
 [connection signal="partsignaller" from="HUD" to="GantryEnter" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="GantryExit" method="_on_hud_partsignaller"]

@@ -11,10 +11,12 @@ func interact() -> void:
 			"$begin":
 			Utils.dialog_part(
 				"""
-				There are sensitive client documents in the trash. Looks like someone accidentally threw them away.
+				There are sensitive client documents in the trash. Looks like someone accidentally threw them away. What is the best course of action?
 
 				<?[url=$change:correct]1)  I'll destroy the documents using a secure shredder to prevent anyone from seeing any confidential client information. [/url]?>
 				<?[url=$nochange:wrong]2)  I think I'll just leave it. It's unlikely that anyone would bother to look at the documents. [/url]?>
+				<?[url=$nochange1:wrong]3)  I'll notify the employees in the vicinity about the presense of sensitive documents[/url]?>
+				
 				
 				"""
 			),
@@ -36,6 +38,16 @@ It's important to prioritize data security and take appropriate measures to disp
 <?[url=$end]EXIT[/url]?>
 				"""
 				),
+			"$nochange1":
+				Utils.dialog_part(
+				"""
+While it's important to raise awareness among employees, directly notifying them may increase the risk of unauthorized access. 
+
+To ensure maximum security and protection of confidential client information, it's better to use a secure shredder for proper document disposal. Shredding the documents prevents unauthorized access and minimizes the chances of data breaches.
+<?[url=$end]EXIT[/url]?>
+				"""
+				),
+
 		},
 		"policy"
 	)
