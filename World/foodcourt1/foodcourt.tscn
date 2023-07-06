@@ -8884,7 +8884,7 @@ shape = SubResource("CapsuleShape2D_p36uo")
 
 [node name="Player" parent="." instance=ExtResource("8_kdafc")]
 top_level = true
-position = Vector2(223, 21)
+position = Vector2(-123, 160)
 
 [node name="QuestionmarkFolder" type="Node2D" parent="."]
 
@@ -8943,7 +8943,7 @@ shape = SubResource("RectangleShape2D_640wi")
 
 [node name="Gantry5" type="Sprite2D" parent="gantryFolder"]
 z_index = 2
-position = Vector2(15, 56)
+position = Vector2(15, 57)
 scale = Vector2(0.857143, 1)
 texture = ExtResource("17_myfbt")
 metadata/_edit_group_ = true
@@ -9168,7 +9168,7 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_vby6t")
 
 [node name="Alex5" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(15, 42)
+position = Vector2(15, 43)
 texture = ExtResource("19_ur4k5")
 metadata/_edit_group_ = true
 
@@ -10212,12 +10212,10 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaitingroomFolder/Bluetaable/Bluetableback/StaticBody2D"]
 position = Vector2(0.299881, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_rm5dh")
 
 [node name="Bei2" type="Sprite2D" parent="WaitingroomFolder"]
-position = Vector2(248, 2)
-scale = Vector2(1, 1)
+position = Vector2(248, -5)
 texture = ExtResource("15_is0gt")
 script = ExtResource("59_rqshe")
 metadata/_edit_group_ = true
@@ -10665,7 +10663,6 @@ z_index = 2
 position = Vector2(249, -20)
 texture = ExtResource("69_7ljdq")
 
-[connection signal="dialogue_closed" from="HUD" to="GantryEnter" method="_on_hud_dialogue_closed"]
 [connection signal="partsignaller" from="HUD" to="GantryEnter" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="GantryExit" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="WhitewallsGantryEnter" method="_on_hud_partsignaller"]
