@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://t13nepmn3e8u"]
+[gd_scene load_steps=12 format=3 uid="uid://t13nepmn3e8u"]
 
 [ext_resource type="Texture2D" uid="uid://ditp4sf8l66nu" path="res://World/HUD/HUD2.png" id="1_pg8dp"]
 [ext_resource type="Texture2D" uid="uid://b0o4rbfc0kdlp" path="res://menu/image/icons8-left-arrow-key-64.png" id="2_v2unp"]
@@ -6,40 +6,19 @@
 [ext_resource type="Texture2D" uid="uid://c80jk8g1ll2do" path="res://menu/image/down.png" id="4_dhuip"]
 [ext_resource type="Texture2D" uid="uid://hvt44gidjjos" path="res://menu/image/icons8-right-arrow-key-64.png" id="5_xaek2"]
 [ext_resource type="Script" path="res://menu/Back.gd" id="6_io7oo"]
-[ext_resource type="Texture2D" uid="uid://c8v1a5jhc6ho" path="res://Player/Character_007.png" id="7_i3473"]
+[ext_resource type="Texture2D" uid="uid://3057f3fth87d" path="res://Player/Walk.png" id="7_drmqf"]
 [ext_resource type="Script" path="res://menu/PlayerAnimated.gd" id="11_lve2g"]
 [ext_resource type="Texture2D" uid="uid://briblwafgf8a0" path="res://menu/image/e -interact.png" id="12_8i225"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r2clc"]
-atlas = ExtResource("7_i3473")
-region = Rect2(0, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bfgrv"]
-atlas = ExtResource("7_i3473")
-region = Rect2(24, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hfc8s"]
-atlas = ExtResource("7_i3473")
-region = Rect2(48, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ve6q0"]
-atlas = ExtResource("7_i3473")
-region = Rect2(72, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jslcq"]
+atlas = ExtResource("7_drmqf")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vd3rf"]
 animations = [{
 "frames": [{
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_r2clc")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_bfgrv")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_hfc8s")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_ve6q0")
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jslcq")
 }],
 "loop": true,
 "name": &"default",
@@ -73,7 +52,7 @@ offset_bottom = 103.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 7
 text = "You are an auditor.
-You have been tasked to find out all of the bad practices and pitfalls 
+You have been tasked to find out the bad practices and pitfalls 
 their employees are putting themselves into within the building you have been assigned to.
 You are able to track your progress and it only ends once you find 
 all of the mistakes made by them. Good Luck!"
@@ -170,9 +149,9 @@ text = "Player"
 
 [node name="Label8" type="Label" parent="."]
 offset_left = 205.0
-offset_top = 101.0
-offset_right = 265.0
-offset_bottom = 126.0
+offset_top = 110.0
+offset_right = 260.0
+offset_bottom = 135.0
 theme_override_colors/font_color = Color(0.823529, 0.54902, 0.968627, 1)
 theme_override_colors/font_shadow_color = Color(0.258824, 0.290196, 0.705882, 1)
 theme_override_font_sizes/font_size = 15
@@ -187,8 +166,8 @@ text = "Start!"
 script = ExtResource("6_io7oo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(32.625, 134)
-scale = Vector2(1.71875, 1.34375)
+position = Vector2(36, 142)
+scale = Vector2(1.26563, 1.34375)
 sprite_frames = SubResource("SpriteFrames_vd3rf")
 frame_progress = 0.143751
 speed_scale = 3.0
