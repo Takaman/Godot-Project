@@ -42,4 +42,6 @@ func _on_area_2d_area_entered(area):
 		interact()
 		
 func _physics_process(delta: float) -> void:
-	interactable.visible  = !Score.has_interacted("tailgate","socialengineering")
+	if interactable!= null and interactable is Node:
+		interactable.visible  = !Score.get_has_correct("tailgate","socialengineering")
+

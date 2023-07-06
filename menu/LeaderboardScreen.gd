@@ -24,7 +24,6 @@ func get_records():
 	
 func populate_data():	
 	clear_records()
-	print("fk")
 	print(result)
 	#for record in result:
 	#	print(record)
