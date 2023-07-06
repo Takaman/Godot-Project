@@ -1,11 +1,24 @@
-[gd_scene load_steps=24 format=3 uid="uid://kma828pwdjle"]
+[gd_scene load_steps=30 format=3 uid="uid://kma828pwdjle"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_7n5v5"]
 [ext_resource type="Texture2D" uid="uid://3057f3fth87d" path="res://Player/Walk.png" id="2_gv84v"]
+[ext_resource type="AudioStream" uid="uid://b2jgkdjuv3t1e" path="res://Player/single-footstep-on-concrete-with-sneaker-shoes-1-wwwfesliyanstudioscom-audiot_0ejT1dNk.mp3" id="3_epeog"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yjmd8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wj20o"]
 atlas = ExtResource("2_gv84v")
-region = Rect2(0, 2, 32, 31)
+region = Rect2(96, 33, 32, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awf40"]
+atlas = ExtResource("2_gv84v")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tp54"]
+atlas = ExtResource("2_gv84v")
+region = Rect2(96, 97, 32, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb5u5"]
+atlas = ExtResource("2_gv84v")
+region = Rect2(96, 66, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kgi72"]
 atlas = ExtResource("2_gv84v")
@@ -75,23 +88,47 @@ region = Rect2(96, 33, 32, 31)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yjmd8")
+"texture": SubResource("AtlasTexture_wj20o")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"idle_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awf40")
+}],
+"loop": true,
+"name": &"idle_front",
 "speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_3tp54")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tb5u5")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_kgi72")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_mrmnw")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_7nwc0")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_llemm")
 }],
 "loop": true,
@@ -99,16 +136,16 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_g61le")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_gvd3e")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_05tfe")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_uqvqu")
 }],
 "loop": true,
@@ -116,16 +153,16 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_lonl0")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_yq100")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_rva6d")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_4qmt5")
 }],
 "loop": true,
@@ -133,16 +170,16 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_1ncmt")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_culmd")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_x1cn4")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_hcsi5")
 }],
 "loop": false,
@@ -159,6 +196,14 @@ radius = 10.0499
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uti7c"]
 
+[sub_resource type="Animation" id="Animation_x3qm5"]
+resource_name = "Walk"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rd747"]
+_data = {
+"Walk": SubResource("Animation_x3qm5")
+}
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 10
 y_sort_enabled = true
@@ -169,7 +214,7 @@ script = ExtResource("1_7n5v5")
 position = Vector2(4, 4)
 scale = Vector2(0.625, 0.645161)
 sprite_frames = SubResource("SpriteFrames_l3ucm")
-animation = &"runleft"
+animation = &"idle_right"
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -200,3 +245,15 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/OnTouchFinder"]
 position = Vector2(4, 4)
 shape = SubResource("CircleShape2D_uti7c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rd747")
+}
+
+[node name="FootSteps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_epeog")
+volume_db = -30.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

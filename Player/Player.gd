@@ -10,6 +10,8 @@ signal healthChanged
 
 @export var maxHealth = 3
 @onready var currentHealth: int = 3
+@onready var timer = $Timer
+@onready var foot_steps = $FootSteps
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity");
 #Needs the ready function to instantiate the animationPlayer. Need to get access to the node of your child
@@ -19,6 +21,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity");
 @onready var dialoguecheck: bool = false
 @onready var inputcheck: bool = false
 var input_vector: Vector2 = Vector2.ZERO
+var current_dir = "front"
 
 #Called when its started in the scene for the first time
 func _ready():
@@ -72,6 +75,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 	
 
 func _physics_process(delta) -> void:
+	
 	if dialoguecheck == false and inputcheck == false:
 		#Getting the input direction and handle movement and acceleration
 		#Normalising means speed will be the same with two keys pressed when compared to one key
@@ -81,23 +85,38 @@ func _physics_process(delta) -> void:
 		#Flipping of animation to run left as well. Sprite sheet limited
 		if velocity != Vector2.ZERO:
 			if velocity.x > 0:
+				current_dir = "right"
 				animationPlayer.play("runright")
 				$AnimatedSprite2D.flip_h = false
 			elif velocity.x <0 :
+				current_dir = "left"
 				animationPlayer.play("runleft")
 				#$AnimatedSprite2D.flip_h = true
 			elif velocity.y > 0:
+				current_dir = "front"
 				animationPlayer.play("runbottom")
 			elif velocity.y < 0:
+				current_dir = "back"
 				animationPlayer.play("runtop")
-			
 			
 			#For more natural movement to hit max speed and bringing it down for natural movement
 			velocity = velocity.move_toward(velocity * MAX_SPEED, SPEED * delta)
-		else:		
-			animationPlayer.play("idle")
+		if velocity == Vector2.ZERO:
+			if current_dir == "right":
+				animationPlayer.play("idle_right")
+			elif current_dir == "left":
+				animationPlayer.play("idle_left")
+			elif current_dir == "front":
+				animationPlayer.play("idle_front")	
+			elif current_dir == "back":
+				animationPlayer.play("idle_back")
 			velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
-		
+		else:
+			if timer.time_left <=0:
+				foot_steps.pitch_scale= randf_range(0.8, 1.2)
+				foot_steps.play()
+				timer.start(0.30)
+			
 		
 		#Moving and sliding the character
 		move_and_slide()
@@ -123,3 +142,4 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(body):
 	pass # Replace with function body.
+	
