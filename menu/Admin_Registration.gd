@@ -6,7 +6,7 @@ const port = 7350
 const server_key = "nakama_godot_itp"
 var client := Nakama.create_client(server_key, host, port, scheme)
 var pwd = "" 
-
+var loggedIn = ""
 const api_svr = "http://127.0.0.1:5000"
 
 @onready var sessionVar = get_node("/root/SeshVar")
@@ -14,12 +14,16 @@ const api_svr = "http://127.0.0.1:5000"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Check if the user is logged in
-	
-	var url = api_svr + "/pwd_Gen"
-	$HTTPRequest_PWD.request_completed.connect(_on_request_completed_pwd)
-	$HTTPRequest_PWD.request(url)
-	pass # Replace with function body.
-
+	if sessionVar._session:
+		loggedIn = sessionVar._session.get("username")
+		print("username")
+		print(loggedIn)
+		var url = api_svr + "/pwd_Gen"
+		$HTTPRequest_PWD.request_completed.connect(_on_request_completed_pwd)
+		$HTTPRequest_PWD.request(url)
+	else:
+		print("FELLA NOT LOGGED IN")
+		SceneTransition.change_scene("res://../menu/Login.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

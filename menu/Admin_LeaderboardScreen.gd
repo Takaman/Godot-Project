@@ -3,10 +3,16 @@ var LeaderboardRecord = preload("res://menu/LeaderRecord.tscn")
 const api_svr = "http://127.0.0.1:5000"
 var result = []
 @onready var record_container = $PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer
-
+@onready var sessionVar = get_node("/root/SeshVar")
+var username = ""
 func _ready() -> void:
-	clear_records()
-	get_records()
+	if sessionVar._session:
+		username = sessionVar._session.get("username")
+		clear_records()
+		get_records()
+	else:
+		SceneTransition.change_scene("res://../menu/Login.tscn")
+	
 
 func clear_records() -> void:
 	for child in record_container.get_children():
@@ -51,5 +57,9 @@ func _on_export_btn_button_down():
 	print("Triggering the export")
 	var url = api_svr+"/generate_report"
 	var headers = ["Content-Type: application/json"]
-	$HTTPRequest_export.request(url, headers, HTTPClient.METHOD_POST)
+	var data_to_send = {"email":username}
+	var jsonPayload = JSON.stringify(data_to_send)
+			
+	#add email
+	$HTTPRequest_export.request(url, headers, HTTPClient.METHOD_POST,jsonPayload)
 	pass # Replace with function body.
