@@ -169,8 +169,8 @@ def ep_Generate_report():
             writer.writerow(user)
             
     # send the csv in the email    
-    print("Sending csv email...")
-    email="itpgroup11@gmail.com" #TODO CHANGE TO TAKE IN FROM JSON FOR DYNAMIC
+    email="teo259@gmail.com" #TODO CHANGE TO TAKE IN FROM JSON FOR DYNAMIC
+    print(f"Sending csv email to {email}...")
     name = "Game Report" #TODO CHANGE TO RETRIEVE FROM DB FOR DYNAMIC
     subject = "Your Report has Arrived"
     email_csv = Message(subject, sender = 'sititpgroup11@gmail.com', recipients = [email])

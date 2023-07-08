@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://7fxhjsr05gkq"]
 
-[ext_resource type="Script" path="res://menu/Registration.gd" id="1_35dbs"]
+[ext_resource type="Script" path="res://menu/Admin_Registration.gd" id="1_agvpa"]
 
 [node name="Registration" type="Node2D"]
 
@@ -25,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_35dbs")
+script = ExtResource("1_agvpa")
 
 [node name="NamelLbl" type="RichTextLabel" parent="Control/Registration"]
 layout_mode = 0

@@ -13,6 +13,8 @@ const api_svr = "http://127.0.0.1:5000"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Check if the user is logged in
+	
 	var url = api_svr + "/pwd_Gen"
 	$HTTPRequest_PWD.request_completed.connect(_on_request_completed_pwd)
 	$HTTPRequest_PWD.request(url)

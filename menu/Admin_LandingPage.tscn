@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://v0fcey3cqyng"]
+
+[ext_resource type="Script" path="res://menu/Admin_LandingPage.gd" id="1_uomm6"]
+
+[node name="Admin_LandingPage" type="Node2D"]
+script = ExtResource("1_uomm6")
+
+[node name="RegisterBtn" type="Button" parent="."]
+offset_left = 43.0
+offset_top = 73.0
+offset_right = 161.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 15
+text = "Register a User"
+
+[node name="ScoreboardBtn" type="Button" parent="."]
+offset_left = 192.0
+offset_top = 73.0
+offset_right = 308.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 15
+text = "View All Scores"
+
+[connection signal="button_down" from="RegisterBtn" to="." method="_on_register_btn_button_down"]
+[connection signal="button_down" from="ScoreboardBtn" to="." method="_on_scoreboard_btn_button_down"]
