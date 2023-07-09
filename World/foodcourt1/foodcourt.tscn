@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=3 uid="uid://ndj2inv5qle0"]
+[gd_scene load_steps=145 format=3 uid="uid://ndj2inv5qle0"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_5nmgp"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_ee5eg"]
@@ -66,7 +66,9 @@
 [ext_resource type="Texture2D" uid="uid://dq8my8inckwx3" path="res://World/foodcourt1/images/objects/sofa-right.png" id="65_kiexv"]
 [ext_resource type="Texture2D" uid="uid://cxgh4dmd2pvlv" path="res://World/foodcourt1/images/objects/bluetaable.png" id="66_u7d6q"]
 [ext_resource type="Texture2D" uid="uid://qlotrf6c5fqp" path="res://World/foodcourt1/images/objects/bluetableback.png" id="67_r148e"]
+[ext_resource type="Texture2D" uid="uid://b4nf3qfe7c5y0" path="res://World/foodcourt1/character/Mary.png" id="68_qns23"]
 [ext_resource type="Texture2D" uid="uid://bao0knkoyjxd5" path="res://World/foodcourt1/images/objects/exclamation_mark1.png" id="69_7ljdq"]
+[ext_resource type="Script" path="res://World/foodcourt1/sensitiveinformation-mary(advanced).gd" id="69_h16l1"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_iaydh"]
 tile_data = PackedInt32Array(0, 393219, 0)
@@ -8688,7 +8690,8 @@ size = Vector2(7, 25.1429)
 [sub_resource type="CircleShape2D" id="CircleShape2D_mx3hm"]
 radius = 13.0384
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hk3ki"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wathh"]
+size = Vector2(22.7179, 29)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h7axn"]
 
@@ -8846,6 +8849,12 @@ radius = 8.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3amu1"]
 size = Vector2(15, 29)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rf2s3"]
+size = Vector2(31.5609, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7g7k"]
+size = Vector2(16.5853, 21.5489)
+
 [node name="FoodCourt" type="TileMap"]
 position = Vector2(-25, -2)
 tile_set = SubResource("TileSet_dpobp")
@@ -8878,7 +8887,7 @@ shape = SubResource("CapsuleShape2D_p36uo")
 
 [node name="Player" parent="." instance=ExtResource("8_kdafc")]
 top_level = true
-position = Vector2(-123, 160)
+position = Vector2(-126, 161)
 
 [node name="QuestionmarkFolder" type="Node2D" parent="."]
 
@@ -8886,13 +8895,17 @@ position = Vector2(-123, 160)
 z_index = 4
 position = Vector2(-83, 66)
 
+[node name="Interactablewhiteboard" parent="QuestionmarkFolder" instance=ExtResource("11_yvexh")]
+z_index = 1
+position = Vector2(345, 294)
+
 [node name="Interactabledustbin" parent="QuestionmarkFolder" instance=ExtResource("11_yvexh")]
 z_index = 1
 position = Vector2(228, 255)
 
-[node name="Interactablewhiteboard" parent="QuestionmarkFolder" instance=ExtResource("11_yvexh")]
+[node name="Interactable-sensitiveinformation(advanced)" parent="QuestionmarkFolder" instance=ExtResource("11_yvexh")]
 z_index = 1
-position = Vector2(345, 294)
+position = Vector2(244, 282)
 
 [node name="gantryFolder" type="Node2D" parent="."]
 
@@ -9123,6 +9136,7 @@ shape = SubResource("RectangleShape2D_g5hd8")
 
 [node name="Alex1" type="Sprite2D" parent="CharacterFolder"]
 position = Vector2(-216, 44)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("19_ur4k5")
 metadata/_edit_group_ = true
 
@@ -9133,6 +9147,7 @@ shape = SubResource("CircleShape2D_vby6t")
 
 [node name="Alex2" type="Sprite2D" parent="CharacterFolder"]
 position = Vector2(-179, 43)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("19_ur4k5")
 metadata/_edit_group_ = true
 
@@ -9143,6 +9158,7 @@ shape = SubResource("CircleShape2D_vby6t")
 
 [node name="Alex3" type="Sprite2D" parent="CharacterFolder"]
 position = Vector2(-147, 43)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("19_ur4k5")
 metadata/_edit_group_ = true
 
@@ -9152,7 +9168,8 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_vby6t")
 
 [node name="Alex4" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(-17, 42)
+position = Vector2(-17, 44)
+scale = Vector2(0.75, 0.72)
 texture = ExtResource("19_ur4k5")
 metadata/_edit_group_ = true
 
@@ -9162,7 +9179,8 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_vby6t")
 
 [node name="Alex5" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(15, 43)
+position = Vector2(15, 45)
+scale = Vector2(0.75, 0.671)
 texture = ExtResource("19_ur4k5")
 metadata/_edit_group_ = true
 
@@ -9172,7 +9190,8 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_vby6t")
 
 [node name="Alex6" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(48, 43)
+position = Vector2(48, 44)
+scale = Vector2(0.75, 0.623)
 texture = ExtResource("19_ur4k5")
 metadata/_edit_group_ = true
 
@@ -9183,6 +9202,7 @@ shape = SubResource("CircleShape2D_vby6t")
 
 [node name="Alex7" type="Sprite2D" parent="CharacterFolder"]
 position = Vector2(-85, 43)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("19_ur4k5")
 metadata/_edit_group_ = true
 
@@ -9192,8 +9212,8 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_vby6t")
 
 [node name="Tom - question" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(-84, 87)
-scale = Vector2(1.02632, 1)
+position = Vector2(-82, 87)
+scale = Vector2(0.75, 0.763)
 texture = ExtResource("13_jjra0")
 script = ExtResource("14_10a4o")
 metadata/_edit_group_ = true
@@ -9208,11 +9228,12 @@ shape = SubResource("CircleShape2D_mx3hm")
 [node name="StaticBody2D" type="StaticBody2D" parent="CharacterFolder/Tom - question"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterFolder/Tom - question/StaticBody2D"]
-position = Vector2(-2, 2)
-shape = SubResource("CircleShape2D_hk3ki")
+position = Vector2(-0.64109, -0.5)
+shape = SubResource("RectangleShape2D_wathh")
 
 [node name="Bei" type="Sprite2D" parent="CharacterFolder"]
 position = Vector2(-220, 76)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("15_is0gt")
 metadata/_edit_group_ = true
 
@@ -9222,7 +9243,8 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_h7axn")
 
 [node name="Jerry" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(15, 76)
+position = Vector2(15, 74)
+scale = Vector2(0.75, 0.73)
 texture = ExtResource("54_5v7lc")
 metadata/_edit_group_ = true
 
@@ -9232,7 +9254,8 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_8m760")
 
 [node name="Bei3" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(49, 75)
+position = Vector2(48, 74)
+scale = Vector2(0.75, 0.674)
 texture = ExtResource("15_is0gt")
 metadata/_edit_group_ = true
 
@@ -9597,6 +9620,7 @@ rotates = false
 [node name="Tim" type="Sprite2D" parent="MovableObjectFolder/Path2D/PathFollow2D"]
 position = Vector2(3.92378, -3.09903)
 rotation = -0.0249948
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("30_i1buy")
 script = SubResource("GDScript_shpn5")
 metadata/_edit_group_ = true
@@ -9936,6 +9960,7 @@ shape = SubResource("RectangleShape2D_owdjq")
 
 [node name="Jerry" type="Sprite2D" parent="DiscussionTableFolder"]
 position = Vector2(376, 310)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("54_5v7lc")
 metadata/_edit_group_ = true
 
@@ -10210,6 +10235,7 @@ shape = SubResource("RectangleShape2D_rm5dh")
 
 [node name="Bei2" type="Sprite2D" parent="WaitingroomFolder"]
 position = Vector2(248, 6)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("15_is0gt")
 script = ExtResource("59_rqshe")
 metadata/_edit_group_ = true
@@ -10639,10 +10665,33 @@ metadata/_edit_group_ = true
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_3amu1")
 
-[node name="ExclamationMark1" type="Sprite2D" parent="."]
+[node name="ExclamationMark-helpdesk1" type="Sprite2D" parent="."]
 z_index = 2
-position = Vector2(249, -20)
+position = Vector2(248, -12)
 texture = ExtResource("69_7ljdq")
+
+[node name="Mary" type="Sprite2D" parent="."]
+position = Vector2(243, 296)
+scale = Vector2(0.602943, 0.692708)
+texture = ExtResource("68_qns23")
+script = ExtResource("69_h16l1")
+metadata/_edit_group_ = true
+
+[node name="Actionable" type="Area2D" parent="Mary"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mary/Actionable"]
+position = Vector2(5.78052, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_rf2s3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Mary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mary/StaticBody2D"]
+position = Vector2(0, 0.774506)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_p7g7k")
 
 [connection signal="partsignaller" from="HUD" to="GantryEnter" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="GantryExit" method="_on_hud_partsignaller"]

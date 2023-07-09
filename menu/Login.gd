@@ -41,7 +41,7 @@ func _on_login_btn_button_down():
 		
 		#TODO STORE THE USER's company in the session
 		if("admin" in email):
-			SceneTransition.change_scene("res://../menu/Registration.tscn") # Shows registration screen
+			SceneTransition.change_scene("res://../menu/Admin_LandingPage.tscn") # Shows admin landing page
 		else:
 			SceneTransition.change_scene("res://menu/menu.tscn") # Starts the game
 		

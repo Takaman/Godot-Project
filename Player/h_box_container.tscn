@@ -1,6 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://d322o0o5wflr4"]
+[gd_scene load_steps=2 format=3 uid="uid://drhgafdbyaldq"]
 
-[ext_resource type="Script" path="res://Player/h_box_container.gd" id="1_g0lxh"]
+[sub_resource type="GDScript" id="GDScript_3hopy"]
+script/source = "extends HBoxContainer
+
+@onready var HeartClass = preload(\"res://Player/heartlogo.tscn\")
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+	
+func setMaxHearts(max: int):
+	for i in range(max):
+		var heart = HeartClass.instantiate()
+		add_child(heart)
+
+func updateHearts(currentHealth: int):
+	var hearts = get_children()
+	for i in range(currentHealth):
+		hearts[i].update(true)
+		
+	for i in range(currentHealth, hearts.size()):
+		hearts[i].update(false)
+"
 
 [node name="HeartBoxContainer" type="HBoxContainer"]
 layout_direction = 3
@@ -12,4 +38,4 @@ offset_bottom = -180.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 2
-script = ExtResource("1_g0lxh")
+script = SubResource("GDScript_3hopy")

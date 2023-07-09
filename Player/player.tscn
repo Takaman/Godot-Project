@@ -211,10 +211,10 @@ position = Vector2(39, 87)
 script = ExtResource("1_7n5v5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(4, 4)
+position = Vector2(4, 1)
 scale = Vector2(0.625, 0.645161)
 sprite_frames = SubResource("SpriteFrames_l3ucm")
-animation = &"idle_right"
+animation = &"idle_back"
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -253,7 +253,7 @@ libraries = {
 
 [node name="FootSteps" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_epeog")
-volume_db = -30.0
+volume_db = -35.0
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

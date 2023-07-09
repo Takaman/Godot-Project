@@ -209,7 +209,11 @@ def ep_update_Interactions():
 @app.route('/generate_report', methods=['POST'])
 def ep_Generate_report():
     # JSON input parameters:
-        # ---
+        # email
+    data = json.loads(request.data)
+    print("RECIEVED JSON REQUEST: ")
+    email = data.get("email")
+
     # Generate the csv file''
     print("Starting CSV export.....")
     print("Fetching records to export.....")
@@ -243,9 +247,8 @@ def ep_Generate_report():
         for user in users:
             writer.writerow(user)
             
-    # send the csv in the email    
-    print("Sending csv email...")
-    email="itpgroup11email@gmail.com" #TODO CHANGE TO TAKE IN FROM JSON FOR DYNAMIC
+    # send the csv in the email  
+    print(f"Sending csv email to {email}...")
     name = "Game Report" #TODO CHANGE TO RETRIEVE FROM DB FOR DYNAMIC
     subject = "Your Report has Arrived"
     email_csv = Message(subject, sender = 'sititpgroup11@gmail.com', recipients = [email])
