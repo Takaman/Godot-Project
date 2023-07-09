@@ -23,7 +23,7 @@ Global="*res://global.gd"
 Score="*res://score.gd"
 Utils="*res://utils.gd"
 SeshVar="*res://SeshVar.gd"
-SceneTransition="*res://World/scene_transition.tscn"
+SceneTransition="*res://World/Loading/scene_transition.tscn"
 BackgroundMusic="*res://menu/music/BackgroundMusic.tscn"
 Globals="*res://leaderboard/globals.gd"
 

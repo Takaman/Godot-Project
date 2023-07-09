@@ -55,7 +55,7 @@ func interact() -> void:
 						[b]John[/b]
 						You're right, I'd better do it quickly. Let's see... that's strange, the website looks a little different from usual, but I guess it's been a while.
 						
-						<?[url=$end][right]... ?[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]... ?[/url]?>[/right]
 						"""
 					),
 			},

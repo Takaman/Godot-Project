@@ -13,8 +13,8 @@ func interact() -> void:
 				"""
 				There are sensitive client documents in the trash. Looks like someone accidentally threw them away. What is the best course of action?
 
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:correct]I'll destroy the documents using a secure shredder to prevent anyone from seeing any confidential client information. [/url]?>[/right]
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]I think I'll just leave it. It's unlikely that anyone would bother to look at the documents. [/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:correct]I'll destroy the documents using a secure shredder to prevent anyone from seeing any confidential client information.[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]I think I'll just leave it. It's unlikely that anyone would bother to look at the documents.[/url]?>[/right]
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange1:wrong]I'll notify the employees in the vicinity about the presense of sensitive documents[/url]?>[/right]
 				
 				

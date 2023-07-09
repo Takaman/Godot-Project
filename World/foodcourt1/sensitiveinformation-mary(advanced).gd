@@ -13,11 +13,11 @@ func interact() -> void:
 				"""
 				[b]Mary[/b]
 				How can you proactively identify and detect any potential mishandling or unauthorized disposal of sensitive client documents?
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:correct]I will assign dedicated staff to perform routine checks of trash bins and recycling areas for any discarded sensitive documents [/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:correct]I will assign dedicated staff to perform routine checks of trash bins and recycling areas for any discarded sensitive documents.[/url]?>[/right]
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]I will implement a document tracking system to monitor the movement and disposal of sensitive client documents. [/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]I will implement a document tracking system to monitor the movement and disposal of sensitive client documents.[/url]?>[/right]
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange1:wrong]I will conduct surprise audits to ensure employees are following proper document disposal practices [/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange1:wrong]I will conduct surprise audits to ensure employees are following proper document disposal practices.[/url]?>[/right]
 				
 				"""
 			),

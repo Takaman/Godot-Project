@@ -47,7 +47,7 @@ func interact_ontouch() -> void:
 				[b]Sam[/b]
 				Hey, we'd like your help to look through some emails we've been receiving.
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next][right]Is there a problem?[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next]Is there a problem?[/url]?>[/right]
 				"""
 			),
 			"$next":
@@ -56,7 +56,7 @@ func interact_ontouch() -> void:
 				[b]Sam[/b]
 				Some of them seem kinda weird - someone might be trying to phish us!
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end][right]Alright, I'll help.[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Alright, I'll help.[/url]?>[/right]
 				"""
 				),
 		},

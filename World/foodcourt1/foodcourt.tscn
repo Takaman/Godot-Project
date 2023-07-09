@@ -66,7 +66,7 @@
 [ext_resource type="Texture2D" uid="uid://dq8my8inckwx3" path="res://World/foodcourt1/images/objects/sofa-right.png" id="65_kiexv"]
 [ext_resource type="Texture2D" uid="uid://cxgh4dmd2pvlv" path="res://World/foodcourt1/images/objects/bluetaable.png" id="66_u7d6q"]
 [ext_resource type="Texture2D" uid="uid://qlotrf6c5fqp" path="res://World/foodcourt1/images/objects/bluetableback.png" id="67_r148e"]
-[ext_resource type="Texture2D" uid="uid://b4nf3qfe7c5y0" path="res://World/foodcourt1/character/Mary.png" id="68_qns23"]
+[ext_resource type="Texture2D" uid="uid://b4nf3qfe7c5y0" path="res://World/office1/images/character/Mary.png" id="68_qns23"]
 [ext_resource type="Texture2D" uid="uid://bao0knkoyjxd5" path="res://World/foodcourt1/images/objects/exclamation_mark1.png" id="69_7ljdq"]
 [ext_resource type="Script" path="res://World/foodcourt1/sensitiveinformation-mary(advanced).gd" id="69_h16l1"]
 
@@ -10683,14 +10683,12 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mary/Actionable"]
 position = Vector2(5.78052, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_rf2s3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Mary"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mary/StaticBody2D"]
 position = Vector2(0, 0.774506)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_p7g7k")
 
 [connection signal="partsignaller" from="HUD" to="GantryEnter" method="_on_hud_partsignaller"]

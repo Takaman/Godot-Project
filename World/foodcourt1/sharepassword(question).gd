@@ -15,8 +15,8 @@ func interact() -> void:
 				There is a password written on the whiteboard for everyone to see. This poses a significant security risk as it allows unauthorized individuals to easily access sensitive information
 
 
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:correct]I will immediately erase the password from the whiteboard to prevent unauthorized access and protect our sensitive information [/url]?>[/right]
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]I don't think it's a problem to leave the password there. We trust our team, and it's convenient for everyone to have easy access to it. [/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:correct]I will immediately erase the password from the whiteboard to prevent unauthorized access and protect our sensitive information.[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]I don't think it's a problem to leave the password there. We trust our team, and it's convenient for everyone to have easy access to it.[/url]?>[/right]
 				
 				"""
 			),
