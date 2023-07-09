@@ -1,7 +1,7 @@
 extends Node
 
 @onready var sessionVar = get_node("/root/SeshVar")
-const api_svr = "http://127.0.0.1:5000"
+const api_svr = "http://165.22.246.221:5000"
 
 const TOTAL_SCORE = 200
 const FIRST_ATTEMPT_POINTS = 10 #Points for the first attempt
@@ -53,8 +53,8 @@ func new_interaction(interaction: String, result: String, phase: String) -> void
 		"has_correct": previous["has_correct"] or result == "correct"  # Update whether the player has gotten this interaction correct before
 		}
 		#Uncomment if you handling server side
-		#send_interactions_to_server(_interactions)
-		#send_has_interacted_to_server(_has_interacted)
+		send_interactions_to_server(_interactions)
+		send_has_interacted_to_server(_has_interacted)
 		
 		
 
@@ -140,6 +140,7 @@ func get_total_points() -> float:
 
 
 func send_has_interacted_to_server(pastinteractions: Dictionary):
+	print("SENDING INTERACTIONS")
 	var username = sessionVar._session.get("username")
 	var url = api_svr + "/update_Interactions"
 	var headers = ["Content-Type: application/json"]
@@ -162,6 +163,7 @@ func send_interactions_to_server(breakdown: Dictionary):
 	
 	var policy_scores = Score.get_training_scores("policy")
 	var socialeng_scores = Score.get_training_scores("socialengineering")
+	var malware_scores = Score.get_training_scores("malware")
 	
 	var socialengineering_completed = socialeng_scores["correct"] + socialeng_scores["wrong"]
 	var socialengineering_correct = socialeng_scores["correct"]
@@ -169,7 +171,11 @@ func send_interactions_to_server(breakdown: Dictionary):
 	var policy_completed = policy_scores["correct"] + policy_scores["wrong"]
 	var policy_correct = policy_scores["correct"]
 	
-	var comp_rate = (policy_completed + socialengineering_completed)/ 20.0 * 100
+	var malware_completed = malware_scores["correct"] + malware_scores["wrong"]
+	var malware_correct = malware_scores["correct"]
+	
+	var comp_rate = (policy_completed + socialengineering_completed + malware_completed)/ 14 * 100
+	
 	print("COMPLETION RATE:")
 	print(comp_rate)
 	var breakdownJSON = JSON.stringify(breakdown)	

@@ -1,11 +1,39 @@
-from flask import Flask, request, json, jsonify
+from flask import Flask, request, json, jsonify, g
 import sqlite3, string, random, csv
 from datetime import datetime
 from flask_mail import Mail, Message
+import mysql.connector
+
 
 app = Flask(__name__)
 app.secret_key="your_secret_Key"
-database = "score.db"
+
+#MySQL connection config
+mysql_host = 'localhost'
+mysql_user = 'godotproject'
+mysql_password = 'sititpgroup11password'
+mysql_database = 'game_data'
+
+#Create a MYSQL connection
+conn = mysql.connector.connect(
+    host=mysql_host,
+    user=mysql_user,
+    password=mysql_password,
+    database=mysql_database
+)
+# Create a new MySQL connection object
+def create_mysql_connection():
+    try:
+        conn = mysql.connector.connect(
+            host=mysql_host,
+            user=mysql_user,
+            password=mysql_password,
+            database=mysql_database
+        )
+        return conn
+    except mysql.connector.Error as error:
+        print("Error while connecting to MySQL", error)
+        return None
 
 ################################################   MAIL CONFIG   ##########################################
 app.config['MAIL_SERVER']='smtp.gmail.com'
@@ -65,13 +93,25 @@ def ep_InitPlayer():
     print("Company: " + company)
 
     print("---Inserting New User Into Database----")
-    conn = sqlite3.connect(database)
-    cursor = conn.cursor()
-    cursor.execute("INSERT INTO PlayerProgress (username, name, company, date_joined, points, comp_rate, last_played, accountStatus) VALUES (?,?,?,DateTime('now', 'localtime'),0,0,'-','Active')",(email,name,company))
-    conn.commit()
-    print("---New user record inserted successfully---")
-    conn.close()
-    return data #TODO change to a success or sth
+
+    conn = create_mysql_connection()
+    if conn is None:
+        return jsonify({"error": "Failed to connect to MySQL"})
+    try:
+
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO PlayerProgress (username, name, company, date_joined, points, comp_rate, last_played, accountStatus) VALUES (%s, %s, %s, NOW(), 0, 0, '-', 'Active')", (email, name, company))
+        conn.commit()
+        return "Player initialized successfully"
+    
+    except mysql.connector.Error as error:
+        print("Error initializing new player:", error)
+        return jsonify({"error": "Failed to initialize new player"})
+
+    finally:
+        if conn is not None:
+            conn.close()
+
 
 # Email sender
 @app.route('/send_Mail', methods=['POST'])
@@ -113,13 +153,24 @@ def ep_update_score():
     print("Completion Rate: " + str(comp_rate)+"%")
 
     print("---Updating Database----")
-    conn = sqlite3.connect(database)
-    cursor = conn.cursor()
+    conn = create_mysql_connection()
+    if conn is None:
+        return jsonify({"error": "Failed to connect to MySQL"})
+    try:
+
+        cursor = conn.cursor()
+        #cursor.execute("UPDATE PlayerProgress SET points = ? , comp_rate = ?, last_played = DateTime('now', 'localtime'), se_completed = ?, se_correct = ?, policy_correct = ?, policy_completed = ?, breakdown = ? WHERE username = ?", (score,comp_rate, se_completed, se_correct, policy_correct, policy_completed, breakdown, email))
+        cursor.execute("UPDATE PlayerProgress SET points = %s, comp_rate = %s, last_played = NOW(), se_completed = %s, se_correct = %s, policy_correct = %s, policy_completed = %s, breakdown = %s WHERE username = %s", (score, comp_rate, se_completed, se_correct, policy_correct, policy_completed, breakdown, email))
+        conn.commit()
+        return "Player score updated successfully"
     
-    cursor.execute("UPDATE PlayerProgress SET points = ? , comp_rate = ?, last_played = DateTime('now', 'localtime'), se_completed = ?, se_correct = ?, policy_correct = ?, policy_completed = ?, breakdown = ? WHERE username = ?", (score,comp_rate, se_completed, se_correct, policy_correct, policy_completed, breakdown, email))
-    conn.commit()
-    conn.close()
-    return data #TODO change to a success or sth
+    except mysql.connector.Error as error:
+        print("Error updating player score:", error)
+        return jsonify({"error": "Failed to update player score"})
+
+    finally:
+        if conn is not None:
+            conn.close()
 
 # Update of interactions
 @app.route('/update_Interactions', methods=['POST'])
@@ -133,13 +184,25 @@ def ep_update_Interactions():
     interactions = data.get("has_interacted")
     print("Email: " + email)
     print("---Updating Database----")
-    conn = sqlite3.connect(database)
-    cursor = conn.cursor()
     
-    cursor.execute("UPDATE PlayerProgress SET has_interacted = ? WHERE username = ?", (interactions, email))
-    conn.commit()
-    conn.close()
-    return data
+    conn = create_mysql_connection()
+    if conn is None:
+        return jsonify({"error": "Failed to connect to MySQL"})
+    
+    try:
+        cursor = conn.cursor()
+        #cursor.execute("UPDATE PlayerProgress SET has_interacted = ? WHERE username = ?", (interactions, email))
+        cursor.execute("UPDATE PlayerProgress SET has_interacted = %s WHERE username = %s", (interactions, email))
+        conn.commit()
+        return "Player interactions updated successfully"
+    
+    except mysql.connector.Error as error:
+        print("Error updating player interactions:", error)
+        return jsonify({"error": "Failed to update player interactions"})
+
+    finally:
+        if conn is not None:
+            conn.close()
 
 
 # Retrieve leaderboard for users based on company
@@ -150,13 +213,25 @@ def ep_Generate_report():
     # Generate the csv file''
     print("Starting CSV export.....")
     print("Fetching records to export.....")
-    conn = sqlite3.connect(database)
+     
     print("DB Connected...")
-    cursor = conn.cursor()
-    cursor.execute(f"SELECT name,username,company,date_joined,points,comp_rate,last_played, accountStatus FROM PlayerProgress ") # TODO CHANGE TO PREPARED STATEMENTS
-    users = cursor.fetchall()
-    conn.close()
+    conn = create_mysql_connection()
+    if conn is None:
+        return jsonify({"error": "Failed to connect to MySQL"})
+    try:
+        cursor = conn.cursor()
+        cursor.execute(f"SELECT name,username,company,date_joined,points,comp_rate,last_played, accountStatus FROM PlayerProgress ") # TODO CHANGE TO PREPARED STATEMENTS
+        users = cursor.fetchall()
+    
+    except mysql.connector.Error as error:
+        print("Error getting database:", error)
+        return jsonify({"error": "Failed to get database"})
+    
+    finally:
+        if conn is not None:
+            conn.close()
     print("No. of fetched player records..." + str(len(users)))
+
 
     now = datetime.now()
     csv_name = f"""{now.strftime("%Y_%m_%d,%H_%M_%S")}-PlayerStats.csv"""
@@ -170,7 +245,7 @@ def ep_Generate_report():
             
     # send the csv in the email    
     print("Sending csv email...")
-    email="itpgroup11@gmail.com" #TODO CHANGE TO TAKE IN FROM JSON FOR DYNAMIC
+    email="itpgroup11email@gmail.com" #TODO CHANGE TO TAKE IN FROM JSON FOR DYNAMIC
     name = "Game Report" #TODO CHANGE TO RETRIEVE FROM DB FOR DYNAMIC
     subject = "Your Report has Arrived"
     email_csv = Message(subject, sender = 'sititpgroup11@gmail.com', recipients = [email])
@@ -194,16 +269,29 @@ def ep_get_Progress():
     print("Email: " + email)
 
     print("---Retrieving Player Progress----")
-    conn = sqlite3.connect(database)
-    cursor = conn.cursor()
+    conn = create_mysql_connection()
+    if conn is None:
+        return jsonify({"error": "Failed to connect to MySQL"})
+    try:
+
+        cursor = conn.cursor()
+        #cursor.execute("SELECT breakdown FROM PlayerProgress WHERE username = %(email)s", {'email': email})
+        #cursor.execute("SELECT breakdown FROM PlayerProgress WHERE username = ?",(email,))
+        cursor.execute("SELECT breakdown FROM PlayerProgress WHERE username = %s", (email,))
+        score = cursor.fetchone()
+        # conn.close()
+        if score is None:
+            return jsonify({"error": "No player progress found"})
+        else:
+            return score[0] 
     
-    cursor.execute("SELECT breakdown FROM PlayerProgress WHERE username = ?",(email,))
-    score = cursor.fetchone()
-    # conn.close()
-    if score is None:
-        return jsonify({"error": "No player progress found"})
-    else:
-        return score[0] 
+    except mysql.connector.Error as error:
+        print("Error retrieving player progress:", error)
+        return jsonify({"error": "Failed to retrieve player progress"})
+
+    finally:
+        if conn is not None:
+            conn.close()
 
 #Getting the interactions the player had through the player dicitionary
 @app.route('/get_Interactions', methods=['POST'])
@@ -217,17 +305,29 @@ def ep_get_Interactions():
     print("Email: " + email)
 
     print("---Retrieving Player Interactions----")
-    conn = sqlite3.connect(database)
-    cursor = conn.cursor()
+    conn = create_mysql_connection()  # Create a new MySQL connection
+    if conn is None:
+        return jsonify({"error": "Failed to connect to MySQL"})
 
-    cursor.execute("SELECT has_interacted FROM PlayerProgress WHERE username = ?",(email,))
-    score = cursor.fetchone()
+    try:
+        cursor = conn.cursor()
+        #cursor.execute("SELECT has_interacted FROM PlayerProgress WHERE username = %(email)s", {'email': email})
+        #cursor.execute("SELECT has_interacted FROM PlayerProgress WHERE username = ?",(email,))
+        cursor.execute("SELECT has_interacted FROM PlayerProgress WHERE username = %s", (email,))
+        score = cursor.fetchone()
 
-    if score is None:
-        return jsonify({"error": "No has_interaction found"})
-    else:
-        return score[0]
+        if score is None:
+            return jsonify({"error": "No has_interaction found"})
+        else:
+            return score[0]
+        
+    except mysql.connector.Error as error:
+        print("Error retrieving player interactions:", error)
+        return jsonify({"error": "Failed to retrieve player interactions"})
 
+    finally:
+        if conn is not None:
+            conn.close()
 
 # Retrieve leaderboard for users based on company
 @app.route('/get_Leader_Player', methods=['POST'])
@@ -241,15 +341,26 @@ def ep_Get_Leader_Player():
     print("Company: " + company)
 
     print(f"---Retrieving Leaderboards from Database for {company}---")
-    conn = sqlite3.connect(database)
-    cursor = conn.cursor()
-    cursor.execute("SELECT username, name, points FROM PlayerProgress WHERE company = ? and accountStatus = 'Active' ORDER BY points DESC", (company,))
-    board = cursor.fetchall()
-    conn.close()
-    print(f"Found {str(len(board))} results.")
+    conn = create_mysql_connection()
+    if conn is None:
+        return jsonify({"error": "Failed to connect to MySQL"})
+    try:
 
-    # send back json reply
-    return jsonify(board)
+        cursor = conn.cursor()
+        cursor.execute("SELECT username, name, points FROM PlayerProgress WHERE company = ? and accountStatus = 'Active' ORDER BY points DESC", (company,))
+        board = cursor.fetchall()
+        print(f"Found {str(len(board))} results.")
+        # send back json reply
+        return jsonify(board)
+
+    except mysql.connector.Error as error:
+        print("Error retrieving player leaderboard:", error)
+        return jsonify({"error": "Failed to retrieve player leaderboard"})
+    
+    finally:
+        if conn is not None:
+            conn.close()
+
 
 
 # Retrieve leaderboard for all users 
@@ -260,13 +371,28 @@ def ep_Get_Leader_All():
     # Recieve request
 
     print(f"---Retrieving Leaderboards from Database for all players---")
-    conn = sqlite3.connect(database)
-    cursor = conn.cursor()
-    cursor.execute("SELECT name, username, company, points , comp_rate FROM PlayerProgress WHERE accountStatus = 'Active' ORDER BY points DESC")
-    board = cursor.fetchall()
-    conn.close()
-    print(f"Found {str(len(board))} results.")
+    
+    conn = create_mysql_connection()
+    if conn is None:
+        return jsonify({"error": "Failed to connect to MySQL"})
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT name, username, company, points , comp_rate FROM PlayerProgress WHERE accountStatus = 'Active' ORDER BY points DESC")
+        board = cursor.fetchall()
+        if board is None:
+            return jsonify({"error": "No player leaderboard found"})
+        
+        print(f"Found {str(len(board))} results.")
+        return jsonify(board)
+    
+    except mysql.connector.Error as error:
+        print("Error retrieving all players leaderboard:", error)
+        return jsonify({"error": "Failed to retrieve all players leaderboard"})
 
+    finally:
+        if conn is not None:
+            conn.close()
+    
     # send back json reply
     return jsonify(board)
 
@@ -280,15 +406,32 @@ def ep_Get_Leader_All_Sort():
     print("RECIEVED JSON REQUEST: ")
     column_name = data.get("column_name")
     print(f"---Retrieving Leaderboards from Database for all players order by {column_name}---")
-    conn = sqlite3.connect(database)
-    cursor = conn.cursor()
-    cursor.execute(f"SELECT name, username, company, points , comp_rate FROM PlayerProgress WHERE accountStatus = 'Active' ORDER BY {column_name}")
-    board = cursor.fetchall()
-    conn.close()
-    print(f"Found {str(len(board))} results.")
+    
+    conn = create_mysql_connection()
+    if conn is None:
+        return jsonify({"error": "Failed to connect to MySQL"})
+    try:
+        cursor = conn.cursor()
+        cursor.execute(f"SELECT name, username, company, points , comp_rate FROM PlayerProgress WHERE accountStatus = 'Active' ORDER BY {column_name}")
+        board = cursor.fetchall()
+        if board is None:
+            return jsonify({"error": "No player leaderboard found"})
+        print(f"Found {str(len(board))} results.")
+        return jsonify(board)
+
+    except mysql.connector.Error as error:
+        print("Error retrieving all players leaderboard:", error)
+        return jsonify({"error": "Failed to retrieve all players leaderboard"})
+    
+    finally:
+        if conn is not None:
+            conn.close()
 
     # send back json reply
     return jsonify(board)
 
 if __name__ == '__main__':
-    app.run()
+
+
+
+    app.run(host='0.0.0.0',port=5000)
