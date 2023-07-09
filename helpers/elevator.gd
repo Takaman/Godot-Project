@@ -16,10 +16,10 @@ func interact() -> void:
 				"""
 				Where would you like to go?
 				
-				<?[url=$lvl0][right]Ground Floor[/right][/url]?>
-				<?[url=$lvl1][right]Food Court[/right][/url]?>
-				<?[url=$lvl2][right]Office Policies[/right][/url]?>
-				<?[url=$lvl3][right]Phishing[/right][/url]?>
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$lvl0]Ground Floor[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$lvl1]Food Court[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$lvl2]Office Policies[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$lvl3]Phishing[/url]?>[/right]
 				"""
 				),
 				"$lvl0":Utils.dialog_part("""Going to the ground floor."""),

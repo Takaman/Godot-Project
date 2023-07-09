@@ -16,22 +16,22 @@ func interact() -> void:
 				Utils.dialog_part(
 					"""
 					Please scan your access card to enter the food court. 
-					<?[url=$enterfood]Scan[/url]?>
-					<?[url=$noenterfood]Don't scan[/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$enterfood]Scan[/url]?>[/right]
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$noenterfood]Don't scan[/url]?>[/right]
 					"""
 				),
 			"$enterfood":
 				Utils.dialog_part(
 					"""
 					The gantry has opened.
-					<?[url=$end]Exit[/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 					"""
 				),
 			"$noenterfood":
 				Utils.dialog_part(
 					"""
 					The gantry has not opened.
-					<?[url=$end]Exit[/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 					"""
 				),
 			"$end":

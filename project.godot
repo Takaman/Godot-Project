@@ -75,7 +75,7 @@ interact={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://main.dialogue", "res://dialogue/main.dialogue", "res://dialogue/phishmain.dialogue", "res://dialogue/LatestOS.dialogue", "res://dialogue/qrcode.dialogue", "res://dialogue/Unattended.dialogue", "res://dialogue/weakpassword.dialogue")
+locale/translations_pot_files=PackedStringArray("res://main.dialogue")
 
 [layer_names]
 

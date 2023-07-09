@@ -14,8 +14,8 @@ func interact() -> void:
 				Important updates are pending. The newest Windows feature update is ready to install. Would you like to initiate the download now or choose a later time?
 				
 				[center][img=180x180]res://World/office1/images/Question/Windows11Update.jpg[/img][/center]
-				<?[url=$change:correct][right]Yes, I'll download it right away. [/right][/url]?>
-				<?[url=$nochange:wrong][right]No,  I'm currently busy. I'll download it next time. [/right][/url]?>
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:correct]Yes, I'll download it right away. [/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]No,  I'm currently busy. I'll download it next time. [/url]?>[/right]
 				
 				"""
 			),
@@ -23,14 +23,14 @@ func interact() -> void:
 				Utils.dialog_part(
 				"""
 				Correct. It is a good practice to download the latest window features update. This update enhances security measures, ensuring a safer system environment.
-				<?[url=$end][right]EXIT[/right][/url]?>
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""
 				),
 			"$nochange":
 				Utils.dialog_part(
 				"""
 				That's not ideal. Without the latest Windows feature update, you become more vulnerable to data breaches, miss out on important bug fixes, new features, and risk encountering compatibility issues with software. It is strongly recommended to always keep your Windows up to date to ensure optimal security and functionality.
-				<?[url=$end][right]EXIT[/right][/url]?>
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""
 				),
 		},

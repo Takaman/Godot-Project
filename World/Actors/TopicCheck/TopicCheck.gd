@@ -34,7 +34,7 @@ func interact() -> void:
 		Your current total score is <!%s!>.
 		
 		Keep up the good work! There is more to learn!
-		<?[url=$end]Exit[/url]?>
+		[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 		"""
 		% [
 			socialengineering_completed,

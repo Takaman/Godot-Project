@@ -13,8 +13,8 @@ func interact() -> void:
 				"""
 				Excuse me, I'm having trouble accessing this area. Could you please let me in? I forgot my access card.
 
-				<?[url=$change:correct]1) I'm sorry, but I cannot help you out. [/url]?>
-				<?[url=$nochange:wrong]2) Oh, no worries. I can help you out. I'll swipe my card, and you can follow me. [/url]?>
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:correct]I'm sorry, but I cannot help you out. [/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]Oh, no worries. I can help you out. I'll swipe my card, and you can follow me. [/url]?>[/right]
 				
 				"""
 			),
@@ -22,14 +22,14 @@ func interact() -> void:
 				Utils.dialog_part(
 				"""
 That's the right decision. Let's prevent tailgating and maintain security by following access protocols and not allowing unauthorized entry.
-<?[url=$end]EXIT[/url]?>
+[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""
 				),
 			"$nochange":
 				Utils.dialog_part(
 				"""
 That's risky. Allowing someone to tailgate can have severe consequences, such as data breaches, financial loss, and property damage. To prevent tailgating, always be aware of anyone following you through a door and ensure that only authorized individuals gain access.	
-<?[url=$end]EXIT[/url]?>
+[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""
 				),
 		},

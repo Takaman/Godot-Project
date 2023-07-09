@@ -16,8 +16,8 @@ func interact() -> void:
 				
 				[center][img=50x50]res://World/Actors/Thumbdrive/thumdrive.jpg[/img][/center]
 				
-				<?[url=$insert:wrong]1) Insert into your computer and check whose the owner[/url]?>
-				<?[url=$pass:correct]2) Pass the thumbdrive to the IT security team[/url]?>
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$insert:wrong]Insert into your computer and check whose the owner[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$pass:correct]Pass the thumbdrive to the IT security team[/url]?>[/right]
 				
 				"""
 			),
@@ -33,7 +33,7 @@ func interact() -> void:
 				To learn more visit this link.
 				[center]<#[url=https://www.redteamsecure.com/blog/usb-drop-attacks-the-danger-of-lost-and-found-thumb-drives]Click here to learn more. [/url]#>[/center]
 				
-				<?[url=$end]EXIT[/url]?>
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""
 				),
 			"$pass":
@@ -46,7 +46,7 @@ func interact() -> void:
 				To learn more visit this link.
 				[center]<#[url=https://www.redteamsecure.com/blog/usb-drop-attacks-the-danger-of-lost-and-found-thumb-drives]Click here to learn more. [/url]#>[/center]
 				
-				<?[url=$end]EXIT[/url]?>
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""
 				),
 		},

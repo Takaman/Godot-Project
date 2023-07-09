@@ -16,22 +16,22 @@ func interact() -> void:
 				Utils.dialog_part(
 					"""
 					Please scan your access card to enter the facility. 
-					<?[url=$enter:signaller1]Scan[/url]?>
-					<?[url=$noenter:signaller2]Don't scan[/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$enter:signaller1]Scan[/url]?>[/right]
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$noenter:signaller2]Don't scan[/url]?>[/right]
 					"""
 				),
 			"$enter":
 				Utils.dialog_part(
 					"""
 					The gantry has opened.
-					<?[url=$end]Exit[/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 					"""
 				),
 			"$noenter":
 				Utils.dialog_part(
 					"""
 					The gantry has not opened.
-					<?[url=$end]Exit[/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 					"""
 				),
 			"$end":
