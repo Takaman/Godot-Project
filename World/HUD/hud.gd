@@ -13,6 +13,8 @@ extends CanvasLayer
 @onready var sound_default := $sounddefault
 @onready var sound_correct := $soundcorrect
 @onready var sound_wrong := $soundwrong
+@onready var sound_door = $soundDoor
+
 
 const BOTTOM_PANEL_INSIDE_Y := 230
 const BOTTOM_PANEL_OUTSIDE_Y := 500
@@ -51,6 +53,8 @@ func _input(event: InputEvent) -> void:
 
 func _handle_interaction(sound: String = "") -> void:
 	match sound:
+		"door":
+			sound_door.play()
 		"correct":
 			sound_correct.play()
 			emit_signal("correct")

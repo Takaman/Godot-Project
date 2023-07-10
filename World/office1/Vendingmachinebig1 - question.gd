@@ -14,8 +14,8 @@ func interact() -> void:
 				"""
 				There's a note accompanying the QR code attached to the vending machine that claims scanning it will grant you free food from the vending machine
 
-				<?[url=$change:wrong]1) I like free food. I am scanning the QR code. [/url]?>
-				<?[url=$nochange:correct]2) I rather not scan the QR code. I'd rather not take the risk. [/url]?>
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:wrong]I like free food. I am scanning the QR code. [/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:correct]I rather not scan the QR code. I'd rather not take the risk. [/url]?>[/right]
 				
 				"""
 			),
@@ -25,7 +25,7 @@ func interact() -> void:
 Scanning the QR code... Processing... Oh no! It seems the QR code you scanned is not authorized. You most likely visited a phishing website. It's crucial to be cautious when scanning unknown QR codes, as they can be used for malicious purposes. 
 
 Always ensure the authenticity and legitimacy of QR codes before scanning them to protect your personal information and device.  
-<?[url=$end]EXIT[/url]?>
+[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""
 				),
 			"$nochange":
@@ -33,7 +33,7 @@ Always ensure the authenticity and legitimacy of QR codes before scanning them t
 				"""
 Wise decision! It's important to prioritize your security and privacy. Scanning unknown QR codes can expose you to potential risks and threats. By avoiding scanning unverified QR codes, you're taking a proactive step to safeguard your personal information and device.				
 
-<?[url=$end]EXIT[/url]?>
+[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""
 				),
 		},

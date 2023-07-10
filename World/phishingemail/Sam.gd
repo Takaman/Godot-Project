@@ -20,7 +20,7 @@ func interact() -> void:
 				[b]Sam[/b]
 				Theres been a lot of phishing attacks nowadays, we all need to stay vigilant.
 				
-				<?[url=$more][right]Can you tell me more about phishing?[/right][/url]?>
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$more]Can you tell me more about phishing?[/url]?>[/right]
 				"""
 			),
 			"$more":
@@ -29,7 +29,7 @@ func interact() -> void:
 				[b]Sam[/b]
 				Sure. Someone pretends to be a person you trust to trick you into revealing information or downloading a virus.
 				
-				<?[url=$end:correct][right]I see, thanks for the warning.[/right][/url]?>
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end:correct]I see, thanks for the warning.[/url]?>[/right]
 				"""
 				),
 		},
@@ -47,7 +47,7 @@ func interact_ontouch() -> void:
 				[b]Sam[/b]
 				Hey, we'd like your help to look through some emails we've been receiving.
 				
-				<?[url=$next][right]Is there a problem?[/right][/url]?>
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next]Is there a problem?[/url]?>[/right]
 				"""
 			),
 			"$next":
@@ -56,7 +56,7 @@ func interact_ontouch() -> void:
 				[b]Sam[/b]
 				Some of them seem kinda weird - someone might be trying to phish us!
 				
-				<?[url=$end][right]Alright, I'll help.[/right][/url]?>
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Alright, I'll help.[/url]?>[/right]
 				"""
 				),
 		},

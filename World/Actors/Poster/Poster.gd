@@ -17,8 +17,8 @@ func interact() -> void:
 					[b]Poster Guy[/b]
 					Hey, look at this poster! It says we can win a free drink!
 					
-					<?[url=$see][right]Really? Let me see too![/right][/url]?>
-					<?[url=$end][right]I see.[/right][/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$see]Really? Let me see too![/url]?>[/right]
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]I see.[/url]?>[/right]
 					"""
 				),
 				"$see":
@@ -30,8 +30,8 @@ func interact() -> void:
 					
 					[center][img=50x50]res://World/Actors/Poster/frame.png[/img][/center]
 					
-					<?[url=$noscan][right]This looks a little strange...[/right][/url]?>
-					<?[url=$scan][right]Wow, I can win a free drink? Let's give it a go.[/right][/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$noscan]This looks a little strange...[/url]?>[/right]
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$scan]Wow, I can win a free drink? Let's give it a go.[/url]?>[/right]
 					"""
 				),
 				"$noscan":
@@ -40,7 +40,7 @@ func interact() -> void:
 					[b]Poster Guy[/b]
 					What? You don't trust it? Suit yourself, but I'm gonna win a free drink!
 					
-					<?[url=$end][right]I don't think that scanning that QR code is a good idea...[/right][/url]?>
+					<?[url=$end][right]> I don't think that scanning that QR code is a good idea...[/url]?>[/right]
 					"""
 				),
 				"$scan":
@@ -49,7 +49,7 @@ func interact() -> void:
 					[b]Poster Guy[/b]
 					Let's scan it together!
 					
-					<?[url=$end][right]Scan QR code[/right][/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Scan QR code[/url]?>[/right]
 					"""
 				)
 			},
@@ -66,7 +66,7 @@ func interact() -> void:
 					[b]Poster Guy[/b]
 					What's going on? My phone keeps saying that the app I downloaded is a virus! Did the poster trick me?
 					
-					<?[url=$next:correct][right]I guess you can't trust random QR codes.[/right][/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next:correct]I guess you can't trust random QR codes.[/url]?>[/right]
 					"""
 				),
 				"$next":
@@ -75,7 +75,7 @@ func interact() -> void:
 					[b]Poster Guy[/b]
 					You're right... I should have followed what <#[url=https://www.straitstimes.com/tech/can-i-trust-this-qr-code-csa-police-issue-alert-on-qr-code-scams-and-how-to-avoid-being-tricked]this article[/url]#> says. Luckily I had an antivirus app running on my phone - who knows what could have happened if I didn't!
 					
-					<?[url=$end][right]Make sure to keep that article in mind in the future.[/right][/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Make sure to keep that article in mind in the future.[/url]?>[/right]
 					"""
 				)
 			},
@@ -93,7 +93,7 @@ func interact() -> void:
 					"""
 					Your phone is unusable... the app you downloaded seems to have been some kind of ransomware.
 					
-					<?[url=$next][right]I think I made a mistake.[/right][/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next]I think I made a mistake.[/url]?>[/right]
 					"""
 				),
 				"$next":
@@ -102,7 +102,7 @@ func interact() -> void:
 					[b]Poster Guy[/b]
 					What's going on? I can't use my phone anymore!
 					
-					<?[url=$next2:wrong][right]We downloaded a ransomware. We can only pay the ransom or reset our phones and delete our data...[/right][/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next2:wrong]We downloaded a ransomware. We can only pay the ransom or reset our phones and delete our data...[/url]?>[/right]
 					"""
 				),
 				"$next2":
@@ -111,7 +111,7 @@ func interact() -> void:
 					[b]Poster Guy[/b]
 					We made a big mistake... thankfully, my data was backed up. We should have paid more attention to what <#[url=https://www.straitstimes.com/tech/can-i-trust-this-qr-code-csa-police-issue-alert-on-qr-code-scams-and-how-to-avoid-being-tricked]this article[/url]#> says.
 					
-					<?[url=$end][right]We should be more careful in the future.[/right][/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]We should be more careful in the future.[/url]?>[/right]
 					"""
 				)
 			},
@@ -130,7 +130,7 @@ func interact() -> void:
 					[b]Poster Guy[/b]
 					I should have followed what <#[url=https://www.straitstimes.com/tech/can-i-trust-this-qr-code-csa-police-issue-alert-on-qr-code-scams-and-how-to-avoid-being-tricked]this article[/url]#> says. Luckily I had an antivirus app running on my phone - who knows what could have happened if I didn't!
 					
-					<?[url=$end][right]You should be more careful in the future.[/right][/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]You should be more careful in the future.[/url]?>[/right]
 					"""
 				)
 			},
@@ -146,7 +146,7 @@ func interact() -> void:
 					[b]Poster Guy[/b]
 					We should have followed what <#[url=https://www.straitstimes.com/tech/can-i-trust-this-qr-code-csa-police-issue-alert-on-qr-code-scams-and-how-to-avoid-being-tricked]this article[/url]#> says. Luckily I had an antivirus app running on my phone - who knows what could have happened if I didn't!
 					
-					<?[url=$end][right]We should be more careful in the future.[/right][/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]We should be more careful in the future.[/url]?>[/right]
 					"""
 				)
 			},

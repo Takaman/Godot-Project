@@ -16,9 +16,9 @@ func interact() -> void:
 					[b]Joe[/b]
 					What? Our company is implementing a new password policy? Well, I think my current password [i]hunter2[/i] is really strong.
 					
-					<?[url=$changepass][right]I think you need a new password.[/right][/url]?>
-					<?[url=$nochangepass:wrong][right]That password is pretty strong.[/right][/url]?>
-					<?[url=$end][right]I see.[/right][/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$changepass]I think you need a new password.[/url]?>[/right]
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochangepass:wrong]That password is pretty strong.[/url]?>[/right]
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]I see.[/url]?>[/right]
 					"""
 				),
 				"$changepass":
@@ -27,7 +27,7 @@ func interact() -> void:
 					[b]Joe[/b]
 					Really? But I've been using [i]hunter2[/i] for all my accounts... in that case, could you help me come up with a new password?
 					
-					<?[url=$end][right]Of course.[/right][/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$endOf course.[/url]?>[/right]
 					"""
 					),
 				"$nochangepass":
@@ -36,7 +36,7 @@ func interact() -> void:
 					[b]Joe[/b]
 					Of course it is! I've been using it for every account I've created!
 					
-					<?[url=$end][right]Hmm... Maybe I should reconsider what I said...[/right][/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Hmm... Maybe I should reconsider what I said...[/url]?>[/right]
 					"""
 					),
 			},
@@ -52,7 +52,7 @@ func interact() -> void:
 					[b]Joe[/b]
 					Help me think of a new password! Type it in the text box in the next screen.
 					
-					<?[url=$end][right]Alright.[/right][/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Alright.[/url]?>[/right]
 					"""
 				)
 			},
@@ -71,7 +71,7 @@ func interact() -> void:
 					
 					[i]Disclaimer: Please do not reveal your password to anyone.[/i]
 					
-					<?[url=$end][right]No problem, I'm glad to be of help.[/right][/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]No problem, I'm glad to be of help.[/url]?>[/right]
 					"""
 				)
 			},
@@ -112,7 +112,7 @@ func _on_hud_input_closed():
 					[b]Joe[/b]
 					Hmm... I think that password might not be a good choice. Let's see... our password policy says that we need at least [b]one uppercase letter[/b], [b]one lowercase letter[/b], [b]one number[/b], [b]one special character[/b], and it needs to be at least [b]eight characters long[/b].
 					
-					<?[url=$end:wrong][right]Alright, I'll try again.[/right][/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end:wrong]Alright, I'll try again.[/url]?>[/right]
 					"""
 				)
 			},
@@ -130,7 +130,7 @@ func _on_hud_input_closed():
 					
 					[i]Disclaimer: Please do not reveal your password to anyone.[/i]
 					
-					<?[url=$end:correct][right]No problem, I'm glad to be of help.[/right][/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end:correct]No problem, I'm glad to be of help.[/url]?>[/right]
 					"""
 				)
 			},

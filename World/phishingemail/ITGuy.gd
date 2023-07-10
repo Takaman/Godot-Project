@@ -27,7 +27,7 @@ func interact() -> void:
 						[b]IT Guy[/b]
 						Hi, I'm the IT guy.
 						
-						<?[url=$end][right]I see.[/right][/url]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]I see.[/url]?>[/right]
 						"""
 					)
 			},
@@ -43,8 +43,8 @@ func interact() -> void:
 						[b]IT Guy[/b]
 						Hi, I'm the IT guy.
 						
-						<?[url=$next][right]Hey, John fell for a phishing email. What should we do?[/right][/url]
-						<?[url=$end][right]I see.[/right][/url]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next]Hey, John fell for a phishing email. What should we do?[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]I see.[/url]?>[/right]
 						"""
 					),
 				"$next":
@@ -53,7 +53,7 @@ func interact() -> void:
 						[b]IT Guy[/b]
 						What!? That's bad news... for starters, please get him to [b]change his password[/b] and [b]run an antivirus scan[/b].
 						
-						<?[url=$next2][right]Will do. What else?[/right][/url]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next2]Will do. What else?[/url]?>[/right]
 						"""
 					),
 				"$next2":
@@ -62,7 +62,7 @@ func interact() -> void:
 						[b]IT Guy[/b]
 						Well, since you reported it so quickly, there shouldn't be much else we need to do, but I'll check through our systems on my side just to be safe.
 						
-						<?[url=$end][right]Alright.[/right][/url]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Alright.[/url]?>[/right]
 						"""
 					)
 			},

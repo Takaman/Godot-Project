@@ -19,9 +19,9 @@ func interact() -> void:
 						
 						[center][img=100x100]res://World/office1/images/Question/adware.png[/img][/center]
 						
-						<?[url=$help:correct][right]1) Did you install anything lately? Such as browser extensions etc[/right][/url]?>
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$help:correct]Did you install anything lately? Such as browser extensions etc[/url]?>[/right]
 						
-						<?[url=$nohelp:wrong][right]2) Ignore it and it will go away after some time.[/right][/url]?>
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nohelp:wrong]Ignore it and it will go away after some time.[/url]?>[/right]
 						"""
 					),
 					"$help":
@@ -31,7 +31,7 @@ func interact() -> void:
 							Yes! I've installed this third party toolbar and its really useful for my to translate my items!
 							
 							
-							<?[url=$help2][right] It might be a common malware called "Adware" Uninstall the toolbar immediately and run a virus scan on your computer[/right][/url]?>
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$help2]It might be a common malware called "Adware" Uninstall the toolbar immediately and run a virus scan on your computer[/url]?>[/right]
 							"""
 							
 						),
@@ -42,7 +42,7 @@ func interact() -> void:
 							Okay, then can I request a new computer from the IT department? This PC must be spoiled!
 							
 							
-							<?[url=$end][right]Perhaps I should rethink on how to solve the issue for her.[/right][/url]?>
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Perhaps I should rethink on how to solve the issue for her.[/url]?>[/right]
 							"""
 						),
 					"$help2":
@@ -56,7 +56,7 @@ func interact() -> void:
 							
 							[center]<#[url=https://www.kaspersky.com/resource-center/threats/adware] Click here to learn more.[/url]#>[/center]
 							
-							<?[url=$end][right]Exit[/right][/url]?>
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 							"""
 						)
 				

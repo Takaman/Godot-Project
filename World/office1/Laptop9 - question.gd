@@ -19,8 +19,8 @@ func interact() -> void:
 					It looks like someone has left their PC unlocked and unattended...
 					
 					[center][img=180x120]res://World/office1/images/Question/Unattended.jpg[/img][/center]
-					<?[url=$leave:wrong][right]Leave it alone.[/right][/url]?>
-					<?[url=$lookaround][right]Look around for its user.[/right][/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$leave:wrong]Leave it alone.[/url]?>[/right]
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$lookaround]Look around for its user.[/url]?>[/right]
 					
 					"""
 				),
@@ -28,7 +28,7 @@ func interact() -> void:
 					Utils.dialog_part(
 					"""
 					Hmm... I don't think that's a good idea. What if someone unauthorized came and used the PC? I'd better look for its owner...
-					<?[url=$lookaround][right]Look around for its user.[/right][/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$lookaround]Look around for its user.[/url]?>[/right]
 					"""
 					),
 				"$lookaround":
@@ -37,7 +37,7 @@ func interact() -> void:
 					I wonder where its user went? Maybe I should try checking the [b]vending machines[/b]. Also, I should help lock the PC.
 					
 					[i]Win + L on a Windows machine or Cmd + Ctrl + Q on an Apple machine to lock.[/i]
-					<?[url=$end][right]Lock the PC and check the vending machines.[/right][/url]?>
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Lock the PC and check the vending machines.[/url]?>[/right]
 					"""
 					)
 			},
@@ -56,7 +56,7 @@ func interact() -> void:
 						"""
 						I should check the [b]vending machines[/b] for the PC's user.
 						
-						<?[url=$end][right]Check the vending machines.[/right][/url]?>
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Check the vending machines.[/url]?>[/right]
 						"""
 					)
 			},
@@ -71,7 +71,7 @@ func interact() -> void:
 						"""
 						Its a locked PC.
 						
-						<?[url=$end][right]Leave.[/right][/url]?>
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Leave.[/url]?>[/right]
 						"""
 					)
 			},

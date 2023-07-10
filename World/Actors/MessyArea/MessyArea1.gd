@@ -16,8 +16,8 @@ func interact() -> void:
 				
 				What should you do?
 				
-				<?[url=$leave:wrong]1) Leave it as it is, its the responsibility of the person who left it[/url]?>
-				<?[url=$report:correct]2) Keep the financial documents at a secure private location and report this incident to management. [/url]?>
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$leave:wrong]Leave it as it is, its the responsibility of the person who left it[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$report:correct]Keep the financial documents at a secure private location and report this incident to management. [/url]?>[/right]
 				
 				"""
 			),
@@ -31,7 +31,7 @@ func interact() -> void:
 				
 				To learn more about clean desk policy, visit this link.
 				[center]<#[url=https://blog.usecure.io/what-is-a-clean-desk-policy-and-should-my-company-have-it]Click here to learn more. [/url]#>[/center]
-				<?[url=$end]EXIT[/url]?>
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""
 				),
 			"$report":
@@ -43,7 +43,7 @@ func interact() -> void:
 				
 				To learn more about clean desk policy, please visit this link.
 				[center]<#[url=https://blog.usecure.io/what-is-a-clean-desk-policy-and-should-my-company-have-it]Click here to learn more. [/url]#>[/center]
-				<?[url=$end]EXIT[/url]?>
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""
 				),
 		},
