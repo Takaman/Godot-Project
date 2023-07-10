@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://ddmwhp02tpc25"]
+[gd_scene load_steps=76 format=3 uid="uid://ddmwhp02tpc25"]
 
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_kxpn7"]
 [ext_resource type="Texture2D" uid="uid://dt3beuuh7qicn" path="res://Tilemap builder/Interior/Interiors_free_16x16.png" id="3_tkjpr"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b6qwv2y4akkn6" path="res://Tilemap builder/TilesetLogic.png" id="5_gx3sb"]
 [ext_resource type="Script" path="res://World/house_internal_2.gd" id="6_pybxl"]
 [ext_resource type="PackedScene" uid="uid://kma828pwdjle" path="res://Player/player.tscn" id="7_ncsrh"]
+[ext_resource type="Script" path="res://World/office1/hints_office1.gd" id="7_peakb"]
+[ext_resource type="Texture2D" uid="uid://c7qy0jm8k6c6n" path="res://frames/Dialog/DialogueBoxSimple.png" id="8_bw2tt"]
 [ext_resource type="Texture2D" uid="uid://dtooj7aeo0cbo" path="res://World/office1/images/pc.png" id="9_py07e"]
 [ext_resource type="Script" path="res://World/office1/Laptop3 - question.gd" id="10_w4jnn"]
 [ext_resource type="Texture2D" uid="uid://cg5yrfw0250gu" path="res://World/office1/images/table.png" id="10_wgdyt"]
@@ -5980,6 +5982,18 @@ sources/2 = SubResource("TileSetAtlasSource_b4vbl")
 sources/3 = SubResource("TileSetAtlasSource_g3dcp")
 sources/4 = SubResource("TileSetAtlasSource_s1j5t")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ku3nd"]
+texture = ExtResource("8_bw2tt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q8b8p"]
+texture = ExtResource("8_bw2tt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7bu8h"]
+texture = ExtResource("8_bw2tt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d7ta6"]
+texture = ExtResource("8_bw2tt")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dbc8l"]
 size = Vector2(15.3513, 25.3206)
 
@@ -6077,6 +6091,31 @@ layer_2/tile_data = PackedInt32Array()
 script = ExtResource("6_pybxl")
 
 [node name="HUD" parent="." instance=ExtResource("33_sh7jl")]
+
+[node name="Progress" type="CanvasLayer" parent="."]
+script = ExtResource("7_peakb")
+
+[node name="Button" type="Button" parent="Progress"]
+offset_left = 331.0
+offset_right = 360.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.984314, 0, 0.337255, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_ku3nd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_q8b8p")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7bu8h")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_d7ta6")
+text = "Progress"
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("7_ncsrh")]
 position = Vector2(-99, 161)
@@ -7005,6 +7044,6 @@ shape = SubResource("RectangleShape2D_deu4a")
 [connection signal="partsignaller" from="HUD" to="LaptopFolder/Laptop3 - question" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="LaptopFolder/Laptop9 - question" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="Elevator" method="_on_hud_partsignaller"]
-[connection signal="leave" from="LaptopFolder/Laptop9 - question" to="CharacterFolder/Jerry" method="_on_laptop_9__question_leave"]
+[connection signal="pressed" from="Progress/Button" to="Progress" method="_on_button_pressed"]
 [connection signal="lookaround" from="LaptopFolder/Laptop9 - question" to="CharacterFolder/Jerry" method="_on_laptop_9__question_lookaround"]
 [connection signal="jerrydone" from="CharacterFolder/Jerry" to="LaptopFolder/Laptop9 - question" method="_on_jerry_jerrydone"]
