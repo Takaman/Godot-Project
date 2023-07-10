@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cbf1syaoh1ufp"]
+[gd_scene load_steps=36 format=3 uid="uid://cbf1syaoh1ufp"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_e066w"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_1x1d0"]
@@ -16,6 +16,12 @@
 [ext_resource type="Script" path="res://World/phishingemail/John.gd" id="14_28v8n"]
 [ext_resource type="Script" path="res://helpers/elevator.gd" id="16_1l6xp"]
 [ext_resource type="Script" path="res://World/phishingemail/ITGuy.gd" id="16_jblpt"]
+[ext_resource type="Script" path="res://World/phishingemail/Caren.gd" id="16_l7ofp"]
+[ext_resource type="Script" path="res://World/phishingemail/Danny.gd" id="17_o7tye"]
+[ext_resource type="Script" path="res://World/phishingemail/Elen.gd" id="17_rkup7"]
+[ext_resource type="Script" path="res://World/phishingemail/Frank.gd" id="18_x0f11"]
+[ext_resource type="Script" path="res://World/phishingemail/Gary.gd" id="19_xnu65"]
+[ext_resource type="Script" path="res://World/phishingemail/Haley.gd" id="20_nhqg3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4xy4"]
 texture = ExtResource("1_e066w")
@@ -3403,17 +3409,17 @@ radius = 7.90958
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msspi"]
 size = Vector2(28.2787, 20)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lro3f"]
-radius = 16.2401
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yt6t3"]
-size = Vector2(16.6225, 21.6889)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_4jbbm"]
 radius = 12.1722
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1rtl"]
 size = Vector2(16.3075, 22.9489)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lro3f"]
+radius = 16.2401
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yt6t3"]
+size = Vector2(17.977, 21.7106)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uj7iy"]
 size = Vector2(31.7182, 16.0795)
@@ -3471,31 +3477,6 @@ position = Vector2(46.1747, 4.59027)
 scale = Vector2(1.78277, -0.491468)
 shape = SubResource("RectangleShape2D_msspi")
 
-[node name="John" type="Sprite2D" parent="."]
-z_index = -5
-position = Vector2(-152.765, 45.0422)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("8_2n7rn")
-hframes = 4
-frame = 3
-script = ExtResource("14_28v8n")
-
-[node name="marker" parent="John" instance=ExtResource("11_dl61b")]
-position = Vector2(-0.235001, -15.0422)
-
-[node name="Actionable" parent="John" instance=ExtResource("11_3enfb")]
-position = Vector2(-1.41422, 2.82843)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="John/Actionable"]
-position = Vector2(1.88988, 3.46478)
-shape = SubResource("CircleShape2D_lro3f")
-
-[node name="Collision Box" type="StaticBody2D" parent="John"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="John/Collision Box"]
-position = Vector2(0.516113, 3.67929)
-shape = SubResource("RectangleShape2D_yt6t3")
-
 [node name="ITGuy" type="Sprite2D" parent="."]
 z_index = -5
 position = Vector2(38, -134)
@@ -3520,6 +3501,185 @@ shape = SubResource("CircleShape2D_4jbbm")
 position = Vector2(0.0436401, 4.93921)
 shape = SubResource("RectangleShape2D_t1rtl")
 
+[node name="Caren (Phishing Email)" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(-153, -19)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_2n7rn")
+hframes = 4
+frame = 3
+script = ExtResource("16_l7ofp")
+
+[node name="marker" parent="Caren (Phishing Email)" instance=ExtResource("11_dl61b")]
+position = Vector2(-0.235001, -15.0422)
+
+[node name="Actionable" parent="Caren (Phishing Email)" instance=ExtResource("11_3enfb")]
+position = Vector2(-1.41422, 2.82843)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Caren (Phishing Email)/Actionable"]
+position = Vector2(1.88988, 3.46478)
+shape = SubResource("CircleShape2D_lro3f")
+
+[node name="Collision Box" type="StaticBody2D" parent="Caren (Phishing Email)"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Caren (Phishing Email)/Collision Box"]
+position = Vector2(0.516113, 3.67929)
+shape = SubResource("RectangleShape2D_yt6t3")
+
+[node name="Danny (Phishing Email)" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(-42, -19)
+scale = Vector2(0.71875, 0.71875)
+texture = ExtResource("8_2n7rn")
+hframes = 4
+frame = 3
+script = ExtResource("17_o7tye")
+
+[node name="marker" parent="Danny (Phishing Email)" instance=ExtResource("11_dl61b")]
+position = Vector2(-0.235001, -15.0422)
+
+[node name="Actionable" parent="Danny (Phishing Email)" instance=ExtResource("11_3enfb")]
+position = Vector2(-1.41422, 2.82843)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Danny (Phishing Email)/Actionable"]
+position = Vector2(1.88988, 3.46478)
+shape = SubResource("CircleShape2D_lro3f")
+
+[node name="Collision Box" type="StaticBody2D" parent="Danny (Phishing Email)"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Danny (Phishing Email)/Collision Box"]
+position = Vector2(0.516113, 3.67929)
+shape = SubResource("RectangleShape2D_yt6t3")
+
+[node name="Elen (Real Email)" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(39, -19)
+scale = Vector2(0.71875, 0.71875)
+texture = ExtResource("8_2n7rn")
+hframes = 4
+frame = 3
+script = ExtResource("17_rkup7")
+
+[node name="marker" parent="Elen (Real Email)" instance=ExtResource("11_dl61b")]
+position = Vector2(-0.235001, -15.0422)
+
+[node name="Actionable" parent="Elen (Real Email)" instance=ExtResource("11_3enfb")]
+position = Vector2(-1.41422, 2.82843)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Elen (Real Email)/Actionable"]
+position = Vector2(1.88988, 3.46478)
+shape = SubResource("CircleShape2D_lro3f")
+
+[node name="Collision Box" type="StaticBody2D" parent="Elen (Real Email)"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Elen (Real Email)/Collision Box"]
+position = Vector2(1.19334, 3.69014)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_yt6t3")
+
+[node name="Frank (Real Email)" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(-233, -83)
+scale = Vector2(0.71875, 0.71875)
+texture = ExtResource("8_2n7rn")
+hframes = 4
+frame = 3
+script = ExtResource("18_x0f11")
+
+[node name="marker" parent="Frank (Real Email)" instance=ExtResource("11_dl61b")]
+position = Vector2(-0.235001, -15.0422)
+
+[node name="Actionable" parent="Frank (Real Email)" instance=ExtResource("11_3enfb")]
+position = Vector2(-1.41422, 2.82843)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Frank (Real Email)/Actionable"]
+position = Vector2(1.88988, 3.46478)
+shape = SubResource("CircleShape2D_lro3f")
+
+[node name="Collision Box" type="StaticBody2D" parent="Frank (Real Email)"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Frank (Real Email)/Collision Box"]
+position = Vector2(1.19334, 3.69014)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_yt6t3")
+
+[node name="Gary (Real Email)" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(-233, 45)
+scale = Vector2(0.71875, 0.71875)
+texture = ExtResource("8_2n7rn")
+hframes = 4
+frame = 3
+script = ExtResource("19_xnu65")
+
+[node name="marker" parent="Gary (Real Email)" instance=ExtResource("11_dl61b")]
+position = Vector2(-0.235001, -15.0422)
+
+[node name="Actionable" parent="Gary (Real Email)" instance=ExtResource("11_3enfb")]
+position = Vector2(-1.41422, 2.82843)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gary (Real Email)/Actionable"]
+position = Vector2(1.88988, 3.46478)
+shape = SubResource("CircleShape2D_lro3f")
+
+[node name="Collision Box" type="StaticBody2D" parent="Gary (Real Email)"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gary (Real Email)/Collision Box"]
+position = Vector2(1.19334, 3.69014)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_yt6t3")
+
+[node name="Haley (Real Email)" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(-233, 45)
+scale = Vector2(0.71875, 0.71875)
+texture = ExtResource("8_2n7rn")
+hframes = 4
+frame = 3
+script = ExtResource("20_nhqg3")
+
+[node name="marker" parent="Haley (Real Email)" instance=ExtResource("11_dl61b")]
+position = Vector2(-0.235001, -15.0422)
+
+[node name="Actionable" parent="Haley (Real Email)" instance=ExtResource("11_3enfb")]
+position = Vector2(-1.41422, 2.82843)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Haley (Real Email)/Actionable"]
+position = Vector2(1.88988, 3.46478)
+shape = SubResource("CircleShape2D_lro3f")
+
+[node name="Collision Box" type="StaticBody2D" parent="Haley (Real Email)"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Haley (Real Email)/Collision Box"]
+position = Vector2(1.19334, 3.69014)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_yt6t3")
+
+[node name="John (Phishing email)" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(-152.765, 45.0422)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_2n7rn")
+hframes = 4
+frame = 3
+script = ExtResource("14_28v8n")
+
+[node name="marker" parent="John (Phishing email)" instance=ExtResource("11_dl61b")]
+position = Vector2(-0.235001, -15.0422)
+
+[node name="Actionable" parent="John (Phishing email)" instance=ExtResource("11_3enfb")]
+position = Vector2(-1.41422, 2.82843)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="John (Phishing email)/Actionable"]
+position = Vector2(1.88988, 3.46478)
+shape = SubResource("CircleShape2D_lro3f")
+
+[node name="Collision Box" type="StaticBody2D" parent="John (Phishing email)"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="John (Phishing email)/Collision Box"]
+position = Vector2(0.516113, 3.67929)
+shape = SubResource("RectangleShape2D_yt6t3")
+
 [node name="Elevator" type="Sprite2D" parent="."]
 script = ExtResource("16_1l6xp")
 
@@ -3529,7 +3689,8 @@ script = ExtResource("16_1l6xp")
 position = Vector2(-95.8796, 167.814)
 shape = SubResource("RectangleShape2D_uj7iy")
 
-[connection signal="partsignaller" from="HUD" to="John" method="_on_hud_partsignaller"]
+[connection signal="partsignaller" from="HUD" to="John (Phishing email)" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="Elevator" method="_on_hud_partsignaller"]
-[connection signal="IT_Guy" from="John" to="ITGuy" method="_on_john_it_guy"]
-[connection signal="john_next" from="ITGuy" to="John" method="_on_it_guy_john_next"]
+[connection signal="partsignaller" from="HUD" to="Caren (Phishing Email)" method="_on_hud_partsignaller"]
+[connection signal="john_next" from="ITGuy" to="John (Phishing email)" method="_on_it_guy_john_next"]
+[connection signal="IT_Guy" from="John (Phishing email)" to="ITGuy" method="_on_john_it_guy"]

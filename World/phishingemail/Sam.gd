@@ -45,7 +45,7 @@ func interact_ontouch() -> void:
 			Utils.dialog_part(
 				"""
 				[b]Sam[/b]
-				Hey, we'd like your help to look through some emails we've been receiving.
+				Welcome to the human resources department! We'd like your help to look through some emails we've been receiving.
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next]Is there a problem?[/url]?>[/right]
 				"""
@@ -54,7 +54,7 @@ func interact_ontouch() -> void:
 				Utils.dialog_part(
 				"""
 				[b]Sam[/b]
-				Some of them seem kinda weird - someone might be trying to phish us!
+				We've been receiving a lot of strange emails lately. I have a feeling a number of them are phishing emails.
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Alright, I'll help.[/url]?>[/right]
 				"""

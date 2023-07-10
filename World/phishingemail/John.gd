@@ -25,7 +25,7 @@ func interact() -> void:
 	if state == -1:
 		state = 0
 		hud.show_dialog(
-			"email",
+			"phishingemail1",
 			{
 				"$begin":
 				Utils.dialog_part(
@@ -63,7 +63,7 @@ func interact() -> void:
 		)
 	elif state == 1:
 		hud.show_dialog(
-			"email",
+			"phishingemail1",
 			{
 				"$begin":
 					Utils.dialog_part(
@@ -79,7 +79,7 @@ func interact() -> void:
 		)
 	elif state == 2:
 		hud.show_dialog(
-			"email",
+			"phishingemail1",
 			{
 				"$begin":
 					Utils.dialog_part(
@@ -115,7 +115,7 @@ func interact() -> void:
 		emit_signal("IT_Guy")
 	elif state == 3:
 		hud.show_dialog(
-			"email",
+			"phishingemail1",
 			{
 				"$begin":
 					Utils.dialog_part(
@@ -131,7 +131,7 @@ func interact() -> void:
 		)
 	elif state == 4:
 		hud.show_dialog(
-			"email",
+			"phishingemail1",
 			{
 				"$begin":
 					Utils.dialog_part(
@@ -159,7 +159,7 @@ func interact() -> void:
 		state == 5
 	elif state == 5:
 		hud.show_dialog(
-			"email",
+			"phishingemail1",
 			{
 				"$begin":
 					Utils.dialog_part(
@@ -180,10 +180,10 @@ func _on_area_2d_area_entered(area):
 		interact()
 
 func _physics_process(delta: float) -> void:
-	if Score.get_result("email","socialengineering") != 0:
+	if Score.get_result("phishingemail1","socialengineering") != 0:
 		if marker != null and marker is Node:
 				marker.visible = false
-	if Score.get_result("email","socialengineering") == 1:
+	if Score.get_result("phishingemail1","socialengineering") == 1:
 		state == 1
-	elif Score.get_result("email","socialengineering") == 2:
+	elif Score.get_result("phishingemail1","socialengineering") == 2:
 		state == 5
