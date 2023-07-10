@@ -8916,6 +8916,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_i4le1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_p1w5c")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_fa7v7")
 text = "Progress"
+metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="Area2D" parent="."]
 

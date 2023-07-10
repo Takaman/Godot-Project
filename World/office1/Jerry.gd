@@ -52,8 +52,8 @@ func interact() -> void:
 						
 						I'm really thirsty.
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next]Hey, did you leave your PC unlocked?[/url][/right]
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]I see.[/url][/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next]Hey, did you leave your PC unlocked?[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]I see.[/url]?>[/right]
 						"""
 					),
 				"$next":
@@ -63,7 +63,7 @@ func interact() -> void:
 						
 						My PC? Yea, I just left it when I came to buy a drink.
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next2]That's not a good idea. What if someone malicious came and used your PC?[/url][/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next2]That's not a good idea. What if someone malicious came and used your PC?[/url]?>[/right]
 						"""
 					),
 				"$next2":
@@ -73,7 +73,7 @@ func interact() -> void:
 						
 						Oh... I didn't consider that...
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next3:correct]I've helped you to lock your PC this time. Remember to do so in the future, or you might get into trouble for breaching office policies.[/url][/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next3:correct]I've helped you to lock your PC this time. Remember to do so in the future, or you might get into trouble for breaching office policies.[/url]?>[/right]
 						"""
 					),
 				"$next3":
@@ -83,7 +83,7 @@ func interact() -> void:
 						
 						Thanks for telling me - I'll be more careful in the future.
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]No problem.[/url][/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]No problem.[/url]?>[/right]
 						"""
 					)
 			},
@@ -104,7 +104,7 @@ func interact() -> void:
 						
 						Thanks for telling me - I'll be more careful in the future.
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]No problem.[/url][/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]No problem.[/url]?>[/right]
 						"""
 					)
 			},
@@ -121,8 +121,8 @@ func interact() -> void:
 						
 						I'm really thirsty.
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next]Hey, did you leave your PC unlocked?[/url][/right]
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]I see.[/url][/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next]Hey, did you leave your PC unlocked?[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]I see.[/url]?>[/right]
 						"""
 					),
 				"$next":
@@ -132,7 +132,7 @@ func interact() -> void:
 						
 						My PC? Yea, I just left it when I came to buy a drink.
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next2]You should go check your PC. I think someone changed your wallpaper.[/url][/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next2]You should go check your PC. I think someone changed your wallpaper.[/url]?>[/right]
 						"""
 					),
 				"$next2":
@@ -142,7 +142,7 @@ func interact() -> void:
 						
 						Changed my wallpaper? Why would anyone do that?
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next3]It could have been a prank? But if someone was able to change your wallpaper, there's no telling what other malicious actions they could have taken...[/url][/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next3]It could have been a prank? But if someone was able to change your wallpaper, there's no telling what other malicious actions they could have taken...[/url]?>[/right]
 						"""
 					),
 				"$next3":
@@ -152,7 +152,7 @@ func interact() -> void:
 						
 						Oh... I didn't consider that. Thanks for telling me. I'll go lock my PC now and check if they did anything else.
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Keep that in mind.[/url][/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Keep that in mind.[/url]?>[/right]
 						"""
 					)
 			},
