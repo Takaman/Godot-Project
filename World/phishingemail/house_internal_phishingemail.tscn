@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cbf1syaoh1ufp"]
+[gd_scene load_steps=42 format=3 uid="uid://cbf1syaoh1ufp"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_e066w"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_1x1d0"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bb6shdk0blv6i" path="res://World/HUD/hud.tscn" id="7_2yo4s"]
 [ext_resource type="PackedScene" uid="uid://kma828pwdjle" path="res://Player/player.tscn" id="7_beivg"]
 [ext_resource type="Texture2D" uid="uid://cxo46gpvtucun" path="res://Tilemap builder/Interior/Alex_idle_16x16.png" id="8_2n7rn"]
+[ext_resource type="Script" path="res://World/phishingemail/hints_phishing.gd" id="8_a78jq"]
+[ext_resource type="Texture2D" uid="uid://c7qy0jm8k6c6n" path="res://frames/Dialog/DialogueBoxSimple.png" id="9_i8knd"]
 [ext_resource type="PackedScene" uid="uid://quf6e4pbvkcj" path="res://helpers/ontouch.tscn" id="9_twn3x"]
 [ext_resource type="Script" path="res://World/phishingemail/Sam.gd" id="10_4igdu"]
 [ext_resource type="PackedScene" uid="uid://iqn08315hsf" path="res://helpers/actionable.tscn" id="11_3enfb"]
@@ -3403,6 +3405,18 @@ sources/2 = SubResource("TileSetAtlasSource_b4vbl")
 sources/3 = SubResource("TileSetAtlasSource_g3dcp")
 sources/4 = SubResource("TileSetAtlasSource_s1j5t")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vjh7d"]
+texture = ExtResource("9_i8knd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1j54p"]
+texture = ExtResource("9_i8knd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gwp6y"]
+texture = ExtResource("9_i8knd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6k2uc"]
+texture = ExtResource("9_i8knd")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_4o3e2"]
 radius = 7.90958
 
@@ -3448,6 +3462,31 @@ layer_2/tile_data = PackedInt32Array()
 script = ExtResource("6_uhpgm")
 
 [node name="HUD" parent="." instance=ExtResource("7_2yo4s")]
+
+[node name="Progress" type="CanvasLayer" parent="."]
+script = ExtResource("8_a78jq")
+
+[node name="Button" type="Button" parent="Progress"]
+offset_left = 331.0
+offset_right = 360.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.984314, 0, 0.337255, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_vjh7d")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1j54p")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gwp6y")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_6k2uc")
+text = "Progress"
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("7_beivg")]
 z_index = 5
@@ -3631,7 +3670,7 @@ shape = SubResource("RectangleShape2D_yt6t3")
 
 [node name="Haley (Real Email)" type="Sprite2D" parent="."]
 z_index = -5
-position = Vector2(-233, 45)
+position = Vector2(-41, 44)
 scale = Vector2(0.71875, 0.71875)
 texture = ExtResource("8_2n7rn")
 hframes = 4
@@ -3689,8 +3728,9 @@ script = ExtResource("16_1l6xp")
 position = Vector2(-95.8796, 167.814)
 shape = SubResource("RectangleShape2D_uj7iy")
 
+[connection signal="partsignaller" from="HUD" to="Caren (Phishing Email)" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="John (Phishing email)" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="Elevator" method="_on_hud_partsignaller"]
-[connection signal="partsignaller" from="HUD" to="Caren (Phishing Email)" method="_on_hud_partsignaller"]
+[connection signal="pressed" from="Progress/Button" to="Progress" method="_on_button_pressed"]
 [connection signal="john_next" from="ITGuy" to="John (Phishing email)" method="_on_it_guy_john_next"]
 [connection signal="IT_Guy" from="John (Phishing email)" to="ITGuy" method="_on_john_it_guy"]
