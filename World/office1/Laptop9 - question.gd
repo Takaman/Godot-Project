@@ -6,6 +6,7 @@ extends Sprite2D
 @onready var state = 0
 
 signal lookaround
+signal leave
 
 func interact() -> void:
 	if state == 0:
@@ -21,14 +22,13 @@ func interact() -> void:
 					[center][img=180x120]res://World/office1/images/Question/Unattended.jpg[/img][/center]
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$leave:wrong]Leave it alone.[/url]?>[/right]
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$lookaround]Look around for its user.[/url]?>[/right]
-					
 					"""
 				),
 				"$leave":
 					Utils.dialog_part(
 					"""
-					Hmm... I don't think that's a good idea. What if someone unauthorized came and used the PC? I'd better look for its owner...
-					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$lookaround]Look around for its user.[/url]?>[/right]
+					I shouldn't touch someone else's things.
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Leave.[/url]?>[/right]
 					"""
 					),
 				"$lookaround":
@@ -43,10 +43,6 @@ func interact() -> void:
 			},
 			"policy"
 		)
-		emit_signal("lookaround")
-		state = 1
-		if interactable!= null and interactable is Node:
-			interactable.in_progress()
 	elif state == 1:
 		hud.show_dialog(
 			"unattendedlaptop",
@@ -77,6 +73,33 @@ func interact() -> void:
 			},
 			"policy"
 		)
+	elif state == 3:
+		hud.show_dialog(
+			"unattendedlaptop",
+			{
+				"$begin":
+					Utils.dialog_part(
+						"""
+						[b]10 minutes later...[/b]
+						
+						Hey, it's the PC I decided to leave. I wonder if the owner came back to lock it?
+						
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$checkpc]Take a closer look.[/url]?>[/right]
+						"""
+					),
+				"$checkpc":
+					Utils.dialog_part(
+						"""
+						Oh no... someone changed the desktop wallpaper to a strange picture. Was this someone's idea of a prank? I should find the PC's user and inform them.
+						
+						Let's check around the [b]vending machines[/b] for them.
+						
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Check the vending machines.[/url]?>[/right]
+						"""
+					)
+			},
+			"policy"
+		)
 	
 func _on_area_2d_area_entered(area):
 	print("interactable!")
@@ -91,3 +114,17 @@ func _physics_process(delta: float) -> void:
 	
 func _on_jerry_jerrydone():
 	state = 2
+
+func _on_hud_partsignaller():
+	if hud.part_name == "$lookaround":
+		emit_signal("lookaround")
+		state = 1
+		if interactable!= null and interactable is Node:
+			interactable.in_progress()
+	elif hud.part_name == "$leave":
+		state = 3
+		if interactable!= null and interactable is Node:
+			interactable.in_progress()
+	elif hud.part_name == "$checkpc":
+		emit_signal("leave")
+		state = 1
