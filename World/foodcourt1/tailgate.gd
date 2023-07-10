@@ -3,6 +3,11 @@ extends Sprite2D
 
 @onready var hud := $"/root/FoodCourt/HUD"
 @onready var interactable := $"/root/FoodCourt/QuestionmarkFolder/Interactabletailgateperson"
+
+func _ready():
+	interactable.correct()
+	pass
+	
 func interact() -> void:
 	print("interaction started")
 	hud.show_dialog(
@@ -43,5 +48,5 @@ func _on_area_2d_area_entered(area):
 		
 func _physics_process(delta: float) -> void:
 	if interactable!= null and interactable is Node:
-		interactable.visible  = !Score.get_has_correct("tailgate","socialengineering")
+		interactable.visible  = Score.get_has_correct("tailgate","socialengineering")
 

@@ -14,6 +14,10 @@ func exclamation_mark() -> void:
 	if get_node("Sprite2D") is Node:
 		get_node("Sprite2D").texture = load("res://World/Actors/IsInteractable/exclamation_mark.png")
 		
+func correct() -> void:
+	if get_node("Sprite2D") is Node:
+		get_node("Sprite2D").texture = load("res://World/Actors/IsInteractable/correct.png")
+		
 func in_progress() -> void:
 	if get_node("Sprite2D") is Node:
 		get_node("Sprite2D").texture = load("res://World/Actors/IsInteractable/in_prog.png")

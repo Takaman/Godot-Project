@@ -1,4 +1,4 @@
-[gd_scene load_steps=145 format=3 uid="uid://ndj2inv5qle0"]
+[gd_scene load_steps=146 format=3 uid="uid://ndj2inv5qle0"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_5nmgp"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_ee5eg"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dqxn6kt0rjjnj" path="res://World/foodcourt1/images/character/Tom.png" id="13_jjra0"]
 [ext_resource type="Script" path="res://World/foodcourt1/tailgate.gd" id="14_10a4o"]
 [ext_resource type="Texture2D" uid="uid://66pn3c6a84yu" path="res://World/office1/images/character/Bei.png" id="15_is0gt"]
+[ext_resource type="Script" path="res://World/foodcourt1/hints.gd" id="16_qlh76"]
 [ext_resource type="Texture2D" uid="uid://dsb4vpraxopp2" path="res://World/foodcourt1/images/objects/gantrymaybe.png" id="17_myfbt"]
 [ext_resource type="Texture2D" uid="uid://btr6qaaem6py2" path="res://World/foodcourt1/images/objects/cookingutilse.png" id="17_qnrjv"]
 [ext_resource type="Texture2D" uid="uid://idqfiy0xttv1" path="res://World/foodcourt1/images/objects/kitchensetutilise.png" id="18_qvjat"]
@@ -66,7 +67,7 @@
 [ext_resource type="Texture2D" uid="uid://dq8my8inckwx3" path="res://World/foodcourt1/images/objects/sofa-right.png" id="65_kiexv"]
 [ext_resource type="Texture2D" uid="uid://cxgh4dmd2pvlv" path="res://World/foodcourt1/images/objects/bluetaable.png" id="66_u7d6q"]
 [ext_resource type="Texture2D" uid="uid://qlotrf6c5fqp" path="res://World/foodcourt1/images/objects/bluetableback.png" id="67_r148e"]
-[ext_resource type="Texture2D" uid="uid://b4nf3qfe7c5y0" path="res://World/foodcourt1/character/Mary.png" id="68_qns23"]
+[ext_resource type="Texture2D" uid="uid://b4nf3qfe7c5y0" path="res://World/office1/images/character/Mary.png" id="68_qns23"]
 [ext_resource type="Texture2D" uid="uid://bao0knkoyjxd5" path="res://World/foodcourt1/images/objects/exclamation_mark1.png" id="69_7ljdq"]
 [ext_resource type="Script" path="res://World/foodcourt1/sensitiveinformation-mary(advanced).gd" id="69_h16l1"]
 
@@ -8879,6 +8880,15 @@ script = ExtResource("6_cwf0r")
 
 [node name="HUD" parent="." instance=ExtResource("7_o8174")]
 
+[node name="Progress" type="CanvasLayer" parent="."]
+script = ExtResource("16_qlh76")
+
+[node name="Button" type="Button" parent="Progress"]
+offset_left = 284.0
+offset_right = 360.0
+offset_bottom = 31.0
+text = "Progress"
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -10683,20 +10693,19 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mary/Actionable"]
 position = Vector2(5.78052, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_rf2s3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Mary"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mary/StaticBody2D"]
 position = Vector2(0, 0.774506)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_p7g7k")
 
 [connection signal="partsignaller" from="HUD" to="GantryEnter" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="GantryExit" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="WhitewallsGantryEnter" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="Elevator" method="_on_hud_partsignaller"]
+[connection signal="pressed" from="Progress/Button" to="Progress" method="_on_button_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="GantryEnter/Timer" to="GantryEnter" method="_on_timer_timeout"]
