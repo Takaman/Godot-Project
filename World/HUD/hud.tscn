@@ -22,10 +22,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.957
-offset_left = 32.0
-offset_top = 16.0
-offset_right = -16.0
-offset_bottom = -16.088
+offset_left = 24.0
+offset_top = 20.0
+offset_right = -24.0
+offset_bottom = -12.088
 texture = ExtResource("2_psq7d")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/DialogueBig"]

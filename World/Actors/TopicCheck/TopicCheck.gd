@@ -26,22 +26,33 @@ func interact() -> void:
 	
 	dialogue = (
 		"""
-		To be put into a leaderboard.
-		Here are your topic completion rates! 
-		In the "Social Engineering' category, you have completed <!%s!>/7 questions  and got <!%s!> correct!
-		In the 'Policy' category, you have completed <!%s!>/6 questions and got <!%s!> correct!
-		In the 'Malware' category, you have completed <!%s!>/1 questions and got <!%s!> correct!
-		Your current total score is <!%s!>.
+[table=4]
+		[cell][center][u]Social Engineering[/u][/center][/cell]
+		[cell][center][u]Policy[/u][/center][/cell]
+		[cell][center][u]Malware[/u][/center][/cell]
+		[cell][/cell]
 		
+		[cell][center]<!%s!>/7[/center][/cell]
+		[cell][center]<!%s!>/6[/center][/cell]
+		[cell][center]<!%s!>/1[/center][/cell]
+		[cell][u]Completed[/u][/cell]
+		
+		[cell][center]<!%s!>[/center][/cell]
+		[cell][center]<!%s!>[/center][/cell]
+		[cell][center]<!%s!>[/center][/cell]
+		[cell][u]Correct[/u][/cell]
+		[/table]
+		
+		Total score: <!%s!>
 		Keep up the good work! There is more to learn!
 		[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 		"""
 		% [
 			socialengineering_completed,
-			socialengineering_correct,
 			policy_completed,
-			policy_correct,
 			malware_completed,
+			socialengineering_correct,
+			policy_correct,
 			malware_correct,
 			total_points
 		]

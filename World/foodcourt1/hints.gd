@@ -7,18 +7,14 @@ extends CanvasLayer
 func interact() -> void:
 	print("interaction started")
 	var dialogue = """
-		There are currently 3 bad practices and 1 social engineering challenge that you need to find in this room. Good luck in finding the 4 challenges in this room.
-		
-		Whenever you successfully complete a question, the status of the hint will change from <![INCOMPLETED]"!> to <~[COMPLETED]~>.
-		
 		<<Hints>>
-		1)Tailgating - Look for a guy with a white shirt and red hair. <![INCOMPLETED]!>
-		2)SensitiveInformation - Look for a dustbin. <![INCOMPLETED]!>
-		3)SensitiveInformation(part2)- Look for a female standing beside the dustbin. <![INCOMPLETED]!>
-		4)Sharepassword - Look for a whiteboard. <![INCOMPLETED]!>
+		1) Tailgating - Guy with a white shirt and red hair <![INCOMPLETED]!>
+		2) SensitiveInformation - Dustbin <![INCOMPLETED]!>
+		3) SensitiveInformation(part2)- Female standing beside a dustbin <![INCOMPLETED]!>
+		4) Sharepassword - Whiteboard <![INCOMPLETED]!>
 		
 		
-		<?[url=$end]EXIT[/url]?>
+		[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 	"""
 	
 	if Score.get_has_correct("tailgate", "socialengineering"):
@@ -47,3 +43,4 @@ func _physics_process(delta: float) -> void:
 func _on_button_pressed():
 	print("interactable!")
 	interact()
+

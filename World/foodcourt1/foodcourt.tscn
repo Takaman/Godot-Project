@@ -1,4 +1,4 @@
-[gd_scene load_steps=146 format=3 uid="uid://ndj2inv5qle0"]
+[gd_scene load_steps=151 format=3 uid="uid://ndj2inv5qle0"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_5nmgp"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_ee5eg"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bb6shdk0blv6i" path="res://World/HUD/hud.tscn" id="7_o8174"]
 [ext_resource type="PackedScene" uid="uid://kma828pwdjle" path="res://Player/player.tscn" id="8_kdafc"]
 [ext_resource type="Script" path="res://helpers/elevator.gd" id="9_4gxi5"]
+[ext_resource type="Texture2D" uid="uid://c7qy0jm8k6c6n" path="res://frames/Dialog/DialogueBoxSimple.png" id="10_rxqn7"]
 [ext_resource type="PackedScene" uid="uid://c5rftkrhv5l1f" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="11_yvexh"]
 [ext_resource type="Texture2D" uid="uid://dqxn6kt0rjjnj" path="res://World/foodcourt1/images/character/Tom.png" id="13_jjra0"]
 [ext_resource type="Script" path="res://World/foodcourt1/tailgate.gd" id="14_10a4o"]
@@ -8676,6 +8677,18 @@ pattern_4 = SubResource("TileMapPattern_8n2yd")
 pattern_5 = SubResource("TileMapPattern_ntvpi")
 pattern_6 = SubResource("TileMapPattern_10l8n")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b4c5w"]
+texture = ExtResource("10_rxqn7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i4le1"]
+texture = ExtResource("10_rxqn7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p1w5c"]
+texture = ExtResource("10_rxqn7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fa7v7"]
+texture = ExtResource("10_rxqn7")
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p36uo"]
 radius = 24.0
 height = 48.0
@@ -8884,9 +8897,24 @@ script = ExtResource("6_cwf0r")
 script = ExtResource("16_qlh76")
 
 [node name="Button" type="Button" parent="Progress"]
-offset_left = 284.0
+offset_left = 331.0
 offset_right = 360.0
-offset_bottom = 31.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.984314, 0, 0.337255, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_b4c5w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_i4le1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_p1w5c")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_fa7v7")
 text = "Progress"
 
 [node name="Area2D" type="Area2D" parent="."]
