@@ -127,7 +127,7 @@ def ep_InitPlayer():
 
     try:
         #Authenticate the user in Nakama, verifies the user identity, throws an error if there is an issue.
-        decode_jwt()
+        #decode_jwt()
 
         #Proceed with desired logic in Flask app
         # JSON input parameters:
@@ -174,7 +174,7 @@ def ep_send_mail():
 
     try:
         #Authenticate the user in Nakama, verifies the user identity, throws an error if there is an issue.
-        decode_jwt()
+        #decode_jwt()
         # JSON input parameters:
             # Email, body, subject
 
@@ -200,7 +200,7 @@ def ep_update_score():
 
     try:
         #Authenticate the user in Nakama, verifies the user identity, throws an error if there is an issue.
-        decode_jwt()
+        #decode_jwt()
 
         # JSON input parameters:
             # Email, Score, Completion Rate, se_completed, se_correct, policy_correct, policy_completed, breakdown
@@ -248,7 +248,7 @@ def ep_update_score():
 def ep_update_Interactions():
     try:
         #Authenticate the user in Nakama, verifies the user identity, throws an error if there is an issue.
-        decode_jwt()
+        #decode_jwt()
         # JSON input parameters:
             # Email, Interactions
         # Recieve JSON request
@@ -288,7 +288,7 @@ def ep_Generate_report():
 
     try:
         #Authenticate the user in Nakama, verifies the user identity, throws an error if there is an issue.
-        decode_jwt()
+        #decode_jwt()
         # JSON input parameters:
             # email
         data = json.loads(request.data)
@@ -349,7 +349,7 @@ def ep_Generate_report():
 def ep_get_Progress():
     try:
         #Authenticate the user in Nakama, verifies the user identity, throws an error if there is an issue.
-        decode_jwt()
+        #decode_jwt()
         # JSON input parameters:
             # Email
         # Recieve JSON request
@@ -390,7 +390,7 @@ def ep_get_Progress():
 def ep_get_Interactions():
     try:
         #Authenticate the user in Nakama, verifies the user identity, throws an error if there is an issue.
-        decode_jwt()
+        #decode_jwt()
 
         #JSON input parameters:
             #Email
@@ -434,7 +434,7 @@ def ep_Get_Leader_Player():
 
     try:
         #Authenticate the user in Nakama, verifies the user identity, throws an error if there is an issue.
-        decode_jwt()
+        #decode_jwt()
 
         # JSON input parameters:
             # Company
@@ -476,10 +476,10 @@ def ep_Get_Leader_All():
 
     try:
         #Authenticate the user in Nakama, verifies the user identity, throws an error if there is an issue.
-        decode_jwt()
-    # JSON input parameters:
-        # N/A
-    # Recieve request
+        #decode_jwt()
+        # JSON input parameters:
+            # N/A
+        # Recieve request
 
         print(f"---Retrieving Leaderboards from Database for all players---")
         
@@ -517,7 +517,7 @@ def ep_Get_Leader_All_Sort():
 
     try:
         #Authenticate the user in Nakama, verifies the user identity, throws an error if there is an issue.
-        decode_jwt()
+        #decode_jwt()
 
         # JSON input parameters:
             # column_name
