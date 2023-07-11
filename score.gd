@@ -143,7 +143,7 @@ func send_has_interacted_to_server(pastinteractions: Dictionary):
 	print("SENDING INTERACTIONS")
 	var username = sessionVar._session.get("username")
 	var url = api_svr + "/update_Interactions"
-	var headers = ["Content-Type: application/json"]
+	var headers = ["Content-Type: application/json", "Authorization: Bearer " + sessionVar._session.get("token")]
 	
 	var pastinteractionsJSON = JSON.stringify(pastinteractions)
 	var data_to_send = {"email":username, "has_interacted": pastinteractionsJSON}
@@ -159,7 +159,7 @@ func send_interactions_to_server(breakdown: Dictionary):
 	var username = sessionVar._session.get("username")
 
 	var url = api_svr + "/update_Score"
-	var headers = ["Content-Type: application/json"]
+	var headers = ["Content-Type: application/json", "Authorization: Bearer " + sessionVar._session.get("token")]
 	
 	var policy_scores = Score.get_training_scores("policy")
 	var socialeng_scores = Score.get_training_scores("socialengineering")

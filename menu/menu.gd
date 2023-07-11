@@ -12,7 +12,7 @@ func _ready():
 	
 	var data_to_send = {"email":username}
 	var jsonPayload = JSON.stringify(data_to_send)
-	var headers = ["Content-Type: application/json"]
+	var headers = ["Content-Type: application/json", "Authorization: Bearer " + sessionVar._session.get("token")]
 	
 	var http_request = HTTPRequest.new() 
 	self.add_child(http_request)
