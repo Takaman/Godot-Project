@@ -42,7 +42,7 @@ offset_bottom = 37.0
 theme_override_colors/font_color = Color(0.32549, 0.870588, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.278431, 0.388235, 0.960784, 1)
 theme_override_font_sizes/font_size = 25
-text = "Welcome"
+text = "Welcome!"
 
 [node name="Label2" type="Label" parent="TextureRect"]
 layout_mode = 0
@@ -51,11 +51,12 @@ offset_right = 359.0
 offset_bottom = 103.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 7
-text = "You are an auditor.
-You have been tasked to find out the bad practices and pitfalls 
-their employees are putting themselves into within the building you have been assigned to.
-You are able to track your progress and it only ends once you find 
-all of the mistakes made by them. Good Luck!"
+text = "You have been hired as an auditor.
+Your task is to identify the bad cybersecurity practices employees in your company have, 
+and to teach them what to do during cybersecurity incidents.
+You will be able to track your progress and this game will end once you 
+finish helping all the employees. 
+Good Luck!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

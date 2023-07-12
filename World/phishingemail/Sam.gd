@@ -29,9 +29,19 @@ func interact() -> void:
 				[b]Sam[/b]
 				Sure. Someone pretends to be a person you trust to trick you into revealing information or downloading a virus.
 				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$address]What's the email address this company uses?[/url]?>[/right]
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end:correct]I see, thanks for the warning.[/url]?>[/right]
 				"""
 				),
+			"$address":
+				Utils.dialog_part(
+				"""
+				[b]Sam[/b]
+				Our company's email domain is @itpgrp11.com. 
+				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end:correct]I see, thanks for the info.[/url]?>[/right]
+				"""
+			)
 		},
 		"training"
 	)
