@@ -60,8 +60,10 @@ func _on_register_btn_button_down():
 			var data_to_send = {"email":email,"company":company,"name":name}
 			var url = api_svr + "/init_Player"
 			var jsonPayload = JSON.stringify(data_to_send)
-			var headers = ["Content-Type: application/json"]
+			var headers = ["Content-Type: application/json", "Authorization: Bearer " + sessionVar._session.get("token")]
 			$HTTPRequest.request(url,headers,HTTPClient.METHOD_POST, jsonPayload)
+			print("TOKEN IS HERE")
+			print(sessionVar._session.get("token"))
 			
 			print("********* Attempting to send email *********")
 			var subject = "Your xxx account has been created" #TODO CHANGE THE APP NAME

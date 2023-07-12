@@ -27,7 +27,7 @@ func interact() -> void:
 					[b]Joe[/b]
 					Really? But I've been using [i]hunter2[/i] for all my accounts... in that case, could you help me come up with a new password?
 					
-					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$endOf course.[/url]?>[/right]
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Of course.[/url]?>[/right]
 					"""
 					),
 				"$nochangepass":
