@@ -6,23 +6,26 @@ func interact() -> void:
 	print("interaction started")
 	var dialogue = """
 		<<Hints>>
-		1) Tailgating - Guy with a white shirt and red hair [right]<![INCOMPLETE]!>[/right]
-		2) SensitiveInformation - Dustbin [right]<![INCOMPLETE]!>[/right]
-		3) SensitiveInformation(part2)- Female standing beside a dustbin [right]<![INCOMPLETE]!>[/right]
-		4) Sharepassword - Whiteboard [right]<![INCOMPLETE]!>[/right]
+		1) Tailgating [right]<![INCOMPLETE]!>[/right]
+		2) Reporting Suspicious Activity [right]<![INCOMPLETE]!>[/right]
+		3) SensitiveInformation [right]<![INCOMPLETE]!>[/right]
+		4) SensitiveInformation(part2) [right]<![INCOMPLETE]!>[/right]
+		5) Sharepassword [right]<![INCOMPLETE]!>[/right]
 		
 		
 		[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 	"""
 	
 	if Score.get_has_correct("tailgate", "socialengineering"):
-		dialogue = dialogue.replace("Guy with a white shirt and red hair [right]<![INCOMPLETE]!>[/right]", "Guy with a white shirt and red hair [right]<~[COMPLETED]~>>[/right]")
+		dialogue = dialogue.replace("Tailgating [right]<![INCOMPLETE]!>[/right]", "Tailgating [right]<~[COMPLETED]~>>[/right]")
+	if Score.get_has_correct("ReportSusAct", "policy"):
+		dialogue = dialogue.replace("Reporting Suspicious Activity [right]<![INCOMPLETE]!>[/right]", "Reporting Suspicious Activity [right]<~[COMPLETED]~>>[/right]")
 	if Score.get_has_correct("sensitiveinformation", "policy"):
-		dialogue = dialogue.replace("SensitiveInformation - Dustbin [right]<![INCOMPLETE]!>[/right]", "SensitiveInformation - Dustbin [right]<~[COMPLETED]~>>[/right]")
+		dialogue = dialogue.replace("SensitiveInformation [right]<![INCOMPLETE]!>[/right]", "SensitiveInformation [right]<~[COMPLETED]~>>[/right]")
 	if Score.get_has_correct("sensitiveinformationadvanced", "policy"):
-		dialogue = dialogue.replace("SensitiveInformation(part2)- Female standing beside a dustbin [right]<![INCOMPLETE]!>[/right]", "SensitiveInformation(part2)- Female standing beside a dustbin [right]<~[COMPLETED]~>>[/right]")
+		dialogue = dialogue.replace("SensitiveInformation(part2) [right]<![INCOMPLETE]!>[/right]", "SensitiveInformation(part2) [right]<~[COMPLETED]~>>[/right]")
 	if Score.get_has_correct("sharepassword","policy"):
-		dialogue = dialogue.replace("Sharepassword - Whiteboard [right]<![INCOMPLETE]!>[/right]", "Sharepassword - Whiteboard [right]<~[COMPLETED]~>>[/right]")	
+		dialogue = dialogue.replace("Sharepassword [right]<![INCOMPLETE]!>[/right]", "Sharepassword [right]<~[COMPLETED]~>>[/right]")	
 	
 	hud.show_dialog(
 		"hints",

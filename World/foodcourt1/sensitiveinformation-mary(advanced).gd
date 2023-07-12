@@ -29,21 +29,24 @@ func interact() -> void:
 			"$change":
 				Utils.dialog_part(
 				"""
-That's the right decision. These regular checks ensure that any discarded sensitive documents are promptly identified and properly handled to prevent unauthorized access or data breaches.
+That's the right decision.
+These regular checks ensure that any discarded sensitive documents are promptly identified and properly handled to prevent unauthorized access or data breaches.
 [right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[right]
 				"""
 				),
 			"$nochange":
 				Utils.dialog_part(
 				"""
-That's incorrect. While implementing a document tracking system can be beneficial for monitoring the movement and disposal of sensitive client documents, it may not be as effective in proactively identifying and detecting potential mishandling or unauthorized disposal.
+That's incorrect.
+While implementing a document tracking system can be beneficial for monitoring the movement and disposal of sensitive client documents, it may not be as effective in proactively identifying and detecting potential mishandling or unauthorized disposal.
 [right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""
 				),
 			"$nochange1":
 				Utils.dialog_part(
 				"""
-That's incorrect. Conducting surprise audits can be helpful in ensuring employees are following proper document disposal practices. However, it may not be as proactive in identifying potential mishandling or unauthorized disposal.
+That's incorrect.
+Conducting surprise audits can be helpful in ensuring employees are following proper document disposal practices. However, it may not be as proactive in identifying potential mishandling or unauthorized disposal.
 [right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[right]
 				"""
 				),

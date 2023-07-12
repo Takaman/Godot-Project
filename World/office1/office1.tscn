@@ -6208,7 +6208,7 @@ shape = SubResource("RectangleShape2D_dbc8l")
 
 [node name="Laptop7" type="Sprite2D" parent="LaptopFolder"]
 z_index = 2
-position = Vector2(-271.75, -25.375)
+position = Vector2(-271.75, -33.125)
 scale = Vector2(1.15625, 0.923913)
 texture = ExtResource("9_py07e")
 metadata/_edit_group_ = true
@@ -6221,7 +6221,7 @@ shape = SubResource("RectangleShape2D_dbc8l")
 
 [node name="Laptop8" type="Sprite2D" parent="LaptopFolder"]
 z_index = 1
-position = Vector2(-250.75, -25.375)
+position = Vector2(-250.75, -33.125)
 scale = Vector2(1.15625, 0.923913)
 texture = ExtResource("9_py07e")
 metadata/_edit_group_ = true
@@ -6234,7 +6234,7 @@ shape = SubResource("RectangleShape2D_dbc8l")
 
 [node name="Laptop9 - question" type="Sprite2D" parent="LaptopFolder"]
 z_index = 1
-position = Vector2(-228.75, -25.375)
+position = Vector2(-228.75, -33.125)
 scale = Vector2(1.15625, 0.923913)
 texture = ExtResource("9_py07e")
 script = ExtResource("12_1nc7q")
@@ -6256,7 +6256,7 @@ shape = SubResource("RectangleShape2D_dbc8l")
 
 [node name="Laptop10" type="Sprite2D" parent="LaptopFolder"]
 z_index = 1
-position = Vector2(-208, -25)
+position = Vector2(-208, -32.75)
 scale = Vector2(1.15625, 0.923913)
 texture = ExtResource("9_py07e")
 metadata/_edit_group_ = true
@@ -6269,7 +6269,7 @@ shape = SubResource("RectangleShape2D_dbc8l")
 
 [node name="Laptop11" type="Sprite2D" parent="LaptopFolder"]
 z_index = 1
-position = Vector2(-187, -25)
+position = Vector2(-187, -32.75)
 scale = Vector2(1.15625, 0.923913)
 texture = ExtResource("9_py07e")
 metadata/_edit_group_ = true
@@ -6490,7 +6490,7 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_mmvsx")
 
 [node name="Alex4" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(-2, 72)
+position = Vector2(-2, 64.25)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("14_ehper")
 metadata/_edit_group_ = true
@@ -6501,7 +6501,7 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_mmvsx")
 
 [node name="Alex5" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(82, 73)
+position = Vector2(82, 65.25)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("14_ehper")
 metadata/_edit_group_ = true
@@ -6686,7 +6686,7 @@ shape = SubResource("CircleShape2D_uy2dx")
 
 [node name="Interactable" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
 z_index = 11
-position = Vector2(-231, -46)
+position = Vector2(-231, -53.75)
 
 [node name="Interactable2" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
 z_index = 11
