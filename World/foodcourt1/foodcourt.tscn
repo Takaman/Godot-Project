@@ -1,4 +1,4 @@
-[gd_scene load_steps=151 format=3 uid="uid://ndj2inv5qle0"]
+[gd_scene load_steps=176 format=3 uid="uid://ndj2inv5qle0"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_5nmgp"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_ee5eg"]
@@ -8,10 +8,15 @@
 [ext_resource type="Script" path="res://World/house_internal_2.gd" id="6_cwf0r"]
 [ext_resource type="Texture2D" uid="uid://nfhqewa2v65e" path="res://World/foodcourt1/images/bundle/topDown_baseTiles.png" id="6_etbkc"]
 [ext_resource type="PackedScene" uid="uid://bb6shdk0blv6i" path="res://World/HUD/hud.tscn" id="7_o8174"]
+[ext_resource type="Texture2D" uid="uid://bre8m6wsim1f4" path="res://World/foodcourt1/movingcharacter/blacksuitguy/idle.png" id="8_gr4hf"]
 [ext_resource type="PackedScene" uid="uid://kma828pwdjle" path="res://Player/player.tscn" id="8_kdafc"]
 [ext_resource type="Script" path="res://helpers/elevator.gd" id="9_4gxi5"]
+[ext_resource type="Texture2D" uid="uid://1xaougqm7gei" path="res://World/foodcourt1/movingcharacter/blacksuitguy/blacksuitguy.png" id="9_6frhy"]
+[ext_resource type="Script" path="res://World/HUD/hud-progress.gd" id="9_dyd7t"]
+[ext_resource type="Script" path="res://World/foodcourt1/movingcharacter/blacksuitguy/blacksuitguy.gd" id="10_2s28p"]
 [ext_resource type="Texture2D" uid="uid://c7qy0jm8k6c6n" path="res://frames/Dialog/DialogueBoxSimple.png" id="10_rxqn7"]
-[ext_resource type="PackedScene" uid="uid://c5rftkrhv5l1f" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="11_yvexh"]
+[ext_resource type="PackedScene" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="11_yvexh"]
+[ext_resource type="Script" path="res://World/foodcourt1/timer.gd" id="12_ohy1x"]
 [ext_resource type="Texture2D" uid="uid://dqxn6kt0rjjnj" path="res://World/foodcourt1/images/character/Tom.png" id="13_jjra0"]
 [ext_resource type="Script" path="res://World/foodcourt1/tailgate.gd" id="14_10a4o"]
 [ext_resource type="Texture2D" uid="uid://66pn3c6a84yu" path="res://World/office1/images/character/Bei.png" id="15_is0gt"]
@@ -8677,6 +8682,156 @@ pattern_4 = SubResource("TileMapPattern_8n2yd")
 pattern_5 = SubResource("TileMapPattern_ntvpi")
 pattern_6 = SubResource("TileMapPattern_10l8n")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7eqa8"]
+atlas = ExtResource("9_6frhy")
+region = Rect2(0, 576, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aro3q"]
+atlas = ExtResource("9_6frhy")
+region = Rect2(64, 576, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afnns"]
+atlas = ExtResource("9_6frhy")
+region = Rect2(128, 576, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1o45"]
+atlas = ExtResource("9_6frhy")
+region = Rect2(192, 576, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyuci"]
+atlas = ExtResource("9_6frhy")
+region = Rect2(256, 576, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08xwb"]
+atlas = ExtResource("9_6frhy")
+region = Rect2(320, 576, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ec63"]
+atlas = ExtResource("9_6frhy")
+region = Rect2(384, 576, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c4sb"]
+atlas = ExtResource("9_6frhy")
+region = Rect2(448, 576, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otetl"]
+atlas = ExtResource("9_6frhy")
+region = Rect2(512, 576, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tes1t"]
+atlas = ExtResource("9_6frhy")
+region = Rect2(0, 704, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cuqlw"]
+atlas = ExtResource("9_6frhy")
+region = Rect2(64, 704, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq4mh"]
+atlas = ExtResource("9_6frhy")
+region = Rect2(128, 704, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7xnj"]
+atlas = ExtResource("9_6frhy")
+region = Rect2(192, 704, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sls5j"]
+atlas = ExtResource("9_6frhy")
+region = Rect2(256, 704, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkkhh"]
+atlas = ExtResource("9_6frhy")
+region = Rect2(320, 704, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_401oj"]
+atlas = ExtResource("9_6frhy")
+region = Rect2(384, 704, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3gq3"]
+atlas = ExtResource("9_6frhy")
+region = Rect2(448, 704, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2et6k"]
+atlas = ExtResource("9_6frhy")
+region = Rect2(512, 704, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o17p6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_gr4hf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7eqa8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aro3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afnns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1o45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyuci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08xwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ec63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c4sb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otetl")
+}],
+"loop": true,
+"name": &"moveleft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tes1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cuqlw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cq4mh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7xnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sls5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkkhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_401oj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3gq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2et6k")
+}],
+"loop": true,
+"name": &"moveright",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_163lm"]
+size = Vector2(29.2957, 47.2615)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b4c5w"]
 texture = ExtResource("10_rxqn7")
 
@@ -8707,9 +8862,9 @@ radius = 13.0384
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wathh"]
 size = Vector2(22.7179, 29)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_h7axn"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_8m760"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h7axn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rp2y"]
 size = Vector2(92.6433, 34.8333)
@@ -8891,7 +9046,43 @@ layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array()
 script = ExtResource("6_cwf0r")
 
+[node name="Movablecharacter" type="Node2D" parent="."]
+position = Vector2(25, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Movablecharacter"]
+position = Vector2(-230.374, 106.982)
+scale = Vector2(0.449198, 0.311925)
+sprite_frames = SubResource("SpriteFrames_o17p6")
+animation = &"moveright"
+script = ExtResource("10_2s28p")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Movablecharacter/AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Movablecharacter/AnimatedSprite2D/StaticBody2D"]
+position = Vector2(1.12671, 0)
+shape = SubResource("RectangleShape2D_163lm")
+
 [node name="HUD" parent="." instance=ExtResource("7_o8174")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextDisplayer" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 333.0
+offset_top = 17.0
+offset_right = 373.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 7
+text = "asa"
+script = ExtResource("12_ohy1x")
+
+[node name="ms" type="Timer" parent="CanvasLayer/TextDisplayer"]
+wait_time = 0.1
+autostart = true
+
+[node name="HUD2" parent="." instance=ExtResource("7_o8174")]
+visible = false
+script = ExtResource("9_dyd7t")
 
 [node name="Progress" type="CanvasLayer" parent="."]
 script = ExtResource("16_qlh76")
@@ -9250,6 +9441,17 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterFolder/Alex7/StaticBody2D"]
 shape = SubResource("CircleShape2D_vby6t")
 
+[node name="Alex8" type="Sprite2D" parent="CharacterFolder"]
+position = Vector2(-139, 102)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("19_ur4k5")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CharacterFolder/Alex8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterFolder/Alex8/StaticBody2D"]
+shape = SubResource("CircleShape2D_vby6t")
+
 [node name="Tom - question" type="Sprite2D" parent="CharacterFolder"]
 position = Vector2(-82, 87)
 scale = Vector2(0.75, 0.763)
@@ -9269,17 +9471,6 @@ shape = SubResource("CircleShape2D_mx3hm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterFolder/Tom - question/StaticBody2D"]
 position = Vector2(-0.64109, -0.5)
 shape = SubResource("RectangleShape2D_wathh")
-
-[node name="Bei" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(-220, 76)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("15_is0gt")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="CharacterFolder/Bei"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterFolder/Bei/StaticBody2D"]
-shape = SubResource("CircleShape2D_h7axn")
 
 [node name="Jerry" type="Sprite2D" parent="CharacterFolder"]
 position = Vector2(15, 74)
@@ -10734,6 +10925,11 @@ shape = SubResource("RectangleShape2D_p7g7k")
 [connection signal="partsignaller" from="HUD" to="GantryExit" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="WhitewallsGantryEnter" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="Elevator" method="_on_hud_partsignaller"]
+[connection signal="timeout" from="CanvasLayer/TextDisplayer/ms" to="CanvasLayer/TextDisplayer" method="_on_ms_timeout"]
+[connection signal="partsignaller" from="HUD2" to="GantryEnter" method="_on_hud_partsignaller"]
+[connection signal="partsignaller" from="HUD2" to="GantryExit" method="_on_hud_partsignaller"]
+[connection signal="partsignaller" from="HUD2" to="WhitewallsGantryEnter" method="_on_hud_partsignaller"]
+[connection signal="partsignaller" from="HUD2" to="Elevator" method="_on_hud_partsignaller"]
 [connection signal="pressed" from="Progress/Button" to="Progress" method="_on_button_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

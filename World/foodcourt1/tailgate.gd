@@ -5,6 +5,8 @@ extends Sprite2D
 @onready var interactable := $"/root/FoodCourt/QuestionmarkFolder/Interactabletailgateperson"
 
 func _ready():
+	hud._close_panel()
+	hud.close_player_input()
 	interactable.correct()
 	pass
 	

@@ -1,87 +1,87 @@
-[gd_scene load_steps=30 format=3 uid="uid://kma828pwdjle"]
+[gd_scene load_steps=30 format=3 uid="uid://cfa0xg31i21bp"]
 
-[ext_resource type="Script" path="res://Player/Player.gd" id="1_7n5v5"]
-[ext_resource type="Texture2D" uid="uid://3057f3fth87d" path="res://Player/Walk.png" id="2_gv84v"]
-[ext_resource type="AudioStream" uid="uid://b2jgkdjuv3t1e" path="res://Player/single-footstep-on-concrete-with-sneaker-shoes-1-wwwfesliyanstudioscom-audiot_0ejT1dNk.mp3" id="3_epeog"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_d3mvk"]
+[ext_resource type="Texture2D" uid="uid://3057f3fth87d" path="res://Player/Walk.png" id="2_gjcrw"]
+[ext_resource type="AudioStream" uid="uid://b2jgkdjuv3t1e" path="res://Player/single-footstep-on-concrete-with-sneaker-shoes-1-wwwfesliyanstudioscom-audiot_0ejT1dNk.mp3" id="3_h38u2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wj20o"]
-atlas = ExtResource("2_gv84v")
+atlas = ExtResource("2_gjcrw")
 region = Rect2(96, 33, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_awf40"]
-atlas = ExtResource("2_gv84v")
+atlas = ExtResource("2_gjcrw")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3tp54"]
-atlas = ExtResource("2_gv84v")
+atlas = ExtResource("2_gjcrw")
 region = Rect2(96, 97, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tb5u5"]
-atlas = ExtResource("2_gv84v")
+atlas = ExtResource("2_gjcrw")
 region = Rect2(96, 66, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kgi72"]
-atlas = ExtResource("2_gv84v")
+atlas = ExtResource("2_gjcrw")
 region = Rect2(0, 2, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mrmnw"]
-atlas = ExtResource("2_gv84v")
+atlas = ExtResource("2_gjcrw")
 region = Rect2(32, 2, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7nwc0"]
-atlas = ExtResource("2_gv84v")
+atlas = ExtResource("2_gjcrw")
 region = Rect2(64, 2, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_llemm"]
-atlas = ExtResource("2_gv84v")
+atlas = ExtResource("2_gjcrw")
 region = Rect2(96, 2, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g61le"]
-atlas = ExtResource("2_gv84v")
+atlas = ExtResource("2_gjcrw")
 region = Rect2(0, 97, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gvd3e"]
-atlas = ExtResource("2_gv84v")
+atlas = ExtResource("2_gjcrw")
 region = Rect2(32, 97, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_05tfe"]
-atlas = ExtResource("2_gv84v")
+atlas = ExtResource("2_gjcrw")
 region = Rect2(64, 97, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uqvqu"]
-atlas = ExtResource("2_gv84v")
+atlas = ExtResource("2_gjcrw")
 region = Rect2(96, 97, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lonl0"]
-atlas = ExtResource("2_gv84v")
+atlas = ExtResource("2_gjcrw")
 region = Rect2(96, 65, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yq100"]
-atlas = ExtResource("2_gv84v")
+atlas = ExtResource("2_gjcrw")
 region = Rect2(64, 65, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rva6d"]
-atlas = ExtResource("2_gv84v")
+atlas = ExtResource("2_gjcrw")
 region = Rect2(32, 65, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4qmt5"]
-atlas = ExtResource("2_gv84v")
+atlas = ExtResource("2_gjcrw")
 region = Rect2(0, 65, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ncmt"]
-atlas = ExtResource("2_gv84v")
+atlas = ExtResource("2_gjcrw")
 region = Rect2(0, 33, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_culmd"]
-atlas = ExtResource("2_gv84v")
+atlas = ExtResource("2_gjcrw")
 region = Rect2(32, 33, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x1cn4"]
-atlas = ExtResource("2_gv84v")
+atlas = ExtResource("2_gjcrw")
 region = Rect2(64, 33, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hcsi5"]
-atlas = ExtResource("2_gv84v")
+atlas = ExtResource("2_gjcrw")
 region = Rect2(96, 33, 32, 31)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l3ucm"]
@@ -208,17 +208,17 @@ _data = {
 z_index = 10
 y_sort_enabled = true
 position = Vector2(39, 87)
-script = ExtResource("1_7n5v5")
+script = ExtResource("1_d3mvk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(4, 1)
 scale = Vector2(0.625, 0.645161)
 sprite_frames = SubResource("SpriteFrames_l3ucm")
-animation = &"idle_front"
+animation = &"runleft"
+frame_progress = 0.243855
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(4, 6)
 shape = SubResource("CapsuleShape2D_khce2")
 
@@ -252,7 +252,7 @@ libraries = {
 }
 
 [node name="FootSteps" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_epeog")
+stream = ExtResource("3_h38u2")
 volume_db = -35.0
 
 [node name="Timer" type="Timer" parent="."]

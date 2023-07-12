@@ -84,14 +84,18 @@ func _next_panel_part(part: String) -> void:
 		return
 	
 	part_name = part
-	print(part_name)
 	emit_signal("partsignaller")
 	dialogue_big_label.text = dialogue_content[part]
-	dialogue_big_label.visible_characters = 0
-	dialogue_big_timer.start()
+	dialogue_big_label.visible_characters = dialogue_big_label.text.length()
+	dialogue_big_timer.stop()
 	
-	#Add the below you want it to display everything
-	#dialogue_big_label.visible_characters = dialogue_big_label.text.length()
+	# Skip the timer animation and show the complete content at once
+	# Remove the following line if you want to keep the animation
+	dialogue_big_label.visible_characters = dialogue_big_label.text.length()
+
+
+
+
 
 func _slide_panel_out() -> void:
 	for i in range(100):
