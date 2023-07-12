@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bdagh318mdtyf"]
 
-[ext_resource type="AudioStream" uid="uid://il0i8jkbeq2" path="res://menu/music/PitcherPerfectTheme.wav" id="1_sd1k7"]
+[ext_resource type="AudioStream" uid="uid://bhp2gkvpfoa2n" path="res://menu/music/PitcherPerfectTheme.wav" id="1_sd1k7"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
 stream = ExtResource("1_sd1k7")
