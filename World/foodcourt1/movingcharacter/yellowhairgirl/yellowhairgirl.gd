@@ -2,14 +2,14 @@ extends AnimatedSprite2D
 
 # NPC movement variables
 var speed = 20  # Adjust this value to control the NPC's speed
-var target_positions = [Vector2(31, 115),Vector2(-44, 115)]  # Replace with your desired target positions
+var target_positions = [Vector2(-125,-90),Vector2(-104,-79),Vector2(-65,-90),Vector2(-67,-76),Vector2(-148,-78)]  # Replace with your desired target positions
 var current_target_index = 0
 
 #@onready var hud := $"/root/FoodCourt/HUD"
 
 # AnimatedSprite node reference
 #@onready var animatedSprite = $FoodCourt/Movablecharacter/AnimatedSprite2D
-@onready var animatedSprite := $"/root/FoodCourt/Movablecharacter/blackshirtguy"
+@onready var animatedSprite := $"/root/FoodCourt/Movablecharacter/yellowhairgirl"
 
 
 

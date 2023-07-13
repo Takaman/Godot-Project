@@ -1,8 +1,8 @@
 extends AnimatedSprite2D
 
 # NPC movement variables
-var speed = 20  # Adjust this value to control the NPC's speed
-var target_positions = [Vector2(-120, 102),Vector2(-98,76),Vector2(-169,75),Vector2(-170,103)]  # Replace with your desired target positions
+var speed = 15  # Adjust this value to control the NPC's speed
+var target_positions = [Vector2(-163,-51),Vector2(-168,-20 ),Vector2(-70, -53)]  # Replace with your desired target positions
 var current_target_index = 0
 
 #@onready var hud := $"/root/FoodCourt/HUD"

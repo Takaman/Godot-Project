@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r7no677hi631"
-path="res://.godot/imported/yellowhairgirl.png-19d1269290069cc78425322e611c2ff7.ctex"
+uid="uid://put6cmptpyti"
+path="res://.godot/imported/greyhatguy.png-11a56db2328bf4b253c642bbc46ec556.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/foodcourt1/movingcharacter/yellowhairgirl.png"
-dest_files=["res://.godot/imported/yellowhairgirl.png-19d1269290069cc78425322e611c2ff7.ctex"]
+source_file="res://World/foodcourt1/movingcharacter/greyhatguy/greyhatguy.png"
+dest_files=["res://.godot/imported/greyhatguy.png-11a56db2328bf4b253c642bbc46ec556.ctex"]
 
 [params]
 

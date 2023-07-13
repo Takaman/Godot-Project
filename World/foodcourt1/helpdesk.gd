@@ -17,7 +17,7 @@ func interact() -> void:
 					"""
 					Hello, how may I assist you today?
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$exit:signaller1]Excuse me, I need to find the conference room. Which way should I go? [/url]?>[/right]
-					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$noexit:signaller2]Excuse me, I need to find the resting area. Which way should I go?[/url]?>[/right]
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$noexit:signaller2]Excuse me, I need to find the snack area. Which way should I go?[/url]?>[/right]
 					"""
 				),
 			"$exit":
@@ -30,7 +30,7 @@ func interact() -> void:
 			"$noexit":
 				Utils.dialog_part(
 					"""
-					The resting area is situated on the right-hand side. Simply walk down the hallway, and you'll spot it a short distance away.
+					The snack area is situated on the right-hand side. Simply walk down the hallway, and you'll spot it a short distance away.
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 					"""
 				),

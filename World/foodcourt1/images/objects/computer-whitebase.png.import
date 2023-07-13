@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4lcssdyofefk"
-path="res://.godot/imported/bluedressgirl.png-6266f4fea7eadd35172edc7c78492865.ctex"
+uid="uid://rgh0ybopqc0q"
+path="res://.godot/imported/computer-whitebase.png-7e243ad47a34489142790d46508cf148.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/foodcourt1/movingcharacter/bluedressgirl.png"
-dest_files=["res://.godot/imported/bluedressgirl.png-6266f4fea7eadd35172edc7c78492865.ctex"]
+source_file="res://World/foodcourt1/images/objects/computer-whitebase.png"
+dest_files=["res://.godot/imported/computer-whitebase.png-7e243ad47a34489142790d46508cf148.ctex"]
 
 [params]
 
