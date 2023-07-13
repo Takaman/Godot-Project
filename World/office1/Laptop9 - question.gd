@@ -1,8 +1,8 @@
 extends Sprite2D
 
 
-@onready var hud := $"/root/Office1/HUD"
-@onready var interactable := $"/root/Office1/QuestionmarkFolder/Interactable"
+@onready var hud := $"/root/FoodCourt/HUD"
+@onready var interactable := $"/root/FoodCourt/QuestionmarkFolder/Interactable"
 @onready var state = 0
 
 signal lookaround

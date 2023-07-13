@@ -1,4 +1,4 @@
-[gd_scene load_steps=193 format=3 uid="uid://ndj2inv5qle0"]
+[gd_scene load_steps=205 format=3 uid="uid://ndj2inv5qle0"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_5nmgp"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_ee5eg"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c7qy0jm8k6c6n" path="res://frames/Dialog/DialogueBoxSimple.png" id="10_rxqn7"]
 [ext_resource type="Texture2D" uid="uid://b58863uore5pb" path="res://World/foodcourt1/movingcharacter/blackshirtguy/blackshirtguy.png" id="11_vnk2b"]
 [ext_resource type="Script" path="res://World/foodcourt1/movingcharacter/blackshirtguy/blackshirtguy.gd" id="11_y3l8t"]
-[ext_resource type="PackedScene" uid="uid://duiqkx067jd7i" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="11_yvexh"]
+[ext_resource type="PackedScene" uid="uid://c5rftkrhv5l1f" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="11_yvexh"]
 [ext_resource type="Script" path="res://World/foodcourt1/timer.gd" id="12_ohy1x"]
 [ext_resource type="Texture2D" uid="uid://qno1eyxd0jrw" path="res://World/foodcourt1/movingcharacter/greyshirtguy/greyshirtguy.png" id="12_qt28i"]
 [ext_resource type="Script" path="res://World/foodcourt1/movingcharacter/greyshirtguy/greyshirtguy.gd" id="13_2mml2"]
@@ -62,7 +62,6 @@
 [ext_resource type="Script" path="res://World/foodcourt1/WhitewallsGantryEnter.gd" id="58_tg0vt"]
 [ext_resource type="Script" path="res://World/foodcourt1/helpdesk.gd" id="59_rqshe"]
 [ext_resource type="PackedScene" uid="uid://iqn08315hsf" path="res://helpers/actionable.tscn" id="61_pau16"]
-[ext_resource type="Texture2D" uid="uid://btxwmtbo8belk" path="res://World/foodcourt1/images/objects/locker.png" id="64_eytom"]
 [ext_resource type="Texture2D" uid="uid://dq8my8inckwx3" path="res://World/foodcourt1/images/objects/sofa-right.png" id="65_kiexv"]
 [ext_resource type="Texture2D" uid="uid://cxgh4dmd2pvlv" path="res://World/foodcourt1/images/objects/bluetaable.png" id="66_u7d6q"]
 [ext_resource type="Texture2D" uid="uid://qlotrf6c5fqp" path="res://World/foodcourt1/images/objects/bluetableback.png" id="67_r148e"]
@@ -72,8 +71,14 @@
 [ext_resource type="Script" path="res://World/foodcourt1/BeiHint.gd" id="72_t7yhg"]
 [ext_resource type="Texture2D" uid="uid://cb3p6aq32p81m" path="res://frames/Characters/Boy/SeparateAnim/Idle.png" id="73_47kat"]
 [ext_resource type="Script" path="res://World/foodcourt1/DustbinHint.gd" id="74_7psai"]
+[ext_resource type="Script" path="res://World/office1/Jerry.gd" id="74_a0fp4"]
 [ext_resource type="Texture2D" uid="uid://i8trdu4hit8l" path="res://World/office1/images/character/jerry.png" id="75_8e4xh"]
+[ext_resource type="Texture2D" uid="uid://dla4xya6q7uei" path="res://World/office1/images/character/Tom.png" id="75_btgrf"]
+[ext_resource type="Texture2D" uid="uid://d3hhcp0du7ujx" path="res://World/office1/images/vendingmachinebig.png" id="76_4f5bm"]
 [ext_resource type="Script" path="res://World/foodcourt1/JerryHint.gd" id="76_k72b7"]
+[ext_resource type="Script" path="res://World/office1/Vendingmachinebig1 - question.gd" id="77_pij1y"]
+[ext_resource type="Texture2D" uid="uid://dtooj7aeo0cbo" path="res://World/office1/images/pc.png" id="78_nif5k"]
+[ext_resource type="Script" path="res://World/office1/Laptop9 - question.gd" id="79_kvesy"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_iaydh"]
 tile_data = PackedInt32Array(0, 393219, 0)
@@ -9162,20 +9167,36 @@ size = Vector2(9.6923, 28.4746)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_va7bh"]
 size = Vector2(32, 17)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0j1if"]
-size = Vector2(14, 21)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_npmg8"]
-radius = 8.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3amu1"]
-size = Vector2(15, 29)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rf2s3"]
 size = Vector2(31.5609, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p7g7k"]
 size = Vector2(16.5853, 21.5489)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1aey3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qmb6m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1h2e5"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hv75x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ju1a7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lxwek"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3y1tp"]
+size = Vector2(17.5, 27.4615)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mrdnw"]
+size = Vector2(20, 30.0769)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43ema"]
+size = Vector2(11.2432, 19.3353)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nexyw"]
+size = Vector2(15.3513, 25.3206)
 
 [node name="FoodCourt" type="TileMap"]
 position = Vector2(-25, -2)
@@ -9294,6 +9315,14 @@ position = Vector2(-126, 161)
 
 [node name="QuestionmarkFolder" type="Node2D" parent="."]
 
+[node name="Interactable8" parent="QuestionmarkFolder" instance=ExtResource("11_yvexh")]
+z_index = 11
+position = Vector2(545, 33)
+
+[node name="Interactable4" parent="QuestionmarkFolder" instance=ExtResource("11_yvexh")]
+z_index = 11
+position = Vector2(597, -88)
+
 [node name="Interactabletailgateperson" parent="QuestionmarkFolder" instance=ExtResource("11_yvexh")]
 z_index = 4
 position = Vector2(-48.875, 66)
@@ -9325,6 +9354,10 @@ position = Vector2(276, 160)
 [node name="SharePasswordHint" parent="QuestionmarkFolder" instance=ExtResource("11_yvexh")]
 z_index = 4
 position = Vector2(344, 289)
+
+[node name="Interactable" parent="QuestionmarkFolder" instance=ExtResource("11_yvexh")]
+z_index = 11
+position = Vector2(309, -29)
 
 [node name="gantryFolder" type="Node2D" parent="."]
 
@@ -10556,306 +10589,6 @@ text = "Exit"
 
 [node name="RestingareaFolder" type="Node2D" parent="."]
 
-[node name="Floortv" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(463, -77)
-texture = ExtResource("57_2e63c")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Floortv"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Floortv/StaticBody2D"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_0j1if")
-
-[node name="Floortv2" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(478, -77)
-texture = ExtResource("57_2e63c")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Floortv2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Floortv2/StaticBody2D"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_0j1if")
-
-[node name="Floortv3" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(494, -77)
-texture = ExtResource("57_2e63c")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Floortv3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Floortv3/StaticBody2D"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_0j1if")
-
-[node name="Floortv4" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(510, -77)
-texture = ExtResource("57_2e63c")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Floortv4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Floortv4/StaticBody2D"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_0j1if")
-
-[node name="Chair" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(462, -39)
-texture = ExtResource("22_u3d2r")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Chair"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Chair/StaticBody2D"]
-shape = SubResource("CircleShape2D_npmg8")
-
-[node name="Chair2" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(478, -39)
-texture = ExtResource("22_u3d2r")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Chair2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Chair2/StaticBody2D"]
-shape = SubResource("CircleShape2D_npmg8")
-
-[node name="Chair3" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(494, -39)
-texture = ExtResource("22_u3d2r")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Chair3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Chair3/StaticBody2D"]
-shape = SubResource("CircleShape2D_npmg8")
-
-[node name="Chair4" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(510, -39)
-texture = ExtResource("22_u3d2r")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Chair4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Chair4/StaticBody2D"]
-shape = SubResource("CircleShape2D_npmg8")
-
-[node name="Floortv9" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(462, 19)
-texture = ExtResource("57_2e63c")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Floortv9"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Floortv9/StaticBody2D"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_0j1if")
-
-[node name="Floortv10" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(477, 19)
-texture = ExtResource("57_2e63c")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Floortv10"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Floortv10/StaticBody2D"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_0j1if")
-
-[node name="Floortv11" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(493, 19)
-texture = ExtResource("57_2e63c")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Floortv11"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Floortv11/StaticBody2D"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_0j1if")
-
-[node name="Floortv12" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(509, 19)
-texture = ExtResource("57_2e63c")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Floortv12"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Floortv12/StaticBody2D"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_0j1if")
-
-[node name="Chair9" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(461, 57)
-texture = ExtResource("22_u3d2r")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Chair9"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Chair9/StaticBody2D"]
-shape = SubResource("CircleShape2D_npmg8")
-
-[node name="Chair10" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(477, 57)
-texture = ExtResource("22_u3d2r")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Chair10"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Chair10/StaticBody2D"]
-shape = SubResource("CircleShape2D_npmg8")
-
-[node name="Chair11" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(493, 57)
-texture = ExtResource("22_u3d2r")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Chair11"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Chair11/StaticBody2D"]
-shape = SubResource("CircleShape2D_npmg8")
-
-[node name="Chair12" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(509, 57)
-texture = ExtResource("22_u3d2r")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Chair12"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Chair12/StaticBody2D"]
-shape = SubResource("CircleShape2D_npmg8")
-
-[node name="Locker" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(556, -79)
-texture = ExtResource("64_eytom")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Locker"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Locker/StaticBody2D"]
-position = Vector2(-0.5, -0.5)
-shape = SubResource("RectangleShape2D_3amu1")
-
-[node name="Locker2" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(571, -79)
-texture = ExtResource("64_eytom")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Locker2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Locker2/StaticBody2D"]
-position = Vector2(-0.5, -0.5)
-shape = SubResource("RectangleShape2D_3amu1")
-
-[node name="Locker3" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(586, -79)
-texture = ExtResource("64_eytom")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Locker3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Locker3/StaticBody2D"]
-position = Vector2(-0.5, -0.5)
-shape = SubResource("RectangleShape2D_3amu1")
-
-[node name="Locker4" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(601, -79)
-texture = ExtResource("64_eytom")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Locker4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Locker4/StaticBody2D"]
-position = Vector2(-0.5, -0.5)
-shape = SubResource("RectangleShape2D_3amu1")
-
-[node name="Locker5" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(556.5, -31)
-texture = ExtResource("64_eytom")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Locker5"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Locker5/StaticBody2D"]
-position = Vector2(-0.5, -0.5)
-shape = SubResource("RectangleShape2D_3amu1")
-
-[node name="Locker6" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(571.5, -31)
-texture = ExtResource("64_eytom")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Locker6"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Locker6/StaticBody2D"]
-position = Vector2(-0.5, -0.5)
-shape = SubResource("RectangleShape2D_3amu1")
-
-[node name="Locker7" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(586.5, -31)
-texture = ExtResource("64_eytom")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Locker7"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Locker7/StaticBody2D"]
-position = Vector2(-0.5, -0.5)
-shape = SubResource("RectangleShape2D_3amu1")
-
-[node name="Locker8" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(601.5, -31)
-texture = ExtResource("64_eytom")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Locker8"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Locker8/StaticBody2D"]
-position = Vector2(-0.5, -0.5)
-shape = SubResource("RectangleShape2D_3amu1")
-
-[node name="Locker9" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(556.5, 32)
-texture = ExtResource("64_eytom")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Locker9"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Locker9/StaticBody2D"]
-position = Vector2(-0.5, -0.5)
-shape = SubResource("RectangleShape2D_3amu1")
-
-[node name="Locker10" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(571.5, 32)
-texture = ExtResource("64_eytom")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Locker10"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Locker10/StaticBody2D"]
-position = Vector2(-0.5, -0.5)
-shape = SubResource("RectangleShape2D_3amu1")
-
-[node name="Locker11" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(586.5, 32)
-texture = ExtResource("64_eytom")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Locker11"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Locker11/StaticBody2D"]
-position = Vector2(-0.5, -0.5)
-shape = SubResource("RectangleShape2D_3amu1")
-
-[node name="Locker12" type="Sprite2D" parent="RestingareaFolder"]
-position = Vector2(601.5, 32)
-texture = ExtResource("64_eytom")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RestingareaFolder/Locker12"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestingareaFolder/Locker12/StaticBody2D"]
-position = Vector2(-0.5, -0.5)
-shape = SubResource("RectangleShape2D_3amu1")
-
 [node name="Mary" type="Sprite2D" parent="."]
 position = Vector2(243, 296)
 scale = Vector2(0.602943, 0.692708)
@@ -10938,6 +10671,145 @@ shape = SubResource("CircleShape2D_mx3hm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jerry-Hint/StaticBody2D"]
 position = Vector2(-0.64109, -0.5)
 shape = SubResource("RectangleShape2D_wathh")
+
+[node name="Bei" type="Sprite2D" parent="."]
+position = Vector2(563.875, 48.625)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("71_2624a")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bei"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bei/StaticBody2D"]
+shape = SubResource("CircleShape2D_1aey3")
+
+[node name="Jerry" type="Sprite2D" parent="."]
+position = Vector2(544.875, 48.625)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("75_8e4xh")
+script = ExtResource("74_a0fp4")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Jerry"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jerry/StaticBody2D"]
+shape = SubResource("CircleShape2D_qmb6m")
+
+[node name="Actionable" parent="Jerry" instance=ExtResource("61_pau16")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jerry/Actionable"]
+shape = SubResource("CircleShape2D_1h2e5")
+
+[node name="Mary2" type="Sprite2D" parent="."]
+position = Vector2(563.625, 6)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("68_qns23")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Mary2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mary2/StaticBody2D"]
+shape = SubResource("CircleShape2D_hv75x")
+
+[node name="Tim" type="Sprite2D" parent="."]
+position = Vector2(545.625, 7)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("30_i1buy")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tim"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tim/StaticBody2D"]
+shape = SubResource("CircleShape2D_ju1a7")
+
+[node name="Tom" type="Sprite2D" parent="."]
+position = Vector2(551, -36)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("75_btgrf")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tom"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tom/StaticBody2D"]
+shape = SubResource("CircleShape2D_lxwek")
+
+[node name="Vendingmachinebig - question" type="Sprite2D" parent="."]
+position = Vector2(597, -61)
+rotation = 6.28319
+texture = ExtResource("76_4f5bm")
+script = ExtResource("77_pij1y")
+metadata/_edit_group_ = true
+
+[node name="Actionable" type="Area2D" parent="Vendingmachinebig - question"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vendingmachinebig - question/Actionable"]
+position = Vector2(-1.24999, 0.653831)
+shape = SubResource("RectangleShape2D_3y1tp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Vendingmachinebig - question"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vendingmachinebig - question/StaticBody2D"]
+position = Vector2(0, -0.653847)
+shape = SubResource("RectangleShape2D_mrdnw")
+
+[node name="Vendingmachinebig2" type="Sprite2D" parent="."]
+position = Vector2(552, -62)
+texture = ExtResource("76_4f5bm")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Vendingmachinebig2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vendingmachinebig2/StaticBody2D"]
+position = Vector2(0, -0.653847)
+shape = SubResource("RectangleShape2D_mrdnw")
+
+[node name="Vendingmachinebig3" type="Sprite2D" parent="."]
+position = Vector2(591, 5)
+rotation = 1.5708
+texture = ExtResource("76_4f5bm")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Vendingmachinebig3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vendingmachinebig3/StaticBody2D"]
+position = Vector2(0, -0.653847)
+shape = SubResource("RectangleShape2D_mrdnw")
+
+[node name="Vendingmachinebig4" type="Sprite2D" parent="."]
+position = Vector2(591, 51)
+rotation = 1.5708
+texture = ExtResource("76_4f5bm")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Vendingmachinebig4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vendingmachinebig4/StaticBody2D"]
+position = Vector2(0, -0.653847)
+shape = SubResource("RectangleShape2D_mrdnw")
+
+[node name="Laptop9 - question" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(311.25, -8.375)
+scale = Vector2(1.15625, 0.923913)
+texture = ExtResource("78_nif5k")
+script = ExtResource("79_kvesy")
+metadata/_edit_group_ = true
+
+[node name="Actionable" type="Area2D" parent="Laptop9 - question"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laptop9 - question/Actionable"]
+position = Vector2(-1.5135, 0.332352)
+shape = SubResource("RectangleShape2D_43ema")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Laptop9 - question"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laptop9 - question/StaticBody2D"]
+position = Vector2(-0.216217, 0)
+shape = SubResource("RectangleShape2D_nexyw")
 
 [connection signal="immediate_show" from="HUD" to="Progress" method="_on_hud_immediate_show"]
 [connection signal="partsignaller" from="HUD" to="GantryEnter" method="_on_hud_partsignaller"]

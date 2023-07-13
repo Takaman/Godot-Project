@@ -15,7 +15,11 @@ func interact() -> void:
 		[center] 4) SensitiveInformation(part2) <![INCOMPLETE]!> [/center]
 		
 		[center] 5) Sharepassword <![INCOMPLETE]!> [/center]
-				
+		
+		[center] 6) QR Code <![INCOMPLETE]!> [/center]
+		
+		[center] 7) Unattended Device <![INCOMPLETE]!> [/center]
+		
 		[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 	"""
 	
@@ -28,8 +32,12 @@ func interact() -> void:
 	if Score.get_has_correct("sensitiveinformationadvanced", "policy"):
 		dialogue = dialogue.replace("SensitiveInformation(part2) <![INCOMPLETE]!>", "SensitiveInformation(part2) <~[COMPLETED]~>>")
 	if Score.get_has_correct("sharepassword","policy"):
-		dialogue = dialogue.replace("Sharepassword <![INCOMPLETE]!>", "Sharepassword <~[COMPLETED]~>>")	
-	
+		dialogue = dialogue.replace("Sharepassword <![INCOMPLETE]!>", "Sharepassword <~[COMPLETED]~>>")
+	if Score.get_has_correct("vendingmachine1", "socialengineering"):
+		dialogue = dialogue.replace("QR Code <![INCOMPLETE]!>", "QR Code <~[COMPLETED]~>")
+	if Score.get_has_correct("unattendedlaptop", "policy"):
+		dialogue = dialogue.replace("Unattended Device <![INCOMPLETE]!>", "Unattended Device <~[COMPLETED]~>")
+		
 	hud.show_dialog(
 		"hints",
 		{
