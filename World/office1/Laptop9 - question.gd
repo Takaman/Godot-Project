@@ -11,7 +11,7 @@ signal leave
 func _ready():
 	interactable.visible = false
 	pass
-	
+
 func interact() -> void:
 	if state == 0:
 		print("interaction started")
