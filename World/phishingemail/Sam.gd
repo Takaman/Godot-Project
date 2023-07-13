@@ -29,7 +29,7 @@ func interact() -> void:
 				[b]Sam[/b]
 				Sure. Someone pretends to be a person you trust to trick you into revealing information or downloading a virus.
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$address]What's the email address this company uses?[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$address]What's the email domain this company uses?[/url]?>[/right]
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end:correct]I see, thanks for the warning.[/url]?>[/right]
 				"""
 				),
@@ -55,7 +55,7 @@ func interact_ontouch() -> void:
 			Utils.dialog_part(
 				"""
 				[b]Sam[/b]
-				Welcome to the human resources department! We'd like your help to look through some emails we've been receiving.
+				Welcome to the finance department! We'd like your help to look through some emails we've been receiving.
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next]Is there a problem?[/url]?>[/right]
 				"""
