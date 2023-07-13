@@ -19,14 +19,14 @@ func interact() -> void:
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$lvl0:door]Ground Floor[/url]?>[/right]
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$lvl1:door]Food Court[/url]?>[/right]
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$lvl2:door]Office Policies[/url]?>[/right]
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$lvl3:door]Human Resources[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$lvl3:door]Finance[/url]?>[/right]
 
 				"""
 				),
 				"$lvl0":Utils.dialog_part("""Going to the ground floor."""),
 				"$lvl1":Utils.dialog_part("""Going to the food court."""), 
 				"$lvl2":Utils.dialog_part("""Going to office policies."""), 
-				"$lvl3":Utils.dialog_part("""Going to human resources.""")
+				"$lvl3":Utils.dialog_part("""Going to finance.""")
 			},
 			"training"
 		)

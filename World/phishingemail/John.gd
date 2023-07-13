@@ -6,12 +6,12 @@ extends Sprite2D
 signal IT_Guy
 
 func _on_hud_partsignaller():
-	if hud.part_name == "$noclick":
+	if hud.part_name == "$johnnoclick":
 		if state == 0:
 			state = 1
 		if marker != null and marker is Node:
 			marker.remove_mark()
-	elif hud.part_name == "$click":
+	elif hud.part_name == "$johnclick":
 		if state == 0:
 			state = 2
 		if marker != null and marker is Node:
@@ -33,14 +33,22 @@ func interact() -> void:
 					[b]John[/b]
 					Hey... I just received this email and it looks quite important. Do you think I should follow the link and change my password?
 					
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$johnnext]Sure, I can take a look.[/url]?>[/right]
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Not right now.[/url]?>[/right]
+					"""
+					),
+				"$johnnext":
+				Utils.dialog_part(
+					"""
+					[b]John[/b]
 					[center][img=240x200]res://World/phishingemail/Images/email1.png[/img][/center]
 					
-					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$click]There's not much time left! You'd better change your password now.[/url]?>[/right]
-					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$noclick:correct]Have you checked with the IT department?[/url]?>[/right]
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$johnclick]There's not much time left! You'd better change your password now.[/url]?>[/right]
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$johnnoclick:correct]Have you checked with the IT department?[/url]?>[/right]
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Give me some time to think about it.[/url]?>[/right]
 					"""
 					),
-				"$noclick":
+				"$johnnoclick":
 					Utils.dialog_part(
 					"""
 					[b]John[/b]
@@ -49,7 +57,7 @@ func interact() -> void:
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]No problem, better safe than sorry.[/url]?>[/right]
 					"""
 					),
-				"$click":
+				"$johnclick":
 					Utils.dialog_part(
 						"""
 						[b]John[/b]
@@ -183,7 +191,7 @@ func _physics_process(delta: float) -> void:
 	if Score.get_result("phishingemail1","socialengineering") != 0:
 		if marker != null and marker is Node:
 				marker.visible = false
-	if Score.get_result("phishingemail1","socialengineering") == 1:
+	if Score.get_result("phishingemail1","socialengineering") == 1: #if result is correct
 		state == 1
-	elif Score.get_result("phishingemail1","socialengineering") == 2:
+	elif Score.get_result("phishingemail1","socialengineering") == 2: #if result is wrong
 		state == 5

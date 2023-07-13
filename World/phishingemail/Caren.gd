@@ -30,7 +30,55 @@ func interact() -> void:
 						
 						Hi there! I just received this email, but I'm not sure if I should respond... could you help me out?
 						
-						placeholder image
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$carennext]Sure, I can take a look.[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Not right now.[/url]?>[/right]
+						"""
+					),
+				"$carennext":
+					Utils.dialog_part(
+						"""
+						IT Department <it_departrnent@itgrp11.com>
+						
+						Subject: [Urgent] Company Account Security Alert - Immediate Action Required
+						
+						Dear Caren,
+						
+						Our security systems have detected unusual login activity from your company email account. We believe that your account may have been compromised, and advise you to take immediate action to safeguard company and personal data.
+						
+						Please refer to the following instructions to ensure the security of your email account.
+						
+						[ol]
+						[li]Click the following link to access our company's email portal: [url]placeholder[/url][/li]
+						[li]Enter your current email login credentials to verify your identity.[/li]
+						[li]Once successfully verified, you will be able to change your password. Please use a combination of uppercase and lowercase letters, numbers, and special characters to create a strong password.[/li]
+						[/ol]
+						
+						Note that you must complete this process in the next 24 hours, or your account will be locked out. Please understand the urgency of this matter, and we appreciate your prompt response.
+						
+						If you require assistance, please do not hesitate to reply to this email.
+						
+						Sincerely,
+						
+						IT Department
+						ITPGRP11
+						
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$carenclick]There's not much time left! You'd better change your password now.[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$carennoclick:correct]Have you checked with the IT department?[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Give me some time to think about it.[/url]?>[/right]
+						"""
+					),
+				"$carenclick":
+					Utils.dialog_part(
+						"""
+						[b]Caren[/b]
+						
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Give me some time to think about it.[/url]?>[/right]
+						"""
+					),
+				"$carennoclick":
+					Utils.dialog_part(
+						"""
+						[b]Caren[/b]
 						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Give me some time to think about it.[/url]?>[/right]
 						"""
