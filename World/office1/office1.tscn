@@ -36,7 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://biudu07ebi2vo" path="res://World/office1/images/whitesofa-right.png" id="26_r02ge"]
 [ext_resource type="Texture2D" uid="uid://bpkwuttjk6jkf" path="res://World/office1/images/rectangleshapewall.png" id="28_yad2y"]
 [ext_resource type="Texture2D" uid="uid://kykyxo0nc1sy" path="res://World/office1/images/tv.png" id="32_l7tb4"]
-[ext_resource type="PackedScene" uid="uid://c5rftkrhv5l1f" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="33_d72if"]
+[ext_resource type="PackedScene" uid="uid://duiqkx067jd7i" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="33_d72if"]
 [ext_resource type="PackedScene" uid="uid://bb6shdk0blv6i" path="res://World/HUD/hud.tscn" id="33_sh7jl"]
 [ext_resource type="PackedScene" uid="uid://d08er855jdoi6" path="res://World/Actors/MessyArea/messy_area.tscn" id="36_3ypd4"]
 [ext_resource type="Script" path="res://helpers/elevator.gd" id="39_iy146"]
