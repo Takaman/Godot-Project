@@ -14,13 +14,9 @@ func _ready():
 
 func _on_laptop_9__question_lookaround():
 	state = 1
-	if interactable != null and interactable is Node:
-		interactable.toggle_visibility(true)
 
 func _on_laptop_9__question_leave():
 	state = 3
-	if interactable != null and interactable is Node:
-		interactable.toggle_visibility(true)
 
 func interact() -> void:
 	print("interaction started")
@@ -91,8 +87,6 @@ func interact() -> void:
 		)
 		state = 2
 		emit_signal("jerrydone")
-		if interactable != null and interactable is Node:
-			interactable.toggle_visibility(false)
 	elif state == 2:
 		hud.show_dialog(
 			"unattendedlaptop",
@@ -160,13 +154,12 @@ func interact() -> void:
 		)
 		state = 2
 		emit_signal("jerrydone")
-		if interactable != null and interactable is Node:
-			interactable.toggle_visibility(false)
 		
 func _physics_process(delta: float) -> void:
 	if Score.get_has_correct("unattendedlaptop","policy") == true:
 		state = 2
 		if interactable != null and interactable is Node:
-			interactable.toggle_visibility(false)
+			interactable.visible = true
+			interactable.correct()
 
 

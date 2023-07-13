@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://clsj425jv42og" path="res://Tilemap builder/Interior/Room_Builder_free_16x16.png" id="4_hy38r"]
 [ext_resource type="Texture2D" uid="uid://b6qwv2y4akkn6" path="res://Tilemap builder/TilesetLogic.png" id="5_gx3sb"]
 [ext_resource type="Script" path="res://World/house_internal_2.gd" id="6_pybxl"]
+[ext_resource type="Script" path="res://World/office1/progress_office1.gd" id="7_b0p7h"]
 [ext_resource type="PackedScene" uid="uid://kma828pwdjle" path="res://Player/player.tscn" id="7_ncsrh"]
-[ext_resource type="Script" path="res://World/office1/hints_office1.gd" id="7_peakb"]
 [ext_resource type="Texture2D" uid="uid://c7qy0jm8k6c6n" path="res://frames/Dialog/DialogueBoxSimple.png" id="8_bw2tt"]
 [ext_resource type="Texture2D" uid="uid://dtooj7aeo0cbo" path="res://World/office1/images/pc.png" id="9_py07e"]
 [ext_resource type="Script" path="res://World/office1/Laptop3 - question.gd" id="10_w4jnn"]
@@ -6093,7 +6093,7 @@ script = ExtResource("6_pybxl")
 [node name="HUD" parent="." instance=ExtResource("33_sh7jl")]
 
 [node name="Progress" type="CanvasLayer" parent="."]
-script = ExtResource("7_peakb")
+script = ExtResource("7_b0p7h")
 
 [node name="Button" type="Button" parent="Progress"]
 offset_left = 331.0
@@ -6432,7 +6432,7 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_kfrhh")
 
 [node name="Thumdrive" type="Sprite2D" parent="TableFolder"]
-position = Vector2(33, -94)
+position = Vector2(34, -94)
 texture = ExtResource("14_0xjun")
 script = ExtResource("15_qj26a")
 
@@ -6703,7 +6703,7 @@ rotation = 1.61094
 
 [node name="Interactable5" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
 z_index = 11
-position = Vector2(33, -110)
+position = Vector2(34, -110)
 
 [node name="Interactable6" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
 z_index = 11

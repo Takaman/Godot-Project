@@ -4,6 +4,11 @@ extends Sprite2D
 @onready var interactable := $"/root/Office1/QuestionmarkFolder/Interactable3"
 @onready var state = 0
 @onready var password : String = ""
+
+func _ready():
+	interactable.visible = false
+	pass
+
 func interact() -> void:
 	print("interaction started")
 	if state == 0:
@@ -86,6 +91,7 @@ func _on_area_2d_area_entered(area):
 func _on_hud_partsignaller():
 	if hud.part_name == "$changepass":
 		state = 1
+		interactable.visible = true
 		if interactable != null and interactable is Node:
 			interactable.in_progress()
 
@@ -136,13 +142,9 @@ func _on_hud_input_closed():
 			},
 			"policy"
 		)
-		state = 2
-		if interactable is Node:
-			interactable.remove_mark()
-			interactable = null
 
 func _physics_process(delta: float) -> void:
 	if Score.get_has_correct("passwordpolicy","policy") == true:
 		state = 2
 		if interactable != null and interactable is Node:
-			interactable.visible = false
+			interactable.correct()
