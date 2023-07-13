@@ -1,4 +1,4 @@
-[gd_scene load_steps=172 format=3 uid="uid://ndj2inv5qle0"]
+[gd_scene load_steps=170 format=3 uid="uid://ndj2inv5qle0"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_5nmgp"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_ee5eg"]
@@ -12,14 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://kma828pwdjle" path="res://Player/player.tscn" id="8_kdafc"]
 [ext_resource type="Script" path="res://helpers/elevator.gd" id="9_4gxi5"]
 [ext_resource type="Texture2D" uid="uid://1xaougqm7gei" path="res://World/foodcourt1/movingcharacter/blacksuitguy/blacksuitguy.png" id="9_6frhy"]
-[ext_resource type="Script" path="res://World/HUD/hud-progress.gd" id="9_dyd7t"]
 [ext_resource type="Script" path="res://World/foodcourt1/movingcharacter/blacksuitguy/blacksuitguy.gd" id="10_2s28p"]
 [ext_resource type="Texture2D" uid="uid://c7qy0jm8k6c6n" path="res://frames/Dialog/DialogueBoxSimple.png" id="10_rxqn7"]
 [ext_resource type="PackedScene" uid="uid://c5rftkrhv5l1f" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="11_yvexh"]
 [ext_resource type="Script" path="res://World/foodcourt1/timer.gd" id="12_ohy1x"]
 [ext_resource type="Texture2D" uid="uid://dqxn6kt0rjjnj" path="res://World/foodcourt1/images/character/Tom.png" id="13_jjra0"]
 [ext_resource type="Script" path="res://World/foodcourt1/tailgate.gd" id="14_10a4o"]
-[ext_resource type="Texture2D" uid="uid://66pn3c6a84yu" path="res://World/office1/images/character/Bei.png" id="15_is0gt"]
 [ext_resource type="Script" path="res://World/foodcourt1/hints.gd" id="16_qlh76"]
 [ext_resource type="Texture2D" uid="uid://dsb4vpraxopp2" path="res://World/foodcourt1/images/objects/gantrymaybe.png" id="17_myfbt"]
 [ext_resource type="Texture2D" uid="uid://btr6qaaem6py2" path="res://World/foodcourt1/images/objects/cookingutilse.png" id="17_qnrjv"]
@@ -70,11 +68,11 @@
 [ext_resource type="Texture2D" uid="uid://b4nf3qfe7c5y0" path="res://World/office1/images/character/Mary.png" id="68_qns23"]
 [ext_resource type="Texture2D" uid="uid://bao0knkoyjxd5" path="res://World/foodcourt1/images/objects/exclamation_mark1.png" id="69_7ljdq"]
 [ext_resource type="Script" path="res://World/foodcourt1/sensitiveinformation-mary(advanced).gd" id="69_h16l1"]
-[ext_resource type="Texture2D" uid="uid://66pn3c6a84yu" path="res://World/foodcourt1/character/Bei.png" id="71_2624a"]
+[ext_resource type="Texture2D" uid="uid://66pn3c6a84yu" path="res://World/office1/images/character/Bei.png" id="71_2624a"]
 [ext_resource type="Script" path="res://World/foodcourt1/BeiHint.gd" id="72_t7yhg"]
 [ext_resource type="Texture2D" uid="uid://cb3p6aq32p81m" path="res://frames/Characters/Boy/SeparateAnim/Idle.png" id="73_47kat"]
 [ext_resource type="Script" path="res://World/foodcourt1/DustbinHint.gd" id="74_7psai"]
-[ext_resource type="Texture2D" uid="uid://i8trdu4hit8l" path="res://World/foodcourt1/character/jerry.png" id="75_8e4xh"]
+[ext_resource type="Texture2D" uid="uid://i8trdu4hit8l" path="res://World/office1/images/character/jerry.png" id="75_8e4xh"]
 [ext_resource type="Script" path="res://World/foodcourt1/JerryHint.gd" id="76_k72b7"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_iaydh"]
@@ -9070,10 +9068,6 @@ script = ExtResource("12_ohy1x")
 wait_time = 0.1
 autostart = true
 
-[node name="HUD2" parent="." instance=ExtResource("7_o8174")]
-visible = false
-script = ExtResource("9_dyd7t")
-
 [node name="Progress" type="CanvasLayer" parent="."]
 script = ExtResource("16_qlh76")
 
@@ -10240,7 +10234,7 @@ shape = SubResource("RectangleShape2D_rm5dh")
 [node name="Bei2" type="Sprite2D" parent="WaitingroomFolder"]
 position = Vector2(248, 6)
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("15_is0gt")
+texture = ExtResource("71_2624a")
 script = ExtResource("59_rqshe")
 metadata/_edit_group_ = true
 
@@ -10757,15 +10751,12 @@ shape = SubResource("CircleShape2D_mx3hm")
 position = Vector2(-0.64109, -0.5)
 shape = SubResource("RectangleShape2D_wathh")
 
+[connection signal="immediate_show" from="HUD" to="Progress" method="_on_hud_immediate_show"]
 [connection signal="partsignaller" from="HUD" to="GantryEnter" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="GantryExit" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="WhitewallsGantryEnter" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="Elevator" method="_on_hud_partsignaller"]
 [connection signal="timeout" from="CanvasLayer/TextDisplayer/ms" to="CanvasLayer/TextDisplayer" method="_on_ms_timeout"]
-[connection signal="partsignaller" from="HUD2" to="GantryEnter" method="_on_hud_partsignaller"]
-[connection signal="partsignaller" from="HUD2" to="GantryExit" method="_on_hud_partsignaller"]
-[connection signal="partsignaller" from="HUD2" to="WhitewallsGantryEnter" method="_on_hud_partsignaller"]
-[connection signal="partsignaller" from="HUD2" to="Elevator" method="_on_hud_partsignaller"]
 [connection signal="pressed" from="Progress/Button" to="Progress" method="_on_button_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

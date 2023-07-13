@@ -176,10 +176,10 @@ func send_interactions_to_server(breakdown: Dictionary):
 	
 	var comp_rate = (policy_completed + socialengineering_completed + malware_completed)/ 14 * 100
 	
-	print("COMPLETION RATE:")
+	print("COMPLETION RATE:"+str(comp_rate))
 	print(comp_rate)
 	var breakdownJSON = JSON.stringify(breakdown)	
-	var data_to_send = {"email":username, "score":get_total_points(), "comp_rate": comp_rate, "se_correct": socialengineering_correct,"se_completed":socialengineering_completed, "policy_correct":policy_correct,"policy_completed":policy_completed,"breakdown":breakdownJSON  }
+	var data_to_send = {"email":username, "score":get_total_points(), "comp_rate": comp_rate, "se_correct": socialengineering_correct,"se_completed":socialengineering_completed, "policy_correct":policy_correct,"policy_completed":policy_completed,"malware_correct":malware_correct,"malware_completed":malware_completed,"breakdown":breakdownJSON  }
 	var jsonPayload = JSON.stringify(data_to_send)
 	print("DATA TO SEND:")
 	print(data_to_send)

@@ -28,6 +28,7 @@ signal input_submitted
 signal correct
 signal wrong
 signal partsignaller
+signal immediate_show
 var dialogue_content := {}
 var dialogue_interaction := ""
 var dialogue_phase := ""
@@ -83,12 +84,19 @@ func _next_panel_part(part: String) -> void:
 		_close_panel()
 		return
 	
+	
 	part_name = part
 	print(part_name)
 	emit_signal("partsignaller")
 	dialogue_big_label.text = dialogue_content[part]
 	dialogue_big_label.visible_characters = 0
-	dialogue_big_timer.start()
+
+	
+	if dialogue_interaction == "hints":
+		dialogue_big_label.visible_characters = dialogue_big_label.text.length()
+		emit_signal("immediate_show")
+	else:
+		dialogue_big_timer.start()
 	
 	#Add the below you want it to display everything
 	#dialogue_big_label.visible_characters = dialogue_big_label.text.length()
