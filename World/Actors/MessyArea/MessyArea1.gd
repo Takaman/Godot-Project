@@ -3,6 +3,10 @@ extends Sprite2D
 @onready var hud := $"/root/Office1/HUD"
 @onready var interactable := $"/root/Office1/QuestionmarkFolder/Interactable6"
 
+func _ready():
+	interactable.correct()
+	pass
+	
 func interact() -> void:
 	print("interaction started")
 	hud.show_dialog(
@@ -56,5 +60,6 @@ func _on_area_2d_area_entered(area):
 		interact()
 		
 func _physics_process(delta: float) -> void:
-	interactable.visible  = !Score.has_interacted("messyarea1","policy")
+	if interactable!= null and interactable is Node:
+		interactable.visible  = Score.get_has_correct("messyarea1","policy")
 	

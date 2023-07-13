@@ -5,6 +5,10 @@ extends Sprite2D
 @onready var state = 0
 @onready var password : String = ""
 
+func _ready():
+	interactable.correct()
+	pass
+
 func interact() -> void:
 	print("interaction started")
 	if state == 0:
@@ -70,5 +74,6 @@ func _on_area_2d_area_entered(area):
 		interact()
 
 func _physics_process(delta: float) -> void:
-	interactable.visible  = !Score.has_interacted("laptop16","malware")
+	if interactable!= null and interactable is Node:
+		interactable.visible  = Score.get_has_correct("laptop16","malware")
 	

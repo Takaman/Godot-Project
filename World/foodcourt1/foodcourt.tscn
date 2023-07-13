@@ -18,8 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://qno1eyxd0jrw" path="res://World/foodcourt1/movingcharacter/greyshirtguy/greyshirtguy.png" id="12_qt28i"]
 [ext_resource type="Script" path="res://World/foodcourt1/movingcharacter/greyshirtguy/greyshirtguy.gd" id="13_2mml2"]
 [ext_resource type="Texture2D" uid="uid://dqxn6kt0rjjnj" path="res://World/foodcourt1/images/character/Tom.png" id="13_jjra0"]
+[ext_resource type="Script" path="res://World/foodcourt1/progress.gd" id="14_5bf73"]
 [ext_resource type="Script" path="res://World/foodcourt1/tailgate.gd" id="14_10a4o"]
-[ext_resource type="Script" path="res://World/foodcourt1/hints.gd" id="16_qlh76"]
 [ext_resource type="Texture2D" uid="uid://dsb4vpraxopp2" path="res://World/foodcourt1/images/objects/gantrymaybe.png" id="17_myfbt"]
 [ext_resource type="Texture2D" uid="uid://btr6qaaem6py2" path="res://World/foodcourt1/images/objects/cookingutilse.png" id="17_qnrjv"]
 [ext_resource type="Texture2D" uid="uid://idqfiy0xttv1" path="res://World/foodcourt1/images/objects/kitchensetutilise.png" id="18_qvjat"]
@@ -9258,7 +9258,7 @@ wait_time = 0.1
 autostart = true
 
 [node name="Progress" type="CanvasLayer" parent="."]
-script = ExtResource("16_qlh76")
+script = ExtResource("14_5bf73")
 
 [node name="Button" type="Button" parent="Progress"]
 offset_left = 331.0

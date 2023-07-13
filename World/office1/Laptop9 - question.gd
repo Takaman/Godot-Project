@@ -8,6 +8,10 @@ extends Sprite2D
 signal lookaround
 signal leave
 
+func _ready():
+	interactable.visible = false
+	pass
+	
 func interact() -> void:
 	if state == 0:
 		print("interaction started")
@@ -110,7 +114,7 @@ func _physics_process(delta: float) -> void:
 	if Score.get_has_correct("unattendedlaptop","policy") == true:
 		state = 2
 		if interactable != null and interactable is Node:
-			interactable.toggle_visibility(false)
+			interactable.correct()
 	
 func _on_jerry_jerrydone():
 	state = 2
@@ -119,6 +123,7 @@ func _on_hud_partsignaller():
 	if hud.part_name == "$lookaround":
 		emit_signal("lookaround")
 		state = 1
+		interactable.visible = true
 		if interactable!= null and interactable is Node:
 			interactable.in_progress()
 	elif hud.part_name == "$leave":
