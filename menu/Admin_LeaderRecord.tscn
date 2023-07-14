@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bbkkqpur3e8md"]
 
-[ext_resource type="Script" path="res://menu/LeaderRecord.gd" id="1_ohd11"]
+[ext_resource type="Script" path="res://menu/Admin_LeaderRecord.gd" id="1_6ef4d"]
 
 [node name="LeaderRow" type="HBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
@@ -13,7 +13,7 @@ offset_right = 76.0
 offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ohd11")
+script = ExtResource("1_6ef4d")
 
 [node name="NameLbl" type="Label" parent="."]
 custom_minimum_size = Vector2(100, 0)

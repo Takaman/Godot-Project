@@ -5,7 +5,7 @@ const host = "165.22.246.221"
 const port = 7350
 const server_key = "nakama_godot_itp"
 var client := Nakama.create_client(server_key, host, port, scheme)
-const api_svr = "http://165.22.246.221:5000"
+const api_svr = "http://127.0.0.1:5000"
 @onready var sessionVar = get_node("/root/SeshVar")
 
 

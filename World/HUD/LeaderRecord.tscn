@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbkkqpur3e8md"]
+
+[ext_resource type="Script" path="res://menu/Admin_LeaderRecord.gd" id="1_6ef4d"]
+
+[node name="LeaderRow" type="HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -68.0
+offset_top = 14.0
+offset_right = 76.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6ef4d")
+
+[node name="NameLbl" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Name"
+
+[node name="EmailLbl" type="Label" parent="."]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Email"
+
+[node name="CompanyLbl" type="Label" parent="."]
+custom_minimum_size = Vector2(55, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Company"
+
+[node name="ScoreLbl" type="Label" parent="."]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Score"
+
+[node name="CompletionLbl" type="Label" parent="."]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Completion"

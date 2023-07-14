@@ -428,6 +428,39 @@ def ep_get_Interactions():
     except InvalidSignatureError:
         return "Unauthorised token", 401
 
+# Retrieve company for specified user
+@app.route('/get_Company', methods=['POST'])
+def ep_Get_Leader_Player():
+    # JSON input parameters:
+        # Company
+    # Recieve JSON request
+    data = json.loads(request.data)
+    print("RECIEVED JSON REQUEST: ")
+    company = data.get("company")
+    print("Company: " + company)
+
+    print(f"---Retrieving Leaderboards from Database for {company}---")
+    conn = create_mysql_connection()
+    if conn is None:
+        return jsonify({"error": "Failed to connect to MySQL"})
+    try:
+
+        cursor = conn.cursor()
+        cursor.execute("SELECT username, name, points FROM PlayerProgress WHERE company = ? and accountStatus = 'Active' ORDER BY points DESC", (company,))
+        board = cursor.fetchall()
+        print(f"Found {str(len(board))} results.")
+        # send back json reply
+        return jsonify(board)
+
+    except mysql.connector.Error as error:
+        print("Error retrieving player leaderboard:", error)
+        return jsonify({"error": "Failed to retrieve player leaderboard"})
+    
+    finally:
+        if conn is not None:
+            conn.close()
+
+
 # Retrieve leaderboard for users based on company
 @app.route('/get_Leader_Player', methods=['POST'])
 def ep_Get_Leader_Player():
@@ -510,8 +543,12 @@ def ep_Get_Leader_All():
     # send back json reply
     return jsonify(board)
 
+<<<<<<< Updated upstream
 
 # Retrieve leaderboard for all users 
+=======
+# Retrieve sorted leaderboard for all users 
+>>>>>>> Stashed changes
 @app.route('/get_Leader_Admin_Sort', methods=['POST'])
 def ep_Get_Leader_All_Sort():
 

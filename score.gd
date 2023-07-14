@@ -1,7 +1,7 @@
 extends Node
 
 @onready var sessionVar = get_node("/root/SeshVar")
-const api_svr = "http://165.22.246.221:5000"
+const api_svr = "http://127.0.0.1:5000"
 
 const TOTAL_SCORE = 200
 const FIRST_ATTEMPT_POINTS = 10 #Points for the first attempt

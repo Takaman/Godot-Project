@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://m6pd8ecnljqo"]
+
+[ext_resource type="Script" path="res://World/HUD/hud.gd" id="1_f285c"]
+[ext_resource type="Texture2D" uid="uid://ditp4sf8l66nu" path="res://World/HUD/HUD2.png" id="2_kc5a1"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_f285c")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 360.0
+offset_bottom = 184.0
+
+[node name="DialogueBig" type="NinePatchRect" parent="Control"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.957
+offset_left = 32.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.088
+texture = ExtResource("2_kc5a1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/DialogueBig"]
+
+[node name="Label" type="Label" parent="Control/DialogueBig/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "View all Scores"
+
+[node name="Panel" type="Panel" parent="Control/DialogueBig/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/DialogueBig/VBoxContainer/Panel"]
+layout_mode = 0
+offset_right = 348.0
+offset_bottom = 126.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/DialogueBig/VBoxContainer/Panel/ScrollContainer"]
+layout_mode = 2

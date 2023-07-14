@@ -1,5 +1,5 @@
 extends Control
-var LeaderboardRecord = preload("res://menu/LeaderRecord.tscn")
+var LeaderboardRecord = preload("res://menu/Admin_LeaderRecord.tscn")
 const api_svr = "http://165.22.246.221:5000"
 var result = []
 @onready var record_container = $PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer
