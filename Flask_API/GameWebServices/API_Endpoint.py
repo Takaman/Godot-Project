@@ -123,8 +123,6 @@ def ep_Pwd_Gen():
 # Initialise User Record
 @app.route('/init_Player', methods=['POST'])
 def ep_InitPlayer():
-
-
     try:
         #Authenticate the user in Nakama, verifies the user identity, throws an error if there is an issue.
         #decode_jwt()
@@ -543,12 +541,8 @@ def ep_Get_Leader_All():
     # send back json reply
     return jsonify(board)
 
-<<<<<<< Updated upstream
 
 # Retrieve leaderboard for all users 
-=======
-# Retrieve sorted leaderboard for all users 
->>>>>>> Stashed changes
 @app.route('/get_Leader_Admin_Sort', methods=['POST'])
 def ep_Get_Leader_All_Sort():
 
