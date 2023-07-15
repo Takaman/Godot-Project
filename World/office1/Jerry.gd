@@ -12,12 +12,13 @@ func _ready():
 		interactable.toggle_visibility(false)
 	pass
 
-func _on_laptop_9__question_lookaround():
+func _on_computerwhitebase_2_lookaround():
 	state = 1
 
-func _on_laptop_9__question_leave():
-	state = 3
 
+func _on_computerwhitebase_2_leave():
+	state = 3
+	
 func interact() -> void:
 	print("interaction started")
 	if state == 0:
@@ -30,6 +31,7 @@ func interact() -> void:
 					[b]Jerry[/b]
 					
 					I'm really thirsty.
+					[i]I think I might have forgotten to do something before leaving my desk[/i]
 					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]I see.[/url]?>[/right]
 					"""
@@ -49,7 +51,7 @@ func interact() -> void:
 						I'm really thirsty.
 						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next]Hey, did you leave your PC unlocked?[/url]?>[/right]
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]I see.[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]I will leave you to do your thing.[/url]?>[/right]
 						"""
 					),
 				"$next":
@@ -161,5 +163,3 @@ func _physics_process(delta: float) -> void:
 		if interactable != null and interactable is Node:
 			interactable.visible = true
 			interactable.correct()
-
-

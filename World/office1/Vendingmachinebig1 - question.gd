@@ -27,7 +27,9 @@ func interact() -> void:
 			"$change":
 				Utils.dialog_part(
 				"""
-Scanning the QR code... Processing... Oh no! It seems the QR code you scanned is not authorized. You most likely visited a phishing website. It's crucial to be cautious when scanning unknown QR codes, as they can be used for malicious purposes. 
+Scanning the QR code... Processing... 
+Oh no! It seems the QR code you scanned is not authorized. You most likely visited a phishing website. 
+It's crucial to be cautious when scanning unknown QR codes, as they can be used for malicious purposes. 
 
 Always ensure the authenticity and legitimacy of QR codes before scanning them to protect your personal information and device.  
 [right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
@@ -36,7 +38,9 @@ Always ensure the authenticity and legitimacy of QR codes before scanning them t
 			"$nochange":
 				Utils.dialog_part(
 				"""
-Wise decision! It's important to prioritize your security and privacy. Scanning unknown QR codes can expose you to potential risks and threats. By avoiding scanning unverified QR codes, you're taking a proactive step to safeguard your personal information and device.				
+Wise decision!
+It's important to prioritize your security and privacy. Scanning unknown QR codes can expose you to potential risks and threats.
+By avoiding scanning unverified QR codes, you're taking a proactive step to safeguard your personal information and device.
 
 [right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""

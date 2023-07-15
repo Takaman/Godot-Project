@@ -79,11 +79,12 @@
 [ext_resource type="Script" path="res://World/foodcourt1/DustbinHint.gd" id="74_7psai"]
 [ext_resource type="Script" path="res://World/office1/Jerry.gd" id="74_a0fp4"]
 [ext_resource type="Texture2D" uid="uid://i8trdu4hit8l" path="res://World/office1/images/character/jerry.png" id="75_8e4xh"]
-[ext_resource type="Texture2D" uid="uid://dla4xya6q7uei" path="res://World/office1/images/character/Tom.png" id="75_btgrf"]
 [ext_resource type="Texture2D" uid="uid://d3hhcp0du7ujx" path="res://World/office1/images/vendingmachinebig.png" id="76_4f5bm"]
 [ext_resource type="Script" path="res://World/foodcourt1/JerryHint.gd" id="76_k72b7"]
 [ext_resource type="Script" path="res://World/office1/Vendingmachinebig1 - question.gd" id="77_pij1y"]
+[ext_resource type="Texture2D" uid="uid://dla4xya6q7uei" path="res://World/foodcourt1/character/Tom.png" id="85_5mnja"]
 [ext_resource type="Script" path="res://World/foodcourt1/Laptop9 - question.gd" id="85_cs5yy"]
+[ext_resource type="Script" path="res://World/foodcourt1/TomHint.gd" id="85_wal3i"]
 [ext_resource type="Texture2D" uid="uid://rgh0ybopqc0q" path="res://World/foodcourt1/images/objects/computer-whitebase.png" id="85_wgcuk"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_iaydh"]
@@ -9629,8 +9630,6 @@ radius = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ju1a7"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lxwek"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y1tp"]
 size = Vector2(17.5, 27.4615)
 
@@ -9799,7 +9798,7 @@ shape = SubResource("CapsuleShape2D_p36uo")
 
 [node name="Player" parent="." instance=ExtResource("8_kdafc")]
 top_level = true
-position = Vector2(173, -40)
+position = Vector2(-125, 152)
 
 [node name="QuestionmarkFolder" type="Node2D" parent="."]
 
@@ -9846,6 +9845,10 @@ position = Vector2(276, 160)
 [node name="SharePasswordHint" parent="QuestionmarkFolder" instance=ExtResource("11_yvexh")]
 z_index = 4
 position = Vector2(344, 289)
+
+[node name="TomHint" parent="QuestionmarkFolder" instance=ExtResource("11_yvexh")]
+z_index = 4
+position = Vector2(549.875, -62)
 
 [node name="gantryFolder" type="Node2D" parent="."]
 
@@ -11176,17 +11179,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tim/StaticBody2D"]
 shape = SubResource("CircleShape2D_ju1a7")
 
-[node name="Tom" type="Sprite2D" parent="."]
-position = Vector2(551, -36)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("75_btgrf")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Tom"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tom/StaticBody2D"]
-shape = SubResource("CircleShape2D_lxwek")
-
 [node name="Vendingmachinebig - question" type="Sprite2D" parent="."]
 position = Vector2(597, -61)
 rotation = 6.28319
@@ -11291,11 +11283,32 @@ shape = SubResource("RectangleShape2D_748a1")
 position = Vector2(1.52588e-05, 3.0891)
 shape = SubResource("RectangleShape2D_pudty")
 
+[node name="Tom-Hint" type="Sprite2D" parent="."]
+position = Vector2(550.875, -41)
+scale = Vector2(0.75, 0.763)
+texture = ExtResource("85_5mnja")
+script = ExtResource("85_wal3i")
+metadata/_edit_group_ = true
+
+[node name="Actionable" type="Area2D" parent="Tom-Hint"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tom-Hint/Actionable"]
+shape = SubResource("CircleShape2D_mx3hm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tom-Hint"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tom-Hint/StaticBody2D"]
+position = Vector2(-0.64109, -0.5)
+shape = SubResource("RectangleShape2D_wathh")
+
 [connection signal="immediate_show" from="HUD" to="Progress" method="_on_hud_immediate_show"]
 [connection signal="partsignaller" from="HUD" to="GantryEnter" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="GantryExit" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="WhitewallsGantryEnter" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="Elevator" method="_on_hud_partsignaller"]
+[connection signal="partsignaller" from="HUD" to="Computer-whitebase2" method="_on_hud_partsignaller"]
 [connection signal="timeout" from="CanvasLayer/TextDisplayer/ms" to="CanvasLayer/TextDisplayer" method="_on_ms_timeout"]
 [connection signal="pressed" from="Progress/Button" to="Progress" method="_on_button_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
@@ -11303,3 +11316,5 @@ shape = SubResource("RectangleShape2D_pudty")
 [connection signal="timeout" from="GantryEnter/Timer" to="GantryEnter" method="_on_timer_timeout"]
 [connection signal="timeout" from="GantryExit/Timer" to="GantryExit" method="_on_timer_timeout"]
 [connection signal="timeout" from="WhitewallsGantryEnter/Timer" to="WhitewallsGantryEnter" method="_on_timer_timeout"]
+[connection signal="leave" from="Computer-whitebase2" to="Jerry" method="_on_computerwhitebase_2_leave"]
+[connection signal="lookaround" from="Computer-whitebase2" to="Jerry" method="_on_computerwhitebase_2_lookaround"]
