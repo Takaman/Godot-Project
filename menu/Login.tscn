@@ -66,7 +66,6 @@ offset_right = 221.0
 offset_bottom = 165.0
 text = "Login"
 
-<<<<<<< Updated upstream
 [node name="ErrorLbl" type="RichTextLabel" parent="Control/Login"]
 layout_mode = 0
 offset_left = 24.0
@@ -76,7 +75,5 @@ offset_bottom = 128.0
 tab_size = 0
 
 [connection signal="button_down" from="Control/Login/LoginBtn" to="Control/Login" method="_on_login_btn_button_down"]
-=======
->>>>>>> Stashed changes
 [connection signal="button_down" from="Control/Login/LoginBtn" to="Control/Login" method="_on_button_button_down"]
 [connection signal="button_down" from="Control/Login/LoginBtn" to="Control/Login" method="_on_login_btn_button_down"]
