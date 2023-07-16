@@ -74,4 +74,6 @@ offset_right = 343.0
 offset_bottom = 128.0
 tab_size = 0
 
+[node name="HTTPRequest_COMPANY" type="HTTPRequest" parent="Control/Login"]
+
 [connection signal="button_down" from="Control/Login/LoginBtn" to="Control/Login" method="_on_login_btn_button_down"]

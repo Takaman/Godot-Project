@@ -8,6 +8,7 @@ var client := Nakama.create_client(server_key, host, port, scheme)
 var pwd = "" 
 var loggedIn = ""
 const api_svr = "http://165.22.246.221:5000"
+#const api_svr = "http://127.0.0.1:5000"
 
 @onready var sessionVar = get_node("/root/SeshVar")
 
@@ -41,7 +42,7 @@ func _on_register_btn_button_down():
 	var createPwd = pwd
 	
 	
-	print("Creating with PASSWORD :" + createPwd)
+	print("Creating with PASSWORD: " + createPwd)
 	
 
 	print("********* CREATING USER *********")
@@ -83,15 +84,7 @@ func _on_register_btn_button_down():
 		var e = x.get_exception().message
 		$ErrorLbl.text=e
 	
-	
-		##### TODO REMOVE
-	## BEFORE THIS STEP NEED TO FIRST HAVE THE HTTPRequest node
-	##### TESTING API CALL FROM GODOT
-	# var data_to_send = {"email":"test123@gmail.com","score":500,"comp_rate":59}
-	# var url = api_svr + "/update_Score"
-	# var jsonPayload = JSON.stringify(data_to_send)
-	# var headers = ["Content-Type: application/json"]
-	# $HTTPRequest.request(url,headers,HTTPClient.METHOD_POST, jsonPayload)
+
 	
 	pass
 	

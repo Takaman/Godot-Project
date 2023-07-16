@@ -2,6 +2,7 @@ extends Node
 
 
 var _session: NakamaSession
+var company = ""
 
 
 # Called when the node enters the scene tree for the first time.
