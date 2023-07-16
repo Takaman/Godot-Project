@@ -43,7 +43,7 @@ func interact() -> void:
 						
 						Dear Sir / Madam,
 						
-						As part of our ongoing commitment to providing and maintaining the highest level of security for our customers, we have begun to roll out a new security update for all business banking users, and your business has now been selected to receive this update.
+						As part of our ongoing commitment to providing and maintaining the highest level of security for our customers, we have begun to roll out a new security update for all business banking users, and your business is one of the first to be selected to receive this update!
 						
 						Due to the recent increase in unauthorised access attempts and scams, we require all customers to first verify their identities before we can carry out the security update.
 						
@@ -67,8 +67,8 @@ func interact() -> void:
 						Yours faithfully,
 						DBS Bank Ltd
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$dannyclick]There's not much time left! You'd better change your password now.[/url]?>[/right]
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$dannynoclick:correct]Have you checked with the IT department?[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$dannyclick]Isn't this quite important for our company? You should follow what the email says.[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$dannynoclick:correct]I think you should check with the bank.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Give me some time to think about it.[/url]?>[/right]
 						"""
 					),
@@ -77,7 +77,9 @@ func interact() -> void:
 						"""
 						[b]Danny[/b]
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Give me some time to think about it.[/url]?>[/right]
+						Right... I'll get into trouble if the company's bank account gets locked out.
+						
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Go for it.[/url]?>[/right]
 						"""
 					),
 				"$dannynoclick":
@@ -85,7 +87,9 @@ func interact() -> void:
 						"""
 						[b]Danny[/b]
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Give me some time to think about it.[/url]?>[/right]
+						Really? Then I'll reply to the email to check. Come talk to me again once I get another response.
+						
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Ok.[/url]?>[/right]
 						"""
 					)
 			},

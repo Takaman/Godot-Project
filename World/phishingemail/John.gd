@@ -40,8 +40,24 @@ func interact() -> void:
 				"$johnnext":
 				Utils.dialog_part(
 					"""
-					[b]John[/b]
-					[center][img=240x200]res://World/phishingemail/Images/email1.png[/img][/center]
+					IT Department <itdepartment_itpgrp11@gmail.com>
+					
+					Subject: [IMPORTANT NOTICE] Your password is expiring! - Immediate Action Required
+					
+					Dear John,
+					
+					This email is meant to inform you that the password to your corporate email is expiring in: [b]1 day[/b]
+					
+					Please click the link below to reset your password. A PDF document has been attached with instructions if you are unfamiliar with the pasword reset process.
+					
+					[url=]placeholder[/url]
+					
+					Note that failure to reset your password may result in your account being locked out.
+					
+					Sincerely,
+					
+					IT Department
+					ITPGRP11
 					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$johnclick]There's not much time left! You'd better change your password now.[/url]?>[/right]
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$johnnoclick:correct]Have you checked with the IT department?[/url]?>[/right]
@@ -59,12 +75,12 @@ func interact() -> void:
 					),
 				"$johnclick":
 					Utils.dialog_part(
-						"""
-						[b]John[/b]
-						You're right, I'd better do it quickly. Let's see... that's strange, the website looks a little different from usual, but I guess it's been a while.
-						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]... ?[/url]?>[/right]
-						"""
+					"""
+					[b]John[/b]
+					You're right, I'd better do it quickly. Let's see... that's strange, the website looks a little different from usual, but I guess it's been a while.
+					
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]... ?[/url]?>[/right]
+					"""
 					),
 			},
 			"socialengineering"

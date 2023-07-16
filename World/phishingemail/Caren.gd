@@ -72,7 +72,9 @@ func interact() -> void:
 						"""
 						[b]Caren[/b]
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Give me some time to think about it.[/url]?>[/right]
+						You're right, I'd better do it quickly. Let's see... that's strange, the website looks a little different from usual, but I guess it's been a while.
+						
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]...?[/url]?>[/right]
 						"""
 					),
 				"$carennoclick":
@@ -80,7 +82,9 @@ func interact() -> void:
 						"""
 						[b]Caren[/b]
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Give me some time to think about it.[/url]?>[/right]
+						Really? I wouldn't want to waste their time... but I guess its a good idea.
+						
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]No problem, better safe than sorry.[/url]?>[/right]
 						"""
 					)
 			},

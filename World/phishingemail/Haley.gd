@@ -30,11 +30,36 @@ func interact() -> void:
 						
 						Hi! I need some help to check an email.
 						
-						placeholder image
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$haleynext]Sure, I can take a look.[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Not right now.[/url]?>[/right]
+						"""
+					),
+				"$haleynext":
+					Utils.dialog_part(
+						"""
+						placeholder email
 						
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$haleyclick:correct]Isn't this quite important for our company? You should follow what the email says.[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$haleynoclick]I think you should check with the bank.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Give me some time to think about it.[/url]?>[/right]
 						"""
-					)
+					),
+				"$haleyclick":
+					Utils.dialog_part(
+						"""
+						[b]Haley[/b]
+						
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Go for it.[/url]?>[/right]
+						"""
+					),
+				"$haleynoclick":
+					Utils.dialog_part(
+						"""
+						[b]Haley[/b]
+						
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Ok.[/url]?>[/right]
+						"""
+					),
 			},
 			"socialengineering"
 		)
