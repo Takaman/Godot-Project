@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://u2dp1l6114pk"]
+[gd_scene load_steps=22 format=3 uid="uid://u2dp1l6114pk"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_f75mx"]
 [ext_resource type="PackedScene" uid="uid://c8dwnnlhhn27a" path="res://World/base_map.tscn" id="2_7pm26"]
@@ -9,8 +9,22 @@
 [ext_resource type="PackedScene" uid="uid://iqn08315hsf" path="res://helpers/actionable.tscn" id="7_vhdfk"]
 [ext_resource type="PackedScene" uid="uid://burm3cumbtarl" path="res://World/Actors/TopicCheck/TopicCheck.tscn" id="8_ssfie"]
 [ext_resource type="Script" path="res://World/Actors/TopicCheck/TopicCheck.gd" id="9_av4dh"]
-[ext_resource type="PackedScene" uid="uid://c5rftkrhv5l1f" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="10_0plad"]
+[ext_resource type="PackedScene" uid="uid://duiqkx067jd7i" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="10_0plad"]
 [ext_resource type="Texture2D" uid="uid://cxo46gpvtucun" path="res://Tilemap builder/Interior/Alex_idle_16x16.png" id="11_0wks2"]
+[ext_resource type="Script" path="res://World/worldprogress.gd" id="12_7mfus"]
+[ext_resource type="Texture2D" uid="uid://c7qy0jm8k6c6n" path="res://frames/Dialog/DialogueBoxSimple.png" id="13_jqk2n"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_whjfp"]
+texture = ExtResource("13_jqk2n")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s4wme"]
+texture = ExtResource("13_jqk2n")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m88sd"]
+texture = ExtResource("13_jqk2n")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cnske"]
+texture = ExtResource("13_jqk2n")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ttjd6"]
 radius = 16.0
@@ -30,6 +44,31 @@ size = Vector2(16, 25)
 script = ExtResource("1_f75mx")
 
 [node name="HUD" parent="." instance=ExtResource("4_r08jp")]
+
+[node name="Progress" type="CanvasLayer" parent="."]
+script = ExtResource("12_7mfus")
+
+[node name="Button" type="Button" parent="Progress"]
+offset_left = 331.0
+offset_right = 360.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.984314, 0, 0.337255, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_whjfp")
+theme_override_styles/hover = SubResource("StyleBoxTexture_s4wme")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_m88sd")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_cnske")
+text = "Progress"
+metadata/_edit_use_anchors_ = true
 
 [node name="Base Map" parent="." instance=ExtResource("2_7pm26")]
 position = Vector2(-40, -16)
@@ -86,5 +125,6 @@ shape = SubResource("RectangleShape2D_qvq3y")
 
 [connection signal="partsignaller" from="HUD" to="Poster" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="Elevator" method="_on_hud_partsignaller"]
+[connection signal="pressed" from="Progress/Button" to="Progress" method="_on_button_pressed"]
 [connection signal="area_entered" from="Poster/Area2D" to="Poster" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Poster/Area2D" to="Poster" method="_on_area_2d_area_exited"]
