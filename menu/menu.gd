@@ -1,8 +1,9 @@
 extends Control
 @onready var sessionVar = get_node("/root/SeshVar")
-const api_svr = "http://165.22.246.221:5000"
+const api_svr = " "
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	api_svr = session.api_svr
 	var username = sessionVar._session.get("username")
 	print("SHOWING MENU")
 	print(username)

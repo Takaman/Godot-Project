@@ -1,18 +1,19 @@
 extends Control
 
-const scheme = "http"
-const host = "165.22.246.221"
-const port = 7350
-const server_key = "nakama_godot_itp"
-var client := Nakama.create_client(server_key, host, port, scheme)
-const api_svr = "http://165.22.246.221:5000"
 @onready var sessionVar = get_node("/root/SeshVar")
+@onready var scheme = sessionVar.scheme
+@onready var host = sessionVar.host
+@onready var port = sessionVar.nakama_port
+@onready var server_key = sessionVar.server_key
+@onready var api_svr = sessionVar.api_svr
+@onready var client := Nakama.create_client(server_key, host, port, scheme)
+
 var company=""
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 	
 
 

@@ -1,12 +1,12 @@
 extends Control
 var LeaderboardRecord = preload("res://menu/Admin_LeaderRecord.tscn")
-const api_svr = "http://165.22.246.221:5000"
-#const api_svr = "http://127.0.0.1:5000"
+const api_svr = ""
 var result = []
 @onready var record_container = $PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer
 @onready var sessionVar = get_node("/root/SeshVar")
 var username = ""
 func _ready() -> void:
+	api_svr=sessionVar.api_svr
 	if sessionVar._session:
 		username = sessionVar._session.get("username")
 		clear_records()
