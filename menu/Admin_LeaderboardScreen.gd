@@ -64,3 +64,7 @@ func _on_export_btn_button_down():
 	#add email
 	$HTTPRequest_export.request(url, headers, HTTPClient.METHOD_POST,jsonPayload)
 	pass # Replace with function body.
+
+
+func _on_back_btn_button_down():
+	SceneTransition.change_scene("res://../menu/Admin_LandingPage.tscn")

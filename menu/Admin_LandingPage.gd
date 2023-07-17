@@ -21,3 +21,9 @@ func _on_register_btn_button_down():
 func _on_scoreboard_btn_button_down():
 	SceneTransition.change_scene("res://../menu/Admin_LeaderboardScreen.tscn") # Shows registration screen
 
+
+
+func _on_logout_btn_button_down():
+	sessionVar._session = null
+	sessionVar.company = null
+	SceneTransition.change_scene("res://../menu/Login.tscn")

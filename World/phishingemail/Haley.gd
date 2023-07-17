@@ -37,10 +37,36 @@ func interact() -> void:
 				"$haleynext":
 					Utils.dialog_part(
 						"""
-						placeholder email
+						Twitter <verify@twitter.com>
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$haleyclick:correct]Isn't this quite important for our company? You should follow what the email says.[/url]?>[/right]
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$haleynoclick]I think you should check with the bank.[/url]?>[/right]
+						Subject: New login to Twitter from ChromeDesktop on Windows
+						
+						[b]We noticed a login to your account @haley123322 from a new device. Was this you?[/b]
+						
+						New login
+							Location*		Unknown location
+							Device			ChromeDesktop on Windows
+							
+						*Location is approximate based on the login's IP address.
+						
+						[b]If this was you[/b]
+						You can ignore this message. There's no need to take any action.
+						
+						[b]If this wasn't you[/b]
+						Complete these steps now to protect your account.
+						
+						[ul]
+						[li][url=https://twitter.com/account/begin_password_reset]Change your password.[/url][/li] You'll be logged out of all your active Twitter sessions except the one you're using at this time.
+						[li]Review the apps that have access to your account and revoke access to any unfamiliar apps. [url=https://help.twitter.com/managing-your-account/connect-or-revoke-access-to-third-party-apps]Learn more[/url].[/li]
+						[/ul]
+						
+						[center][url=https://support.twitter.com/articles/76036]Help[/url] | [url=https://help.twitter.com/en/safety-and-security/fake-twitter-emails]Email security tips[/url][/center]
+						[center]We sent this email to @haley123322[/center]
+						[center]X Corp. 1355 Market Street, Suite 900 San Francisco, CA 94103[/center]
+						
+						
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$haleyclick:correct]You should probably change your password.[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$haleynoclick]I think you should send a support ticket to Twitter to check if this is a real email.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Give me some time to think about it.[/url]?>[/right]
 						"""
 					),
@@ -49,6 +75,8 @@ func interact() -> void:
 						"""
 						[b]Haley[/b]
 						
+						You're right! Better change my password in case someone hacked my account.
+						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Go for it.[/url]?>[/right]
 						"""
 					),
@@ -56,6 +84,8 @@ func interact() -> void:
 					Utils.dialog_part(
 						"""
 						[b]Haley[/b]
+						
+						Really? It's going to take a while to get a response... but I suppose it's safer. Come back in a bit when I get a reply/
 						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Ok.[/url]?>[/right]
 						"""

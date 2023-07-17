@@ -82,6 +82,8 @@ func _on_register_btn_button_down():
 	else:
 		result = x.get_exception().status_code
 		var e = x.get_exception().message
+		if(e=="Invalid credentials."):
+			e="User exits."
 		$ErrorLbl.text=e
 	
 
@@ -92,3 +94,7 @@ func _on_request_completed_pwd(result, response_code, headers, body):
 	pwd = body.get_string_from_utf8()
 	print(pwd)
 
+
+
+func _on_back_btn_button_down():
+	SceneTransition.change_scene("res://../menu/Admin_LandingPage.tscn")
