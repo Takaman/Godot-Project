@@ -1,6 +1,6 @@
 extends Control
 var LeaderboardRecord = preload("res://menu/Admin_LeaderRecord.tscn")
-const api_svr = ""
+var api_svr = ""
 var result = []
 @onready var record_container = $PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer
 @onready var sessionVar = get_node("/root/SeshVar")
