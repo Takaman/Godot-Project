@@ -22,7 +22,7 @@ func _on_it_guy_john_next():
 
 func interact() -> void:
 	print("interaction started")
-	if state == -1:
+	if state == -1 or state == 0:
 		state = 0
 		hud.show_dialog(
 			"phishingemail1",

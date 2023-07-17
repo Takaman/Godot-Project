@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 
 func interact() -> void:
 	print("interaction started")
-	if state == -1:
+	if state == -1 or state == 0:
 		state = 0
 		hud.show_dialog(
 			"realemail3",
@@ -37,9 +37,33 @@ func interact() -> void:
 				"$garynext":
 					Utils.dialog_part(
 						"""
-						placeholder email
+						Microsoft Account Team <account-security-noreply@accountprotection.microsoft.com>
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$garyclick:correct]Isn't this quite important for our company? You should follow what the email says.[/url]?>[/right]
+						Subject: Added Microsoft Account Security Information
+						
+						Microsoft Account
+						
+						[b]Unusual Login Activity[/b]
+						
+						Some anomalies have been detected with recent logins to the Microsoft account ga********@gmail.com:
+						
+						[b]Login Details[/b]
+						Country/ Region: Malaysia
+						IP Address: 210.186.100.100
+						Date: 2023/06/29 12:33 (GMT)
+						Platform: IOS
+						Browser: -
+						
+						Please go to the recent activity page and let us see if this is you. If not, we'll help you secure your account. If yes, we will trust similar activities in the future.
+						
+						[url=https://account.microsoft.com/activity]View recent activity[/url]
+						
+						To opt out or make changes where you receive security notifications, [url=https://account.live.com/SecurityNotifications/Update]click here[/url] .
+						
+						Thanks!
+						Microsoft Account Team
+						
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$garyclick:correct]Looks like a real [/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$garynoclick]I think you should check with the bank.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Give me some time to think about it.[/url]?>[/right]
 						"""
