@@ -4,6 +4,16 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# TODO REMOVE THIS CONFIGGGGGG
+	var config = ConfigFile.new()
+	# Store some values.
+	config.set_value("url", "scheme", "http")
+	config.set_value("url", "nakama_port", 7350)
+	config.set_value("url", "server_key", "nakama_godot_itp")
+	config.set_value("url", "api_svr", "http://165.22.246.221:5000")
+	print("saving config file")
+	config.save("res://../menu/config.cfg") #TODO change upon bundle-ing
+	
 	if sessionVar._session:
 		var username = sessionVar._session.get("username")
 	else:
