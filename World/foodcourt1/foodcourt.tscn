@@ -11275,12 +11275,14 @@ collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Computer-whitebase2/Actionable"]
 position = Vector2(0, 0.514843)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_748a1")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Computer-whitebase2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Computer-whitebase2/StaticBody2D"]
 position = Vector2(1.52588e-05, 3.0891)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_pudty")
 
 [node name="Tom-Hint" type="Sprite2D" parent="."]

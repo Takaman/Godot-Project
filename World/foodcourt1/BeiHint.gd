@@ -2,7 +2,7 @@ extends Sprite2D
 
 
 @onready var hud := $"/root/Office1/HUD"
-@onready var interactable := $"/root/Office1/QuestionmarkFolder/ThumbdriveHint"
+@onready var interactable := $"/root/FoodCourt/QuestionmarkFolder/TailgateHint"
 
 func _ready():
 	interactable.exclamation_mark()

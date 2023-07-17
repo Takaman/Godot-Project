@@ -114,7 +114,8 @@ func _physics_process(delta: float) -> void:
 	if Score.get_has_correct("unattendedlaptop","policy") == true:
 		state = 2
 		if interactable != null and interactable is Node:
-			interactable.correct()
+			interactable.correct()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+	
 	
 func _on_jerry_jerrydone():
 	state = 2
