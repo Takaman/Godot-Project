@@ -34,7 +34,7 @@ func interact() -> void:
 		
 		[cell][center]<!%s!>/7[/center][/cell]
 		[cell][center]<!%s!>/7[/center][/cell]
-		[cell][center]<!%s!>/1[/center][/cell]
+		[cell][center]<!%s!>/2[/center][/cell]
 		[cell][u]Completed[/u][/cell]
 		
 		[cell][center]<!%s!>[/center][/cell]

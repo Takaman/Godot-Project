@@ -82,7 +82,7 @@
 [ext_resource type="Texture2D" uid="uid://d3hhcp0du7ujx" path="res://World/office1/images/vendingmachinebig.png" id="76_4f5bm"]
 [ext_resource type="Script" path="res://World/foodcourt1/JerryHint.gd" id="76_k72b7"]
 [ext_resource type="Script" path="res://World/office1/Vendingmachinebig1 - question.gd" id="77_pij1y"]
-[ext_resource type="Texture2D" uid="uid://dla4xya6q7uei" path="res://World/foodcourt1/character/Tom.png" id="85_5mnja"]
+[ext_resource type="Texture2D" uid="uid://dla4xya6q7uei" path="res://World/office1/images/character/Tom.png" id="85_5mnja"]
 [ext_resource type="Script" path="res://World/foodcourt1/Laptop9 - question.gd" id="85_cs5yy"]
 [ext_resource type="Script" path="res://World/foodcourt1/TomHint.gd" id="85_wal3i"]
 [ext_resource type="Texture2D" uid="uid://rgh0ybopqc0q" path="res://World/foodcourt1/images/objects/computer-whitebase.png" id="85_wgcuk"]

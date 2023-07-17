@@ -11,13 +11,14 @@ func _ready():
 func interact() -> void:
 	print("interaction started")
 	hud.show_dialog(
-		"Tim",
+		"TomHint",
 		{
 			"$begin":
 			Utils.dialog_part(
 				"""
-				Don't you think that we should do something about that thumbdrive?
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Yea, I should check it out.[/url]?>[/right]
+				Someone should check with that thumbdrive before something goes bad.
+
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Thanks, I should check it out.[/url]?>[/right]
 
 				"""
 			),
@@ -32,5 +33,4 @@ func _on_area_2d_area_entered(area):
 
 func _physics_process(delta: float) -> void:
 	if interactable!= null and interactable is Node:
-		interactable.visible  = !Score.get_has_correct("tailgate","socialengineering")
-
+		interactable.visible  = !Score.get_has_correct("thumbdrive1","socialengineering")

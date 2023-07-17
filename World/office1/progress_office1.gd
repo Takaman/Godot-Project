@@ -7,10 +7,18 @@ func interact() -> void:
 	var dialogue = """
 
 		[center] 1) Thumbdrive <![INCOMPLETE]!> [/center]
+		
 		[center] 2) Weak Password <![INCOMPLETE]!> [/center]
+		
 		[center] 3) System Update <![INCOMPLETE]!> [/center]
+		
 		[center] 4) Messy Desk <![INCOMPLETE]!> [/center]
+		
 		[center] 5) Adware <![INCOMPLETE]!> [/center]
+		
+		[center] 6) Ransomware <![INCOMPLETE]!> [/center]
+		
+		[center] 7) Insider Threat <![INCOMPLETE]!> [/center]
 		
 		[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 	"""
@@ -25,6 +33,10 @@ func interact() -> void:
 		dialogue = dialogue.replace("Messy Desk <![INCOMPLETE]!>", "Messy Desk <~[COMPLETED]~>")
 	if Score.get_has_correct("laptop16", "malware"):
 		dialogue = dialogue.replace("Adware <![INCOMPLETE]!>", "Adware <~[COMPLETED]~>")
+	if Score.get_has_correct("ransomware", "malware"):
+		dialogue = dialogue.replace("Ransomware <![INCOMPLETE]!>", "Ransomware <~[COMPLETED]~>")
+	if Score.get_has_correct("insiderthreat1", "policy"):
+		dialogue = dialogue.replace("Insider Threat <![INCOMPLETE]!>", "Insider Threat <~[COMPLETED]~>")
 
 	hud.show_dialog(
 		"hints",

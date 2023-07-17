@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://ddmwhp02tpc25"]
+[gd_scene load_steps=73 format=3 uid="uid://ddmwhp02tpc25"]
 
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_kxpn7"]
 [ext_resource type="Texture2D" uid="uid://dt3beuuh7qicn" path="res://Tilemap builder/Interior/Interiors_free_16x16.png" id="3_tkjpr"]
@@ -19,9 +19,10 @@
 [ext_resource type="Script" path="res://World/Actors/Thumbdrive/Thumbdrive1.gd" id="15_qj26a"]
 [ext_resource type="PackedScene" uid="uid://iqn08315hsf" path="res://helpers/actionable.tscn" id="16_5ehio"]
 [ext_resource type="Texture2D" uid="uid://i8trdu4hit8l" path="res://World/office1/images/character/jerry.png" id="16_bwfhu"]
+[ext_resource type="Script" path="res://World/Actors/Thumbdrive/InsiderThreat1.gd" id="16_lk38k"]
+[ext_resource type="Script" path="res://World/Actors/Thumbdrive/InsiderThreat2.gd" id="16_sk3d3"]
 [ext_resource type="Texture2D" uid="uid://b4nf3qfe7c5y0" path="res://World/office1/images/character/Mary.png" id="17_qbbda"]
 [ext_resource type="Script" path="res://World/Actors/MessyArea/MessyArea1.gd" id="18_lecwi"]
-[ext_resource type="Texture2D" uid="uid://e6cjid72ddfs" path="res://World/office1/images/character/Tim.png" id="18_mmvlc"]
 [ext_resource type="Texture2D" uid="uid://dla4xya6q7uei" path="res://World/office1/images/character/Tom.png" id="19_vkd58"]
 [ext_resource type="Texture2D" uid="uid://bihj2imcpwh1e" path="res://World/office1/images/purpletable.png" id="23_tae56"]
 [ext_resource type="Texture2D" uid="uid://bo1ay8tija27r" path="res://World/office1/images/sofa.png" id="24_5x4ht"]
@@ -35,7 +36,10 @@
 [ext_resource type="PackedScene" uid="uid://duiqkx067jd7i" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="33_d72if"]
 [ext_resource type="PackedScene" uid="uid://bb6shdk0blv6i" path="res://World/HUD/hud.tscn" id="33_sh7jl"]
 [ext_resource type="PackedScene" uid="uid://d08er855jdoi6" path="res://World/Actors/MessyArea/messy_area.tscn" id="36_3ypd4"]
+[ext_resource type="Script" path="res://World/office1/Ransomware.gd" id="37_fb1hv"]
+[ext_resource type="Texture2D" uid="uid://e6cjid72ddfs" path="res://World/office1/images/character/Tim.png" id="38_ux8h7"]
 [ext_resource type="Script" path="res://helpers/elevator.gd" id="39_iy146"]
+[ext_resource type="Script" path="res://World/office1/ThumbdriveHint.gd" id="39_sss5t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_76n35"]
 texture = ExtResource("2_kxpn7")
@@ -6003,14 +6007,17 @@ size = Vector2(16.6575, 35.9765)
 size = Vector2(15.5676, 22.7294)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_poc7k"]
-size = Vector2(19.8919, 24.0706)
+size = Vector2(19.8919, 34.8941)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_77f2k"]
+radius = 29.0
+height = 58.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hw1nk"]
+size = Vector2(15, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kfrhh"]
 size = Vector2(27, 20)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_77f2k"]
-radius = 16.0
-height = 32.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ks2nm"]
 radius = 19.0
@@ -6064,14 +6071,14 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(589815, 589827, 1, 655351, 720899, 2, 720887, 720899, 3, 720888, 327683, 2, 720889, 327683, 5, 720890, 327683, 5, 720891, 393219, 2, 589820, 655363, 1, 655356, 851971, 2, 720892, 851971, 3, 589814, 458755, 1, 589813, 458755, 1, 589811, 458755, 1, 589812, 458755, 1, 589810, 458755, 1, 589809, 458755, 1, 589808, 458755, 1, 589806, 393219, 1, 524270, 393219, 0, 458734, 393219, 0, 393198, 393219, 0, 327662, 393219, 0, 262126, 393219, 0, 196590, 393219, 0, 131054, 393219, 0, 458757, 458755, 0, 589822, 458755, 1, 589823, 458755, 1, 524288, 458755, 1, 524289, 458755, 1, 524290, 458755, 1, 524291, 458755, 1, 524292, 458755, 1, 524293, 458755, 1, 393221, 720899, 2, 327685, 720899, 2, 262149, 720899, 2, 196613, 720899, 2, 131077, 720899, 2, 65541, 720899, 2, 5, 720899, 2, -65531, 720899, 2, -131067, 720899, 2, -196603, 720899, 2, -262139, 720899, 2, -327675, 720899, 2, -393211, 720899, 2, -458747, 720899, 2, -524283, 720899, 2, 65518, 851971, 2, -18, 851971, 2, -65554, 851971, 2, -131090, 851971, 2, -262162, 851971, 2, -196626, 851971, 2, -327698, 851971, 2, -393234, 851971, 2, -458770, 851971, 2, -524306, 655363, 1, -589819, 589827, 1, -524305, 327683, 1, -589841, 327683, 0, -655377, 327683, 0, -720913, 327683, 0, -786449, 327683, 0, 589807, 458755, 1, -655356, 524291, 0, -589820, 393219, 65537, -720892, 524291, 0, -786428, 524291, 0, -851964, 524291, 0, -917500, 524291, 0, -851985, 720899, 2, -917521, 720899, 1, -983036, 851971, 1, -917520, 458755, 1, -917519, 458755, 1, -917518, 458755, 1, -917517, 458755, 1, -917516, 458755, 1, -917515, 458755, 1, -917514, 458755, 1, -917513, 458755, 1, -917512, 458755, 1, -917511, 458755, 1, -917510, 458755, 1, -917509, 458755, 1, -917508, 458755, 1, -917507, 458755, 1, -917506, 458755, 1, -917505, 458755, 1, -983040, 458755, 1, -983039, 458755, 1, -983038, 458755, 1, -983037, 458755, 1, 589821, 458755, 1, 786425, 458755, 1, 786426, 458755, 1, 786427, 851971, 3, 786424, 720899, 3)
+layer_1/tile_data = PackedInt32Array(589815, 589827, 1, 655351, 720899, 2, 720887, 720899, 3, 720888, 327683, 2, 720889, 327683, 5, 720890, 327683, 5, 720891, 393219, 2, 589820, 393219, 2, 655356, 851971, 2, 720892, 851971, 3, 589814, 458755, 1, 589813, 458755, 1, 589811, 458755, 1, 589812, 458755, 1, 589810, 458755, 1, 589809, 458755, 1, 589808, 458755, 1, 589806, 393219, 1, 524270, 393219, 0, 458734, 393219, 0, 393198, 393219, 0, 327662, 393219, 0, 262126, 393219, 0, 196590, 393219, 0, 131054, 393219, 0, 458757, 458755, 0, 589822, 458755, 1, 589823, 458755, 1, 524288, 458755, 1, 524289, 458755, 1, 524290, 458755, 1, 524291, 458755, 1, 524292, 458755, 1, 524293, 458755, 1, 393221, 720899, 2, 327685, 720899, 2, 262149, 720899, 2, 196613, 589827, 10, 131077, 589827, 9, 65541, 720899, 2, 5, 720899, 2, -65531, 720899, 2, -131067, 720899, 2, -196603, 720899, 2, -262139, 720899, 2, -327675, 720899, 2, -393211, 720899, 2, -458747, 720899, 2, -524283, 720899, 2, 65518, 851971, 2, -18, 851971, 2, -65554, 851971, 2, -131090, 851971, 2, -262162, 851971, 2, -196626, 851971, 2, -327698, 851971, 2, -393234, 851971, 2, -458770, 851971, 2, -524306, 655363, 1, -589819, 589827, 1, -524305, 327683, 1, -589841, 327683, 0, -655377, 327683, 0, -720913, 327683, 0, -786449, 327683, 0, 589807, 458755, 1, -655356, 524291, 0, -589820, 393219, 65537, -720892, 524291, 0, -786428, 524291, 0, -851964, 524291, 0, -917500, 524291, 0, -851985, 720899, 2, -917521, 720899, 1, -983036, 851971, 1, -917520, 458755, 1, -917519, 458755, 1, -917518, 458755, 1, -917517, 458755, 1, -917516, 458755, 1, -917515, 458755, 1, -917514, 458755, 1, -917513, 458755, 1, -917512, 458755, 1, -917511, 458755, 1, -917510, 458755, 1, -917509, 458755, 1, -917508, 458755, 1, -917507, 458755, 1, -917506, 458755, 1, -917505, 458755, 1, -983040, 458755, 1, -983039, 458755, 1, -983038, 458755, 1, -983037, 458755, 1, 589821, 458755, 1, 786425, 458755, 1, 786426, 458755, 1, 786427, 851971, 3, 786424, 720899, 3, 196604, 720899, 1, 262140, 720899, 2, 327676, 720899, 3, 458748, 720899, 1, 524284, 720899, 2, 196605, 458755, 9, 262141, 458755, 10, 196606, 524291, 9, 262142, 524291, 10, 196607, 589827, 9, 262143, 589827, 10, 131072, 524291, 9, 196608, 524291, 10, 131073, 589827, 9, 196609, 589827, 10, 131074, 589827, 9, 196610, 589827, 10, 262146, 655362, 0, 327682, 655362, 1, 393218, 655362, 2, 458754, 655362, 3, 131075, 458755, 9, 196611, 458755, 10, 262147, 720898, 0, 327683, 720898, 1, 393219, 851970, 3, 458755, 851970, 4, 131076, 524291, 9, 196612, 524291, 10, 458756, 720898, 3, 786439, 393219, 2, 262148, 720898, 0, 327684, 720898, 1)
 layer_2/name = "Objects"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
 layer_2/y_sort_enabled = false
 layer_2/y_sort_origin = 0
 layer_2/z_index = 0
-layer_2/tile_data = PackedInt32Array()
+layer_2/tile_data = PackedInt32Array(196609, 65538, 16, 262145, 65538, 17, 196610, 131074, 16, 262146, 131074, 17, 196611, 196610, 16, 262147, 196610, 17, 196612, 262146, 16, 262148, 262146, 17, 131074, 131074, 15, 131075, 196610, 15, 327676, 720899, 1, 393212, 720899, 2, 458748, 720899, 3, 196605, 131074, 28, 262141, 131074, 29, 196606, 196610, 28, 262142, 196610, 29)
 script = ExtResource("6_pybxl")
 
 [node name="HUD" parent="." instance=ExtResource("33_sh7jl")]
@@ -6108,7 +6115,7 @@ position = Vector2(-99, 161)
 
 [node name="Laptop2" type="Sprite2D" parent="LaptopFolder"]
 z_index = 1
-position = Vector2(-271.75, -92.375)
+position = Vector2(-261, -43)
 scale = Vector2(1.15625, 0.923913)
 texture = ExtResource("9_py07e")
 metadata/_edit_group_ = true
@@ -6121,7 +6128,7 @@ shape = SubResource("RectangleShape2D_dbc8l")
 
 [node name="Laptop3 - question" type="Sprite2D" parent="LaptopFolder"]
 z_index = 1
-position = Vector2(-250.75, -92.375)
+position = Vector2(-228.75, -90.375)
 scale = Vector2(1.15625, 0.923913)
 texture = ExtResource("9_py07e")
 script = ExtResource("10_w4jnn")
@@ -6143,7 +6150,7 @@ shape = SubResource("RectangleShape2D_dbc8l")
 
 [node name="Laptop4" type="Sprite2D" parent="LaptopFolder"]
 z_index = 1
-position = Vector2(-229.75, -92.375)
+position = Vector2(-200.75, -44)
 scale = Vector2(1.15625, 0.923913)
 texture = ExtResource("9_py07e")
 metadata/_edit_group_ = true
@@ -6156,7 +6163,7 @@ shape = SubResource("RectangleShape2D_dbc8l")
 
 [node name="Laptop5 - question test" type="Sprite2D" parent="LaptopFolder"]
 z_index = 1
-position = Vector2(-209, -91)
+position = Vector2(-200.875, 5.00001)
 scale = Vector2(1.14062, 0.923913)
 texture = ExtResource("9_py07e")
 script = ExtResource("11_tso52")
@@ -6177,22 +6184,9 @@ position = Vector2(12.1081, -1.08235)
 position = Vector2(-11.9999, 0.754395)
 shape = SubResource("RectangleShape2D_dbc8l")
 
-[node name="Laptop6" type="Sprite2D" parent="LaptopFolder"]
-z_index = 1
-position = Vector2(-187.75, -92.375)
-scale = Vector2(1.15625, 0.923913)
-texture = ExtResource("9_py07e")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="LaptopFolder/Laptop6"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LaptopFolder/Laptop6/StaticBody2D"]
-position = Vector2(-0.216217, 0)
-shape = SubResource("RectangleShape2D_dbc8l")
-
 [node name="Laptop7" type="Sprite2D" parent="LaptopFolder"]
 z_index = 2
-position = Vector2(-271.75, -33.125)
+position = Vector2(-262, 5)
 scale = Vector2(1.15625, 0.923913)
 texture = ExtResource("9_py07e")
 metadata/_edit_group_ = true
@@ -6205,7 +6199,7 @@ shape = SubResource("RectangleShape2D_dbc8l")
 
 [node name="Laptop8" type="Sprite2D" parent="LaptopFolder"]
 z_index = 1
-position = Vector2(-250.75, -33.125)
+position = Vector2(-231, 4)
 scale = Vector2(1.15625, 0.923913)
 texture = ExtResource("9_py07e")
 metadata/_edit_group_ = true
@@ -6218,7 +6212,7 @@ shape = SubResource("RectangleShape2D_dbc8l")
 
 [node name="Laptop9 - question" type="Sprite2D" parent="LaptopFolder"]
 z_index = 1
-position = Vector2(-228.75, -33.125)
+position = Vector2(-169.75, -90.75)
 scale = Vector2(1.15625, 0.923913)
 texture = ExtResource("9_py07e")
 metadata/_edit_group_ = true
@@ -6229,87 +6223,9 @@ metadata/_edit_group_ = true
 position = Vector2(-0.216217, 0)
 shape = SubResource("RectangleShape2D_dbc8l")
 
-[node name="Laptop10" type="Sprite2D" parent="LaptopFolder"]
-z_index = 1
-position = Vector2(-208, -32.75)
-scale = Vector2(1.15625, 0.923913)
-texture = ExtResource("9_py07e")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="LaptopFolder/Laptop10"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LaptopFolder/Laptop10/StaticBody2D"]
-position = Vector2(-0.216217, 0)
-shape = SubResource("RectangleShape2D_dbc8l")
-
-[node name="Laptop11" type="Sprite2D" parent="LaptopFolder"]
-z_index = 1
-position = Vector2(-187, -32.75)
-scale = Vector2(1.15625, 0.923913)
-texture = ExtResource("9_py07e")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="LaptopFolder/Laptop11"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LaptopFolder/Laptop11/StaticBody2D"]
-position = Vector2(-0.216217, 0)
-shape = SubResource("RectangleShape2D_dbc8l")
-
-[node name="Laptop12" type="Sprite2D" parent="LaptopFolder"]
-z_index = 1
-position = Vector2(-270.75, 29.625)
-scale = Vector2(1.15625, 0.923913)
-texture = ExtResource("9_py07e")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="LaptopFolder/Laptop12"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LaptopFolder/Laptop12/StaticBody2D"]
-position = Vector2(-0.216217, 0)
-shape = SubResource("RectangleShape2D_dbc8l")
-
-[node name="Laptop13" type="Sprite2D" parent="LaptopFolder"]
-z_index = 2
-position = Vector2(-249.75, 29.625)
-scale = Vector2(1.15625, 0.923913)
-texture = ExtResource("9_py07e")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="LaptopFolder/Laptop13"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LaptopFolder/Laptop13/StaticBody2D"]
-position = Vector2(-0.216217, 0)
-shape = SubResource("RectangleShape2D_dbc8l")
-
-[node name="Laptop14" type="Sprite2D" parent="LaptopFolder"]
-z_index = 1
-position = Vector2(-228.75, 29.625)
-scale = Vector2(1.15625, 0.923913)
-texture = ExtResource("9_py07e")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="LaptopFolder/Laptop14"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LaptopFolder/Laptop14/StaticBody2D"]
-position = Vector2(-0.216217, 0)
-shape = SubResource("RectangleShape2D_dbc8l")
-
-[node name="Laptop15" type="Sprite2D" parent="LaptopFolder"]
-z_index = 1
-position = Vector2(-207.75, 29.625)
-scale = Vector2(1.15625, 0.923913)
-texture = ExtResource("9_py07e")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="LaptopFolder/Laptop15"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LaptopFolder/Laptop15/StaticBody2D"]
-position = Vector2(-0.216217, 0)
-shape = SubResource("RectangleShape2D_dbc8l")
-
 [node name="Laptop16 - Question" type="Sprite2D" parent="LaptopFolder"]
 z_index = 1
-position = Vector2(-187.125, 30)
+position = Vector2(-229.875, -45)
 scale = Vector2(1.14063, 0.923913)
 texture = ExtResource("9_py07e")
 script = ExtResource("13_vcibo")
@@ -6329,21 +6245,27 @@ shape = SubResource("RectangleShape2D_poc7k")
 
 [node name="TableFolder" type="Node2D" parent="."]
 
-[node name="Table1" type="Sprite2D" parent="TableFolder"]
+[node name="InsiderThreatHint" type="Sprite2D" parent="TableFolder"]
 z_index = 1
-position = Vector2(13, -51)
+position = Vector2(13, -63.75)
 scale = Vector2(1.85714, 1)
 texture = ExtResource("10_wgdyt")
+script = ExtResource("16_sk3d3")
 metadata/_edit_group_ = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="TableFolder/Table1"]
+[node name="Actionable" parent="TableFolder/InsiderThreatHint" instance=ExtResource("16_5ehio")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TableFolder/Table1/StaticBody2D"]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_kfrhh")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TableFolder/InsiderThreatHint/Actionable"]
+shape = SubResource("CapsuleShape2D_77f2k")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TableFolder/InsiderThreatHint"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TableFolder/InsiderThreatHint/StaticBody2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_hw1nk")
 
 [node name="Table2" type="Sprite2D" parent="TableFolder"]
-position = Vector2(13, -90)
+position = Vector2(43, -115)
 scale = Vector2(1.85714, 1)
 texture = ExtResource("10_wgdyt")
 metadata/_edit_group_ = true
@@ -6354,60 +6276,31 @@ metadata/_edit_group_ = true
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_kfrhh")
 
-[node name="Table3" type="Sprite2D" parent="TableFolder"]
+[node name="InsiderThreat1" type="Sprite2D" parent="TableFolder"]
 z_index = 1
-position = Vector2(-37, -90)
+position = Vector2(47, 10)
 scale = Vector2(1.85714, 1)
 texture = ExtResource("10_wgdyt")
+script = ExtResource("16_lk38k")
 metadata/_edit_group_ = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="TableFolder/Table3"]
+[node name="StaticBody2D" type="StaticBody2D" parent="TableFolder/InsiderThreat1"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TableFolder/Table3/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TableFolder/InsiderThreat1/StaticBody2D"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_kfrhh")
 
-[node name="Table5" type="Sprite2D" parent="TableFolder"]
-z_index = 1
-position = Vector2(-37, -51)
-scale = Vector2(1.85714, 1)
-texture = ExtResource("10_wgdyt")
-metadata/_edit_group_ = true
+[node name="Actionable" parent="TableFolder/InsiderThreat1" instance=ExtResource("16_5ehio")]
+position = Vector2(-19.3846, 9)
+scale = Vector2(0.538462, 1)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="TableFolder/Table5"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TableFolder/Table5/StaticBody2D"]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_kfrhh")
-
-[node name="Table6" type="Sprite2D" parent="TableFolder"]
-z_index = 1
-position = Vector2(15, 2)
-scale = Vector2(1.85714, 1)
-texture = ExtResource("10_wgdyt")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="TableFolder/Table6"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TableFolder/Table6/StaticBody2D"]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_kfrhh")
-
-[node name="Table7" type="Sprite2D" parent="TableFolder"]
-z_index = 1
-position = Vector2(-36, 2)
-scale = Vector2(1.85714, 1)
-texture = ExtResource("10_wgdyt")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="TableFolder/Table7"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TableFolder/Table7/StaticBody2D"]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_kfrhh")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TableFolder/InsiderThreat1/Actionable"]
+position = Vector2(37, -14)
+shape = SubResource("CapsuleShape2D_77f2k")
 
 [node name="Thumdrive" type="Sprite2D" parent="TableFolder"]
-position = Vector2(34, -94)
+top_level = true
+position = Vector2(-227, 85)
 texture = ExtResource("14_0xjun")
 script = ExtResource("15_qj26a")
 
@@ -6418,21 +6311,21 @@ shape = SubResource("CapsuleShape2D_77f2k")
 
 [node name="MessyArea" parent="TableFolder" instance=ExtResource("36_3ypd4")]
 top_level = true
-position = Vector2(-248, 92)
+position = Vector2(30, -122)
 script = ExtResource("18_lecwi")
 
 [node name="Actionable" parent="TableFolder/MessyArea" instance=ExtResource("16_5ehio")]
 position = Vector2(453.059, -95.325)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TableFolder/MessyArea/Actionable"]
-position = Vector2(-448.059, 99.325)
+position = Vector2(-443.059, 95.325)
 shape = SubResource("CapsuleShape2D_ks2nm")
 
 [node name="CharacterFolder" type="Node2D" parent="."]
 position = Vector2(-270, -113)
 
 [node name="Alex" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(20, 8)
+position = Vector2(42, 10)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("14_ehper")
 metadata/_edit_group_ = true
@@ -6443,7 +6336,7 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_mmvsx")
 
 [node name="Alex2" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(60, 8)
+position = Vector2(68.1249, 104)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("14_ehper")
 metadata/_edit_group_ = true
@@ -6453,74 +6346,8 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterFolder/Alex2/StaticBody2D"]
 shape = SubResource("CircleShape2D_mmvsx")
 
-[node name="Alex3" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(82, 7)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("14_ehper")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="CharacterFolder/Alex3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterFolder/Alex3/StaticBody2D"]
-shape = SubResource("CircleShape2D_mmvsx")
-
-[node name="Alex4" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(-2, 64.25)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("14_ehper")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="CharacterFolder/Alex4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterFolder/Alex4/StaticBody2D"]
-shape = SubResource("CircleShape2D_mmvsx")
-
-[node name="Alex5" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(82, 65.25)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("14_ehper")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="CharacterFolder/Alex5"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterFolder/Alex5/StaticBody2D"]
-shape = SubResource("CircleShape2D_mmvsx")
-
-[node name="Alex6" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(-2, 129)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("14_ehper")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="CharacterFolder/Alex6"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterFolder/Alex6/StaticBody2D"]
-shape = SubResource("CircleShape2D_mmvsx")
-
-[node name="Alex7" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(20, 129)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("14_ehper")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="CharacterFolder/Alex7"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterFolder/Alex7/StaticBody2D"]
-shape = SubResource("CircleShape2D_mmvsx")
-
-[node name="Alex8" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(40, 129)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("14_ehper")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="CharacterFolder/Alex8"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterFolder/Alex8/StaticBody2D"]
-shape = SubResource("CircleShape2D_mmvsx")
-
 [node name="Alex9" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(61, 129)
+position = Vector2(99.1252, 57)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("14_ehper")
 metadata/_edit_group_ = true
@@ -6531,7 +6358,7 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_mmvsx")
 
 [node name="Alex10" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(82, 129)
+position = Vector2(38.1251, 55)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("14_ehper")
 metadata/_edit_group_ = true
@@ -6541,30 +6368,31 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterFolder/Alex10/StaticBody2D"]
 shape = SubResource("CircleShape2D_mmvsx")
 
-[node name="Bei2" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(238, 10)
+[node name="Emma" type="Sprite2D" parent="CharacterFolder"]
+position = Vector2(278, 34.625)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("15_ljdjd")
 metadata/_edit_group_ = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="CharacterFolder/Bei2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="CharacterFolder/Emma"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterFolder/Bei2/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterFolder/Emma/StaticBody2D"]
 shape = SubResource("CircleShape2D_46gea")
 
-[node name="Jerry2" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(287, 49)
+[node name="Ryan" type="Sprite2D" parent="CharacterFolder"]
+position = Vector2(294, 35.25)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("16_bwfhu")
+flip_h = true
 metadata/_edit_group_ = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="CharacterFolder/Jerry2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="CharacterFolder/Ryan"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterFolder/Jerry2/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterFolder/Ryan/StaticBody2D"]
 shape = SubResource("CircleShape2D_i4y7h")
 
 [node name="Mary2" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(239, 49)
+position = Vector2(307, 108)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("17_qbbda")
 metadata/_edit_group_ = true
@@ -6575,9 +6403,10 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_fs41r")
 
 [node name="Tim2" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(237, 101)
+position = Vector2(329, 109)
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("18_mmvlc")
+texture = ExtResource("38_ux8h7")
+flip_h = true
 metadata/_edit_group_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="CharacterFolder/Tim2"]
@@ -6586,9 +6415,10 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_n73e2")
 
 [node name="Tom2" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(286, 101)
+position = Vector2(337, 215)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("19_vkd58")
+flip_h = true
 metadata/_edit_group_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="CharacterFolder/Tom2"]
@@ -6600,33 +6430,45 @@ shape = SubResource("CircleShape2D_uy2dx")
 
 [node name="Interactable2" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
 z_index = 11
-position = Vector2(-209, -123)
+position = Vector2(-202, -26)
 
 [node name="Interactable3" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
 z_index = 11
-position = Vector2(-252, -122)
+position = Vector2(-230, -120)
 
 [node name="Interactable5" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
 z_index = 11
-position = Vector2(34, -110)
+position = Vector2(-203, 71)
 
 [node name="Interactable6" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
 z_index = 11
-position = Vector2(-214, 82)
+position = Vector2(64, -132)
 
 [node name="Interactable7" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
 z_index = 11
-position = Vector2(-188, 0)
+position = Vector2(-231.875, -74)
 
-[node name="VendingMachineFolder" type="Node2D" parent="."]
-position = Vector2(-273, -128)
-rotation = -1.5708
-scale = Vector2(0.666667, 0.764706)
+[node name="Ransomware" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
+z_index = 11
+position = Vector2(-170.875, -73)
+
+[node name="ThumbdriveHint" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
+z_index = 11
+position = Vector2(-247, 88)
+
+[node name="InsiderThreat1" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
+z_index = 11
+position = Vector2(48, -19)
+
+[node name="InsiderThreatHint" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
+z_index = 11
+position = Vector2(16, -91)
 
 [node name="BookShelf Folder" type="Node2D" parent="."]
 
 [node name="Bookshelf" type="Sprite2D" parent="BookShelf Folder"]
-position = Vector2(54, -135)
+position = Vector2(-74, -93)
+rotation = -4.71413
 scale = Vector2(0.78125, 0.863636)
 texture = ExtResource("25_8sgp4")
 metadata/_edit_group_ = true
@@ -6638,7 +6480,8 @@ position = Vector2(1.28001, -0.578903)
 shape = SubResource("RectangleShape2D_fifbd")
 
 [node name="Bookshelf1" type="Sprite2D" parent="BookShelf Folder"]
-position = Vector2(78, -135)
+position = Vector2(-74, -118)
+rotation = -4.71239
 scale = Vector2(0.78125, 0.863636)
 texture = ExtResource("25_8sgp4")
 metadata/_edit_group_ = true
@@ -6650,7 +6493,8 @@ position = Vector2(1.28001, -0.578903)
 shape = SubResource("RectangleShape2D_fifbd")
 
 [node name="Bookshelf2" type="Sprite2D" parent="BookShelf Folder"]
-position = Vector2(29, -135)
+position = Vector2(-46, -93)
+rotation = -1.5708
 scale = Vector2(0.78125, 0.863636)
 texture = ExtResource("25_8sgp4")
 metadata/_edit_group_ = true
@@ -6662,7 +6506,8 @@ position = Vector2(1.28001, -0.578903)
 shape = SubResource("RectangleShape2D_fifbd")
 
 [node name="Bookshelf3" type="Sprite2D" parent="BookShelf Folder"]
-position = Vector2(4, -135)
+position = Vector2(-46, -118)
+rotation = -1.5708
 scale = Vector2(0.78125, 0.863636)
 texture = ExtResource("25_8sgp4")
 metadata/_edit_group_ = true
@@ -6670,71 +6515,6 @@ metadata/_edit_group_ = true
 [node name="StaticBody2D" type="StaticBody2D" parent="BookShelf Folder/Bookshelf3"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BookShelf Folder/Bookshelf3/StaticBody2D"]
-position = Vector2(1.28001, -0.578903)
-shape = SubResource("RectangleShape2D_fifbd")
-
-[node name="Bookshelf4" type="Sprite2D" parent="BookShelf Folder"]
-position = Vector2(103, -110)
-rotation = 1.5708
-scale = Vector2(0.78125, 0.863636)
-texture = ExtResource("25_8sgp4")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="BookShelf Folder/Bookshelf4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BookShelf Folder/Bookshelf4/StaticBody2D"]
-position = Vector2(1.28001, -0.578903)
-shape = SubResource("RectangleShape2D_fifbd")
-
-[node name="Bookshelf5" type="Sprite2D" parent="BookShelf Folder"]
-position = Vector2(103, -85)
-rotation = 1.5708
-scale = Vector2(0.78125, 0.863636)
-texture = ExtResource("25_8sgp4")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="BookShelf Folder/Bookshelf5"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BookShelf Folder/Bookshelf5/StaticBody2D"]
-position = Vector2(1.28001, -0.578903)
-shape = SubResource("RectangleShape2D_fifbd")
-
-[node name="Bookshelf6" type="Sprite2D" parent="BookShelf Folder"]
-position = Vector2(103, -61)
-rotation = 1.5708
-scale = Vector2(0.78125, 0.863636)
-texture = ExtResource("25_8sgp4")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="BookShelf Folder/Bookshelf6"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BookShelf Folder/Bookshelf6/StaticBody2D"]
-position = Vector2(1.28001, -0.578903)
-shape = SubResource("RectangleShape2D_fifbd")
-
-[node name="Bookshelf7" type="Sprite2D" parent="BookShelf Folder"]
-position = Vector2(103, -37)
-rotation = 1.5708
-scale = Vector2(0.78125, 0.863636)
-texture = ExtResource("25_8sgp4")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="BookShelf Folder/Bookshelf7"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BookShelf Folder/Bookshelf7/StaticBody2D"]
-position = Vector2(1.28001, -0.578903)
-shape = SubResource("RectangleShape2D_fifbd")
-
-[node name="Bookshelf8" type="Sprite2D" parent="BookShelf Folder"]
-position = Vector2(103, -12)
-rotation = 1.5708
-scale = Vector2(0.78125, 0.863636)
-texture = ExtResource("25_8sgp4")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="BookShelf Folder/Bookshelf8"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BookShelf Folder/Bookshelf8/StaticBody2D"]
 position = Vector2(1.28001, -0.578903)
 shape = SubResource("RectangleShape2D_fifbd")
 
@@ -6810,7 +6590,7 @@ shape = SubResource("RectangleShape2D_3mhdm")
 
 [node name="Purpletable" type="Sprite2D" parent="."]
 visibility_layer = 2
-position = Vector2(-226, 108)
+position = Vector2(-213, 99)
 texture = ExtResource("23_tae56")
 metadata/_edit_group_ = true
 
@@ -6821,7 +6601,7 @@ position = Vector2(1, 1.5)
 shape = SubResource("RectangleShape2D_3x02d")
 
 [node name="Whitesofa-left" type="Sprite2D" parent="."]
-position = Vector2(-184, 108)
+position = Vector2(-169, 98)
 texture = ExtResource("25_rdclc")
 metadata/_edit_group_ = true
 
@@ -6832,7 +6612,7 @@ position = Vector2(1.5, 0.5)
 shape = SubResource("RectangleShape2D_8murm")
 
 [node name="Whitesofa-right" type="Sprite2D" parent="."]
-position = Vector2(-270, 108)
+position = Vector2(-265, 98)
 texture = ExtResource("26_r02ge")
 metadata/_edit_group_ = true
 
@@ -6843,7 +6623,7 @@ position = Vector2(-1.5, 1.5)
 shape = SubResource("RectangleShape2D_s42mt")
 
 [node name="Sofa" type="Sprite2D" parent="."]
-position = Vector2(-247.5, 64)
+position = Vector2(-215, 53.5)
 scale = Vector2(1.39583, 1)
 texture = ExtResource("24_5x4ht")
 metadata/_edit_group_ = true
@@ -6882,6 +6662,135 @@ script = ExtResource("39_iy146")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Elevator/Actionable"]
 position = Vector2(-96, 167.5)
 shape = SubResource("RectangleShape2D_deu4a")
+
+[node name="Laptop16 - Ransomware" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-170.875, -43)
+scale = Vector2(1.14063, 0.923913)
+texture = ExtResource("9_py07e")
+script = ExtResource("37_fb1hv")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Laptop16 - Ransomware"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laptop16 - Ransomware/StaticBody2D"]
+position = Vector2(0, 0.541182)
+shape = SubResource("RectangleShape2D_1uwjj")
+
+[node name="Actionable" parent="Laptop16 - Ransomware" instance=ExtResource("16_5ehio")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laptop16 - Ransomware/Actionable"]
+position = Vector2(0.432434, -7.44705)
+shape = SubResource("RectangleShape2D_poc7k")
+
+[node name="Bookshelf" type="Sprite2D" parent="."]
+position = Vector2(-73.7282, -12.5)
+rotation = -4.71413
+scale = Vector2(0.78125, 0.863636)
+texture = ExtResource("25_8sgp4")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bookshelf"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bookshelf/StaticBody2D"]
+position = Vector2(1.28001, -0.578903)
+shape = SubResource("RectangleShape2D_fifbd")
+
+[node name="Bookshelf1" type="Sprite2D" parent="."]
+position = Vector2(-73.7282, -37.5)
+rotation = -4.71239
+scale = Vector2(0.78125, 0.863636)
+texture = ExtResource("25_8sgp4")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bookshelf1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bookshelf1/StaticBody2D"]
+position = Vector2(1.28001, -0.578903)
+shape = SubResource("RectangleShape2D_fifbd")
+
+[node name="Bookshelf2" type="Sprite2D" parent="."]
+position = Vector2(-45.7282, -12.5)
+rotation = -1.5708
+scale = Vector2(0.78125, 0.863636)
+texture = ExtResource("25_8sgp4")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bookshelf2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bookshelf2/StaticBody2D"]
+position = Vector2(1.28001, -0.578903)
+shape = SubResource("RectangleShape2D_fifbd")
+
+[node name="Bookshelf3" type="Sprite2D" parent="."]
+position = Vector2(-45.7282, -37.5)
+rotation = -1.5708
+scale = Vector2(0.78125, 0.863636)
+texture = ExtResource("25_8sgp4")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bookshelf3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bookshelf3/StaticBody2D"]
+position = Vector2(1.28001, -0.578903)
+shape = SubResource("RectangleShape2D_fifbd")
+
+[node name="Tim-Thumdrive" type="Sprite2D" parent="."]
+top_level = true
+position = Vector2(-272, 105.5)
+scale = Vector2(0.8, 0.708333)
+texture = ExtResource("38_ux8h7")
+script = ExtResource("39_sss5t")
+
+[node name="Actionable" parent="Tim-Thumdrive" instance=ExtResource("16_5ehio")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tim-Thumdrive/Actionable"]
+shape = SubResource("CapsuleShape2D_77f2k")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tim-Thumdrive"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tim-Thumdrive/StaticBody2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_hw1nk")
+
+[node name="Laptop4" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-171, 5)
+scale = Vector2(1.15625, 0.923913)
+texture = ExtResource("9_py07e")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Laptop4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laptop4/StaticBody2D"]
+position = Vector2(-0.216217, 0)
+shape = SubResource("RectangleShape2D_dbc8l")
+
+[node name="Laptop11" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-200, -91)
+scale = Vector2(1.15625, 0.923913)
+texture = ExtResource("9_py07e")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Laptop11"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laptop11/StaticBody2D"]
+position = Vector2(-0.216217, 0)
+shape = SubResource("RectangleShape2D_dbc8l")
+
+[node name="Laptop10" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-261, -93)
+scale = Vector2(1.15625, 0.923913)
+texture = ExtResource("9_py07e")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Laptop10"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laptop10/StaticBody2D"]
+position = Vector2(-0.216217, 0)
+shape = SubResource("RectangleShape2D_dbc8l")
 
 [connection signal="input_closed" from="HUD" to="LaptopFolder/Laptop3 - question" method="_on_hud_input_closed"]
 [connection signal="input_submitted" from="HUD" to="LaptopFolder/Laptop3 - question" method="_on_hud_input_submitted"]
