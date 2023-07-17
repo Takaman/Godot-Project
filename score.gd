@@ -1,7 +1,6 @@
 extends Node
 
 @onready var sessionVar = get_node("/root/SeshVar")
-const api_svr = "http://165.22.246.221:5000"
 
 const TOTAL_SCORE = 200
 const FIRST_ATTEMPT_POINTS = 10 #Points for the first attempt
@@ -142,7 +141,7 @@ func get_total_points() -> float:
 func send_has_interacted_to_server(pastinteractions: Dictionary):
 	print("SENDING INTERACTIONS")
 	var username = sessionVar._session.get("username")
-	var url = api_svr + "/update_Interactions"
+	var url = sessionVar.api_svr + "/update_Interactions"
 	var headers = ["Content-Type: application/json", "Authorization: Bearer " + sessionVar._session.get("token")]
 	
 	var pastinteractionsJSON = JSON.stringify(pastinteractions)
@@ -158,7 +157,7 @@ func send_interactions_to_server(breakdown: Dictionary):
 
 	var username = sessionVar._session.get("username")
 
-	var url = api_svr + "/update_Score"
+	var url = sessionVar.api_svr + "/update_Score"
 	var headers = ["Content-Type: application/json", "Authorization: Bearer " + sessionVar._session.get("token")]
 	
 	var policy_scores = Score.get_training_scores("policy")
