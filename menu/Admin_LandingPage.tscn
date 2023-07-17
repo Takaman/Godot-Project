@@ -21,5 +21,14 @@ offset_bottom = 103.0
 theme_override_font_sizes/font_size = 15
 text = "View All Scores"
 
+[node name="LogoutBtn" type="Button" parent="."]
+offset_left = 151.0
+offset_top = 113.0
+offset_right = 210.0
+offset_bottom = 143.0
+theme_override_font_sizes/font_size = 15
+text = "Logout"
+
 [connection signal="button_down" from="RegisterBtn" to="." method="_on_register_btn_button_down"]
 [connection signal="button_down" from="ScoreboardBtn" to="." method="_on_scoreboard_btn_button_down"]
+[connection signal="button_down" from="LogoutBtn" to="." method="_on_logout_btn_button_down"]
