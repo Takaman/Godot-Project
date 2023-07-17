@@ -115,7 +115,7 @@ func _physics_process(delta: float) -> void:
 		state = 2
 		if interactable != null and interactable is Node:
 			interactable.correct()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
-	
+		
 	
 func _on_jerry_jerrydone():
 	state = 2

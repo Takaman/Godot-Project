@@ -16,6 +16,9 @@ extends CanvasLayer
 @onready var sound_door = $soundDoor
 
 
+@onready var progress = $"../Progress"
+
+
 const BOTTOM_PANEL_INSIDE_Y := 230
 const BOTTOM_PANEL_OUTSIDE_Y := 500
 const BOTTOM_PANEL_SLIDE_DURATION := 0.5
@@ -71,6 +74,7 @@ func _close_panel() -> void:
 	dialogue_big.hide()
 	print("emit signals")
 	dialogue_big.visible = false
+	progress.visible=true
 	emit_signal("dialogue_closed")
 
 func _next_panel_part(part: String) -> void:
@@ -149,6 +153,8 @@ func show_dialog(interaction: String, content: Dictionary, phase: String) -> voi
 	dialogue_big.visible = true
 	dialogue_big.show()
 	emit_signal("dialogue_opened")
+	
+	progress.visible=false
 
 func show_player_input() -> void:
 	print("showing input box")
