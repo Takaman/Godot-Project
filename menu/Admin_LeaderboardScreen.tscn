@@ -50,4 +50,14 @@ text = "Generate CSV"
 
 [node name="HTTPRequest_export" type="HTTPRequest" parent="."]
 
+[node name="BackBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 139.0
+offset_right = 71.0
+offset_bottom = 159.0
+theme_override_font_sizes/font_size = 8
+text = "Back to Menu"
+
 [connection signal="button_down" from="ExportBtn" to="." method="_on_export_btn_button_down"]
+[connection signal="button_down" from="BackBtn" to="." method="_on_back_btn_button_down"]

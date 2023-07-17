@@ -92,3 +92,7 @@ func _on_request_completed_pwd(result, response_code, headers, body):
 	pwd = body.get_string_from_utf8()
 	print(pwd)
 
+
+
+func _on_back_btn_button_down():
+	SceneTransition.change_scene("res://../menu/Admin_LandingPage.tscn")
