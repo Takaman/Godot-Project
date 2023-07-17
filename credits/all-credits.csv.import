@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cjms4j6815f3f"
+
+[deps]
+
+files=["res://credits/all-credits.notes.translation", "res://credits/all-credits.authors.translation", "res://credits/all-credits.licenses.translation", "res://credits/all-credits.url1.translation", "res://credits/all-credits.url2.translation", "res://credits/all-credits.url3.translation", "res://credits/all-credits.url4.translation", "res://credits/all-credits.url5.translation", "res://credits/all-credits.url6.translation", "res://credits/all-credits.url7.translation", "res://credits/all-credits.url8.translation", "res://credits/all-credits.url9.translation", "res://credits/all-credits.url10.translation", "res://credits/all-credits.url11.translation", "res://credits/all-credits.url12.translation", "res://credits/all-credits.url13.translation", "res://credits/all-credits.url14.translation", "res://credits/all-credits.url15.translation", "res://credits/all-credits.status.translation"]
+
+source_file="res://credits/all-credits.csv"
+dest_files=["res://credits/all-credits.notes.translation", "res://credits/all-credits.authors.translation", "res://credits/all-credits.licenses.translation", "res://credits/all-credits.url1.translation", "res://credits/all-credits.url2.translation", "res://credits/all-credits.url3.translation", "res://credits/all-credits.url4.translation", "res://credits/all-credits.url5.translation", "res://credits/all-credits.url6.translation", "res://credits/all-credits.url7.translation", "res://credits/all-credits.url8.translation", "res://credits/all-credits.url9.translation", "res://credits/all-credits.url10.translation", "res://credits/all-credits.url11.translation", "res://credits/all-credits.url12.translation", "res://credits/all-credits.url13.translation", "res://credits/all-credits.url14.translation", "res://credits/all-credits.url15.translation", "res://credits/all-credits.status.translation"]
+
+[params]
+
+compress=true
+delimiter=0
