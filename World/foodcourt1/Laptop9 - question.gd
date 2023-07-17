@@ -124,12 +124,13 @@ func _on_hud_partsignaller():
 	if hud.part_name == "$lookaround":
 		emit_signal("lookaround")
 		state = 1
-		interactable.visible = true
 		if interactable!= null and interactable is Node:
+			interactable.visible = true
 			interactable.in_progress()
 	elif hud.part_name == "$leave":
 		state = 3
 		if interactable!= null and interactable is Node:
+			interactable.visible = true
 			interactable.in_progress()
 	elif hud.part_name == "$checkpc":
 		emit_signal("leave")
