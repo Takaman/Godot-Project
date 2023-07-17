@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c7qy0jm8k6c6n" path="res://frames/Dialog/DialogueBoxSimple.png" id="10_rxqn7"]
 [ext_resource type="Texture2D" uid="uid://b58863uore5pb" path="res://World/foodcourt1/movingcharacter/blackshirtguy/blackshirtguy.png" id="11_vnk2b"]
 [ext_resource type="Script" path="res://World/foodcourt1/movingcharacter/blackshirtguy/blackshirtguy.gd" id="11_y3l8t"]
-[ext_resource type="PackedScene" uid="uid://duiqkx067jd7i" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="11_yvexh"]
+[ext_resource type="PackedScene" uid="uid://c5rftkrhv5l1f" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="11_yvexh"]
 [ext_resource type="Script" path="res://World/foodcourt1/timer.gd" id="12_ohy1x"]
 [ext_resource type="Texture2D" uid="uid://qno1eyxd0jrw" path="res://World/foodcourt1/movingcharacter/greyshirtguy/greyshirtguy.png" id="12_qt28i"]
 [ext_resource type="Script" path="res://World/foodcourt1/movingcharacter/greyshirtguy/greyshirtguy.gd" id="13_2mml2"]
@@ -11275,14 +11275,12 @@ collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Computer-whitebase2/Actionable"]
 position = Vector2(0, 0.514843)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_748a1")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Computer-whitebase2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Computer-whitebase2/StaticBody2D"]
 position = Vector2(1.52588e-05, 3.0891)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_pudty")
 
 [node name="Tom-Hint" type="Sprite2D" parent="."]
@@ -11318,5 +11316,6 @@ shape = SubResource("RectangleShape2D_wathh")
 [connection signal="timeout" from="GantryEnter/Timer" to="GantryEnter" method="_on_timer_timeout"]
 [connection signal="timeout" from="GantryExit/Timer" to="GantryExit" method="_on_timer_timeout"]
 [connection signal="timeout" from="WhitewallsGantryEnter/Timer" to="WhitewallsGantryEnter" method="_on_timer_timeout"]
+[connection signal="jerrydone" from="Jerry" to="Computer-whitebase2" method="_on_jerry_jerrydone"]
 [connection signal="leave" from="Computer-whitebase2" to="Jerry" method="_on_computerwhitebase_2_leave"]
 [connection signal="lookaround" from="Computer-whitebase2" to="Jerry" method="_on_computerwhitebase_2_lookaround"]

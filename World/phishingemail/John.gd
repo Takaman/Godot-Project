@@ -31,6 +31,7 @@ func interact() -> void:
 				Utils.dialog_part(
 					"""
 					[b]John[/b]
+					
 					Hey... I just received this email and it looks quite important. Do you think I should follow the link and change my password?
 					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$johnnext]Sure, I can take a look.[/url]?>[/right]
@@ -68,6 +69,7 @@ func interact() -> void:
 					Utils.dialog_part(
 					"""
 					[b]John[/b]
+					
 					Hmm... that seems like a good idea! I'll drop them an email to check.
 					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]No problem, better safe than sorry.[/url]?>[/right]
@@ -77,6 +79,7 @@ func interact() -> void:
 					Utils.dialog_part(
 					"""
 					[b]John[/b]
+					
 					You're right, I'd better do it quickly. Let's see... that's strange, the website looks a little different from usual, but I guess it's been a while.
 					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]... ?[/url]?>[/right]
@@ -93,6 +96,7 @@ func interact() -> void:
 					Utils.dialog_part(
 						"""
 						[b]John[/b]
+						
 						Hey, its you again! Thanks for your help! I managed to avoid falling for a phishing email thanks to you.
 						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]No problem, I was glad to be of help.[/url]?>[/right]
@@ -109,24 +113,27 @@ func interact() -> void:
 					Utils.dialog_part(
 						"""
 						[b]John[/b]
+						
 						I should download the PDF file to check if I did it correctly as well. Huh? My antivirus says its not safe... what's going on?
 						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$wrong3]... ![/url]?>[/right]
 						"""
 					),
 				"$wrong3":
-				Utils.dialog_part(
-					"""
-					[b]John[/b]
-					Oh well, I'll just submit my password.
-					
-					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$wrong4]Hold on! That might have been a phishing email![/url]?>[/right]
-					"""
+					Utils.dialog_part(
+						"""
+						[b]John[/b]
+						
+						Oh well, I'll just submit my password.
+						
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$wrong4]Hold on! That might have been a phishing email![/url]?>[/right]
+						"""
 					),
 				"$wrong4":
 					Utils.dialog_part(
 						"""
 						[b]John[/b]
+						
 						What!? But I already gave them my password... Oh no... Could you help me inform the IT department?
 						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]OK.[/url]?>[/right]
@@ -145,6 +152,7 @@ func interact() -> void:
 					Utils.dialog_part(
 						"""
 						[b]John[/b]
+						
 						Have you informed the IT department? Please help me do so... I hope nothing bad happens...
 						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]OK.[/url]?>[/right]
@@ -161,6 +169,7 @@ func interact() -> void:
 					Utils.dialog_part(
 						"""
 						[b]John[/b]
+						
 						What did they tell you? I should [b]change my password[/b] and [b]run an antivirus scan[/b]?
 						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next]Thankfully we reported it quickly.[/url]?>[/right]
@@ -170,6 +179,7 @@ func interact() -> void:
 					Utils.dialog_part(
 						"""
 						[b]John[/b]
+						
 						No kidding... Falling for a phishing email is really scary. I should have paid more attention to the [b]posters at the back of the office[/b]...
 						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end:wrong]Posters? Maybe I should check them out myself.[/url]?>[/right]
@@ -189,6 +199,7 @@ func interact() -> void:
 					Utils.dialog_part(
 						"""
 						[b]John[/b]
+						
 						Did you check those posters out? I hope I don't fall for another phishing email...
 						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]I hope so too.[/url]?>[/right]

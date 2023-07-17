@@ -115,4 +115,19 @@ func interact() -> void:
 					),
 			},
 			"socialengineering"
-
+		)
+	elif state == 2:
+		hud.show_dialog(
+			"phishingemail2",
+			{
+				"$begin":
+					Utils.dialog_part(
+						"""
+						[b]Caren[/b]
+						
+						
+						"""
+					)
+			},
+			"socialengineering"
+		)
