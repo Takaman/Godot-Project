@@ -1,10 +1,9 @@
 from flask import Flask, request, json, jsonify, g
-import sqlite3, string, random, csv
 from datetime import datetime
 from flask_mail import Mail, Message
 from jwt import decode, InvalidSignatureError
 import mysql.connector
-import requests
+import requests, string, random, csv
 
 #Initialise the Nakama client
 
@@ -12,7 +11,7 @@ app = Flask(__name__)
 app.secret_key="your_secret_Key"
 
 #Nakama connection config
-nakama_server_url = "localhost:7350"
+nakama_server_url = "http://localhost:7350"
 
 #MySQL connection config
 mysql_host = 'localhost'
@@ -224,10 +223,12 @@ def ep_update_score():
         if conn is None:
             return jsonify({"error": "Failed to connect to MySQL"})
         try:
-
             cursor = conn.cursor()
             #cursor.execute("UPDATE PlayerProgress SET points = ? , comp_rate = ?, last_played = DateTime('now', 'localtime'), se_completed = ?, se_correct = ?, policy_correct = ?, policy_completed = ?, breakdown = ? WHERE username = ?", (score,comp_rate, se_completed, se_correct, policy_correct, policy_completed, breakdown, email))
-            cursor.execute("UPDATE PlayerProgress SET points = %s, comp_rate = %s, last_played = NOW(), se_completed = %s, se_correct = %s, policy_correct = %s, policy_completed = %s, breakdown = %s WHERE username = %s", (score, comp_rate, se_completed, se_correct, policy_correct, policy_completed, breakdown, email))
+            if comp_rate == 100:
+                cursor.execute("UPDATE PlayerProgress SET points = %s, comp_rate = %s, comp_date= NOW() ,last_played = NOW(), se_completed = %s, se_correct = %s, policy_correct = %s, policy_completed = %s, breakdown = %s WHERE username = %s", (score, comp_rate, se_completed, se_correct, policy_correct, policy_completed, breakdown, email))
+            else:
+                cursor.execute("UPDATE PlayerProgress SET points = %s, comp_rate = %s, last_played = NOW(), se_completed = %s, se_correct = %s, policy_correct = %s, policy_completed = %s, breakdown = %s WHERE username = %s", (score, comp_rate, se_completed, se_correct, policy_correct, policy_completed, breakdown, email))
             conn.commit()
             return "Player score updated successfully"
         
@@ -305,7 +306,7 @@ def ep_Generate_report():
             return jsonify({"error": "Failed to connect to MySQL"})
         try:
             cursor = conn.cursor()
-            cursor.execute(f"SELECT name,username,company,date_joined,points,comp_rate,last_played, accountStatus FROM PlayerProgress ") # TODO CHANGE TO PREPARED STATEMENTS
+            cursor.execute(f"SELECT name,username,company,date_joined,points,comp_rate,last_played,comp_date, accountStatus FROM PlayerProgress WHERE company!='Admin'")
             users = cursor.fetchall()
         
         except mysql.connector.Error as error:
@@ -323,7 +324,7 @@ def ep_Generate_report():
         print("Creating file..."+csv_name)
         with open("static_csv/"+csv_name,"x") as file:
             writer = csv.writer(file, dialect='excel')
-            field = ["Name", "Email","Company", "Date Joined", "Score","Completion Rate (%)","Last Played", "Account Status"]
+            field = ["Name", "Email","Company", "Date Joined", "Score","Completion Rate (%)","Last Played","Completed On", "Account Status"]
             writer.writerow(field)
             for user in users:
                 writer.writerow(user)
@@ -489,7 +490,7 @@ def ep_Get_Leader_Player():
         try:
 
             cursor = conn.cursor()
-            cursor.execute("SELECT username, name, points FROM PlayerProgress WHERE company = ? and accountStatus = 'Active' ORDER BY points DESC", (company,))
+            cursor.execute("SELECT username, name, points FROM PlayerProgress WHERE company = ? and accountStatus = 'Active'ORDER BY points DESC", (company,))
             board = cursor.fetchall()
             print(f"Found {str(len(board))} results.")
             # send back json reply
@@ -526,7 +527,7 @@ def ep_Get_Leader_All():
             return jsonify({"error": "Failed to connect to MySQL"})
         try:
             cursor = conn.cursor()
-            cursor.execute("SELECT name, username, company, points , comp_rate FROM PlayerProgress WHERE accountStatus = 'Active' ORDER BY points DESC")
+            cursor.execute("SELECT name, username, company, points , comp_rate FROM PlayerProgress WHERE accountStatus = 'Active' and company!='Admin' ORDER BY points DESC")
             board = cursor.fetchall()
             if board is None:
                 return jsonify({"error": "No player leaderboard found"})

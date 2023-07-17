@@ -63,8 +63,8 @@ func interact() -> void:
 						Thanks!
 						Microsoft Account Team
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$garyclick:correct]Looks like a real [/url]?>[/right]
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$garynoclick]I think you should check with the bank.[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$garyclick:correct]You should probably check your recent activity.[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$garynoclick]I think you should check with Microsoft.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Give me some time to think about it.[/url]?>[/right]
 						"""
 					),
@@ -73,6 +73,8 @@ func interact() -> void:
 						"""
 						[b]Gary[/b]
 						
+						I should. I hope my account didn't get compromised.
+						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Go for it.[/url]?>[/right]
 						"""
 					),
@@ -80,6 +82,8 @@ func interact() -> void:
 					Utils.dialog_part(
 						"""
 						[b]Gary[/b]
+						
+						That's a good idea. Come talk to me again in a bit.
 						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Ok.[/url]?>[/right]
 						"""
