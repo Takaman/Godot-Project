@@ -224,10 +224,12 @@ def ep_update_score():
         if conn is None:
             return jsonify({"error": "Failed to connect to MySQL"})
         try:
-
             cursor = conn.cursor()
             #cursor.execute("UPDATE PlayerProgress SET points = ? , comp_rate = ?, last_played = DateTime('now', 'localtime'), se_completed = ?, se_correct = ?, policy_correct = ?, policy_completed = ?, breakdown = ? WHERE username = ?", (score,comp_rate, se_completed, se_correct, policy_correct, policy_completed, breakdown, email))
-            cursor.execute("UPDATE PlayerProgress SET points = %s, comp_rate = %s, last_played = NOW(), se_completed = %s, se_correct = %s, policy_correct = %s, policy_completed = %s, breakdown = %s WHERE username = %s", (score, comp_rate, se_completed, se_correct, policy_correct, policy_completed, breakdown, email))
+            if comp_rate == 100:
+                cursor.execute("UPDATE PlayerProgress SET points = %s, comp_rate = %s, comp_date= NOW() ,last_played = NOW(), se_completed = %s, se_correct = %s, policy_correct = %s, policy_completed = %s, breakdown = %s WHERE username = %s", (score, comp_rate, se_completed, se_correct, policy_correct, policy_completed, breakdown, email))
+            else:
+                cursor.execute("UPDATE PlayerProgress SET points = %s, comp_rate = %s, last_played = NOW(), se_completed = %s, se_correct = %s, policy_correct = %s, policy_completed = %s, breakdown = %s WHERE username = %s", (score, comp_rate, se_completed, se_correct, policy_correct, policy_completed, breakdown, email))
             conn.commit()
             return "Player score updated successfully"
         
