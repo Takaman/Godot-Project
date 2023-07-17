@@ -4,6 +4,8 @@ extends Sprite2D
 @onready var marker := get_node("marker")
 @onready var state = -1
 
+signal IT_Guy_Caren
+
 func _on_hud_partsignaller():
 	if hud.part_name == "$carenoclick":
 		if state == 0:
@@ -81,7 +83,7 @@ func interact() -> void:
 						"""
 						[b]Caren[/b]
 						
-						You're right, I'd better do it quickly. Let's see... that's strange, the website looks a little different from usual, but I guess it's been a while.
+						You're right, I'd better do it quickly. Hm? This website looks kinda different from before.
 						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]...?[/url]?>[/right]
 						"""
@@ -125,7 +127,39 @@ func interact() -> void:
 						"""
 						[b]Caren[/b]
 						
+						Let's see... my username and password... new password... done.
 						
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$carennext]Wait! Can you check the URL of the website?[/url]?>[/right]
+						"""
+					),
+				"$carennext":
+					Utils.dialog_part(
+						"""
+						[b]Caren[/b]
+						
+						Is there something wrong? Let's see... the URL I'm currently on is [u]placeholder url[/u]. Oh. That doesn't look right.
+						
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$carennext2]That might have been a phishing link...[/url]?>[/right]
+						"""
+					),
+				"$carennext2":
+					Utils.dialog_part(
+						"""
+						[b]Caren[/b]
+						
+						I already submitted my credentials... what should I do now? I'm gonna get into trouble...
+						
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$carennext3]You should check with the IT department.[/url]?>[/right]
+						"""
+					),
+				"$carennext3":
+					Utils.dialog_part(
+						"""
+						[b]Caren[/b]
+						
+						That's a good idea. Can you help me ask the IT staff on this floor what to do?
+						
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Ok.[/url]?>[/right]
 						"""
 					)
 			},
