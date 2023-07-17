@@ -18,6 +18,7 @@ func interact() -> void:
 			Utils.dialog_part(
 				"""
 				[b]Sam[/b]
+				
 				Theres been a lot of phishing attacks nowadays, we all need to stay vigilant.
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$more]Can you tell me more about phishing?[/url]?>[/right]
@@ -27,6 +28,7 @@ func interact() -> void:
 				Utils.dialog_part(
 				"""
 				[b]Sam[/b]
+				
 				Sure. Someone pretends to be a person you trust to trick you into revealing information or downloading a virus.
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$address]What's the email domain this company uses?[/url]?>[/right]
@@ -37,6 +39,7 @@ func interact() -> void:
 				Utils.dialog_part(
 				"""
 				[b]Sam[/b]
+				
 				Our company's email domain is @itpgrp11.com. 
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end:correct]I see, thanks for the info.[/url]?>[/right]
@@ -55,6 +58,7 @@ func interact_ontouch() -> void:
 			Utils.dialog_part(
 				"""
 				[b]Sam[/b]
+				
 				Welcome to the finance department! We'd like your help to look through some emails we've been receiving.
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next]Is there a problem?[/url]?>[/right]
@@ -64,6 +68,7 @@ func interact_ontouch() -> void:
 				Utils.dialog_part(
 				"""
 				[b]Sam[/b]
+				
 				We've been receiving a lot of strange emails lately. I have a feeling a number of them are phishing emails.
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Alright, I'll help.[/url]?>[/right]

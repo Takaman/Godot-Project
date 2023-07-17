@@ -56,7 +56,7 @@ func interact() -> void:
 	if Score.get_result("phishingemail1", "socialengineering") == 1:
 		dialogue = dialogue.replace("John's Email <#[INCOMPLETE]#>", "John's Email <~[CORRECT]~>")
 	elif Score.get_result("phishingemail1", "socialengineering") == 2:
-		dialogue = dialogue.replace("John's Email <#[INCOMPLETE]#>", "John's Email <![WRONG]!>]")
+		dialogue = dialogue.replace("John's Email <#[INCOMPLETE]#>", "John's Email <![WRONG]!>")
 
 	hud.show_dialog(
 		"hints",
