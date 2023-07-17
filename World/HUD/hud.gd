@@ -16,9 +16,6 @@ extends CanvasLayer
 @onready var sound_door = $soundDoor
 
 
-@onready var progress = $"../Progress"
-
-
 const BOTTOM_PANEL_INSIDE_Y := 230
 const BOTTOM_PANEL_OUTSIDE_Y := 500
 const BOTTOM_PANEL_SLIDE_DURATION := 0.5
@@ -47,10 +44,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if dialogue_big.visible == true or player_input.visible == true:
-		progress.visible = false
-	else:
-		progress.visible = true
 	pass
 
 func _input(event: InputEvent) -> void:
@@ -78,7 +71,6 @@ func _close_panel() -> void:
 	dialogue_big.hide()
 	print("emit signals")
 	dialogue_big.visible = false
-	progress.visible=true
 	emit_signal("dialogue_closed")
 
 func _next_panel_part(part: String) -> void:
@@ -157,13 +149,10 @@ func show_dialog(interaction: String, content: Dictionary, phase: String) -> voi
 	dialogue_big.visible = true
 	dialogue_big.show()
 	emit_signal("dialogue_opened")
-	
-	progress.visible=false
 
 func show_player_input() -> void:
 	print("showing input box")
 	emit_signal("input_opened")
-	progress.visible=false
 	player_input.visible = true
 	player_input.show()
 
@@ -173,7 +162,6 @@ func close_player_input() -> void:
 	player_input.hide()
 	print("emit signals")
 	player_input.visible = false
-	progress.visible=true
 
 func _on_player_input_text_submitted(new_text):
 	player_input_text = new_text

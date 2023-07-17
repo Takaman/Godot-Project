@@ -34,12 +34,12 @@ func dialog_part(text: String) -> String:
 	text = text.replace("<?", "[color=#194afc]")
 	text = text.replace("?>", "[/color]")
 	
-	#Gray Colour
-	text = text.replace("<#", "[color=#888]")
+	#Orange Colour
+	text = text.replace("<#", "[color=#e48400]")
 	text = text.replace("#>", "[/color]")
 	
 	#Green colour and wave effect
-	text = text.replace("<~", "[color=#0d0][wave]")
+	text = text.replace("<~", "[color=#2e8b57][wave]")
 	text = text.replace("~>", "[/wave][/color]")
 
 	text = text.dedent()
