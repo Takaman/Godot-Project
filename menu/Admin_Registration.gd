@@ -82,6 +82,8 @@ func _on_register_btn_button_down():
 	else:
 		result = x.get_exception().status_code
 		var e = x.get_exception().message
+		if(e=="Invalid credentials."):
+			e="User exits."
 		$ErrorLbl.text=e
 	
 
