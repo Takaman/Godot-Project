@@ -5,32 +5,58 @@ extends CanvasLayer
 func interact() -> void:
 	print("interaction started")
 	var dialogue = """
-		<<Hints>>
-		1) Caren's Email [right]<![INCOMPLETE]!>[/right]
-		2) Danny's Email [right]<![INCOMPLETE]!>[/right]
-		3) Elen's Email [right]<![INCOMPLETE]!>[/right]
-		4) Frank's Email [right]<![INCOMPLETE]!>[/right]
-		5) Gary's Email [right]<![INCOMPLETE]!>[/right]
-		6) Haley's Email [right]<![INCOMPLETE]!>[/right]
-		7) John's Email [right]<![INCOMPLETE]!>[/right]
+
+		[center] 1) Caren's Email <#[INCOMPLETE]#> [/center]
+		
+		[center] 2) Danny's Email <#[INCOMPLETE]#> [/center]
+		
+		[center] 3) Elen's Email <#[INCOMPLETE]#> [/center]
+		
+		[center] 4) Frank's Email <#[INCOMPLETE]#> [/center]
+		
+		[center] 5) Gary's Email <#[INCOMPLETE]#> [/center]
+		
+		[center] 6) Haley's Email <#[INCOMPLETE]#> [/center]
+		
+		[center] 7) John's Email <#[INCOMPLETE]#> [/center]
 		
 		[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 	"""
 	
-	if Score.get_has_correct("phishingemail2", "socialengineering"):
-		dialogue = dialogue.replace("Caren's Email [right]<![INCOMPLETE]!>[/right]", "Caren's Email [right]<~[COMPLETED]~>[/right]")
-	if Score.get_has_correct("phishingemail3", "socialengineering"):
-		dialogue = dialogue.replace("Danny's Email [right]<![INCOMPLETE]!>[/right]", "Danny's Email [right]<~[COMPLETED]~>[/right]")
-	if Score.get_has_correct("realemail1", "socialengineering"):
-		dialogue = dialogue.replace("Elen's Email [right]<![INCOMPLETE]!>[/right]", "Elen's Email [right]<~[COMPLETED]~>[/right]")
-	if Score.get_has_correct("realemail2", "socialengineering"):
-		dialogue = dialogue.replace("Frank's Email [right]<![INCOMPLETE]!>[/right]", "Frank's Email [right]<~[COMPLETED]~>[/right]")
-	if Score.get_has_correct("realemail3", "socialengineering"):
-		dialogue = dialogue.replace("Gary's Email [right]<![INCOMPLETE]!>[/right]", "Gary's Email [right]<~[COMPLETED]~>[/right]")
-	if Score.get_has_correct("realemail4", "socialengineering"):
-		dialogue = dialogue.replace("Haley's Email [right]<![INCOMPLETE]!>[/right]", "Haley's Email [right]<~[COMPLETED]~>[/right]")
-	if Score.get_has_correct("phishingemail1", "socialengineering"):
-		dialogue = dialogue.replace("John's Email [right]<![INCOMPLETE]!>[/right]", "John's Email [right]<~[COMPLETED]~>[/right]")
+	if Score.get_result("phishingemail2", "socialengineering") == 1:
+		dialogue = dialogue.replace("Caren's Email <#[INCOMPLETE]#>", "Caren's Email <~[CORRECT]~>")
+	elif Score.get_result("phishingemail2", "socialengineering") == 2:
+		dialogue = dialogue.replace("Caren's Email <#[INCOMPLETE]#>", "Caren's Email <![WRONG]!>")
+	
+	if Score.get_result("phishingemail3", "socialengineering") == 1:
+		dialogue = dialogue.replace("Danny's Email <#[INCOMPLETE]#>", "Danny's Email <~[CORRECT]~>")
+	elif Score.get_result("phishingemail3", "socialengineering") == 2:
+		dialogue = dialogue.replace("Danny's Email <#[INCOMPLETE]#>", "Danny's Email <![WRONG]!>")
+	
+	if Score.get_result("realemail1", "socialengineering") == 1:
+		dialogue = dialogue.replace("Elen's Email <#[INCOMPLETE]#>", "Elen's Email <~[CORRECT]~>")
+	elif Score.get_result("realemail1", "socialengineering") == 2:
+		dialogue = dialogue.replace("Elen's Email <#[INCOMPLETE]#>", "Elen's Email <![WRONG]!>")
+	
+	if Score.get_result("realemail2", "socialengineering") == 1:
+		dialogue = dialogue.replace("Frank's Email <#[INCOMPLETE]#>", "Frank's Email <~[CORRECT]~>")
+	elif Score.get_result("realemail2", "socialengineering") == 2:
+		dialogue = dialogue.replace("Frank's Email <#[INCOMPLETE]#>", "Frank's Email <![WRONG]!>")
+	
+	if Score.get_result("realemail3", "socialengineering") == 1:
+		dialogue = dialogue.replace("Gary's Email <#[INCOMPLETE]#>", "Gary's Email [<~[CORRECT]~>")
+	elif Score.get_result("realemail3", "socialengineering") == 2:
+		dialogue = dialogue.replace("Gary's Email <#[INCOMPLETE]#>", "Gary's Email <![WRONG]!>")
+	
+	if Score.get_result("realemail4", "socialengineering") == 1:
+		dialogue = dialogue.replace("Haley's Email <#[INCOMPLETE]#>", "Haley's Email <~[CORRECT]~>")
+	elif Score.get_result("realemail4", "socialengineering") == 2:
+		dialogue = dialogue.replace("Haley's Email <#[INCOMPLETE]#>", "Haley's Email <![WRONG]!>")
+	
+	if Score.get_result("phishingemail1", "socialengineering") == 1:
+		dialogue = dialogue.replace("John's Email <#[INCOMPLETE]#>", "John's Email <~[CORRECT]~>")
+	elif Score.get_result("phishingemail1", "socialengineering") == 2:
+		dialogue = dialogue.replace("John's Email <#[INCOMPLETE]#>", "John's Email <![WRONG]!>]")
 
 	hud.show_dialog(
 		"hints",
