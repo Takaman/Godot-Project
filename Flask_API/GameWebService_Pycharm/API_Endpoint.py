@@ -149,7 +149,7 @@ def ep_InitPlayer():
         try:
 
             cursor = conn.cursor()
-            cursor.execute("INSERT INTO PlayerProgress (username, name, company, date_joined, points, comp_rate, last_played, accountStatus) VALUES (%s, %s, %s, NOW(), 0, 0, '-', 'Active')", (email, name, company))
+            cursor.execute("INSERT INTO PlayerProgress (username, name, company, date_joined, points, comp_rate, last_played, accountStatus) VALUES (%s, %s, %s,  CONVERT_TZ(now(),'+00:00','+08:00'), 0, 0, '-', 'Active')", (email, name, company))
             conn.commit()
             return "Player initialized successfully"
         
@@ -226,9 +226,9 @@ def ep_update_score():
             cursor = conn.cursor()
             #cursor.execute("UPDATE PlayerProgress SET points = ? , comp_rate = ?, last_played = DateTime('now', 'localtime'), se_completed = ?, se_correct = ?, policy_correct = ?, policy_completed = ?, breakdown = ? WHERE username = ?", (score,comp_rate, se_completed, se_correct, policy_correct, policy_completed, breakdown, email))
             if comp_rate == 100:
-                cursor.execute("UPDATE PlayerProgress SET points = %s, comp_rate = %s, comp_date= NOW() ,last_played = NOW(), se_completed = %s, se_correct = %s, policy_correct = %s, policy_completed = %s, breakdown = %s WHERE username = %s", (score, comp_rate, se_completed, se_correct, policy_correct, policy_completed, breakdown, email))
+                cursor.execute("UPDATE PlayerProgress SET points = %s, comp_rate = %s, comp_date=  CONVERT_TZ(now(),'+00:00','+08:00') ,last_played =  CONVERT_TZ(now(),'+00:00','+08:00'), se_completed = %s, se_correct = %s, policy_correct = %s, policy_completed = %s, breakdown = %s WHERE username = %s", (score, comp_rate, se_completed, se_correct, policy_correct, policy_completed, breakdown, email))
             else:
-                cursor.execute("UPDATE PlayerProgress SET points = %s, comp_rate = %s, last_played = NOW(), se_completed = %s, se_correct = %s, policy_correct = %s, policy_completed = %s, breakdown = %s WHERE username = %s", (score, comp_rate, se_completed, se_correct, policy_correct, policy_completed, breakdown, email))
+                cursor.execute("UPDATE PlayerProgress SET points = %s, comp_rate = %s, last_played =  CONVERT_TZ(now(),'+00:00','+08:00'), se_completed = %s, se_correct = %s, policy_correct = %s, policy_completed = %s, breakdown = %s WHERE username = %s", (score, comp_rate, se_completed, se_correct, policy_correct, policy_completed, breakdown, email))
             conn.commit()
             return "Player score updated successfully"
         
@@ -319,7 +319,7 @@ def ep_Generate_report():
         print("No. of fetched player records..." + str(len(users)))
 
 
-        now = datetime.now()
+        now = datetime.CONVERT_TZ(now(),'+00:00','+08:00')
         csv_name = f"""{now.strftime("%Y_%m_%d,%H_%M_%S")}-PlayerStats.csv"""
         print("Creating file..."+csv_name)
         with open("static_csv/"+csv_name,"x") as file:
