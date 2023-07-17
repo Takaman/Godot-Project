@@ -1,4 +1,4 @@
-[gd_scene load_steps=271 format=3 uid="uid://ndj2inv5qle0"]
+[gd_scene load_steps=270 format=3 uid="uid://ndj2inv5qle0"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_5nmgp"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_ee5eg"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://b58863uore5pb" path="res://World/foodcourt1/movingcharacter/blackshirtguy/blackshirtguy.png" id="11_vnk2b"]
 [ext_resource type="Script" path="res://World/foodcourt1/movingcharacter/blackshirtguy/blackshirtguy.gd" id="11_y3l8t"]
 [ext_resource type="PackedScene" uid="uid://duiqkx067jd7i" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="11_yvexh"]
-[ext_resource type="Script" path="res://World/foodcourt1/timer.gd" id="12_ohy1x"]
 [ext_resource type="Texture2D" uid="uid://qno1eyxd0jrw" path="res://World/foodcourt1/movingcharacter/greyshirtguy/greyshirtguy.png" id="12_qt28i"]
 [ext_resource type="Script" path="res://World/foodcourt1/movingcharacter/greyshirtguy/greyshirtguy.gd" id="13_2mml2"]
 [ext_resource type="Texture2D" uid="uid://r7no677hi631" path="res://World/foodcourt1/movingcharacter/yellowhairgirl/yellowhairgirl.png" id="13_bg715"]
@@ -9750,21 +9749,6 @@ shape = SubResource("CircleShape2D_7ya2a")
 
 [node name="HUD" parent="." instance=ExtResource("7_o8174")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="TextDisplayer" type="RichTextLabel" parent="CanvasLayer"]
-offset_left = 333.0
-offset_top = 17.0
-offset_right = 373.0
-offset_bottom = 57.0
-theme_override_font_sizes/normal_font_size = 7
-text = "asa"
-script = ExtResource("12_ohy1x")
-
-[node name="ms" type="Timer" parent="CanvasLayer/TextDisplayer"]
-wait_time = 0.1
-autostart = true
-
 [node name="Progress" type="CanvasLayer" parent="."]
 script = ExtResource("14_5bf73")
 
@@ -11309,7 +11293,6 @@ shape = SubResource("RectangleShape2D_wathh")
 [connection signal="partsignaller" from="HUD" to="WhitewallsGantryEnter" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="Elevator" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="Computer-whitebase2" method="_on_hud_partsignaller"]
-[connection signal="timeout" from="CanvasLayer/TextDisplayer/ms" to="CanvasLayer/TextDisplayer" method="_on_ms_timeout"]
 [connection signal="pressed" from="Progress/Button" to="Progress" method="_on_button_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

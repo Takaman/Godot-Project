@@ -22,6 +22,10 @@ func wrong() -> void:
 	if get_node("Sprite2D") is Node:
 		get_node("Sprite2D").texture = load("res://World/Actors/IsInteractable/wrong.png")
 		
+func reset() -> void:
+	if get_node("Sprite2D") is Node:
+		get_node("Sprite2D").texture = load("res://World/Actors/IsInteractable/redo7-resize2.png")
+		
 func in_progress() -> void:
 	if get_node("Sprite2D") is Node:
 		get_node("Sprite2D").texture = load("res://World/Actors/IsInteractable/in_prog.png")
