@@ -5,7 +5,16 @@ extends Sprite2D
 @onready var state = -1
 
 func _on_hud_partsignaller():
-	pass # Replace with function body.
+	if hud.part_name == "$carenoclick":
+		if state == 0:
+			state = 1
+		if marker != null and marker is Node:
+			marker.remove_mark()
+	elif hud.part_name == "$carenclick":
+		if state == 0:
+			state = 2
+		if marker != null and marker is Node:
+			marker.in_progress()
 
 func _physics_process(delta: float) -> void:
 	if Score.get_result("phishingemail2","socialengineering") != 0:
@@ -90,4 +99,20 @@ func interact() -> void:
 			},
 			"socialengineering"
 		)
+	elif state == 1:
+		hud.show_dialog(
+			"phishingemail2",
+			{
+				"$begin":
+					Utils.dialog_part(
+						"""
+						[b]Caren[/b]
+						
+						Oh, hi again! Guess what? The IT department said that they didn't send this email, and it's probably a phishing email. Luckily you spotted it so nothing happened!
+						
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Happy to help.[/url]?>[/right]
+						"""
+					),
+			},
+			"socialengineering"
 

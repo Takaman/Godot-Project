@@ -47,6 +47,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if dialogue_big.visible == true or player_input.visible == true:
+		progress.visible = false
+	else:
+		progress.visible = true
 	pass
 
 func _input(event: InputEvent) -> void:
@@ -159,6 +163,7 @@ func show_dialog(interaction: String, content: Dictionary, phase: String) -> voi
 func show_player_input() -> void:
 	print("showing input box")
 	emit_signal("input_opened")
+	progress.visible=false
 	player_input.visible = true
 	player_input.show()
 
@@ -168,6 +173,7 @@ func close_player_input() -> void:
 	player_input.hide()
 	print("emit signals")
 	player_input.visible = false
+	progress.visible=true
 
 func _on_player_input_text_submitted(new_text):
 	player_input_text = new_text

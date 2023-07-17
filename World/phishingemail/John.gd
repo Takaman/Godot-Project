@@ -180,7 +180,7 @@ func interact() -> void:
 		)
 		if marker != null and marker is Node:
 			marker.remove_mark()
-		state == 5
+		state = 5
 	elif state == 5:
 		hud.show_dialog(
 			"phishingemail1",
@@ -208,6 +208,6 @@ func _physics_process(delta: float) -> void:
 		if marker != null and marker is Node:
 				marker.visible = false
 	if Score.get_result("phishingemail1","socialengineering") == 1: #if result is correct
-		state == 1
+		state = 1
 	elif Score.get_result("phishingemail1","socialengineering") == 2: #if result is wrong
-		state == 5
+		state = 5
