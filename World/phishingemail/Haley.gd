@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 
 func interact() -> void:
 	print("interaction started")
-	if state == -1:
+	if state == -1 or state == 0:
 		state = 0
 		hud.show_dialog(
 			"realemail4",
