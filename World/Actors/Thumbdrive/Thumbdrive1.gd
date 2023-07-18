@@ -7,6 +7,7 @@ extends Sprite2D
 func _ready():
 	#interactable.reset()
 	interactable.correct()
+	interactable.visible  = false
 	pass
 	
 func interact() -> void:
@@ -21,7 +22,8 @@ func interact() -> void:
 				
 				[center][img=50x50]res://World/Actors/Thumbdrive/thumdrive.jpg[/img][/center]
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$insert:wrong]Insert into your computer and check whose the owner[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$insert:wrong]Ignore it and leave it where it is.[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$insert:wrong]Insert into your computer and check whose the owner.[/url]?>[/right]
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$pass:correct]Pass the thumbdrive to the IT security team[/url]?>[/right]
 				
 				"""
@@ -31,7 +33,9 @@ func interact() -> void:
 				"""
 				Inserting thumbdrive........ <! Your Computer has been compromised! !>
 				
-				USB drives can carry malware, which can infect your computer when plugged in. Always make sure you know where a thumbdrive comes from before using it
+				USB drives can carry malware, which can infect your computer when plugged in.
+				
+				Always make sure you know where a thumbdrive comes from before using it
 				
 				This attack is known as "USB drop attacks". 
 				
@@ -44,9 +48,11 @@ func interact() -> void:
 			"$pass":
 				Utils.dialog_part(
 				"""
-				Excellent choice! You have avoided potential malware infection by not plugging an unknown thumbdrive into your computer. 
+				Excellent choice!
 				
-				Remember, USB drives can carry malware. Always make sure you know where a thumbdrive comes from before using it. When in doubt, consult with your IT security team
+				Remember, USB drives can carry malware. 
+				
+				Always make sure you know where a thumbdrive comes from before using it. When in doubt, consult with your IT security team.
 				
 				To learn more visit this link.
 				[center]<#[url=https://www.redteamsecure.com/blog/usb-drop-attacks-the-danger-of-lost-and-found-thumb-drives]Click here to learn more. [/url]#>[/center]
@@ -66,4 +72,9 @@ func _on_area_2d_area_entered(area):
 
 func _physics_process(delta: float) -> void:
 	if interactable!= null and interactable is Node:
-		interactable.visible  = Score.get_has_correct("thumbdrive1","socialengineering")
+		if Score.get_result("thumbdrive1","socialengineering") == 1:
+			interactable.correct()
+			interactable.visible  = true
+		if Score.get_result("thumbdrive1","socialengineering") == 2:
+			interactable.visible  = true
+			interactable.reset()

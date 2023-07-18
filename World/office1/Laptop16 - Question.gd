@@ -7,6 +7,7 @@ extends Sprite2D
 
 func _ready():
 	interactable.correct()
+	interactable.visible = false
 	pass
 
 func interact() -> void:
@@ -18,7 +19,8 @@ func interact() -> void:
 				"$begin":
 					Utils.dialog_part(
 						"""
-						[b]Alice[/b]
+						[b]Emily[/b]
+						
 						I've lately been getting these annoying random popups on my windows. What is wrong?
 						
 						[center][img=100x100]res://World/office1/images/Question/adware.png[/img][/center]
@@ -31,18 +33,20 @@ func interact() -> void:
 					"$help":
 						Utils.dialog_part(
 							"""
-							[b]Alice[/b]
+							[b]Emily[/b]
+							
 							Yes! I've installed this third party toolbar and its really useful for my to translate my items!
 							
 							
-							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$help2]It might be a common malware called "Adware" Uninstall the toolbar immediately and run a virus scan on your computer[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$help2]It might be a common malware called "Adware". Uninstall the toolbar immediately.[/url]?>[/right]
 							"""
 							
 						),
 					"$nohelp":
 						Utils.dialog_part(
 							"""
-							[b]Alice[/b]
+							[b]Emily[/b]
+							
 							Okay, then can I request a new computer from the IT department? This PC must be spoiled!
 							
 							
@@ -52,11 +56,12 @@ func interact() -> void:
 					"$help2":
 						Utils.dialog_part(
 							"""
-							[b]Alice[/b]
+							[b]Emily[/b]
+							
 							Wow, that seemed to work! The ads are no longer randomly appearing on my screen! Thanks alot for your help
 							
 							
-							[right]That's right, be careful when installing third party tools. Click on the link to find out more![/right]
+							[right]That's right, be careful when installing third party tools.[/right]
 							
 							[center]<#[url=https://www.kaspersky.com/resource-center/threats/adware] Click here to learn more.[/url]#>[/center]
 							
@@ -75,5 +80,10 @@ func _on_area_2d_area_entered(area):
 
 func _physics_process(delta: float) -> void:
 	if interactable!= null and interactable is Node:
-		interactable.visible  = Score.get_has_correct("laptop16","malware")
+		if Score.get_result("laptop16","malware") == 1:
+			interactable.correct()
+			interactable.visible  = true
+		if Score.get_result("laptop16","malware") == 2:
+			interactable.visible  = true
+			interactable.reset()
 	

@@ -19,17 +19,20 @@ func interact() -> void:
 				Utils.dialog_part(
 					"""
 					[b]Joe[/b]
+					
 					What? Our company is implementing a new password policy? Well, I think my current password [i]hunter2[/i] is really strong.
 					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$changepass]I think you need a new password.[/url]?>[/right]
+					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochangepass:wrong]That password is pretty strong.[/url]?>[/right]
-					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]I see.[/url]?>[/right]
+					
 					"""
 				),
 				"$changepass":
 					Utils.dialog_part(
 					"""
 					[b]Joe[/b]
+					
 					Really? But I've been using [i]hunter2[/i] for all my accounts... in that case, could you help me come up with a new password?
 					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Of course.[/url]?>[/right]
@@ -39,9 +42,10 @@ func interact() -> void:
 					Utils.dialog_part(
 					"""
 					[b]Joe[/b]
+					
 					Of course it is! I've been using it for every account I've created!
 					
-					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Hmm... Maybe I should reconsider what I said...[/url]?>[/right]
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Maybe I should reconsider what I said...[/url]?>[/right]
 					"""
 					),
 			},

@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://ddmwhp02tpc25"]
+[gd_scene load_steps=74 format=3 uid="uid://ddmwhp02tpc25"]
 
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_kxpn7"]
 [ext_resource type="Texture2D" uid="uid://dt3beuuh7qicn" path="res://Tilemap builder/Interior/Interiors_free_16x16.png" id="3_tkjpr"]
@@ -23,7 +23,6 @@
 [ext_resource type="Script" path="res://World/Actors/Thumbdrive/InsiderThreat2.gd" id="16_sk3d3"]
 [ext_resource type="Texture2D" uid="uid://b4nf3qfe7c5y0" path="res://World/office1/images/character/Mary.png" id="17_qbbda"]
 [ext_resource type="Script" path="res://World/Actors/MessyArea/MessyArea1.gd" id="18_lecwi"]
-[ext_resource type="Texture2D" uid="uid://dla4xya6q7uei" path="res://World/office1/images/character/Tom.png" id="19_vkd58"]
 [ext_resource type="Texture2D" uid="uid://bihj2imcpwh1e" path="res://World/office1/images/purpletable.png" id="23_tae56"]
 [ext_resource type="Texture2D" uid="uid://bo1ay8tija27r" path="res://World/office1/images/sofa.png" id="24_5x4ht"]
 [ext_resource type="Texture2D" uid="uid://cwnsk1w6h02yv" path="res://World/office1/images/foood.png" id="24_dukyo"]
@@ -31,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://ju4tg5r3ptdo" path="res://World/office1/images/chairbrown.png" id="25_px7jm"]
 [ext_resource type="Texture2D" uid="uid://csh6n82pvo0h1" path="res://World/office1/images/whitesofa-left.png" id="25_rdclc"]
 [ext_resource type="Texture2D" uid="uid://biudu07ebi2vo" path="res://World/office1/images/whitesofa-right.png" id="26_r02ge"]
+[ext_resource type="Script" path="res://World/office1/ManagerMike.gd" id="28_4nnbu"]
 [ext_resource type="Texture2D" uid="uid://bpkwuttjk6jkf" path="res://World/office1/images/rectangleshapewall.png" id="28_yad2y"]
 [ext_resource type="Texture2D" uid="uid://kykyxo0nc1sy" path="res://World/office1/images/tv.png" id="32_l7tb4"]
 [ext_resource type="PackedScene" uid="uid://duiqkx067jd7i" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="33_d72if"]
@@ -40,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://e6cjid72ddfs" path="res://World/office1/images/character/Tim.png" id="38_ux8h7"]
 [ext_resource type="Script" path="res://helpers/elevator.gd" id="39_iy146"]
 [ext_resource type="Script" path="res://World/office1/ThumbdriveHint.gd" id="39_sss5t"]
+[ext_resource type="Texture2D" uid="uid://dla4xya6q7uei" path="res://World/office1/images/character/Tom.png" id="40_ixf08"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_76n35"]
 texture = ExtResource("2_kxpn7")
@@ -1570,12 +1571,15 @@ texture = ExtResource("3_tkjpr")
 10:0/0 = 0
 10:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:0/0/physics_layer_0/angular_velocity = 0.0
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
 11:0/0 = 0
 11:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:0/0/physics_layer_0/angular_velocity = 0.0
+11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, 4, -8, 4)
 12:0/0 = 0
 12:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 12:0/0/physics_layer_0/angular_velocity = 0.0
+12:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 5.5, 8, 5.5, 4, -8, 4)
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
@@ -1606,12 +1610,15 @@ texture = ExtResource("3_tkjpr")
 10:1/0 = 0
 10:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:1/0/physics_layer_0/angular_velocity = 0.0
+10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 11:1/0 = 0
 11:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:1/0/physics_layer_0/angular_velocity = 0.0
+11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
 12:1/0 = 0
 12:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 12:1/0/physics_layer_0/angular_velocity = 0.0
+12:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(5, 8, -8, 8, -8, -8, 5, -8)
 13:1/0 = 0
 13:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 13:1/0/physics_layer_0/angular_velocity = 0.0
@@ -1648,12 +1655,14 @@ texture = ExtResource("3_tkjpr")
 10:2/0 = 0
 10:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:2/0/physics_layer_0/angular_velocity = 0.0
+10:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -8, 8, -8, 8, 8, -5, 8)
 11:2/0 = 0
 11:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:2/0/physics_layer_0/angular_velocity = 0.0
 12:2/0 = 0
 12:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 12:2/0/physics_layer_0/angular_velocity = 0.0
+12:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(5, 8, -8, 8, -8, -8, 5, -8)
 13:2/0 = 0
 13:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 13:2/0/physics_layer_0/angular_velocity = 0.0
@@ -1690,12 +1699,15 @@ texture = ExtResource("3_tkjpr")
 10:3/0 = 0
 10:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:3/0/physics_layer_0/angular_velocity = 0.0
+10:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -8, 8, -8, 8, 8, -5, 8)
 11:3/0 = 0
 11:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:3/0/physics_layer_0/angular_velocity = 0.0
+11:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
 12:3/0 = 0
 12:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 12:3/0/physics_layer_0/angular_velocity = 0.0
+12:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(5, 8, -8, 8, -8, -8, 5, -8)
 13:3/0 = 0
 13:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 13:3/0/physics_layer_0/angular_velocity = 0.0
@@ -6010,8 +6022,8 @@ size = Vector2(15.5676, 22.7294)
 size = Vector2(19.8919, 34.8941)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_77f2k"]
-radius = 29.0
-height = 58.0
+radius = 20.0
+height = 42.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hw1nk"]
 size = Vector2(15, 23)
@@ -6032,8 +6044,6 @@ height = 38.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_fs41r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n73e2"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_uy2dx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fifbd"]
 size = Vector2(28.16, 26.6316)
@@ -6059,6 +6069,9 @@ size = Vector2(42, 47.9826)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_deu4a"]
 size = Vector2(32, 17)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f8nt"]
+size = Vector2(58.75, 77.6471)
+
 [node name="Office1" type="TileMap"]
 position = Vector2(-25, -2)
 tile_set = SubResource("TileSet_dpobp")
@@ -6078,7 +6091,7 @@ layer_2/modulate = Color(1, 1, 1, 1)
 layer_2/y_sort_enabled = false
 layer_2/y_sort_origin = 0
 layer_2/z_index = 0
-layer_2/tile_data = PackedInt32Array(196609, 65538, 16, 262145, 65538, 17, 196610, 131074, 16, 262146, 131074, 17, 196611, 196610, 16, 262147, 196610, 17, 196612, 262146, 16, 262148, 262146, 17, 131074, 131074, 15, 131075, 196610, 15, 327676, 720899, 1, 393212, 720899, 2, 458748, 720899, 3, 196605, 131074, 28, 262141, 131074, 29, 196606, 196610, 28, 262142, 196610, 29)
+layer_2/tile_data = PackedInt32Array(196609, 65538, 16, 262145, 65538, 17, 196610, 131074, 16, 262146, 131074, 17, 196611, 196610, 16, 262147, 196610, 17, 196612, 262146, 16, 262148, 262146, 17, 131074, 131074, 15, 131075, 196610, 15)
 script = ExtResource("6_pybxl")
 
 [node name="HUD" parent="." instance=ExtResource("33_sh7jl")]
@@ -6245,7 +6258,7 @@ shape = SubResource("RectangleShape2D_poc7k")
 
 [node name="TableFolder" type="Node2D" parent="."]
 
-[node name="InsiderThreatHint" type="Sprite2D" parent="TableFolder"]
+[node name="MessyTableHint" type="Sprite2D" parent="TableFolder"]
 z_index = 1
 position = Vector2(13, -63.75)
 scale = Vector2(1.85714, 1)
@@ -6253,14 +6266,14 @@ texture = ExtResource("10_wgdyt")
 script = ExtResource("16_sk3d3")
 metadata/_edit_group_ = true
 
-[node name="Actionable" parent="TableFolder/InsiderThreatHint" instance=ExtResource("16_5ehio")]
+[node name="Actionable" parent="TableFolder/MessyTableHint" instance=ExtResource("16_5ehio")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TableFolder/InsiderThreatHint/Actionable"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TableFolder/MessyTableHint/Actionable"]
 shape = SubResource("CapsuleShape2D_77f2k")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="TableFolder/InsiderThreatHint"]
+[node name="StaticBody2D" type="StaticBody2D" parent="TableFolder/MessyTableHint"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TableFolder/InsiderThreatHint/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TableFolder/MessyTableHint/StaticBody2D"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_hw1nk")
 
@@ -6414,19 +6427,11 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterFolder/Tim2/StaticBody2D"]
 shape = SubResource("CircleShape2D_n73e2")
 
-[node name="Tom2" type="Sprite2D" parent="CharacterFolder"]
-position = Vector2(337, 215)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("19_vkd58")
-flip_h = true
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="CharacterFolder/Tom2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterFolder/Tom2/StaticBody2D"]
-shape = SubResource("CircleShape2D_uy2dx")
-
 [node name="QuestionmarkFolder" type="Node2D" parent="."]
+
+[node name="ManagerMike" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
+z_index = 11
+position = Vector2(64, 79)
 
 [node name="Interactable2" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
 z_index = 11
@@ -6454,7 +6459,7 @@ position = Vector2(-170.875, -73)
 
 [node name="ThumbdriveHint" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
 z_index = 11
-position = Vector2(-247, 88)
+position = Vector2(-245, 83)
 
 [node name="InsiderThreat1" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
 z_index = 11
@@ -6735,21 +6740,21 @@ metadata/_edit_group_ = true
 position = Vector2(1.28001, -0.578903)
 shape = SubResource("RectangleShape2D_fifbd")
 
-[node name="Tim-Thumdrive" type="Sprite2D" parent="."]
+[node name="TimHint-Thumdrive" type="Sprite2D" parent="."]
 top_level = true
-position = Vector2(-272, 105.5)
+position = Vector2(-270, 100.5)
 scale = Vector2(0.8, 0.708333)
 texture = ExtResource("38_ux8h7")
 script = ExtResource("39_sss5t")
 
-[node name="Actionable" parent="Tim-Thumdrive" instance=ExtResource("16_5ehio")]
+[node name="Actionable" parent="TimHint-Thumdrive" instance=ExtResource("16_5ehio")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tim-Thumdrive/Actionable"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TimHint-Thumdrive/Actionable"]
 shape = SubResource("CapsuleShape2D_77f2k")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Tim-Thumdrive"]
+[node name="StaticBody2D" type="StaticBody2D" parent="TimHint-Thumdrive"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tim-Thumdrive/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TimHint-Thumdrive/StaticBody2D"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_hw1nk")
 
@@ -6791,6 +6796,26 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Laptop10/StaticBody2D"]
 position = Vector2(-0.216217, 0)
 shape = SubResource("RectangleShape2D_dbc8l")
+
+[node name="ManagerMike" type="Sprite2D" parent="."]
+top_level = true
+position = Vector2(39, 96.5)
+scale = Vector2(0.8, 0.708333)
+texture = ExtResource("40_ixf08")
+flip_h = true
+script = ExtResource("28_4nnbu")
+
+[node name="Actionable" parent="ManagerMike" instance=ExtResource("16_5ehio")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ManagerMike/Actionable"]
+position = Vector2(-19.375, 1.41177)
+shape = SubResource("RectangleShape2D_6f8nt")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ManagerMike"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ManagerMike/StaticBody2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_hw1nk")
 
 [connection signal="input_closed" from="HUD" to="LaptopFolder/Laptop3 - question" method="_on_hud_input_closed"]
 [connection signal="input_submitted" from="HUD" to="LaptopFolder/Laptop3 - question" method="_on_hud_input_submitted"]

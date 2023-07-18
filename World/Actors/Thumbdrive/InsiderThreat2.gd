@@ -3,6 +3,7 @@ extends Sprite2D
 
 @onready var hud := $"/root/Office1/HUD"
 @onready var interactable := $"/root/Office1/QuestionmarkFolder/InsiderThreatHint"
+@onready var actionable = $Actionable
 
 func _ready():
 	interactable.exclamation_mark()
@@ -11,45 +12,24 @@ func _ready():
 func interact() -> void:
 	print("interaction started")
 	hud.show_dialog(
-		"InsiderThreatHint",
+		"MessyTableHint",
 		{
 			"$begin":
 			Utils.dialog_part(
 				"""
 				[i]Sounds like they are having a conversation[/i]
 				
-				Ryan: Have you ever thought about identifying insider threats?
+				[b]Ryan[/b]: Hey Emma, have you seen Tom's desk lately? It's an absolute disaster!
 
-				Emma: Yeah, it's something organizations should be aware of. Why do you bring it up?
+				[b]Emma[/b]: Oh, you mean that mountain of papers and random objects? It's like a tornado swept through his workspace!
 
-				Ryan: I learned that changes in behavior or attitude, secretive behavior, and discontentment can be signs of an insider threat.
+				[b]Ryan[/b]: Exactly! I don't know how he finds anything in that chaos. It's a miracle if he can locate a single pen.
+				
+				[b]Emma[/b]: I can't bear to see if there's confidential documents everywhere.
 
-				Emma: Makes sense. What about unusual access patterns or excessive privileges?
-
-				Ryan: Exactly. If someone suddenly gains access to sensitive information beyond their role, it could indicate an insider threat.
-
-				Emma: And employees showing intense curiosity about confidential data?
-
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$continue][i]Continue Listening.[/i][/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end][i]I think I should check it out.[/i][/url]?>[/right]
 				"""
 			),
-		 	"$continue":
-				Utils.dialog_part(
-				"""
-				Ryan: Yes, employees excessively interested in sensitive information unrelated to their job should be monitored for potential insider threats.
-
-				Emma: What about those facing financial troubles or personal problems?
-
-				Ryan: Financial difficulties or personal crises can make employees vulnerable to insider threats. Supporting them and maintaining communication is important.
-
-				Emma: So, behavioral changes, unusual access, excessive curiosity—these are the warning signs?
-
-				Ryan: Yes, organizations should promote security awareness, provide training, and have monitoring systems in place to detect and prevent insider threats.
-				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end][i]Nothing wrong with their conversation.[/i][/url]?>[/right]
-
-				"""
-				),
 		},
 		"training"
 	)
@@ -61,5 +41,7 @@ func _on_area_2d_area_entered(area):
 		
 func _physics_process(delta: float) -> void:
 	if interactable!= null and interactable is Node:
-		interactable.visible  = !Score.get_has_correct("insiderthreat1","policy")
+		if Score.get_result("messyarea1","policy") > 0:
+			actionable.monitorable = false
+			interactable.visible  = false
 

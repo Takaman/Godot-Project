@@ -5,6 +5,7 @@ extends Sprite2D
 
 func _ready():
 	interactable.correct()
+	interactable.visible = false
 	pass
 	
 func interact() -> void:
@@ -16,37 +17,41 @@ func interact() -> void:
 			Utils.dialog_part(
 				"""
 				The table is <! really messy! !> There are food, drinks and documents all over the place!
+				
 				There are also some confidential finance documents on display. 
 				
-				What should you do?
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$leave:wrong]Leave it as it is.[/url]?>[/right]
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$leave:wrong]Leave it as it is, its the responsibility of the person who left it[/url]?>[/right]
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$report:correct]Keep the financial documents at a secure private location and report this incident to management. [/url]?>[/right]
-				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$report:correct]Keep the financial documents at a secure private location and report this incident to management.[/url]?>[/right]
 				"""
 			),
 			"$leave":
 				Utils.dialog_part(
 				"""
-				You decide to leave the desk as it is. However, a clean desk policy is crucial in preventing security breaches. 
+				You decide to leave the desk as it is. 
+				
+				However, a clean desk policy is crucial in preventing security breaches. 
+				
 				This policy ensures that all important documents and confidential letters are removed from a desk and locked away when not in use or when an employee leaves their workstation.
+				
 				Ignoring this can result in unauthorized access to the company’s information or client data
 				
+				[center]<#[url=https://blog.usecure.io/what-is-a-clean-desk-policy-and-should-my-company-have-it]Click here to learn more.[/url]#>[/center]
 				
-				To learn more about clean desk policy, visit this link.
-				[center]<#[url=https://blog.usecure.io/what-is-a-clean-desk-policy-and-should-my-company-have-it]Click here to learn more. [/url]#>[/center]
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""
 				),
 			"$report":
 				Utils.dialog_part(
 				"""
-				Good decision! You keep the financial documents at a secure private location and decide to report the incident to management. 
-				This action aligns with the clean desk policy, which is one of the strategies to reduce the risk of security breaches. 
-				It helps your company comply with industry standards of protecting important data and reduces the chance of unauthorized access to confidential information
+				Good decision!
 				
-				To learn more about clean desk policy, please visit this link.
+				This action aligns with the clean desk policy.
+				
+				Helping your company comply with industry standards of protecting important data and reduces the chance of unauthorized access to confidential information.
+				
 				[center]<#[url=https://blog.usecure.io/what-is-a-clean-desk-policy-and-should-my-company-have-it]Click here to learn more. [/url]#>[/center]
+				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""
 				),
@@ -61,5 +66,10 @@ func _on_area_2d_area_entered(area):
 		
 func _physics_process(delta: float) -> void:
 	if interactable!= null and interactable is Node:
-		interactable.visible  = Score.get_has_correct("messyarea1","policy")
+		if Score.get_result("messyarea1","policy") == 1:
+			interactable.correct()
+		interactable.visible  = true
+		if Score.get_result("messyarea1","policy") == 2:
+			interactable.visible  = true
+			interactable.reset()
 	

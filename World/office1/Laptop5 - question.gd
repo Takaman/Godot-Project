@@ -6,6 +6,7 @@ extends Sprite2D
 
 func _ready():
 	interactable.correct()
+	interactable.visible = false
 	pass
 
 func interact() -> void:
@@ -19,22 +20,40 @@ func interact() -> void:
 				Important updates are pending. The newest Windows feature update is ready to install. Would you like to initiate the download now or choose a later time?
 				
 				[center][img=180x180]res://World/office1/images/Question/Windows11Update.jpg[/img][/center]
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:correct]Yes, I'll download it right away. [/url]?>[/right]
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]No,  I'm currently busy. I'll download it next time. [/url]?>[/right]
+				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:correct]Choose a suitable time to initiate the download [/url]?>[/right]
+				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]Ignore the update and choose a later time indefinitely. [/url]?>[/right]
+				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]Initiate the download immediately. [/url]?>[/right]
+				
 				
 				"""
 			),
 			"$change":
 				Utils.dialog_part(
 				"""
-				Correct. It is a good practice to download the latest window features update. This update enhances security measures, ensuring a safer system environment.
+				Correct.
+				
+				It is a good practice to download the latest window features update.
+				
+				If you are currently working on something important or time-sensitive, 
+				it might be better to choose a later time for the update, rather than distrupting your workflow.
+				
+				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""
 				),
 			"$nochange":
 				Utils.dialog_part(
 				"""
-				That's not ideal. Without the latest Windows feature update, you become more vulnerable to data breaches, miss out on important bug fixes, new features, and risk encountering compatibility issues with software. It is strongly recommended to always keep your Windows up to date to ensure optimal security and functionality.
+				That's not ideal.
+				
+				Without the latest features/patches, you become more vulnerable to security breaches through your device.
+				
+				Also, if you initiate the download and installation immediately,
+				it might impact your work productivity as it may take hours at times.
+				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""
 				),
@@ -49,4 +68,9 @@ func _on_area_2d_area_entered(area):
 
 func _physics_process(delta: float) -> void:
 	if interactable!= null and interactable is Node:
-		interactable.visible  = Score.get_has_correct("laptop5","policy")
+		if Score.get_result("laptop5","policy") == 1:
+			interactable.correct()
+			interactable.visible  = true
+		if Score.get_result("laptop5","policy") == 2:
+			interactable.visible  = true
+			interactable.reset()

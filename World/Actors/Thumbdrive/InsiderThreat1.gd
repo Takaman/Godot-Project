@@ -6,6 +6,7 @@ extends Sprite2D
 
 func _ready():
 	interactable.correct()
+	interactable.visible = false
 	pass
 	
 func interact() -> void:
@@ -18,13 +19,13 @@ func interact() -> void:
 				"""
 				[i]Sounds like they are having a conversation[/i]
 				
-				Patrick: Hey, have you heard about the new security measures they implemented?
+				[b]Patrick[/b]: Hey, have you heard about the new security measures they implemented?
 
-				Laticia: Yeah, I heard they're really stepping up their game. Why? Do you think it's going to be a problem?
+				[b]Laticia[/b]: Yeah, I heard they're really stepping up their game. Why? Do you think it's going to be a problem?
 
-				Patrick: Well, let's just say I have a few concerns. I've been working here for a while, and I've noticed some vulnerabilities in our system.
+				[b]Patrick[/b]: Well, let's just say I have a few concerns. I've been working here for a while, and I've noticed some vulnerabilities in our system.
 
-				Laticia: Really? That's surprising. I always thought our security was pretty solid.
+				[b]Laticia[/b]: Really? That's surprising. I always thought our security was pretty solid.
 
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$continue][i]Continue Listening.[/i][/url]?>[/right]
 				"""
@@ -32,18 +33,20 @@ func interact() -> void:
 		 	"$continue":
 				Utils.dialog_part(
 				"""
-				Patrick: It might appear that way, but there are some gaps that could be exploited if someone knew where to look.
+				[b]Patrick[/b]: It might appear that way, but there are some gaps that could be exploited if someone knew where to look.
 
-				Laticia: Hmm, interesting. Do you think we should report this to the higher-ups?
+				[b]Laticia[/b]: Hmm, interesting. Do you think we should report this to the higher-ups?
 				
-				Patrick: I'm not sure yet. I mean, we could, but what if they don't take it seriously? It's a risky move.
+				[b]Patrick[/b]: I'm not sure yet. I mean, we could, but what if they don't take it seriously? It's a risky move.
 
-				Laticia: Yeah, I see your point. But keeping quiet about it also feels wrong. Maybe we should gather some evidence first and then decide what to do.
+				[b]Laticia[/b]: Yeah, I see your point. But keeping quiet about it also feels wrong. Maybe we should gather some evidence first and then decide what to do.
 
-				Patrick: That sounds like a plan. Let's be cautious about it though. We don't want to raise any suspicions.
+				[b]Patrick[/b]: That sounds like a plan. Let's be cautious about it though. We don't want to raise any suspicions.
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$right:correct][i]I think this is something serious, I should report this.[/i][/url]?>[/right]
+				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$wrong1:wrong][i]I should't be coming in wrong conclusions, let's leave them alone.[/i][/url]?>[/right]
+				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$wrong2:wrong][i]Maybe I should clarify their intentions.[/i][/url]?>[/right]
 				"""
 				),
@@ -95,4 +98,9 @@ func _on_area_2d_area_entered(area):
 
 func _physics_process(delta: float) -> void:
 	if interactable!= null and interactable is Node:
-		interactable.visible  = Score.get_has_correct("insiderthreat1","policy")
+		if Score.get_result("insiderthreat1","policy") == 1:
+			interactable.correct()
+			interactable.visible  = true
+		if Score.get_result("insiderthreat1","policy") == 2:
+			interactable.visible  = true
+			interactable.reset()
