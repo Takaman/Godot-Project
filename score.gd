@@ -52,8 +52,8 @@ func new_interaction(interaction: String, result: String, phase: String) -> void
 		"has_correct": previous["has_correct"] or result == "correct"  # Update whether the player has gotten this interaction correct before
 		}
 		#Uncomment if you handling server side
-		#send_interactions_to_server(_interactions)
-		#send_has_interacted_to_server(_has_interacted)
+		send_interactions_to_server(_interactions)
+		send_has_interacted_to_server(_has_interacted)
 		
 		
 

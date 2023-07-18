@@ -14,10 +14,10 @@ app.config['REMEMBER_COOKIE_SECURE'] = True
 
 
 #Nakama connection config
-nakama_server_url = "http://localhost:7350"
+nakama_server_url = "http://nakama:7350"
 
 #MySQL connection config
-mysql_host = 'localhost'
+mysql_host = '172.17.0.1' #Replace with your actual gateway IP
 mysql_user = 'godotproject'
 mysql_password = 'sititpgroup11password'
 mysql_database = 'game_data'
@@ -593,9 +593,3 @@ def ep_Get_Leader_All_Sort():
         return jsonify(board)
     except InvalidSignatureError:
         return "Unauthorised token", 401
-
-if __name__ == '__main__':
-
-
-
-    app.run(host='127.0.0.1',port=5000)
