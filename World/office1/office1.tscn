@@ -6438,7 +6438,7 @@ position = Vector2(-230, -120)
 
 [node name="Interactable5" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
 z_index = 11
-position = Vector2(-185, 69)
+position = Vector2(-202, 71)
 
 [node name="Interactable6" parent="QuestionmarkFolder" instance=ExtResource("33_d72if")]
 z_index = 11

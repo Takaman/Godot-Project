@@ -5,8 +5,8 @@ extends Sprite2D
 @onready var interactable := $"/root/Office1/QuestionmarkFolder/Interactable5"
 
 func _ready():
-	interactable.reset()
-	#interactable.correct()
+	#interactable.reset()
+	interactable.correct()
 	pass
 	
 func interact() -> void:
