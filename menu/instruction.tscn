@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://t13nepmn3e8u"]
+[gd_scene load_steps=13 format=3 uid="uid://t13nepmn3e8u"]
 
 [ext_resource type="Texture2D" uid="uid://ditp4sf8l66nu" path="res://World/HUD/HUD2.png" id="1_pg8dp"]
+[ext_resource type="Texture2D" uid="uid://ck3gjktl8ylil" path="res://menu/image/imageforinteract/progress-press.png" id="2_ptepy"]
 [ext_resource type="Texture2D" uid="uid://b0o4rbfc0kdlp" path="res://menu/image/icons8-left-arrow-key-64.png" id="2_v2unp"]
 [ext_resource type="Texture2D" uid="uid://b5rmlcr26j0y0" path="res://menu/image/icons8-up-arrow-key-64.png" id="3_k17cj"]
 [ext_resource type="Texture2D" uid="uid://c80jk8g1ll2do" path="res://menu/image/down.png" id="4_dhuip"]
 [ext_resource type="Texture2D" uid="uid://hvt44gidjjos" path="res://menu/image/icons8-right-arrow-key-64.png" id="5_xaek2"]
-[ext_resource type="Script" path="res://menu/Back.gd" id="6_io7oo"]
+[ext_resource type="Script" path="res://Next.gd" id="6_h201d"]
 [ext_resource type="Texture2D" uid="uid://3057f3fth87d" path="res://Player/Walk.png" id="7_drmqf"]
 [ext_resource type="Script" path="res://menu/PlayerAnimated.gd" id="11_lve2g"]
 [ext_resource type="Texture2D" uid="uid://briblwafgf8a0" path="res://menu/image/e -interact.png" id="12_8i225"]
@@ -61,113 +62,148 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="Progress-press" type="Sprite2D" parent="TextureRect"]
+position = Vector2(256, 142)
+scale = Vector2(0.192869, 0.198465)
+texture = ExtResource("2_ptepy")
+
 [node name="Left" type="TextureRect" parent="."]
-offset_left = 83.625
-offset_top = 136.0
-offset_right = 115.625
-offset_bottom = 161.0
+offset_left = 55.0
+offset_top = 141.0
+offset_right = 85.0
+offset_bottom = 166.0
 texture = ExtResource("2_v2unp")
 expand_mode = 1
 
 [node name="TextureRect3" type="TextureRect" parent="."]
-offset_left = 108.625
-offset_top = 117.0
-offset_right = 140.625
-offset_bottom = 142.0
+offset_left = 80.0
+offset_top = 122.0
+offset_right = 110.0
+offset_bottom = 147.0
 texture = ExtResource("3_k17cj")
 expand_mode = 1
 
 [node name="TextureRect4" type="TextureRect" parent="."]
-offset_left = 108.625
-offset_top = 136.0
-offset_right = 140.625
-offset_bottom = 161.0
+offset_left = 80.0
+offset_top = 141.0
+offset_right = 110.0
+offset_bottom = 166.0
 texture = ExtResource("4_dhuip")
 expand_mode = 1
 
 [node name="TextureRect5" type="TextureRect" parent="."]
-offset_left = 134.625
-offset_top = 136.0
-offset_right = 166.625
-offset_bottom = 161.0
+offset_left = 105.0
+offset_top = 141.0
+offset_right = 135.0
+offset_bottom = 166.0
 texture = ExtResource("5_xaek2")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="."]
-offset_left = 55.625
-offset_top = 142.0
-offset_right = 86.625
-offset_bottom = 156.0
+offset_left = 49.0
+offset_top = 135.0
+offset_right = 80.0
+offset_bottom = 149.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 6
 text = "Move Left"
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 164.625
-offset_top = 142.0
-offset_right = 199.625
-offset_bottom = 154.0
+offset_left = 111.0
+offset_top = 135.0
+offset_right = 146.0
+offset_bottom = 147.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 6
 text = "Move Right"
 
 [node name="Label3" type="Label" parent="."]
-offset_left = 108.625
-offset_top = 160.0
-offset_right = 144.625
-offset_bottom = 172.0
+offset_left = 80.0
+offset_top = 165.0
+offset_right = 116.0
+offset_bottom = 177.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 6
 text = "Move Down"
 
 [node name="Label4" type="Label" parent="."]
-offset_left = 111.625
-offset_top = 109.0
-offset_right = 137.625
-offset_bottom = 121.0
+offset_left = 83.0
+offset_top = 114.0
+offset_right = 109.0
+offset_bottom = 126.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 6
 text = "Move Up"
 
 [node name="Label7" type="Label" parent="."]
-offset_left = 204.0
-offset_top = 131.0
-offset_right = 270.0
-offset_bottom = 155.0
+offset_left = 155.0
+offset_top = 136.0
+offset_right = 221.0
+offset_bottom = 160.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 6
 text = "Interact with object"
 
 [node name="Label5" type="Label" parent="."]
-offset_left = 12.625
-offset_top = 102.0
-offset_right = 61.625
-offset_bottom = 127.0
+offset_left = 6.0
+offset_top = 103.0
+offset_right = 55.0
+offset_bottom = 128.0
 theme_override_colors/font_color = Color(0.482353, 0.65098, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.258824, 0.290196, 0.705882, 1)
 theme_override_font_sizes/font_size = 15
 text = "Player"
 
+[node name="Label6" type="Label" parent="."]
+offset_left = 70.0
+offset_top = 95.0
+offset_right = 124.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0.964706, 0.443137, 0.764706, 1)
+theme_override_colors/font_shadow_color = Color(0.258824, 0.290196, 0.705882, 1)
+theme_override_font_sizes/font_size = 15
+text = "Control"
+
 [node name="Label8" type="Label" parent="."]
-offset_left = 205.0
-offset_top = 110.0
-offset_right = 260.0
-offset_bottom = 135.0
+offset_left = 157.0
+offset_top = 118.0
+offset_right = 212.0
+offset_bottom = 143.0
 theme_override_colors/font_color = Color(0.823529, 0.54902, 0.968627, 1)
 theme_override_colors/font_shadow_color = Color(0.258824, 0.290196, 0.705882, 1)
 theme_override_font_sizes/font_size = 15
 text = "Press E"
 
-[node name="Back" type="Button" parent="."]
-offset_left = 299.0
-offset_top = 133.0
-offset_right = 349.0
-offset_bottom = 164.0
-text = "Start!"
-script = ExtResource("6_io7oo")
+[node name="Label9" type="Label" parent="."]
+offset_left = 224.0
+offset_top = 100.0
+offset_right = 290.0
+offset_bottom = 125.0
+theme_override_colors/font_color = Color(0.968627, 0.945098, 0.992157, 1)
+theme_override_colors/font_shadow_color = Color(0.258824, 0.290196, 0.705882, 1)
+theme_override_font_sizes/font_size = 15
+text = "Left Click"
+
+[node name="Label10" type="Label" parent="."]
+offset_left = 216.0
+offset_top = 162.0
+offset_right = 297.0
+offset_bottom = 187.0
+theme_override_colors/font_color = Color(0.278431, 0.945098, 0.992157, 1)
+theme_override_colors/font_shadow_color = Color(0.258824, 0.290196, 0.705882, 1)
+theme_override_font_sizes/font_size = 10
+text = "(Check progress)"
+
+[node name="Next" type="Button" parent="."]
+offset_left = 309.0
+offset_top = 141.0
+offset_right = 354.0
+offset_bottom = 172.0
+text = "Next"
+script = ExtResource("6_h201d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(36, 142)
+position = Vector2(24, 144)
 scale = Vector2(1.26563, 1.34375)
 sprite_frames = SubResource("SpriteFrames_vd3rf")
 frame_progress = 0.143751
@@ -175,8 +211,8 @@ speed_scale = 3.0
 script = ExtResource("11_lve2g")
 
 [node name="E-interact" type="Sprite2D" parent="."]
-position = Vector2(231, 155)
+position = Vector2(181, 158)
 scale = Vector2(0.405, 0.314531)
 texture = ExtResource("12_8i225")
 
-[connection signal="pressed" from="Back" to="Back" method="back_on_pressed"]
+[connection signal="pressed" from="Next" to="Next" method="back_on_pressed"]

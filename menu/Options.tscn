@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://menu/Options.gd" id="1_v0kbh"]
 [ext_resource type="Texture2D" uid="uid://ditp4sf8l66nu" path="res://World/HUD/HUD2.png" id="2_1gi03"]
-[ext_resource type="Script" path="res://menu/Back.gd" id="3_sm76d"]
+[ext_resource type="Script" path="res://Next.gd" id="3_sm76d"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
