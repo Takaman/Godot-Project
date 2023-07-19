@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://quf6e4pbvkcj" path="res://helpers/ontouch.tscn" id="9_twn3x"]
 [ext_resource type="Script" path="res://World/phishingemail/Sam.gd" id="10_4igdu"]
 [ext_resource type="PackedScene" uid="uid://iqn08315hsf" path="res://helpers/actionable.tscn" id="11_3enfb"]
-[ext_resource type="PackedScene" uid="uid://c5rftkrhv5l1f" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="11_dl61b"]
+[ext_resource type="PackedScene" uid="uid://duiqkx067jd7i" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="11_dl61b"]
 [ext_resource type="Script" path="res://World/phishingemail/John.gd" id="14_28v8n"]
 [ext_resource type="Script" path="res://helpers/elevator.gd" id="16_1l6xp"]
 [ext_resource type="Script" path="res://World/phishingemail/ITGuy.gd" id="16_jblpt"]

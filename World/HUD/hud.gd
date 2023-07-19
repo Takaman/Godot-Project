@@ -14,7 +14,7 @@ extends CanvasLayer
 @onready var sound_correct := $soundcorrect
 @onready var sound_wrong := $soundwrong
 @onready var sound_door = $soundDoor
-
+@onready var progress = $"../Progress"
 
 const BOTTOM_PANEL_INSIDE_Y := 230
 const BOTTOM_PANEL_OUTSIDE_Y := 500
@@ -43,12 +43,19 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+## added this
 func _process(delta):
+	if dialogue_big.visible == true or player_input.visible == true:
+		progress.visible = false
+	else:
+		progress.visible = true
 	pass
 
 func _input(event: InputEvent) -> void:
 	if event.is_action("ui_cancel") and is_interacting():
 		_close_panel()
+		##added
+		progress.visible=true
 		get_viewport().set_input_as_handled()
 
 
@@ -72,6 +79,7 @@ func _close_panel() -> void:
 	print("emit signals")
 	dialogue_big.visible = false
 	emit_signal("dialogue_closed")
+	
 
 func _next_panel_part(part: String) -> void:
 	if part == "$end":
@@ -139,6 +147,7 @@ func is_interacting() -> bool:
 func show_dialog(interaction: String, content: Dictionary, phase: String) -> void:
 	if not content.has("$begin"):
 		push_error("Need to start with $begin" % interaction)
+		progress.visible=false
 		return
 	
 	Score.new_interaction(interaction, "", phase)
@@ -153,6 +162,7 @@ func show_dialog(interaction: String, content: Dictionary, phase: String) -> voi
 func show_player_input() -> void:
 	print("showing input box")
 	emit_signal("input_opened")
+	progress.visible=false
 	player_input.visible = true
 	player_input.show()
 
