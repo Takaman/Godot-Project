@@ -14,7 +14,8 @@ func interact() -> void:
 				"$begin":
 				Utils.dialog_part(
 					"""
-					[b]Poster Guy[/b]
+					[b]John[/b]
+					
 					Hey, look at this poster! It says we can win a free drink!
 					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$see]Really? Let me see too![/url]?>[/right]
@@ -37,16 +38,18 @@ func interact() -> void:
 				"$noscan":
 				Utils.dialog_part(
 					"""
-					[b]Poster Guy[/b]
+					[b]John[/b]
+					
 					What? You don't trust it? Suit yourself, but I'm gonna win a free drink!
 					
-					<?[url=$end][right]> I don't think that scanning that QR code is a good idea...[/url]?>[/right]
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]I don't think that scanning that QR code is a good idea...[/url]?>[/right]
 					"""
 				),
 				"$scan":
 					Utils.dialog_part(
 					"""
-					[b]Poster Guy[/b]
+					[b]John[/b]
+					
 					Let's scan it together!
 					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Scan QR code[/url]?>[/right]
@@ -63,7 +66,8 @@ func interact() -> void:
 				"$begin":
 				Utils.dialog_part(
 					"""
-					[b]Poster Guy[/b]
+					[b]John[/b]
+					
 					What's going on? My phone keeps saying that the app I downloaded is a virus! Did the poster trick me?
 					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next:correct]I guess you can't trust random QR codes.[/url]?>[/right]
@@ -72,7 +76,7 @@ func interact() -> void:
 				"$next":
 				Utils.dialog_part(
 					"""
-					[b]Poster Guy[/b]
+					[b]John[/b]]
 					You're right... I should have followed what <#[url=https://www.straitstimes.com/tech/can-i-trust-this-qr-code-csa-police-issue-alert-on-qr-code-scams-and-how-to-avoid-being-tricked]this article[/url]#> says. Luckily I had an antivirus app running on my phone - who knows what could have happened if I didn't!
 					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Make sure to keep that article in mind in the future.[/url]?>[/right]
@@ -99,7 +103,8 @@ func interact() -> void:
 				"$next":
 				Utils.dialog_part(
 					"""
-					[b]Poster Guy[/b]
+					[b]John[/b]
+					
 					What's going on? I can't use my phone anymore!
 					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next2:wrong]We downloaded a ransomware. We can only pay the ransom or reset our phones and delete our data...[/url]?>[/right]
@@ -108,7 +113,8 @@ func interact() -> void:
 				"$next2":
 				Utils.dialog_part(
 					"""
-					[b]Poster Guy[/b]
+					[b]John[/b]
+					
 					We made a big mistake... thankfully, my data was backed up. We should have paid more attention to what <#[url=https://www.straitstimes.com/tech/can-i-trust-this-qr-code-csa-police-issue-alert-on-qr-code-scams-and-how-to-avoid-being-tricked]this article[/url]#> says.
 					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]We should be more careful in the future.[/url]?>[/right]
@@ -127,7 +133,8 @@ func interact() -> void:
 				"$begin":
 				Utils.dialog_part(
 					"""
-					[b]Poster Guy[/b]
+					[b]John[/b]
+					
 					I should have followed what <#[url=https://www.straitstimes.com/tech/can-i-trust-this-qr-code-csa-police-issue-alert-on-qr-code-scams-and-how-to-avoid-being-tricked]this article[/url]#> says. Luckily I had an antivirus app running on my phone - who knows what could have happened if I didn't!
 					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]You should be more careful in the future.[/url]?>[/right]
@@ -143,7 +150,8 @@ func interact() -> void:
 				"$begin":
 				Utils.dialog_part(
 					"""
-					[b]Poster Guy[/b]
+					[b]John[/b]
+					
 					We should have followed what <#[url=https://www.straitstimes.com/tech/can-i-trust-this-qr-code-csa-police-issue-alert-on-qr-code-scams-and-how-to-avoid-being-tricked]this article[/url]#> says. Luckily I had an antivirus app running on my phone - who knows what could have happened if I didn't!
 					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]We should be more careful in the future.[/url]?>[/right]

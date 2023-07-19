@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://bdagh318mdtyf"]
 
-[ext_resource type="AudioStream" uid="uid://bhp2gkvpfoa2n" path="res://menu/music/PitcherPerfectTheme.wav" id="1_sd1k7"]
+[ext_resource type="AudioStream" uid="uid://bnegob4xs13b2" path="res://menu/music/Endless Dream.mp3" id="1_lm3ab"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
-stream = ExtResource("1_sd1k7")
-volume_db = -35.0
+stream = ExtResource("1_lm3ab")
+volume_db = -25.0
 autoplay = true
