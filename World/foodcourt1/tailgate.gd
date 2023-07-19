@@ -8,6 +8,7 @@ func _ready():
 	hud._close_panel()
 	hud.close_player_input()
 	interactable.correct()
+	interactable.visible  = false
 	pass
 	
 func interact() -> void:
@@ -18,29 +19,49 @@ func interact() -> void:
 			"$begin":
 			Utils.dialog_part(
 				"""
+				[b]Alloy[/b]
+				
 				Excuse me, I'm having trouble accessing this area.
 				Could you please let me in? I forgot my access card.
 
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:correct]I'm sorry, but I cannot help you out. [/url]?>[/right]
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]No worries. I'll swipe my card, and you can follow me. [/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$wrong:wrong][u]Ignores and walk away[/u][/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=correct:correct]I'm sorry, but I cannot help you out.[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$wronge2:wrong]No worries. I'll swipe my card, and you can follow me.[/url]?>[/right]
 				
 				"""
 			),
-			"$change":
+			"$correct":
 				Utils.dialog_part(
 				"""
-That's the right decision. It's good practice to be wary.
-Let's prevent tailgating and maintain security by following access protocols and not allowing unauthorized entry.
-[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				Correct!
+				
+				By following this approach, you prioritise security protocols and
+				encourage the person to take the appropriate steps to gain legitimate access.
+				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				
 				"""
 				),
-			"$nochange":
+			"$wrong":
 				Utils.dialog_part(
 				"""
-That's risky.
-Allowing someone to tailgate can have severe consequences, such as data breaches, financial loss, and property damage.
-Instead, always be aware of anyone following you through a door and ensure that only authorized individuals gain access.
-[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				That's rude.
+				
+				While it's important to be cautious, ignoring someone in need can come across as rude or unhelpful.
+				
+				You need to also have some sort of respect towards anyone you meet.
+				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				"""
+				),
+			"$wrong2":
+				Utils.dialog_part(
+				"""
+				That's risky.
+				
+				Allowing someone in without verifying their identity can potentially compromise the security of an area.
+				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""
 				),
 		},
@@ -54,5 +75,10 @@ func _on_area_2d_area_entered(area):
 
 func _physics_process(delta: float) -> void:
 	if interactable!= null and interactable is Node:
-		interactable.visible  = Score.get_has_correct("tailgate","socialengineering")
+		if Score.get_result("tailgate","socialengineering") == 1:
+			interactable.correct()
+			interactable.visible  = true
+		if Score.get_result("tailgate","socialengineering") == 2:
+			interactable.visible  = true
+			interactable.reset()
 

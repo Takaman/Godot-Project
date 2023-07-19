@@ -24,7 +24,9 @@ func interact() -> void:
 					It looks like someone has left their PC unlocked and unattended...
 					
 					[center][img=180x120]res://World/office1/images/Question/Unattended.jpg[/img][/center]
+					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$leave:wrong]Leave it alone.[/url]?>[/right]
+					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$lookaround]Look around for its user.[/url]?>[/right]
 					"""
 				),

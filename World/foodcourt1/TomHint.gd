@@ -3,6 +3,7 @@ extends Sprite2D
 
 @onready var hud := $"/root/FoodCourt/HUD"
 @onready var interactable := $"/root/FoodCourt/QuestionmarkFolder/TomHint"
+@onready var actionable = $Actionable
 
 func _ready():
 	interactable.exclamation_mark()
@@ -33,4 +34,6 @@ func _on_area_2d_area_entered(area):
 
 func _physics_process(delta: float) -> void:
 	if interactable!= null and interactable is Node:
-		interactable.visible  = !Score.get_has_correct("vendingmachine1","socialengineering")
+		if Score.get_result("vendingmachine1","socialengineering") > 0:
+			actionable.monitorable = false
+			interactable.visible  = false

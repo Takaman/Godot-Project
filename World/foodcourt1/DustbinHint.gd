@@ -3,6 +3,7 @@ extends Sprite2D
 
 @onready var hud := $"/root/FoodCourt/HUD"
 @onready var interactable := $"/root/FoodCourt/QuestionmarkFolder/DustbinHint"
+@onready var actionable = $Actionable
 
 func _ready():
 	interactable.exclamation_mark()
@@ -16,6 +17,8 @@ func interact() -> void:
 			"$begin":
 			Utils.dialog_part(
 				"""
+				[b]Peter[/b]
+				
 				I feel like we should do something more than just throwing confidential stuff into the dustbin.
 				
 				Maybe the lady beside might be thinking something similar.
@@ -35,4 +38,6 @@ func _on_area_2d_area_entered(area):
 
 func _physics_process(delta: float) -> void:
 	if interactable!= null and interactable is Node:
-		interactable.visible  = !Score.get_has_correct("sensitiveinformationadvanced","policy")
+		if Score.get_result("sensitiveinformationadvanced","policy") > 0:
+			actionable.monitorable = false
+			interactable.visible  = false

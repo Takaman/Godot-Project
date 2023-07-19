@@ -6,6 +6,7 @@ extends Sprite2D
 
 func _ready():
 	interactable.correct()
+	interactable.visible = false
 	pass
 	
 func interact() -> void:
@@ -29,31 +30,33 @@ func interact() -> void:
 			"$change":
 				Utils.dialog_part(
 				"""
-That's the right decision.
-By properly destroying the documents, we can safeguard sensitive data and maintain the trust of our clients.
-[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				That's the right decision.
+				By properly destroying the documents, we can safeguard sensitive data and maintain the trust of our clients.
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""
 				),
 			"$nochange":
 				Utils.dialog_part(
 				"""
-That's risky.
-While it may seem unlikely, leaving sensitive documents unattended can still pose a risk. 
+				That's risky.
+				While it may seem unlikely, leaving sensitive documents unattended can still pose a risk. 
 
-It's crucial to handle such documents properly to prevent unauthorized access and protect client confidentiality.
+				It's crucial to handle such documents properly to prevent unauthorized access and protect client confidentiality.
 
-It's important to prioritize data security and take appropriate measures to dispose of sensitive information.
-[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				It's important to prioritize data security and take appropriate measures to dispose of sensitive information.
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""
 				),
 			"$nochange1":
 				Utils.dialog_part(
 				"""
-While it's important to raise awareness among employees, directly notifying them may increase the risk of unauthorized access. 
+				While it's important to raise awareness among employees, directly notifying them may increase the risk of unauthorized access. 
 
-It's better to use a secure shredder for proper document disposal. 
-Shredding the documents prevents unauthorized access and minimizes the chances of data breaches.
-[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				It's better to use a secure shredder for proper document disposal. 
+				
+				Shredding the documents prevents unauthorized access and minimizes the chances of data breaches.
+				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""
 				),
 
@@ -68,4 +71,9 @@ func _on_area_2d_area_entered(area):
 		
 func _physics_process(delta: float) -> void:
 	if interactable!= null and interactable is Node:
-		interactable.visible  = Score.get_has_correct("sensitiveinformation","policy")
+		if Score.get_result("sensitiveinformation","policy") == 1:
+			interactable.correct()
+			interactable.visible  = true
+		if Score.get_result("sensitiveinformation","policy") == 2:
+			interactable.visible  = true
+			interactable.reset()

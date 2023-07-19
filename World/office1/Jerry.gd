@@ -50,7 +50,7 @@ func interact() -> void:
 						
 						I'm really thirsty.
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next]Hey, did you leave your PC unlocked?[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next:correct]Hey, did you leave your PC unlocked?[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]I will leave you to do your thing.[/url]?>[/right]
 						"""
 					),
@@ -160,6 +160,11 @@ func interact() -> void:
 func _physics_process(delta: float) -> void:
 	if Score.get_has_correct("unattendedlaptop","policy") == true:
 		state = 2
-		if interactable != null and interactable is Node:
-			interactable.visible = true
+	if interactable!= null and interactable is Node:
+		if Score.get_result("unattendedlaptop","policy") == 1:
 			interactable.correct()
+			interactable.visible  = true
+		if Score.get_result("unattendedlaptop","policy") == 2:
+			interactable.correct()
+			interactable.visible  = true
+		
