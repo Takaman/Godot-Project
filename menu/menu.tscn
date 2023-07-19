@@ -44,7 +44,13 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Options"
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="LogoutBtn" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Logout"
+
+[node name="Logout" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
@@ -52,4 +58,5 @@ text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/LogoutBtn" to="." method="_on_logout_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/Logout" to="." method="_on_quit_pressed"]

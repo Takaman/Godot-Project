@@ -35,6 +35,8 @@ func _on_options_pressed():
 
 
 func _on_quit_pressed():
+	sessionVar._session = null
+	sessionVar.company = null
 	get_tree().quit()
 	
 func _on_request_completed(result, response_code, headers, body):
@@ -82,3 +84,9 @@ func _on_request_completed2(result, response_code, headers, body):
 			print("Error message: ", json.get_error_message())
 	else:
 		print("An error occured when trying to send data to server: ", response_code )
+
+
+func _on_logout_btn_pressed():
+	sessionVar._session = null
+	sessionVar.company = null
+	SceneTransition.change_scene("res://../menu/Login.tscn")
