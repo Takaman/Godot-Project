@@ -3724,9 +3724,14 @@ script = ExtResource("16_1l6xp")
 position = Vector2(-95.8796, 167.814)
 shape = SubResource("RectangleShape2D_uj7iy")
 
+[connection signal="partsignaller" from="HUD" to="ITGuy" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="Caren (Phishing Email)" method="_on_hud_partsignaller"]
+[connection signal="partsignaller" from="HUD" to="Danny (Phishing Email)" method="_on_hud_partsignaller"]
+[connection signal="partsignaller" from="HUD" to="Elen (Real Email)" method="_on_hud_partsignaller"]
+[connection signal="partsignaller" from="HUD" to="Frank (Real Email)" method="_on_hud_partsignaller"]
+[connection signal="partsignaller" from="HUD" to="Gary (Real Email)" method="_on_hud_partsignaller"]
+[connection signal="partsignaller" from="HUD" to="Haley (Real Email)" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="John (Phishing email)" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="Elevator" method="_on_hud_partsignaller"]
 [connection signal="pressed" from="Progress/Button" to="Progress" method="_on_button_pressed"]
-[connection signal="john_next" from="ITGuy" to="John (Phishing email)" method="_on_it_guy_john_next"]
 [connection signal="IT_Guy" from="John (Phishing email)" to="ITGuy" method="_on_john_it_guy"]

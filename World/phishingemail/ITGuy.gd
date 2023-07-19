@@ -2,22 +2,28 @@ extends Sprite2D
 
 @onready var hud := $"/root/house_internal_phishingemail/HUD"
 @onready var marker := get_node("marker")
-@onready var state = 0
-signal john_next
+@onready var state : String = "base"
+
+func _on_hud_partsignaller():
+	pass # Replace with function body.
 
 func _ready():
 	if marker != null and marker is Node:
 		marker.toggle_visibility(false)
 	pass
 
+func get_itguy_state() -> String:
+	return state
+
 func _on_john_it_guy():
-	state = 1
+	state = "john"
 	if marker != null and marker is Node:
 		marker.toggle_visibility(true)
+		marker.in_progress()
 
 func interact() -> void:
 	print("interaction started")
-	if state == 0:
+	if state == "base":
 		hud.show_dialog(
 			"IT Guy",
 			{
@@ -33,7 +39,7 @@ func interact() -> void:
 			},
 			"training"
 		)
-	elif state == 1:
+	elif state == "john":
 		hud.show_dialog(
 			"IT Guy",
 			{
@@ -68,6 +74,10 @@ func interact() -> void:
 			},
 			"training"
 		)
+		state = "base"
 		emit_signal("john_next")
 		if marker != null and marker is Node:
 			marker.remove_mark()
+		
+
+

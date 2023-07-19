@@ -3,9 +3,22 @@ extends Sprite2D
 @onready var hud := $"/root/house_internal_phishingemail/HUD"
 @onready var marker := get_node("marker")
 @onready var state = -1
+@onready var itguy := $"/root/house_internal_phishingemail/ITGuy"
+@onready var itguyinprogress : bool = false
+
+signal IT_Guy_Danny
 
 func _on_hud_partsignaller():
-	pass # Replace with function body.
+	if hud.part_name == "$dannynoclick":
+		if state == 0:
+			state = 1
+		if marker != null and marker is Node:
+			marker.remove_mark()
+	elif hud.part_name == "$dannyclick":
+		if state == 0:
+			state = 2
+		if marker != null and marker is Node:
+			marker.in_progress()
 
 func _physics_process(delta: float) -> void:
 	if Score.get_result("phishingemail3","socialengineering") != 0:
@@ -15,79 +28,29 @@ func _physics_process(delta: float) -> void:
 		state == 1
 	elif Score.get_result("phishingemail3","socialengineering") == 2:
 		state == 5
+		
+	#Disables interaction while another question is in progress
+	if itguy.get_itguy_state() != "base":
+		itguyinprogress = true
+		if marker != null and marker is Node:
+			marker.toggle_visibility(false)
+	else:
+		itguyinprogress = false
+		if marker != null and marker is Node:
+			marker.toggle_visibility(true)
 
 func interact() -> void:
 	print("interaction started")
-	if state == -1 or state == 0:
-		state = 0
+	if itguyinprogress == true:
 		hud.show_dialog(
-			"phishingemail3",
+			"phishingemail2",
 			{
 				"$begin":
 					Utils.dialog_part(
 						"""
 						[b]Danny[/b]
 						
-						Oh, hi there. Since you're here, could you help me take a look at this email I received?
-						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$dannynext]Sure, I can take a look.[/url]?>[/right]
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Not right now.[/url]?>[/right]
-						"""
-					),
-				"$dannynext":
-				Utils.dialog_part(
-						"""
-						ibanking.alert <ibankingalert@dbs.com>
-						
-						Subject: [Urgent] Action Required: Security Update for your Business Banking Account
-						
-						Dear Sir / Madam,
-						
-						As part of our ongoing commitment to providing and maintaining the highest level of security for our customers, we have begun to roll out a new security update for all business banking users, and your business is one of the first to be selected to receive this update!
-						
-						Due to the recent increase in unauthorised access attempts and scams, we require all customers to first verify their identities before we can carry out the security update.
-						
-						Note that failure to complete this may result in suspension of your business banking account.
-						
-						Please refer to the following steps to carry out your identity verification and security update.
-						
-						[ol]
-						[li]Click on the following link to access our business banking portal: [url]placeholder link[/url][/li]
-						[li]Enter your business banking account credentials to login.[/li]
-						[li]Once successfully logged in, you will be prompted to confirm your company's UEN and registered signatories for this account.[/li]
-						[li]Lastly, you will be redirected to a page that will take you through the security update process.[/li]
-						[/ol]
-						
-						If you encounter any technical difficulties or require assistance at any point during this process, please do not hesitate to reply to this email.
-						
-						Please note that this security update is time-sensitive, and your prompt response is required to mitigate any potential security risks.
-						
-						Thank you for banking with us.
-						
-						Yours faithfully,
-						DBS Bank Ltd
-						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$dannyclick]Isn't this quite important for our company? You should follow what the email says.[/url]?>[/right]
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$dannynoclick:correct]I think you should check with the bank.[/url]?>[/right]
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Give me some time to think about it.[/url]?>[/right]
-						"""
-					),
-				"$dannyclick":
-					Utils.dialog_part(
-						"""
-						[b]Danny[/b]
-						
-						Right... I'll get into trouble if the company's bank account gets locked out.
-						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Go for it.[/url]?>[/right]
-						"""
-					),
-				"$dannynoclick":
-					Utils.dialog_part(
-						"""
-						[b]Danny[/b]
-						
-						Really? Then I'll reply to the email to check. Come talk to me again once I get another response.
+						Are you helping someone right now? You should hurry up before something happens.
 						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Ok.[/url]?>[/right]
 						"""
@@ -95,4 +58,82 @@ func interact() -> void:
 			},
 			"socialengineering"
 		)
+	else:
+		if state == -1 or state == 0:
+			state = 0
+			hud.show_dialog(
+				"phishingemail3",
+				{
+					"$begin":
+						Utils.dialog_part(
+							"""
+							[b]Danny[/b]
+							
+							Oh, hi there. Since you're here, could you help me take a look at this email I received?
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$dannynext]Sure, I can take a look.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Not right now.[/url]?>[/right]
+							"""
+						),
+					"$dannynext":
+					Utils.dialog_part(
+							"""
+							ibanking.alert <ibankingalert@dbs.com>
+							
+							Subject: [Urgent] Action Required: Security Update for your Business Banking Account
+							
+							Dear Sir / Madam,
+							
+							As part of our ongoing commitment to providing and maintaining the highest level of security for our customers, we have begun to roll out a new security update for all business banking users, and your business is one of the first to be selected to receive this update!
+							
+							Due to the recent increase in unauthorised access attempts and scams, we require all customers to first verify their identities before we can carry out the security update.
+							
+							Note that failure to complete this may result in suspension of your business banking account.
+							
+							Please refer to the following steps to carry out your identity verification and security update.
+							
+							[ol]
+							[li]Click on the following link to access our business banking portal: [url]placeholder link[/url][/li]
+							[li]Enter your business banking account credentials to login.[/li]
+							[li]Once successfully logged in, you will be prompted to confirm your company's UEN and registered signatories for this account.[/li]
+							[li]Lastly, you will be redirected to a page that will take you through the security update process.[/li]
+							[/ol]
+							
+							If you encounter any technical difficulties or require assistance at any point during this process, please do not hesitate to reply to this email.
+							
+							Please note that this security update is time-sensitive, and your prompt response is required to mitigate any potential security risks.
+							
+							Thank you for banking with us.
+							
+							Yours faithfully,
+							DBS Bank Ltd
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$dannyclick]Isn't this quite important for our company? You should follow what the email says.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$dannynoclick:correct]I think you should check with the bank.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Give me some time to think about it.[/url]?>[/right]
+							"""
+						),
+					"$dannyclick":
+						Utils.dialog_part(
+							"""
+							[b]Danny[/b]
+							
+							Right... I'll get into trouble if the company's bank account gets locked out.
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Go for it.[/url]?>[/right]
+							"""
+						),
+					"$dannynoclick":
+						Utils.dialog_part(
+							"""
+							[b]Danny[/b]
+							
+							Really? Then I'll reply to the email to check. Come talk to me again once I get another response.
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Ok.[/url]?>[/right]
+							"""
+						)
+				},
+				"socialengineering"
+			)
 
