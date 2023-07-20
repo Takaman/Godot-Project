@@ -1,0 +1,196 @@
+[gd_scene load_steps=13 format=3 uid="uid://dib82gxhgdscu"]
+
+[ext_resource type="Texture2D" uid="uid://ditp4sf8l66nu" path="res://World/HUD/HUD2.png" id="1_xsffp"]
+[ext_resource type="Texture2D" uid="uid://ck3gjktl8ylil" path="res://menu/image/imageforinteract/progress-press.png" id="2_22awn"]
+[ext_resource type="Texture2D" uid="uid://b0o4rbfc0kdlp" path="res://menu/image/icons8-left-arrow-key-64.png" id="3_0s1o0"]
+[ext_resource type="Texture2D" uid="uid://b5rmlcr26j0y0" path="res://menu/image/icons8-up-arrow-key-64.png" id="4_1acaq"]
+[ext_resource type="Texture2D" uid="uid://c80jk8g1ll2do" path="res://menu/image/down.png" id="5_pr1ls"]
+[ext_resource type="Texture2D" uid="uid://hvt44gidjjos" path="res://menu/image/icons8-right-arrow-key-64.png" id="6_j6wqd"]
+[ext_resource type="Script" path="res://menu/Next1.gd" id="7_85pb2"]
+[ext_resource type="Texture2D" uid="uid://3057f3fth87d" path="res://Player/Walk.png" id="8_yh3gd"]
+[ext_resource type="Script" path="res://menu/PlayerAnimated.gd" id="9_4y3wd"]
+[ext_resource type="Texture2D" uid="uid://briblwafgf8a0" path="res://menu/image/e -interact.png" id="10_tm4kl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jslcq"]
+atlas = ExtResource("8_yh3gd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vd3rf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jslcq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="instruction" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 362.0
+offset_bottom = 181.0
+texture = ExtResource("1_xsffp")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 1.0
+offset_right = 257.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0.32549, 0.870588, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.278431, 0.388235, 0.960784, 1)
+theme_override_font_sizes/font_size = 25
+text = "Control"
+
+[node name="Progress-press" type="Sprite2D" parent="TextureRect"]
+position = Vector2(289, 105)
+scale = Vector2(0.264712, 0.17023)
+texture = ExtResource("2_22awn")
+
+[node name="Left" type="TextureRect" parent="."]
+offset_left = 37.0
+offset_top = 138.0
+offset_right = 67.0
+offset_bottom = 163.0
+texture = ExtResource("3_0s1o0")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+offset_left = 62.0
+offset_top = 119.0
+offset_right = 92.0
+offset_bottom = 144.0
+texture = ExtResource("4_1acaq")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+offset_left = 62.0
+offset_top = 138.0
+offset_right = 92.0
+offset_bottom = 163.0
+texture = ExtResource("5_pr1ls")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+offset_left = 87.0
+offset_top = 138.0
+offset_right = 117.0
+offset_bottom = 163.0
+texture = ExtResource("6_j6wqd")
+expand_mode = 1
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 55.0
+offset_top = 47.0
+offset_right = 104.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0.482353, 0.65098, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.258824, 0.290196, 0.705882, 1)
+theme_override_font_sizes/font_size = 15
+text = "Player"
+
+[node name="Label8" type="Label" parent="."]
+offset_left = 153.0
+offset_top = 47.0
+offset_right = 208.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0.823529, 0.54902, 0.968627, 1)
+theme_override_colors/font_shadow_color = Color(0.258824, 0.290196, 0.705882, 1)
+theme_override_font_sizes/font_size = 15
+text = "Press E"
+
+[node name="Label9" type="Label" parent="."]
+offset_left = 257.0
+offset_top = 48.0
+offset_right = 323.0
+offset_bottom = 73.0
+theme_override_colors/font_color = Color(0.968627, 0.945098, 0.992157, 1)
+theme_override_colors/font_shadow_color = Color(0.258824, 0.290196, 0.705882, 1)
+theme_override_font_sizes/font_size = 15
+text = "Left Click"
+
+[node name="Label10" type="Label" parent="."]
+offset_left = 247.0
+offset_top = 70.0
+offset_right = 328.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0.278431, 0.945098, 0.992157, 1)
+theme_override_colors/font_shadow_color = Color(0.258824, 0.290196, 0.705882, 1)
+theme_override_font_sizes/font_size = 9
+text = "(Progress - Button)"
+
+[node name="Label11" type="Label" parent="."]
+offset_left = 133.0
+offset_top = 70.0
+offset_right = 226.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0.278431, 0.945098, 0.992157, 1)
+theme_override_colors/font_shadow_color = Color(0.258824, 0.290196, 0.705882, 1)
+theme_override_font_sizes/font_size = 9
+text = "(Interact with Object)"
+
+[node name="Label12" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 110.0
+offset_right = 98.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(0.278431, 0.945098, 0.992157, 1)
+theme_override_colors/font_shadow_color = Color(0.258824, 0.290196, 0.705882, 1)
+theme_override_font_sizes/font_size = 6
+text = "Move Up"
+
+[node name="Label13" type="Label" parent="."]
+offset_left = 60.0
+offset_top = 160.0
+offset_right = 102.0
+offset_bottom = 172.0
+theme_override_colors/font_color = Color(0.278431, 0.945098, 0.992157, 1)
+theme_override_colors/font_shadow_color = Color(0.258824, 0.290196, 0.705882, 1)
+theme_override_font_sizes/font_size = 6
+text = "Move Down"
+
+[node name="Label14" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 144.0
+offset_right = 38.0
+offset_bottom = 157.0
+theme_override_colors/font_color = Color(0.278431, 0.945098, 0.992157, 1)
+theme_override_colors/font_shadow_color = Color(0.258824, 0.290196, 0.705882, 1)
+theme_override_font_sizes/font_size = 6
+text = "Move Left"
+
+[node name="Label15" type="Label" parent="."]
+offset_left = 116.0
+offset_top = 144.0
+offset_right = 155.0
+offset_bottom = 156.0
+theme_override_colors/font_color = Color(0.278431, 0.945098, 0.992157, 1)
+theme_override_colors/font_shadow_color = Color(0.258824, 0.290196, 0.705882, 1)
+theme_override_font_sizes/font_size = 6
+text = "Move Right"
+
+[node name="Next" type="Button" parent="."]
+offset_left = 306.0
+offset_top = 138.0
+offset_right = 351.0
+offset_bottom = 169.0
+text = "Next"
+script = ExtResource("7_85pb2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(76, 89)
+scale = Vector2(1.26563, 1.34375)
+sprite_frames = SubResource("SpriteFrames_vd3rf")
+frame_progress = 0.143751
+speed_scale = 3.0
+script = ExtResource("9_4y3wd")
+
+[node name="E-interact" type="Sprite2D" parent="."]
+position = Vector2(179, 108)
+scale = Vector2(0.5125, 0.477266)
+texture = ExtResource("10_tm4kl")
+
+[connection signal="pressed" from="Next" to="Next" method="back_on_pressed"]

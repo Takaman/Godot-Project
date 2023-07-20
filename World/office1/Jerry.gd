@@ -8,8 +8,7 @@ extends Sprite2D
 signal jerrydone
 
 func _ready():
-	if interactable != null and interactable is Node:
-		interactable.toggle_visibility(false)
+	interactable.visible = false
 	pass
 
 func _on_computerwhitebase_2_lookaround():
@@ -165,6 +164,6 @@ func _physics_process(delta: float) -> void:
 			interactable.correct()
 			interactable.visible  = true
 		if Score.get_result("unattendedlaptop","policy") == 2:
-			interactable.correct()
+			interactable.wrong()
 			interactable.visible  = true
 		

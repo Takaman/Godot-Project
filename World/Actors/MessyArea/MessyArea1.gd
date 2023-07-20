@@ -68,7 +68,7 @@ func _physics_process(delta: float) -> void:
 	if interactable!= null and interactable is Node:
 		if Score.get_result("messyarea1","policy") == 1:
 			interactable.correct()
-		interactable.visible  = true
+			interactable.visible  = true
 		if Score.get_result("messyarea1","policy") == 2:
 			interactable.visible  = true
 			interactable.reset()

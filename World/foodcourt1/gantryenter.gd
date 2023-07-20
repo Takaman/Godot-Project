@@ -16,7 +16,9 @@ func interact() -> void:
 				Utils.dialog_part(
 					"""
 					Please scan your access card to enter the facility. 
+					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$enter:signaller1]Scan[/url]?>[/right]
+					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$noenter:signaller2]Don't scan[/url]?>[/right]
 					"""
 				),

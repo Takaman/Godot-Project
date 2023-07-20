@@ -21,10 +21,10 @@ func interact() -> void:
 				Looks like someone accidentally threw them away. What is the best course of action?
 
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:correct]I'll destroy the documents using a secure shredder.[/url]?>[/right]
+				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]I'll just leave it. It's unlikely that anyone would look at these documents.[/url]?>[/right]
+				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange1:wrong]I'll notify the employees about the presence of sensitive documents.[/url]?>[/right]
-				
-				
 				"""
 			),
 			"$change":

@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://ddmwhp02tpc25"]
+[gd_scene load_steps=79 format=3 uid="uid://ddmwhp02tpc25"]
 
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_kxpn7"]
 [ext_resource type="Texture2D" uid="uid://dt3beuuh7qicn" path="res://Tilemap builder/Interior/Interiors_free_16x16.png" id="3_tkjpr"]
@@ -14,14 +14,14 @@
 [ext_resource type="Script" path="res://World/office1/Laptop5 - question.gd" id="11_tso52"]
 [ext_resource type="Script" path="res://World/office1/Laptop16 - Question.gd" id="13_vcibo"]
 [ext_resource type="Texture2D" uid="uid://bqtsiuw4wf582" path="res://World/Actors/Thumbdrive/part-Slice 81.png" id="14_0xjun"]
-[ext_resource type="Texture2D" uid="uid://bple8jbdjsyhe" path="res://World/office1/images/character/Alex_idle_16x16.png" id="14_ehper"]
-[ext_resource type="Texture2D" uid="uid://66pn3c6a84yu" path="res://World/office1/images/character/Bei.png" id="15_ljdjd"]
+[ext_resource type="Texture2D" uid="uid://bple8jbdjsyhe" path="res://World/foodcourt1/character/Alex_idle_16x16.png" id="14_ehper"]
+[ext_resource type="Texture2D" uid="uid://66pn3c6a84yu" path="res://World/foodcourt1/character/Bei.png" id="15_ljdjd"]
 [ext_resource type="Script" path="res://World/Actors/Thumbdrive/Thumbdrive1.gd" id="15_qj26a"]
 [ext_resource type="PackedScene" uid="uid://iqn08315hsf" path="res://helpers/actionable.tscn" id="16_5ehio"]
-[ext_resource type="Texture2D" uid="uid://i8trdu4hit8l" path="res://World/office1/images/character/jerry.png" id="16_bwfhu"]
+[ext_resource type="Texture2D" uid="uid://i8trdu4hit8l" path="res://World/foodcourt1/character/jerry.png" id="16_bwfhu"]
 [ext_resource type="Script" path="res://World/Actors/Thumbdrive/InsiderThreat1.gd" id="16_lk38k"]
-[ext_resource type="Script" path="res://World/Actors/Thumbdrive/InsiderThreat2.gd" id="16_sk3d3"]
-[ext_resource type="Texture2D" uid="uid://b4nf3qfe7c5y0" path="res://World/office1/images/character/Mary.png" id="17_qbbda"]
+[ext_resource type="Script" path="res://World/Actors/Thumbdrive/MessyHint.gd" id="16_qakbi"]
+[ext_resource type="Texture2D" uid="uid://b4nf3qfe7c5y0" path="res://World/foodcourt1/character/Mary.png" id="17_qbbda"]
 [ext_resource type="Script" path="res://World/Actors/MessyArea/MessyArea1.gd" id="18_lecwi"]
 [ext_resource type="Texture2D" uid="uid://bihj2imcpwh1e" path="res://World/office1/images/purpletable.png" id="23_tae56"]
 [ext_resource type="Texture2D" uid="uid://bo1ay8tija27r" path="res://World/office1/images/sofa.png" id="24_5x4ht"]
@@ -37,10 +37,11 @@
 [ext_resource type="PackedScene" uid="uid://bb6shdk0blv6i" path="res://World/HUD/hud.tscn" id="33_sh7jl"]
 [ext_resource type="PackedScene" uid="uid://d08er855jdoi6" path="res://World/Actors/MessyArea/messy_area.tscn" id="36_3ypd4"]
 [ext_resource type="Script" path="res://World/office1/Ransomware.gd" id="37_fb1hv"]
-[ext_resource type="Texture2D" uid="uid://e6cjid72ddfs" path="res://World/office1/images/character/Tim.png" id="38_ux8h7"]
+[ext_resource type="Texture2D" uid="uid://e6cjid72ddfs" path="res://World/foodcourt1/character/Tim.png" id="38_ux8h7"]
 [ext_resource type="Script" path="res://helpers/elevator.gd" id="39_iy146"]
 [ext_resource type="Script" path="res://World/office1/ThumbdriveHint.gd" id="39_sss5t"]
-[ext_resource type="Texture2D" uid="uid://dla4xya6q7uei" path="res://World/office1/images/character/Tom.png" id="40_ixf08"]
+[ext_resource type="Texture2D" uid="uid://dla4xya6q7uei" path="res://World/foodcourt1/character/Tom.png" id="40_ixf08"]
+[ext_resource type="Script" path="res://helpers/logout.gd" id="42_varsc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_76n35"]
 texture = ExtResource("2_kxpn7")
@@ -6072,6 +6073,18 @@ size = Vector2(32, 17)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6f8nt"]
 size = Vector2(58.75, 77.6471)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_63bem"]
+texture = ExtResource("8_bw2tt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m0bxa"]
+texture = ExtResource("8_bw2tt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g1b3u"]
+texture = ExtResource("8_bw2tt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ebbqq"]
+texture = ExtResource("8_bw2tt")
+
 [node name="Office1" type="TileMap"]
 position = Vector2(-25, -2)
 tile_set = SubResource("TileSet_dpobp")
@@ -6263,7 +6276,7 @@ z_index = 1
 position = Vector2(13, -63.75)
 scale = Vector2(1.85714, 1)
 texture = ExtResource("10_wgdyt")
-script = ExtResource("16_sk3d3")
+script = ExtResource("16_qakbi")
 metadata/_edit_group_ = true
 
 [node name="Actionable" parent="TableFolder/MessyTableHint" instance=ExtResource("16_5ehio")]
@@ -6817,9 +6830,37 @@ shape = SubResource("RectangleShape2D_6f8nt")
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_hw1nk")
 
+[node name="Logout" type="CanvasLayer" parent="."]
+script = ExtResource("42_varsc")
+
+[node name="Button" type="Button" parent="Logout"]
+offset_left = 0.313019
+offset_top = 0.426986
+offset_right = 29.313
+offset_bottom = 16.427
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.984314, 0, 0.337255, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_63bem")
+theme_override_styles/hover = SubResource("StyleBoxTexture_m0bxa")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_g1b3u")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ebbqq")
+text = "Menu"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="input_closed" from="HUD" to="LaptopFolder/Laptop3 - question" method="_on_hud_input_closed"]
 [connection signal="input_submitted" from="HUD" to="LaptopFolder/Laptop3 - question" method="_on_hud_input_submitted"]
 [connection signal="partsignaller" from="HUD" to="LaptopFolder/Laptop3 - question" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="LaptopFolder/Laptop9 - question" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="Elevator" method="_on_hud_partsignaller"]
+[connection signal="partsignaller" from="HUD" to="Logout" method="_on_hud_partsignaller"]
 [connection signal="pressed" from="Progress/Button" to="Progress" method="_on_button_pressed"]
+[connection signal="pressed" from="Logout/Button" to="Logout" method="_on_button_pressed"]

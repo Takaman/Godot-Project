@@ -17,6 +17,8 @@ func interact() -> void:
 			"$begin":
 			Utils.dialog_part(
 				"""
+				[b]Alice[/b]
+				
 				Hi!
 				This is customer service, what can i help you with?
 				
