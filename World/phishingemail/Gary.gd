@@ -6,8 +6,6 @@ extends Sprite2D
 @onready var itguy := $"/root/house_internal_phishingemail/ITGuy"
 @onready var itguyinprogress : bool = false
 
-signal IT_Guy_Gary
-
 func _on_hud_partsignaller():
 	if hud.part_name == "$garynoclick":
 		if state == 0:
@@ -19,25 +17,29 @@ func _on_hud_partsignaller():
 			state = 1
 		if marker != null and marker is Node:
 			marker.remove_mark()
+	elif hud.part_name == "$garywrongdone":
+		if marker != null and marker is Node:
+			marker.remove_mark()
+		state = 3
 
 func _physics_process(delta: float) -> void:
 	if Score.get_result("realemail3","socialengineering") != 0:
 		if marker != null and marker is Node:
 				marker.visible = false
 	if Score.get_result("realemail3","socialengineering") == 1:
-		state == 1
+		state = 1
 	elif Score.get_result("realemail3","socialengineering") == 2:
-		state == 5
+		state = 3
 	
 	#Disables interaction while another question is in progress
-	if itguy.get_itguy_state() != "base":
-		itguyinprogress = true
-		if marker != null and marker is Node:
-			marker.toggle_visibility(false)
-	else:
+	if itguy.get_itguy_state() == "base" or itguy.get_itguy_state() == "gary" or itguy.get_itguy_state() == "gary2":
 		itguyinprogress = false
 		if marker != null and marker is Node:
 			marker.toggle_visibility(true)
+	else:
+		itguyinprogress = true
+		if marker != null and marker is Node:
+			marker.toggle_visibility(false)
 
 func interact() -> void:
 	print("interaction started")
@@ -132,4 +134,64 @@ func interact() -> void:
 				},
 				"socialengineering"
 			)
-
+		elif state == 1:
+			hud.show_dialog(
+				"realemail3",
+				{
+					"$begin":
+						Utils.dialog_part(
+							"""
+							[b]Gary[/b]
+							
+							I managed to view my recent activity and changed my password. Thanks for helping me decide that the email was genuine.
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Welcome.[/url]?>[/right]
+							"""
+						),
+				},
+				"socialengineering"
+			)
+		elif state == 2:
+			hud.show_dialog(
+				"realemail3",
+				{
+					"$begin":
+						Utils.dialog_part(
+							"""
+							[b]Gary[/b]
+							
+							It took a while, but I got a reply from Microsoft saying the email was real. It was a bit of waste of time, but at least we did it safely.
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$garywrongdone]Oh...[/url]?>[/right]
+							"""
+						),
+					"$garywrongdone":
+						Utils.dialog_part(
+							"""
+							[b]Gary[/b]
+							
+							The [b]posters at the back[/b] of the office have useful information. We should take a look at them.
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end:wrong]I'll do so.[/url]?>[/right]
+							"""
+						),
+				},
+				"socialengineering"
+			)
+		elif state == 3:
+			hud.show_dialog(
+				"realemail3",
+				{
+					"$begin":
+						Utils.dialog_part(
+							"""
+							[b]Gary[/b]
+							
+							Have you taken a look at the [b]posters[/b]?
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]I'll do so.[/url]?>[/right]
+							"""
+						),
+				},
+				"socialengineering"
+			)

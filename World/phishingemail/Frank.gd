@@ -6,8 +6,6 @@ extends Sprite2D
 @onready var itguy := $"/root/house_internal_phishingemail/ITGuy"
 @onready var itguyinprogress : bool = false
 
-signal IT_Guy_Frank
-
 func _on_hud_partsignaller():
 	if hud.part_name == "$franknoclick":
 		if state == 0:
@@ -19,26 +17,30 @@ func _on_hud_partsignaller():
 			state = 1
 		if marker != null and marker is Node:
 			marker.remove_mark()
+	elif hud.part_name == "$frankwrongdone":
+		if marker != null and marker is Node:
+			marker.remove_mark()
+		state = 3
 
 func _physics_process(delta: float) -> void:
 	if Score.get_result("realemail2","socialengineering") != 0:
 		if marker != null and marker is Node:
 				marker.visible = false
 	if Score.get_result("realemail2","socialengineering") == 1:
-		state == 1
+		state = 1
 	elif Score.get_result("realemail2","socialengineering") == 2:
-		state == 5
+		state = 3
 	
 	#Disables interaction while another question is in progress
-	if itguy.get_itguy_state() != "base":
-		itguyinprogress = true
-		if marker != null and marker is Node:
-			marker.toggle_visibility(false)
-	else:
+	if itguy.get_itguy_state() == "base" or itguy.get_itguy_state() == "frank" or itguy.get_itguy_state() == "frank2":
 		itguyinprogress = false
 		if marker != null and marker is Node:
 			marker.toggle_visibility(true)
-
+	else:
+		itguyinprogress = true
+		if marker != null and marker is Node:
+			marker.toggle_visibility(false)
+			
 func interact() -> void:
 	print("interaction started")
 	if itguyinprogress == true:
@@ -91,10 +93,10 @@ func interact() -> void:
 							Please refer to the following steps to carry out your identity verification and security update.
 							
 							[ol]
-							[li]Click on the following link to access our business banking portal: [url]placeholder link[/url][/li]
-							[li]Enter your business banking account credentials to login.[/li]
-							[li]Once successfully logged in, you will be prompted to confirm your company's UEN and registered signatories for this account.[/li]
-							[li]Lastly, you will be redirected to a page that will take you through the security update process.[/li]
+							Click on the following link to access our business banking portal: https://internet-banking.dbs.com.sg/IB/Welcome
+							Enter your business banking account credentials to login.
+							Once successfully logged in, you will be prompted to confirm your company's UEN and registered signatories for this account.
+							Lastly, you will be redirected to a page that will take you through the security update process.
 							[/ol]
 							
 							Please carry this update out soon, so as to better secure your account.
@@ -135,4 +137,64 @@ func interact() -> void:
 				},
 				"socialengineering"
 			)
-
+		elif state == 1:
+			hud.show_dialog(
+				"realemail2",
+				{
+					"$begin":
+						Utils.dialog_part(
+							"""
+							[b]Frank[/b]
+							
+							Well, there were no problems with the process. Thanks for the help.
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Welcome.[/url]?>[/right]
+							"""
+						),
+				},
+				"socialengineering"
+			)
+		elif state == 2:
+			hud.show_dialog(
+				"realemail2",
+				{
+					"$begin":
+						Utils.dialog_part(
+							"""
+							[b]Frank[/b]
+							
+							I had to wait an hour before someone from the bank was available to talk, and they said this email is genuine. Better safe than sorry, but that was a huge waste of time.
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$frankwrongdone]Oh...[/url]?>[/right]
+							"""
+						),
+					"$frankwrongdone":
+						Utils.dialog_part(
+							"""
+							[b]Frank[/b]
+							
+							Maybe you should look at those [b]posters at the back[/b] to familiarize yourself a bit.
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end:wrong]I'll do so.[/url]?>[/right]
+							"""
+						),
+				},
+				"socialengineering"
+			)
+		elif state == 3:
+			hud.show_dialog(
+				"realemail2",
+				{
+					"$begin":
+						Utils.dialog_part(
+							"""
+							[b]Frank[/b]
+							
+							Have you looked at the [b]posters at the back[/b] to familiarize yourself?
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]I'll do so.[/url]?>[/right]
+							"""
+						),
+				},
+				"socialengineering"
+			)

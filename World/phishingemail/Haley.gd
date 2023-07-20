@@ -6,8 +6,6 @@ extends Sprite2D
 @onready var itguy := $"/root/house_internal_phishingemail/ITGuy"
 @onready var itguyinprogress : bool = false
 
-signal IT_Guy_Gary
-
 func _on_hud_partsignaller():
 	if hud.part_name == "$haleynoclick":
 		if state == 0:
@@ -19,25 +17,29 @@ func _on_hud_partsignaller():
 			state = 1
 		if marker != null and marker is Node:
 			marker.remove_mark()
+	elif hud.part_name == "$haleywrongdone":
+		if marker != null and marker is Node:
+			marker.remove_mark()
+		state = 3
 
 func _physics_process(delta: float) -> void:
 	if Score.get_result("realemail4","socialengineering") != 0:
 		if marker != null and marker is Node:
 				marker.visible = false
 	if Score.get_result("realemail4","socialengineering") == 1:
-		state == 1
+		state = 1
 	elif Score.get_result("realemail4","socialengineering") == 2:
-		state == 5
+		state = 3
 		
 	#Disables interaction while another question is in progress
-	if itguy.get_itguy_state() != "base":
-		itguyinprogress = true
-		if marker != null and marker is Node:
-			marker.toggle_visibility(false)
-	else:
+	if itguy.get_itguy_state() == "base" or itguy.get_itguy_state() == "haley" or itguy.get_itguy_state() == "haley2":
 		itguyinprogress = false
 		if marker != null and marker is Node:
 			marker.toggle_visibility(true)
+	else:
+		itguyinprogress = true
+		if marker != null and marker is Node:
+			marker.toggle_visibility(false)
 
 func interact() -> void:
 	print("interaction started")
@@ -97,8 +99,8 @@ func interact() -> void:
 							Complete these steps now to protect your account.
 							
 							[ul]
-							[li][url=https://twitter.com/account/begin_password_reset]Change your password.[/url][/li] You'll be logged out of all your active Twitter sessions except the one you're using at this time.
-							[li]Review the apps that have access to your account and revoke access to any unfamiliar apps. [url=https://help.twitter.com/managing-your-account/connect-or-revoke-access-to-third-party-apps]Learn more[/url].[/li]
+							[url=https://twitter.com/account/begin_password_reset]Change your password.[/url] You'll be logged out of all your active Twitter sessions except the one you're using at this time.
+							Review the apps that have access to your account and revoke access to any unfamiliar apps. [url=https://help.twitter.com/managing-your-account/connect-or-revoke-access-to-third-party-apps]Learn more[/url].
 							[/ul]
 							
 							[center][url=https://support.twitter.com/articles/76036]Help[/url] | [url=https://help.twitter.com/en/safety-and-security/fake-twitter-emails]Email security tips[/url][/center]
@@ -129,6 +131,67 @@ func interact() -> void:
 							Really? It's going to take a while to get a response... but I suppose it's safer. Come back in a bit when I get a reply/
 							
 							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Ok.[/url]?>[/right]
+							"""
+						),
+				},
+				"socialengineering"
+			)
+		elif state == 1:
+			hud.show_dialog(
+				"realemail4",
+				{
+					"$begin":
+						Utils.dialog_part(
+							"""
+							[b]Haley[/b]
+							
+							Hi! I managed to change my password and secure my account! Thanks for helping me.
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Welcome.[/url]?>[/right]
+							"""
+						),
+				},
+				"socialengineering"
+			)
+		elif state == 2:
+			hud.show_dialog(
+				"realemail4",
+				{
+					"$begin":
+						Utils.dialog_part(
+							"""
+							[b]Haley[/b]
+							
+							I finally got a reply from customer service and they said the email was genuine. Did I really have to waste so much time worrying about it?
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$haleywrongdone]Oh...[/url]?>[/right]
+							"""
+						),
+					"$haleywrongdone":
+						Utils.dialog_part(
+							"""
+							[b]Haley[/b]
+							
+							There's a bunch of [b]posters at the back[/b] of the office that teach this stuff - we should take a look so this doesn't happen again!
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end:wrong]I'll do so.[/url]?>[/right]
+							"""
+						),
+				},
+				"socialengineering"
+			)
+		elif state == 3:
+			hud.show_dialog(
+				"realemail4",
+				{
+					"$begin":
+						Utils.dialog_part(
+							"""
+							[b]Haley[/b]
+							
+							Have you taken a look at the [b]posters[/b]?
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]I'll do so.[/url]?>[/right]
 							"""
 						),
 				},

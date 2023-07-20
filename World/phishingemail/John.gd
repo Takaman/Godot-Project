@@ -7,6 +7,7 @@ extends Sprite2D
 @onready var itguyinprogress : bool = false
 
 signal IT_Guy
+signal john_done
 
 func _on_hud_partsignaller():
 	if hud.part_name == "$johnnoclick":
@@ -19,6 +20,11 @@ func _on_hud_partsignaller():
 			state = 2
 		if marker != null and marker is Node:
 			marker.in_progress()
+	elif hud.part_name == "$johnwrongdone":
+		if marker != null and marker is Node:
+			marker.remove_mark()
+		state = 5
+		emit_signal("john_done")
 
 func _physics_process(delta: float) -> void:
 	if Score.get_result("phishingemail1","socialengineering") != 0:
@@ -30,14 +36,14 @@ func _physics_process(delta: float) -> void:
 		state = 5
 	
 	#Disables interaction while another question is in progress
-	if itguy.get_itguy_state() != "base":
-		itguyinprogress = true
-		if marker != null and marker is Node:
-			marker.toggle_visibility(false)
-	else:
+	if itguy.get_itguy_state() == "base" or itguy.get_itguy_state() == "john" or itguy.get_itguy_state() == "john2":
 		itguyinprogress = false
 		if marker != null and marker is Node:
 			marker.toggle_visibility(true)
+	else:
+		itguyinprogress = true
+		if marker != null and marker is Node:
+			marker.toggle_visibility(false)
 
 func _on_it_guy_john_next():
 	state = 4
@@ -89,7 +95,7 @@ func interact() -> void:
 						
 						This email is meant to inform you that the password to your corporate email is expiring in: [b]1 day[/b]
 						
-						Please click the link below to reset your password. A PDF document has been attached with instructions if you are unfamiliar with the pasword reset process.
+						Please click the link below to reset your password. A PDF document has been attached with instructions if you are unfamiliar with the password reset process.
 						
 						[url=]placeholder[/url]
 						
@@ -195,6 +201,27 @@ func interact() -> void:
 							
 							Have you informed the IT department? Tell them that I received an email from someone impersonating our IT department, and I gave them my corporate email account credentials. Please help me do so... I hope nothing bad happens...
 							
+							Here's the email in case you need to refer to it.
+							
+							IT Department <itdepartment_itpgrp11@gmail.com>
+						
+							Subject: [IMPORTANT NOTICE] Your password is expiring! - Immediate Action Required
+							
+							Dear John,
+							
+							This email is meant to inform you that the password to your corporate email is expiring in: [b]1 day[/b]
+							
+							Please click the link below to reset your password. A PDF document has been attached with instructions if you are unfamiliar with the password reset process.
+							
+							[url=]placeholder[/url]
+							
+							Note that failure to reset your password may result in your account being locked out.
+							
+							Sincerely,
+							
+							IT Department
+							ITPGRP11
+							
 							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]OK.[/url]?>[/right]
 							"""
 						)
@@ -210,9 +237,46 @@ func interact() -> void:
 							"""
 							[b]John[/b]
 							
-							What did they tell you? I should [b]change my password[/b] and [b]run an antivirus scan[/b]?
+							What did the IT department say I should do first?
 							
-							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next]Thankfully we reported it quickly.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back1]Run an antivirus scan.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back2]Send the email to your colleagues.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back1]Monitor your account for any strange activity.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back]Report to the IT department.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next]Change the password for your account.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back2]Delete your account.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back1]Enable two-factor authentication.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Let me try to remember.[/url]?>[/right]
+							"""
+						),
+					"$back":
+						Utils.dialog_part(
+							"""
+							[b]John[/b]
+							
+							Didn't I already do so?
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$begin]Let me try to remember.[/url]?>[/right]
+							"""
+						),
+					"$back1":
+						Utils.dialog_part(
+							"""
+							[b]John[/b]
+							
+							Is that really what I should do next?
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$begin]Let me try to remember.[/url]?>[/right]
+							"""
+						),
+					"$back2":
+						Utils.dialog_part(
+							"""
+							[b]John[/b]
+							
+							That really doesn't sound right...
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$begin]Let me try to remember.[/url]?>[/right]
 							"""
 						),
 					"$next":
@@ -220,17 +284,59 @@ func interact() -> void:
 							"""
 							[b]John[/b]
 							
-							No kidding... Falling for a phishing email is really scary. I should have paid more attention to the [b]posters at the back of the office[/b]...
+							And then?
 							
-							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end:wrong]Posters? Maybe I should check them out myself.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back1]Run an antivirus scan.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back2]Send the email to your colleagues.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back1]Monitor your account for any strange activity.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back]Report to the IT department.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back2]Delete your account.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next2]Enable two-factor authentication.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Let me try to remember.[/url]?>[/right]
 							"""
-						)
+						),
+					"$next2":
+						Utils.dialog_part(
+							"""
+							[b]John[/b]
+							
+							What next?
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next3]Run an antivirus scan.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back2]Send the email to your colleagues.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back1]Monitor your account for any strange activity.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back]Report to the IT department.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back2]Delete your account.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Let me try to remember.[/url]?>[/right]
+							"""
+						),
+					"$next3":
+						Utils.dialog_part(
+							"""
+							[b]John[/b]
+							
+							And the last step?
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back2]Send the email to your colleagues.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$johnwrongdone]Monitor your account for any strange activity.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back]Report to the IT department.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back2]Delete your account.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Let me try to remember.[/url]?>[/right]
+							"""
+						),
+					"$johnwrongdone":
+						Utils.dialog_part(
+							"""
+							[b]John[/b]
+							
+							Wow, okay. I hope that this solves the problem. Falling for a phishing email is really scary! I should have paid more attention to those [b]posters at the back[/b].
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end:wrong]Posters? I should check them out.[/url]?>[/right]
+							"""
+						),
 				},
 				"socialengineering"
 			)
-			if marker != null and marker is Node:
-				marker.remove_mark()
-			state = 5
 		elif state == 5:
 			hud.show_dialog(
 				"phishingemail1",
