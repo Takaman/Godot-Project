@@ -28,7 +28,7 @@ func _ready():
 	
 
 func _on_start_pressed():
-	SceneTransition.change_scene("res://menu/instruction.tscn")
+	SceneTransition.change_scene("res://menu/instructioncontrol.tscn")
 
 func _on_options_pressed():
 	SceneTransition.change_scene("res://menu/Options.tscn")
