@@ -6,8 +6,7 @@ extends Sprite2D
 @onready var progress = $"../Progress"
 
 func _ready():
-	#interactable.exclamation_mark()
-	interactable.reset()
+	interactable.exclamation_mark()
 	pass
 	
 func interact() -> void:

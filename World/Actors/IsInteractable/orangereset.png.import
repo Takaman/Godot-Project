@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://85ejddl1ejgh"
-path="res://.godot/imported/redo2.png-e4bf4947ec1a93ddd13cc3db9837ca34.ctex"
+uid="uid://j56rnqn87ovq"
+path="res://.godot/imported/orangereset.png-e62832f5963e8f4d5fa3f69e922a14ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/Actors/IsInteractable/redo2.png"
-dest_files=["res://.godot/imported/redo2.png-e4bf4947ec1a93ddd13cc3db9837ca34.ctex"]
+source_file="res://World/Actors/IsInteractable/orangereset.png"
+dest_files=["res://.godot/imported/orangereset.png-e62832f5963e8f4d5fa3f69e922a14ee.ctex"]
 
 [params]
 
