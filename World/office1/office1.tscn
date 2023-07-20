@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://ddmwhp02tpc25"]
+[gd_scene load_steps=79 format=3 uid="uid://ddmwhp02tpc25"]
 
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_kxpn7"]
 [ext_resource type="Texture2D" uid="uid://dt3beuuh7qicn" path="res://Tilemap builder/Interior/Interiors_free_16x16.png" id="3_tkjpr"]
@@ -41,6 +41,7 @@
 [ext_resource type="Script" path="res://helpers/elevator.gd" id="39_iy146"]
 [ext_resource type="Script" path="res://World/office1/ThumbdriveHint.gd" id="39_sss5t"]
 [ext_resource type="Texture2D" uid="uid://dla4xya6q7uei" path="res://World/office1/images/character/Tom.png" id="40_ixf08"]
+[ext_resource type="Script" path="res://helpers/logout.gd" id="42_varsc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_76n35"]
 texture = ExtResource("2_kxpn7")
@@ -6072,6 +6073,18 @@ size = Vector2(32, 17)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6f8nt"]
 size = Vector2(58.75, 77.6471)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_63bem"]
+texture = ExtResource("8_bw2tt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m0bxa"]
+texture = ExtResource("8_bw2tt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g1b3u"]
+texture = ExtResource("8_bw2tt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ebbqq"]
+texture = ExtResource("8_bw2tt")
+
 [node name="Office1" type="TileMap"]
 position = Vector2(-25, -2)
 tile_set = SubResource("TileSet_dpobp")
@@ -6817,9 +6830,37 @@ shape = SubResource("RectangleShape2D_6f8nt")
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_hw1nk")
 
+[node name="Logout" type="CanvasLayer" parent="."]
+script = ExtResource("42_varsc")
+
+[node name="Button" type="Button" parent="Logout"]
+offset_left = 0.313019
+offset_top = 0.426986
+offset_right = 29.313
+offset_bottom = 16.427
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.984314, 0, 0.337255, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_63bem")
+theme_override_styles/hover = SubResource("StyleBoxTexture_m0bxa")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_g1b3u")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ebbqq")
+text = "Menu"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="input_closed" from="HUD" to="LaptopFolder/Laptop3 - question" method="_on_hud_input_closed"]
 [connection signal="input_submitted" from="HUD" to="LaptopFolder/Laptop3 - question" method="_on_hud_input_submitted"]
 [connection signal="partsignaller" from="HUD" to="LaptopFolder/Laptop3 - question" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="LaptopFolder/Laptop9 - question" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="Elevator" method="_on_hud_partsignaller"]
+[connection signal="partsignaller" from="HUD" to="Logout" method="_on_hud_partsignaller"]
 [connection signal="pressed" from="Progress/Button" to="Progress" method="_on_button_pressed"]
+[connection signal="pressed" from="Logout/Button" to="Logout" method="_on_button_pressed"]
