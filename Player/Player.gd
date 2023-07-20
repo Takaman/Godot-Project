@@ -33,6 +33,12 @@ func _ready():
 	hud[0].connect("input_opened", Callable(self,"_on_input_opened"))
 	hud[0].connect("input_closed", Callable(self,"_on_input_closed"))
 	
+	var hud2 = get_tree().get_nodes_in_group("PanelHUD_Group")
+	if hud2.size() > 0:
+		hud2[0].connect("panel_closed", Callable(self, "_on_panel_closed"))
+		hud2[0].connect("panel_closed", Callable(self,"_on_dialogue_closed")) 
+	
+	
 	if not Global.is_player_frozen:
 		dialoguecheck = false
 	#$"/root/Base_Map/HUD".connect("dialogue_closed",Callable(self,"_on_dialogue_closed"))
@@ -142,4 +148,6 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(body):
 	pass # Replace with function body.
-	
+
+func _on_panel_closed():
+	Global.is_player_frozen = false

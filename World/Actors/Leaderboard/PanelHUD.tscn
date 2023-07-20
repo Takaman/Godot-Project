@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb7iovwwrxs64"]
+
+[ext_resource type="Texture2D" uid="uid://b3hdnawtis3ie" path="res://World/Actors/Leaderboard/Panel.png" id="1_iuy26"]
+[ext_resource type="Script" path="res://World/Actors/Leaderboard/PanelHUD.gd" id="1_jlw7v"]
+
+[node name="PanelHUD" type="CanvasLayer"]
+script = ExtResource("1_jlw7v")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DialogueBig" type="NinePatchRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.8
+anchor_top = 0.2
+anchor_right = 6.4
+anchor_bottom = 4.2
+offset_left = 8.0
+offset_bottom = -1.52588e-05
+texture = ExtResource("1_iuy26")
+
+[node name="Label" type="Label" parent="Control/DialogueBig"]
+offset_left = 40.0
+offset_top = 8.0
+offset_right = 140.0
+offset_bottom = 34.0
+text = "Leaderboard"
+
+[node name="CloseButton" type="Button" parent="Control/DialogueBig"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.909
+anchor_top = 0.05
+anchor_right = 0.955
+anchor_bottom = 0.178
+offset_left = -7.98401
+offset_right = 4.04002
+offset_bottom = 12.2
+theme_override_font_sizes/font_size = 10
+text = "x"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/DialogueBig"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/DialogueBig"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 34.0
+offset_right = 152.0
+offset_bottom = 136.0
+
+[node name="GridContainer" type="GridContainer" parent="Control/DialogueBig/ScrollContainer"]
+layout_mode = 2
+columns = 3

@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvne1bkj5r1c7"]
+
+[ext_resource type="Texture2D" uid="uid://bmcj7hjgrswij" path="res://Tilemap builder/City/tilemap.png" id="1_5188h"]
+[ext_resource type="Texture2D" uid="uid://bol5fwjt144s4" path="res://World/Actors/TopicCheck/Emotes.png" id="2_oqhl6"]
+
+[node name="Node2D" type="CharacterBody2D"]
+metadata/_edit_horizontal_guides_ = []
+
+[node name="Statue" type="Sprite2D" parent="."]
+position = Vector2(51, 30)
+texture = ExtResource("1_5188h")
+hframes = 38
+vframes = 14
+frame = 75
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-10, -2)
+scale = Vector2(1.09375, 2.0625)
+polygon = PackedVector2Array(48, 8, 64, 8, 64, 24, 48, 24, 48, 8, 48, 8)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(24, -16)
+scale = Vector2(0.6544, 0.369565)
+texture = ExtResource("2_oqhl6")
+centered = false
+offset = Vector2(10, 0)
+hframes = 14
+vframes = 6
+frame = 9
+
+[node name="Label" type="Label" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = -1
+anchor_left = -0.6
+anchor_right = -0.6
+anchor_bottom = 0.941
+offset_left = 49.8655
+offset_top = 43.2941
+offset_right = 87.8655
+offset_bottom = -19.2779
+theme_override_font_sizes/font_size = 6
+text = "Online 
+Leaderboard"
+metadata/_edit_use_anchors_ = true

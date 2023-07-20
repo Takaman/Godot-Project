@@ -493,7 +493,7 @@ def ep_Get_Leader_Player():
         try:
 
             cursor = conn.cursor()
-            cursor.execute("SELECT username, name, points FROM PlayerProgress WHERE company = ? and accountStatus = 'Active'ORDER BY points DESC", (company,))
+            cursor.execute("SELECT username, name, points FROM PlayerProgress WHERE company = %s and accountStatus = 'Active' ORDER BY points DESC", (company,))
             board = cursor.fetchall()
             print(f"Found {str(len(board))} results.")
             # send back json reply
