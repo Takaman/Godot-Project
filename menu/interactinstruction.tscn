@@ -136,7 +136,7 @@ offset_left = 304.0
 offset_top = 138.0
 offset_right = 354.0
 offset_bottom = 169.0
-text = "Start!"
+text = "Next"
 script = ExtResource("2_1o65o")
 
 [node name="Correct" type="Sprite2D" parent="."]
