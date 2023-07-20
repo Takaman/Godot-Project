@@ -15,6 +15,7 @@ extends CanvasLayer
 @onready var sound_wrong := $soundwrong
 @onready var sound_door = $soundDoor
 @onready var progress = $"../Progress"
+@onready var logout = $"../Logout"
 
 const BOTTOM_PANEL_INSIDE_Y := 230
 const BOTTOM_PANEL_OUTSIDE_Y := 500
@@ -47,8 +48,10 @@ func _ready():
 func _process(delta):
 	if dialogue_big.visible == true or player_input.visible == true:
 		progress.visible = false
+		logout.visible = false
 	else:
 		progress.visible = true
+		logout.visible = true
 	pass
 
 func _input(event: InputEvent) -> void:

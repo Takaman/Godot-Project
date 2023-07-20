@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://cbf1syaoh1ufp"]
+[gd_scene load_steps=43 format=3 uid="uid://cbf1syaoh1ufp"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_e066w"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_1x1d0"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c7qy0jm8k6c6n" path="res://frames/Dialog/DialogueBoxSimple.png" id="9_i8knd"]
 [ext_resource type="PackedScene" uid="uid://quf6e4pbvkcj" path="res://helpers/ontouch.tscn" id="9_twn3x"]
 [ext_resource type="Script" path="res://World/phishingemail/Sam.gd" id="10_4igdu"]
+[ext_resource type="Script" path="res://helpers/logout.gd" id="10_is2pq"]
 [ext_resource type="PackedScene" uid="uid://iqn08315hsf" path="res://helpers/actionable.tscn" id="11_3enfb"]
 [ext_resource type="PackedScene" uid="uid://duiqkx067jd7i" path="res://World/Actors/IsInteractable/IsInteractable.tscn" id="11_dl61b"]
 [ext_resource type="Script" path="res://World/phishingemail/John.gd" id="14_28v8n"]
@@ -3467,9 +3468,10 @@ script = ExtResource("6_uhpgm")
 script = ExtResource("8_a78jq")
 
 [node name="Button" type="Button" parent="Progress"]
-offset_left = 331.0
-offset_right = 360.0
-offset_bottom = 16.0
+offset_left = 331.09
+offset_top = 0.182559
+offset_right = 360.09
+offset_bottom = 16.1826
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.984314, 0, 0.337255, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
@@ -3486,6 +3488,32 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_1j54p")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_gwp6y")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_6k2uc")
 text = "Progress"
+metadata/_edit_use_anchors_ = true
+
+[node name="Logout" type="CanvasLayer" parent="."]
+script = ExtResource("10_is2pq")
+
+[node name="Button" type="Button" parent="Logout"]
+offset_left = 0.313019
+offset_top = 0.426986
+offset_right = 29.313
+offset_bottom = 16.427
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.984314, 0, 0.337255, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_vjh7d")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1j54p")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gwp6y")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_6k2uc")
+text = "Menu"
 metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("7_beivg")]
@@ -3733,5 +3761,7 @@ shape = SubResource("RectangleShape2D_uj7iy")
 [connection signal="partsignaller" from="HUD" to="Haley (Real Email)" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="John (Phishing email)" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="Elevator" method="_on_hud_partsignaller"]
+[connection signal="partsignaller" from="HUD" to="Logout" method="_on_hud_partsignaller"]
 [connection signal="pressed" from="Progress/Button" to="Progress" method="_on_button_pressed"]
+[connection signal="pressed" from="Logout/Button" to="Logout" method="_on_button_pressed"]
 [connection signal="IT_Guy" from="John (Phishing email)" to="ITGuy" method="_on_john_it_guy"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=272 format=3 uid="uid://ndj2inv5qle0"]
+[gd_scene load_steps=277 format=3 uid="uid://ndj2inv5qle0"]
 
 [ext_resource type="Texture2D" uid="uid://biwlq37qxcwbd" path="res://Tilemap builder/Interior/TilesetInterior.png" id="1_5nmgp"]
 [ext_resource type="Texture2D" uid="uid://brhjjrp1xtvsd" path="res://Tilemap builder/Interior/interior.png" id="2_ee5eg"]
@@ -86,6 +86,7 @@
 [ext_resource type="Script" path="res://World/foodcourt1/TomHint.gd" id="85_wal3i"]
 [ext_resource type="Texture2D" uid="uid://rgh0ybopqc0q" path="res://World/foodcourt1/images/objects/computer-whitebase.png" id="85_wgcuk"]
 [ext_resource type="Script" path="res://World/foodcourt1/ReportSusAct.gd" id="86_d2nbf"]
+[ext_resource type="Script" path="res://helpers/logout.gd" id="87_dy5p0"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_iaydh"]
 tile_data = PackedInt32Array(0, 393219, 0)
@@ -9645,6 +9646,18 @@ size = Vector2(17.2973, 10.297)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdnvb"]
 size = Vector2(22.6667, 55.0459)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_abu84"]
+texture = ExtResource("10_rxqn7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1s2p3"]
+texture = ExtResource("10_rxqn7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_th3s0"]
+texture = ExtResource("10_rxqn7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y0r33"]
+texture = ExtResource("10_rxqn7")
+
 [node name="FoodCourt" type="TileMap"]
 position = Vector2(-25, -2)
 tile_set = SubResource("TileSet_dpobp")
@@ -11316,12 +11329,39 @@ shape = SubResource("RectangleShape2D_rdnvb")
 position = Vector2(-0.64109, -0.5)
 shape = SubResource("RectangleShape2D_wathh")
 
+[node name="Logout" type="CanvasLayer" parent="."]
+script = ExtResource("87_dy5p0")
+
+[node name="Button" type="Button" parent="Logout"]
+offset_left = 0.313019
+offset_top = 0.426986
+offset_right = 29.313
+offset_bottom = 16.427
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.984314, 0, 0.337255, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_abu84")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1s2p3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_th3s0")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_y0r33")
+text = "Menu"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="immediate_show" from="HUD" to="Progress" method="_on_hud_immediate_show"]
 [connection signal="partsignaller" from="HUD" to="GantryEnter" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="GantryExit" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="WhitewallsGantryEnter" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="Elevator" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="Computer-whitebase2" method="_on_hud_partsignaller"]
+[connection signal="partsignaller" from="HUD" to="Logout" method="_on_hud_partsignaller"]
 [connection signal="pressed" from="Progress/Button" to="Progress" method="_on_button_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
@@ -11331,3 +11371,4 @@ shape = SubResource("RectangleShape2D_wathh")
 [connection signal="jerrydone" from="Jerry" to="Computer-whitebase2" method="_on_jerry_jerrydone"]
 [connection signal="leave" from="Computer-whitebase2" to="Jerry" method="_on_computerwhitebase_2_leave"]
 [connection signal="lookaround" from="Computer-whitebase2" to="Jerry" method="_on_computerwhitebase_2_lookaround"]
+[connection signal="pressed" from="Logout/Button" to="Logout" method="_on_button_pressed"]
