@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dib82gxhgdscu"]
+[gd_scene load_steps=13 format=3 uid="uid://c4p2mtd6s3kug"]
 
 [ext_resource type="Texture2D" uid="uid://ditp4sf8l66nu" path="res://World/HUD/HUD2.png" id="1_xsffp"]
 [ext_resource type="Texture2D" uid="uid://ck3gjktl8ylil" path="res://menu/image/imageforinteract/progress-press.png" id="2_22awn"]

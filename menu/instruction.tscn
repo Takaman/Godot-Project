@@ -13,32 +13,50 @@ expand_mode = 1
 
 [node name="Label" type="Label" parent="TextureRect"]
 layout_mode = 0
-offset_left = 119.0
-offset_top = -1.0
-offset_right = 239.0
-offset_bottom = 37.0
-theme_override_colors/font_color = Color(0.32549, 0.870588, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.278431, 0.388235, 0.960784, 1)
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 359.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.2, 0.4, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.8, 0.4, 0, 1)
 theme_override_font_sizes/font_size = 25
-text = "Welcome!"
+text = "Security Defender: Office"
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="TextureRect"]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 35.0
-offset_right = 363.0
-offset_bottom = 119.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 226.0
+offset_top = 36.0
+offset_right = 345.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.8, 0.4, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.380392, 0.380392, 0.380392, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/line_spacing = 1
 theme_override_font_sizes/font_size = 7
-text = "You have been hired as an auditor.
-Your task is to identify the bad cybersecurity practices employees in your company have, 
-and to teach them what to do during cybersecurity incidents.
-You will be able to track your progress and this game will end once you 
-finish helping all the employees. 
-Good Luck!"
-horizontal_alignment = 1
+text = "Objectives:
+1) Learn about Social Engineering
+2) Combat Malware Attacks
+3) Tackle Phishing Attempts
+4) Adhere to Company Policies
+5) Earn Points and Achievements"
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="TextureRect"]
+offset_left = 14.0
+offset_top = 53.0
+offset_right = 214.0
+offset_bottom = 190.0
+theme_override_colors/font_color = Color(0, 0.501961, 0.501961, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+text = "Story:
+Assume the role of an office employee.
+Interact with colleagues, choose responses wisely, and become the ultimate security champion in this engaging and educational game.
+Safeguard the office from cyber threats and master essential security skills on your journey to success!"
+autowrap_mode = 2
+clip_text = true
 
 [node name="Next" type="Button" parent="."]
 offset_left = 309.0

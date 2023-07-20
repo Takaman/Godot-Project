@@ -13,4 +13,5 @@ func _process(delta):
 
 func back_on_pressed():
 	#SceneTransition.change_scene("res://World/world.tscn")# Replace with function body.
-	SceneTransition.change_scene("res://menu/interactinstruction.tscn")
+	get_tree().change_scene_to_file("res://menu/interactinstruction.tscn")
+
