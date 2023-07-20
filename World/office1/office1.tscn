@@ -7029,61 +7029,6 @@ metadata/_edit_group_ = true
 position = Vector2(0, 4.68292)
 shape = SubResource("RectangleShape2D_dlhkt")
 
-[node name="start" type="Sprite2D" parent="."]
-position = Vector2(-205, -203)
-texture = ExtResource("25_px7jm")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="start"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="start/StaticBody2D"]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_3mhdm")
-
-[node name="test" type="Sprite2D" parent="."]
-position = Vector2(-110, -131)
-texture = ExtResource("25_px7jm")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="test"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="test/StaticBody2D"]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_3mhdm")
-
-[node name="test2" type="Sprite2D" parent="."]
-position = Vector2(-112, -42)
-texture = ExtResource("25_px7jm")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="test2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="test2/StaticBody2D"]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_3mhdm")
-
-[node name="test3" type="Sprite2D" parent="."]
-position = Vector2(-99, 54)
-texture = ExtResource("25_px7jm")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="test3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="test3/StaticBody2D"]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_3mhdm")
-
-[node name="test4" type="Sprite2D" parent="."]
-position = Vector2(-29, -186)
-texture = ExtResource("25_px7jm")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="test4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="test4/StaticBody2D"]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_3mhdm")
-
 [connection signal="input_closed" from="HUD" to="LaptopFolder/Laptop3 - question" method="_on_hud_input_closed"]
 [connection signal="input_submitted" from="HUD" to="LaptopFolder/Laptop3 - question" method="_on_hud_input_submitted"]
 [connection signal="partsignaller" from="HUD" to="LaptopFolder/Laptop3 - question" method="_on_hud_partsignaller"]
