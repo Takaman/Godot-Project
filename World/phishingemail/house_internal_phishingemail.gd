@@ -8,8 +8,8 @@ func _ready():
 	hud._close_panel()
 	hud.close_player_input()
 	
-	if sessionVar._session:
-		var username = sessionVar._session.get("username")
+	if SeshVar._session:
+		var username = SeshVar._session.get("username")
 	else:
 		SceneTransition.change_scene("res://../menu/Login.tscn")
 	pass # Replace with function body.

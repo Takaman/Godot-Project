@@ -5,15 +5,15 @@ signal dialogue_closed
 
 @onready var hud := $"/root/Base_Map/HUD"
 @onready var hud2 := $"/root/Base_Map/PanelHUD"
-@onready var sessionVar = get_node("/root/Seshvar")
+@onready var sessionVar = get_node("/root/SeshVar")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hud._close_panel()
 	hud.close_player_input()
 	hud2._close_panel()
 	
-	if sessionVar._session:
-		var username = sessionVar._session.get("username")
+	if SeshVar._session:
+		var username = SeshVar._session.get("username")
 	else:
 		SceneTransition.change_scene("res://../menu/Login.tscn")
 	pass # Replace with function body.
