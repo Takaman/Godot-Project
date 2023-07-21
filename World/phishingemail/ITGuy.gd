@@ -10,16 +10,17 @@ signal danny_next
 signal elen_next
 
 func _on_hud_partsignaller():
-	if hud.part_name == "$johnnext3":
+	if hud.part_name == "$itjohnnext3":
 		state = "john2"
 		emit_signal("john_next")
-	if hud.part_name == "$carennext3":
+	if hud.part_name == "$itcarennext3":
+		print(state)
 		state = "caren2"
 		emit_signal("caren_next")
-	if hud.part_name == "$dannynext3":
+	if hud.part_name == "$itdannynext3":
 		state = "danny2"
 		emit_signal("danny_next")
-	if hud.part_name == "$elennext3":
+	if hud.part_name == "$itelennext3":
 		state = "elen2"
 		emit_signal("elen_next")
 
@@ -27,6 +28,11 @@ func _ready():
 	if marker != null and marker is Node:
 		marker.toggle_visibility(false)
 	pass
+
+func _physics_process(delta: float) -> void:
+	if state == "base":
+		if marker != null and marker is Node:
+			marker.toggle_visibility(false)
 
 func get_itguy_state() -> String:
 	return state
@@ -43,6 +49,7 @@ func _on_john_phishing_email_john_done():
 		marker.toggle_visibility(false)
 
 func _on_caren_phishing_email_it_guy_caren():
+	print(state)
 	state = "caren"
 	if marker != null and marker is Node:
 		marker.toggle_visibility(true)
@@ -117,7 +124,7 @@ func interact() -> void:
 						What!? That's bad news... do you remember what the context of the email was?
 						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back1]An email from someone impersonating Twitter.[/url]?>[/right]
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$johnnext2]An email from someone impersonating the IT department.[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$itjohnnext2]An email from someone impersonating the IT department.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back1]An email from someone impersonating the bank.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back1]An email from someone impersonating Microsoft.[/url]?>[/right]
 						"""
@@ -132,7 +139,7 @@ func interact() -> void:
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next]Let me try to remember.[/url]?>[/right]
 						"""
 					),
-				"$johnnext2":
+				"$itjohnnext2":
 					Utils.dialog_part(
 						"""
 						[b]IT Guy[/b]
@@ -141,7 +148,7 @@ func interact() -> void:
 						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back2]Bank account details.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back2]Personal email credentials.[/url]?>[/right]
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$johnnext3]Corporate email credentials.[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$itjohnnext3]Corporate email credentials.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back2]Twitter account.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back2]Microsoft account.[/url]?>[/right]
 						"""
@@ -153,10 +160,10 @@ func interact() -> void:
 						
 						Hmm... Are you sure about that?
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$johnnext2]Let me try to remember.[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$itjohnnext2]Let me try to remember.[/url]?>[/right]
 						"""
 					),
-				"$johnnext3":
+				"$itjohnnext3":
 					Utils.dialog_part(
 						"""
 						[b]IT Guy[/b]
@@ -223,7 +230,7 @@ func interact() -> void:
 						What!? That's bad news... do you remember what the context of the email was?
 						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back1]An email from someone impersonating Twitter.[/url]?>[/right]
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$carennext2]An email from someone impersonating the IT department.[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$itcarennext2]An email from someone impersonating the IT department.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back1]An email from someone impersonating the bank.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back1]An email from someone impersonating Microsoft.[/url]?>[/right]
 						"""
@@ -238,7 +245,7 @@ func interact() -> void:
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next]Let me try to remember.[/url]?>[/right]
 						"""
 					),
-				"$carennext2":
+				"$itcarennext2":
 					Utils.dialog_part(
 						"""
 						[b]IT Guy[/b]
@@ -247,7 +254,7 @@ func interact() -> void:
 						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back2]Bank account details.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back2]Personal email credentials.[/url]?>[/right]
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$carennext3]Corporate email credentials.[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$itcarennext3]Corporate email credentials.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back2]Twitter account.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back2]Microsoft account.[/url]?>[/right]
 						"""
@@ -259,10 +266,10 @@ func interact() -> void:
 						
 						Hmm... Are you sure about that?
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$carennext2]Let me try to remember.[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$itcarennext2]Let me try to remember.[/url]?>[/right]
 						"""
 					),
-				"$carennext3":
+				"$itcarennext3":
 					Utils.dialog_part(
 						"""
 						[b]IT Guy[/b]
@@ -330,7 +337,7 @@ func interact() -> void:
 						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back1]An email from someone impersonating Twitter.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back1]An email from someone impersonating the IT department.[/url]?>[/right]
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$dannynext2]An email from someone impersonating the bank.[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$itdannynext2]An email from someone impersonating the bank.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back1]An email from someone impersonating Microsoft.[/url]?>[/right]
 						"""
 					),
@@ -344,7 +351,7 @@ func interact() -> void:
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next]Let me try to remember.[/url]?>[/right]
 						"""
 					),
-				"$dannynext2":
+				"$itdannynext2":
 					Utils.dialog_part(
 						"""
 						[b]IT Guy[/b]
@@ -352,7 +359,7 @@ func interact() -> void:
 						Impersonating the bank? What information did John type into the fake website?
 						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back2]Personal bank account credentials.[/url]?>[/right]
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$dannynext3]Company bank account credentials.[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$itdannynext3]Company bank account credentials.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back2]Corporate email credentials.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back2]Twitter account.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back2]Microsoft account.[/url]?>[/right]
@@ -365,10 +372,10 @@ func interact() -> void:
 						
 						Hmm... Are you sure about that?
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$dannynext2]Let me try to remember.[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$itdannynext2]Let me try to remember.[/url]?>[/right]
 						"""
 					),
-				"$dannynext3":
+				"$itdannynext3":
 					Utils.dialog_part(
 						"""
 						[b]IT Guy[/b]
@@ -437,7 +444,7 @@ func interact() -> void:
 						Really? What was the context of the email?
 						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back1]An email from Twitter.[/url]?>[/right]
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$elennext2]An email from the IT department.[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$itelennext2]An email from the IT department.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back1]An email from the bank.[/url]?>[/right]
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$back1]An email from Microsoft.[/url]?>[/right]
 						"""
@@ -452,17 +459,17 @@ func interact() -> void:
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next]Let me try to remember.[/url]?>[/right]
 						"""
 					),
-				"$elennext2":
+				"$itelennext2":
 					Utils.dialog_part(
 						"""
 						[b]IT Guy[/b]
 						
 						An email from us? Let me check... Yea, we did send an email asking her to change her email password.
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$elennext3]Oh...[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$itelennext3]Oh...[/url]?>[/right]
 						"""
 					),
-				"$elennext3":
+				"$itelennext3":
 					Utils.dialog_part(
 						"""
 						[b]IT Guy[/b]

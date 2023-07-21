@@ -5,7 +5,7 @@ signal dialogue_closed
 
 @onready var hud := $"/root/Base_Map/HUD"
 @onready var hud2 := $"/root/Base_Map/PanelHUD"
-@onready var sessionVar = get_node("/root/SeshVar")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hud._close_panel()

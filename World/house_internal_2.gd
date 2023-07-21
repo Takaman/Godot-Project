@@ -1,12 +1,12 @@
 extends TileMap
 
 @onready var hud := $HUD
-@onready var sessionVar = get_node("/root/SeshVar")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hud._close_panel()
 	hud.close_player_input()
+	
 	if SeshVar._session:
 		var username = SeshVar._session.get("username")
 	else:

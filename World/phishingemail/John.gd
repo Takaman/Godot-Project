@@ -14,7 +14,7 @@ func _on_hud_partsignaller():
 		if state == 0:
 			state = 1
 		if marker != null and marker is Node:
-			marker.remove_mark()
+			marker.correct()
 	elif hud.part_name == "$johnclick":
 		if state == 0:
 			state = 2
@@ -22,18 +22,19 @@ func _on_hud_partsignaller():
 			marker.in_progress()
 	elif hud.part_name == "$johnwrongdone":
 		if marker != null and marker is Node:
-			marker.remove_mark()
+			marker.wrong()
 		state = 5
 		emit_signal("john_done")
 
 func _physics_process(delta: float) -> void:
-	if Score.get_result("phishingemail1","socialengineering") != 0:
-		if marker != null and marker is Node:
-				marker.visible = false
 	if Score.get_result("phishingemail1","socialengineering") == 1: #if result is correct
 		state = 1
+		if marker != null and marker is Node:
+			marker.correct()
 	elif Score.get_result("phishingemail1","socialengineering") == 2: #if result is wrong
 		state = 5
+		if marker != null and marker is Node:
+			marker.wrong()
 	
 	#Disables interaction while another question is in progress
 	if itguy.get_itguy_state() == "base" or itguy.get_itguy_state() == "john" or itguy.get_itguy_state() == "john2":
@@ -97,7 +98,7 @@ func interact() -> void:
 						
 						Please click the link below to reset your password. A PDF document has been attached with instructions if you are unfamiliar with the password reset process.
 						
-						[url=]placeholder[/url]
+						https://tinyurl.com/2th427tnas
 						
 						Note that failure to reset your password may result in your account being locked out.
 						

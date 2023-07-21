@@ -16,21 +16,22 @@ func _on_hud_partsignaller():
 		if state == 0:
 			state = 1
 		if marker != null and marker is Node:
-			marker.remove_mark()
+			marker.correct()
 	elif hud.part_name == "$haleywrongdone":
 		if marker != null and marker is Node:
-			marker.remove_mark()
+			marker.wrong()
 		state = 3
 
 func _physics_process(delta: float) -> void:
-	if Score.get_result("realemail4","socialengineering") != 0:
-		if marker != null and marker is Node:
-				marker.visible = false
 	if Score.get_result("realemail4","socialengineering") == 1:
 		state = 1
+		if marker != null and marker is Node:
+			marker.correct()
 	elif Score.get_result("realemail4","socialengineering") == 2:
 		state = 3
-		
+		if marker != null and marker is Node:
+			marker.wrong()
+			
 	#Disables interaction while another question is in progress
 	if itguy.get_itguy_state() == "base" or itguy.get_itguy_state() == "haley" or itguy.get_itguy_state() == "haley2":
 		itguyinprogress = false

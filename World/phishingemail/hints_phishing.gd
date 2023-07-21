@@ -44,7 +44,7 @@ func interact() -> void:
 		dialogue = dialogue.replace("Frank's Email <#[INCOMPLETE]#>", "Frank's Email <![WRONG]!>")
 	
 	if Score.get_result("realemail3", "socialengineering") == 1:
-		dialogue = dialogue.replace("Gary's Email <#[INCOMPLETE]#>", "Gary's Email [<~[CORRECT]~>")
+		dialogue = dialogue.replace("Gary's Email <#[INCOMPLETE]#>", "Gary's Email <~[CORRECT]~>")
 	elif Score.get_result("realemail3", "socialengineering") == 2:
 		dialogue = dialogue.replace("Gary's Email <#[INCOMPLETE]#>", "Gary's Email <![WRONG]!>")
 	
