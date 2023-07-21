@@ -8,10 +8,11 @@ func interact() -> void:
 	
 		[center] 1) QR Code <#[INCOMPLETE]#> [/center]
 		
+		[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 	"""
 	
 	if Score.get_result("poster1", "socialengineering") == 1:
-		dialogue = dialogue.replace("QR Code <#[INCOMPLETE]#>", "QR Code <![COMPLETE]!!~>>")
+		dialogue = dialogue.replace("QR Code <#[INCOMPLETE]#>", "QR Code <~[COMPLETE]!!~>")
 		
 	hud.show_dialog(
 		"hints",

@@ -32,8 +32,8 @@ func interact() -> void:
 		[cell][center][u]Malware[/u][/center][/cell]
 		[cell][/cell]
 		
-		[cell][center]<!%s!>/7[/center][/cell]
-		[cell][center]<!%s!>/7[/center][/cell]
+		[cell][center]<!%s!>/11[/center][/cell]
+		[cell][center]<!%s!>/9[/center][/cell]
 		[cell][center]<!%s!>/2[/center][/cell]
 		[cell][u]Completed[/u][/cell]
 		

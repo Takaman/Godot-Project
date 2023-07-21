@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://u2dp1l6114pk"]
+[gd_scene load_steps=31 format=3 uid="uid://u2dp1l6114pk"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_f75mx"]
 [ext_resource type="PackedScene" uid="uid://c8dwnnlhhn27a" path="res://World/base_map.tscn" id="2_7pm26"]
@@ -184,18 +184,18 @@ collision_mask = 0
 position = Vector2(-16, -1)
 shape = SubResource("CapsuleShape2D_ucide")
 
-[node name="Leaderboard" parent="." instance=ExtResource("14_lwtjk")]
-position = Vector2(272, -59)
-script = ExtResource("16_7xfg8")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaderboard/Area2D"]
+position = Vector2(-16, -1)
+shape = SubResource("CapsuleShape2D_ucide")
 
 [node name="Area2D" type="Area2D" parent="Leaderboard"]
 position = Vector2(65, 32)
 collision_layer = 16
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaderboard/Area2D"]
-position = Vector2(-16, -1)
-shape = SubResource("CapsuleShape2D_ucide")
+[node name="Leaderboard" parent="." instance=ExtResource("14_lwtjk")]
+position = Vector2(272, -59)
+script = ExtResource("16_7xfg8")
 
 [connection signal="partsignaller" from="HUD" to="Logout" method="_on_hud_partsignaller"]
 [connection signal="partsignaller" from="HUD" to="Poster" method="_on_hud_partsignaller"]
