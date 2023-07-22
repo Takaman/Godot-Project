@@ -80,6 +80,7 @@ func interact() -> void:
 			"policy"
 		)
 	elif state == 3:
+		interactable.wrong()
 		hud.show_dialog(
 			"unattendedlaptop",
 			{

@@ -12,14 +12,16 @@ func _ready():
 func interact() -> void:
 	print("interaction started")
 	hud.show_dialog(
-		"Tim",
+		"Bei",
 		{
 			"$begin":
 			Utils.dialog_part(
 				"""
-				Don't you think that we should do something about that thumbdrive?
+				[b]Bei[/b]
+				
+				This guy seems to be standing there aimlessly, maybe we should help him out or report about it?
+				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Yea, I should check it out.[/url]?>[/right]
-
 				"""
 			),
 		},

@@ -148,7 +148,13 @@ func _on_hud_input_closed():
 		)
 
 func _physics_process(delta: float) -> void:
-	if Score.get_has_correct("passwordpolicy","policy") == true:
-		state = 2
-		if interactable != null and interactable is Node:
+	if interactable != null and interactable is Node:
+		if Score.get_result("passwordpolicy","policy") == 2:
+			interactable.visible = true
+			interactable.reset()
+			if state == 1:
+				interactable.in_progress()
+		if Score.get_has_correct("passwordpolicy","policy") == true:
+			interactable.visible = true
+			state = 2
 			interactable.correct()

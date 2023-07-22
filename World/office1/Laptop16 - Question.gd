@@ -61,7 +61,7 @@ func interact() -> void:
 							Wow, that seemed to work! The ads are no longer randomly appearing on my screen! Thanks alot for your help
 							
 							
-							[right]That's right, be careful when installing third party tools.[/right]
+							[center]That's right, be careful when installing third party tools.[/center]
 							
 							[center]<#[url=https://www.kaspersky.com/resource-center/threats/adware] Click here to learn more.[/url]#>[/center]
 							

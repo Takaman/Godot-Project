@@ -25,7 +25,7 @@ func interact() -> void:
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]Ignore the update and choose a later time indefinitely. [/url]?>[/right]
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]Initiate the download immediately. [/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:correct]Initiate the download immediately. [/url]?>[/right]
 				
 				
 				"""
@@ -50,9 +50,6 @@ func interact() -> void:
 				That's not ideal.
 				
 				Without the latest features/patches, you become more vulnerable to security breaches through your device.
-				
-				Also, if you initiate the download and installation immediately,
-				it might impact your work productivity as it may take hours at times.
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""

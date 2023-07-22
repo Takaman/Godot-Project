@@ -25,7 +25,7 @@ func interact() -> void:
 				Could you please let me in? I forgot my access card.
 
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$wrong:wrong][u]Ignores and walk away[/u][/url]?>[/right]
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=correct:correct]I'm sorry, but I cannot help you out.[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$correct:correct]I'm sorry, but I cannot help you out.[/url]?>[/right]
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$wronge2:wrong]No worries. I'll swipe my card, and you can follow me.[/url]?>[/right]
 				
 				"""
