@@ -10,23 +10,31 @@ func interact() -> void:
 		{
 			"$begin": Utils.dialog_part(
 				"""
-				[center]<![url=$logout]Logout[/url]!>[/center]
-				[center]<![url=$quit]Quit[/url]!>[/center]
-				[center]<![url=$end]Back[/url]!>[/center]
+				[center][img=12x12]res://World/HUD/Pointer.png[/img][url=$logout][color=blue]Logout[/color][/url][/center]
+				
+				[center][img=12x12]res://World/HUD/Pointer.png[/img][url=$quit][color=blue]Quit[/color][/url][/center]
+				
+				[center][img=12x12]res://World/HUD/Pointer.png[/img][url=$end][color=red]Back[/color][/url][/center]
 				"""
 			),
 			"$logout": Utils.dialog_part(
 				"""
 				[center]Are you sure you want to logout?[/center]
-				[center]<![url=$logoutcnfm]Logout[/url]!>[/center]
-				[center]<![url=$begin]Back[/url]!>[/center]
+				
+				
+				[center][img=12x12]res://World/HUD/Pointer.png[/img][url=$logoutcnfm][color=blue]Logout[/color][/url][/center]
+				
+				[center][img=12x12]res://World/HUD/Pointer.png[/img][url=$begin][color=red]Back[/color][/url][/center]
 				"""
 			),
 			"$quit": Utils.dialog_part(
 				"""
 				[center]Are you sure you want to quit?[/center]
-				[center]<![url=$quitcnfm]Quit[/url]!>[/center]
-				[center]<![url=$begin]Back[/url]!>[/center]
+				
+				
+				[center][img=12x12]res://World/HUD/Pointer.png[/img][url=$quitcnfm][color=blue]Quit[/color][/url][/center]
+				
+				[center][img=12x12]res://World/HUD/Pointer.png[/img][url=$begin][color=red]Back[/color][/url][/center]
 				"""
 			),
 			"$logoutcnfm": Utils.dialog_part("""[center]Logging out...[/center]"""),
