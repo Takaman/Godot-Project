@@ -19,7 +19,7 @@ func interact() -> void:
 				"""
 				[b]Peter[/b]
 				
-				I feel like we should do something more than just throwing confidential stuff into the dustbin.
+				I don't think we should just throw confidential stuff into the dustbin.
 				
 				Maybe the lady beside might be thinking something similar.
 

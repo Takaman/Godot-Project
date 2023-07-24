@@ -16,11 +16,10 @@ func interact() -> void:
 			"$begin":
 			Utils.dialog_part(
 				"""
-				There is a password written on the whiteboard for everyone to see.
-
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:correct]Let's erase the password from the whiteboard now and report this incident.[/url]?>[/right]
+				There's a password written on the whiteboard for everyone to see.
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]I don't think it's a problem to leave the password there. It's convenient for our team to have easy access to it.[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:correct]Let's erase the password from the whiteboard now and report this incident.[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]Leave it. It provides a convenient way for the team to remeber the password.[/url]?>[/right]
 				
 				"""
 			),
@@ -31,21 +30,20 @@ func interact() -> void:
 				
 				By removing the password from the whiteboard, you are taking a proactive step to enhance security and protect our data.
 				
-				Also reporting this incident can help maintain the integrity of security of sensitive information.
+				Also, reporting this incident can help maintain the integrity of security of sensitive information.
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""
 				),
 			"$nochange":
 				Utils.dialog_part(
 				"""
 				That is a horrible choice.
-				Leaving password visible compromises the security of our systems and sensitive information.
-
-				It's important to prioritize data protection by removing the password from the whiteboard and implementing more secure methods for sharing passwords.
-				Company approved apps like cloud secrets.
+				Leaving passwords visible compromises the security of our systems and sensitive information.
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				It's important to prioritize data protection by removing the password from the whiteboard and implementing more secure methods for sharing passwords, such as company approved apps like cloud secrets.
+				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""
 				),
 		},

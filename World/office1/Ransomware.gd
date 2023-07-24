@@ -21,15 +21,15 @@ func interact() -> void:
 						"""
 						[b]Betty[/b]
 						
-						I think im in trouble. Should I resolve this myself?
-
+						I think I'm in trouble. Should I try to resolve this myself?
+						
 						[center][img=100x100]res://World/office1/images/Question/CryptoLocker.jpg[/img][/center]
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$right:correct]Seek professional help from the IT department![/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$right:correct]You should seek help from the IT department![/url]?>[/right]
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$wrong1:wrong]Well, maybe it's just a temporary glitch. Let's just ignore it.[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$wrong1:wrong]Maybe it's just a temporary glitch. Let's just ignore it.[/url]?>[/right]
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$wrong2:wrong]Have you tried to paying for it yet?[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$wrong2:wrong]Have you tried paying the ransom?[/url]?>[/right]
 						
 						"""
 					),
@@ -38,26 +38,25 @@ func interact() -> void:
 							"""
 							Rightfully so!
 							
-							Always report incidents to the IT department as it can help them to minimise the impact.
-							We are not trained professionals to deal with it, always follow your componay's protocol.
+							Always report incidents to the IT department as it can help them minimise the impact.
+							Most of us aren't trained to solve these problems, so remember to always follow your company's protocol.
 							
-							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Next[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 							"""
 							
 						),
 					"$wrong1":
 						Utils.dialog_part(
 							"""
-							Oh no.... 
+							Oh no...
 							
-							Attempting to resolve it without proper knowledge and tools can lead to further damage 
-							or unsuccessful recovery attempts.
+							Attempting to resolve problems without the proper knowledge or tools can lead to further damage or unsuccessful recovery attempts.
 							
-							You should have Disconnect from the network and Contact a cybersecurity professional.
-
+							You should instead have disconnected from the network and contacted a cybersecurity professional.
+							
 							[center]<#[url=https://en.wikipedia.org/wiki/CryptoLocker] Click here to learn more.[/url]#>[/center]
 							
-							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Next[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 							"""
 						),
 					"$wrong2":
@@ -65,11 +64,10 @@ func interact() -> void:
 							"""
 							STOP!
 							
-							Never deal with such situation by yourself!
-							You might worsen the impact of this situation.
+							Never deal with such a situation by yourself, or you might worsen its impact.
 							
-							You should have Disconnect from the network and Contact a cybersecurity professional.
-														
+							You should instead have disconnected from the network and contacted a cybersecurity professional.
+							
 							[center]<#[url=https://en.wikipedia.org/wiki/CryptoLocker] Click here to learn more.[/url]#>[/center]
 							
 							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]

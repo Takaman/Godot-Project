@@ -26,7 +26,6 @@ func interact() -> void:
 					[center][img=180x120]res://World/office1/images/Question/Unattended.jpg[/img][/center]
 					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$leave:wrong]Leave it alone.[/url]?>[/right]
-					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$lookaround]Look around for its user.[/url]?>[/right]
 					"""
 				),
@@ -43,6 +42,7 @@ func interact() -> void:
 					I wonder where its user went? Maybe I should try checking the [b]vending machines[/b]. Also, I should help lock the PC.
 					
 					[i]Win + L on a Windows machine or Cmd + Ctrl + Q on an Apple machine to lock.[/i]
+					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Lock the PC and check the vending machines.[/url]?>[/right]
 					"""
 					)

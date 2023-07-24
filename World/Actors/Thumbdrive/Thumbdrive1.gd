@@ -18,16 +18,23 @@ func interact() -> void:
 			"$begin":
 			Utils.dialog_part(
 				"""
-				You have found a thumbdrive lying around! What should you do next?
+				You found a thumbdrive.
 				
 				[center][img=50x50]res://World/Actors/Thumbdrive/thumdrive.jpg[/img][/center]
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$insert:wrong]Ignore it and leave it where it is.[/url]?>[/right]
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$insert:wrong]Insert into your computer and check whose the owner.[/url]?>[/right]
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$pass:correct]Pass the thumbdrive to the IT security team[/url]?>[/right]
-				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$ignore:wrong]I'll ignore it and leave it where it is.[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$insert:wrong]I'll insert it into my computer and check who the owner is.[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$pass:correct]I'll pass the thumbdrive to the IT team.[/url]?>[/right]
 				"""
 			),
+			"$ignore":
+				Utils.dialog_part(
+				"""
+				I shoudn't just leave equipment lying around...
+				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
+				"""
+				),
 			"$insert":
 				Utils.dialog_part(
 				"""
@@ -35,14 +42,14 @@ func interact() -> void:
 				
 				USB drives can carry malware, which can infect your computer when plugged in.
 				
-				Always make sure you know where a thumbdrive comes from before using it
+				Always make sure you know where a thumbdrive comes from before using it.
 				
-				This attack is known as "USB drop attacks". 
+				This attack is known as a "USB drop attack". 
 				
-				To learn more visit this link.
+				Visit this link to learn more.
 				[center]<#[url=https://www.redteamsecure.com/blog/usb-drop-attacks-the-danger-of-lost-and-found-thumb-drives]Click here to learn more. [/url]#>[/center]
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""
 				),
 			"$pass":
@@ -52,12 +59,12 @@ func interact() -> void:
 				
 				Remember, USB drives can carry malware. 
 				
-				Always make sure you know where a thumbdrive comes from before using it. When in doubt, consult with your IT security team.
+				Always make sure you know where a thumbdrive comes from before using it. If in doubt, consult your IT team.
 				
-				To learn more visit this link.
+				Visit this link to learn more.
 				[center]<#[url=https://www.redteamsecure.com/blog/usb-drop-attacks-the-danger-of-lost-and-found-thumb-drives]Click here to learn more. [/url]#>[/center]
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""
 				),
 		},

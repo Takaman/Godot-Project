@@ -18,12 +18,10 @@ func interact() -> void:
 			"$begin":
 			Utils.dialog_part(
 				"""
-				There's a note accompanying the QR code attached to the vending machine that claims scanning it will grant you free food from the vending machine
-
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:wrong]I like free food. I am scanning the QR code. [/url]?>[/right]
+				There's a note accompanying the QR code attached to the vending machine that claims scanning it will give you free food from the vending machine.
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:correct]I rather not scan the QR code. I'd rather not take the risk. [/url]?>[/right]
-				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:wrong]I like free food! I'll scan the QR code. [/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:correct]I'd rather not scan the QR code.[/url]?>[/right]
 				"""
 			),
 			"$change":
@@ -31,13 +29,13 @@ func interact() -> void:
 				"""
 				Scanning the QR code... Processing... 
 				
-				Oh no! It seems the QR code you scanned is not authorized. You most likely visited a phishing website. 
+				Oh no! It seems the link was blocked by the company network. You most likely visited a phishing website. 
 				
 				It's crucial to be cautious when scanning unknown QR codes, as they can be used for malicious purposes. 
 				
 				Always ensure the authenticity and legitimacy of QR codes before scanning them to protect your personal information and device.  
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""
 				),
 			"$nochange":
@@ -48,8 +46,8 @@ func interact() -> void:
 				It's important to prioritize your security and privacy. Scanning unknown QR codes can expose you to potential risks and threats.
 				
 				By avoiding scanning unverified QR codes, you're taking a proactive step to safeguard your personal information and device.
-
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""
 				),
 		},

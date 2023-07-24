@@ -21,10 +21,9 @@ func interact() -> void:
 				"""
 				[b]Alloy[/b]
 				
-				Excuse me, I'm having trouble accessing this area.
-				Could you please let me in? I forgot my access card.
+				Excuse me, I forgot my access card for the gantry. Could you please let me in? I need to enter to do my work.
 
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$wrong:wrong][u]Ignores and walk away[/u][/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$wrong:wrong][u]Ignore him and walk away.[/u][/url]?>[/right]
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$correct:correct]I'm sorry, but I cannot help you out.[/url]?>[/right]
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$wronge2:wrong]No worries. I'll swipe my card, and you can follow me.[/url]?>[/right]
 				
@@ -35,10 +34,9 @@ func interact() -> void:
 				"""
 				Correct!
 				
-				By following this approach, you prioritise security protocols and
-				encourage the person to take the appropriate steps to gain legitimate access.
+				By following this approach, you prioritise security protocols and encourage the person to take the appropriate steps to gain legitimate access.
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				
 				"""
 				),
@@ -51,7 +49,7 @@ func interact() -> void:
 				
 				You need to also have some sort of respect towards anyone you meet.
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""
 				),
 			"$wrong2":
@@ -61,7 +59,7 @@ func interact() -> void:
 				
 				Allowing someone in without verifying their identity can potentially compromise the security of an area.
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""
 				),
 		},

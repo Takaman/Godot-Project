@@ -18,27 +18,26 @@ func interact() -> void:
 				"""
 				The table is <! really messy! !> There are food, drinks and documents all over the place!
 				
-				There are also some confidential finance documents on display. 
+				There are also some confidential financial documents on display. 
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$leave:wrong]Leave it as it is.[/url]?>[/right]
-				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$report:correct]Keep the financial documents at a secure private location and report this incident to management.[/url]?>[/right]
 				"""
 			),
 			"$leave":
 				Utils.dialog_part(
 				"""
-				You decide to leave the desk as it is. 
+				That's a bad idea.
 				
-				However, a clean desk policy is crucial in preventing security breaches. 
+				A clean desk policy is crucial in preventing security breaches. 
 				
 				This policy ensures that all important documents and confidential letters are removed from a desk and locked away when not in use or when an employee leaves their workstation.
 				
-				Ignoring this can result in unauthorized access to the company’s information or client data
+				Ignoring this can result in unauthorized access to the company’s information or client data.
 				
 				[center]<#[url=https://blog.usecure.io/what-is-a-clean-desk-policy-and-should-my-company-have-it]Click here to learn more.[/url]#>[/center]
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""
 				),
 			"$report":
@@ -48,11 +47,11 @@ func interact() -> void:
 				
 				This action aligns with the clean desk policy.
 				
-				Helping your company comply with industry standards of protecting important data and reduces the chance of unauthorized access to confidential information.
+				Help your company comply with the industry standards of confidentiality, which reduces the chance of unauthorized access to confidential information.
 				
 				[center]<#[url=https://blog.usecure.io/what-is-a-clean-desk-policy-and-should-my-company-have-it]Click here to learn more. [/url]#>[/center]
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""
 				),
 		},

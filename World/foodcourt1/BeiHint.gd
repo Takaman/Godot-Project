@@ -19,9 +19,9 @@ func interact() -> void:
 				"""
 				[b]Bei[/b]
 				
-				This guy seems to be standing there aimlessly, maybe we should help him out or report about it?
+				That guy seems to be standing there aimlessly. I think we should check if there's a problem.
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Yea, I should check it out.[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Yea, I'll check it out.[/url]?>[/right]
 				"""
 			),
 		},

@@ -18,13 +18,13 @@ func interact() -> void:
 				"""
 				[b]Ken[/b]
 				
-				Welcome to our department!
+				Welcome to the marketing department!
 				
-				You should talking to my employees, some of them might need the help they can get.
+				Walk around and talk to the staff herre - I bet there's a bunch of peopl who need your help.
 				
-				Goodluck!
+				Thanks and good luck!
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Thanks, I would walk around![/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Alright, I'll walk around.[/url]?>[/right]
 
 				"""
 			),

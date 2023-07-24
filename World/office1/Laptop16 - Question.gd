@@ -21,13 +21,13 @@ func interact() -> void:
 						"""
 						[b]Emily[/b]
 						
-						I've lately been getting these annoying random popups on my windows. What is wrong?
+						Lately, I've been getting these annoying random popups on my computer. Do you know what's wrong?
 						
 						[center][img=100x100]res://World/office1/images/Question/adware.png[/img][/center]
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$help:correct]Did you install anything lately? Such as browser extensions etc[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$help:correct]Did you install anything lately?[/url]?>[/right]
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nohelp:wrong]Ignore it and it will go away after some time.[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nohelp:wrong]Ignore it and it might go away after some time.[/url]?>[/right]
 						"""
 					),
 					"$help":
@@ -35,10 +35,10 @@ func interact() -> void:
 							"""
 							[b]Emily[/b]
 							
-							Yes! I've installed this third party toolbar and its really useful for my to translate my items!
+							Yes! I installed this third party toolbar and it's really useful for translation!
 							
 							
-							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$help2]It might be a common malware called "Adware". Uninstall the toolbar immediately.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$help2]Looks like you installed some kind of Adware. Uninstalling the toolbar might solve the issue.[/url]?>[/right]
 							"""
 							
 						),
@@ -47,10 +47,10 @@ func interact() -> void:
 							"""
 							[b]Emily[/b]
 							
-							Okay, then can I request a new computer from the IT department? This PC must be spoiled!
+							Okay, then can I request a new computer from the IT department? This computer must be broken!
 							
 							
-							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Perhaps I should rethink on how to solve the issue for her.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Perhaps I should reconsider the issue...[/url]?>[/right]
 							"""
 						),
 					"$help2":
@@ -58,14 +58,13 @@ func interact() -> void:
 							"""
 							[b]Emily[/b]
 							
-							Wow, that seemed to work! The ads are no longer randomly appearing on my screen! Thanks alot for your help
+							Wow, that seemed to work! The popups are no longer randomly appearing on my screen! Thanks a lot for your help!
 							
-							
-							[center]That's right, be careful when installing third party tools.[/center]
+							[center]Be careful when installing third party tools.[/center]
 							
 							[center]<#[url=https://www.kaspersky.com/resource-center/threats/adware] Click here to learn more.[/url]#>[/center]
 							
-							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 							"""
 						)
 				

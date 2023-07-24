@@ -17,7 +17,7 @@ func interact() -> void:
 			"$begin":
 			Utils.dialog_part(
 				"""
-				[i]Sounds like they are having a conversation[/i]
+				[i]Sounds like they're having a conversation...[/i]
 				
 				[b]Ryan[/b]: Hey Emma, have you seen Tom's desk lately? It's an absolute disaster!
 
@@ -25,7 +25,7 @@ func interact() -> void:
 
 				[b]Ryan[/b]: Exactly! I don't know how he finds anything in that chaos. It's a miracle if he can locate a single pen.
 				
-				[b]Emma[/b]: I can't bear to see if there's confidential documents everywhere.
+				[b]Emma[/b]: I can't bear to check if he left confidential documents there.
 
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end][i]I think I should check it out.[/i][/url]?>[/right]
 				"""

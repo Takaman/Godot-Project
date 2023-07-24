@@ -19,12 +19,10 @@ func interact() -> void:
 				"""
 				[b]Mary[/b]
 				
-				How can you proactively identify and detect any potential mishandling or unauthorized disposal of sensitive client documents?
+				How can we proactively identify and detect any potential mishandling or unauthorized disposal of sensitive client documents?
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:correct]I will assign dedicated staff to perform routine checks of trash bins and recycling areas for any discarded sensitive documents.[/url]?>[/right]
-				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]I will implement a document tracking system to monitor the movement and disposal of sensitive client documents.[/url]?>[/right]
-				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange1:wrong]I will conduct surprise audits to ensure employees are following proper document disposal practices.[/url]?>[/right]
 				
 				"""
@@ -33,9 +31,9 @@ func interact() -> void:
 				Utils.dialog_part(
 				"""
 				That's the right decision.
-				These regular checks ensure that any discarded sensitive documents are promptly identified and properly handled to prevent unauthorized access or data breaches.
+				Regular checks ensure that discarded sensitive documents are promptly identified and properly handled to prevent unauthorized access or data breaches.
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[right]
 				"""
 				),
 			"$nochange":
@@ -44,7 +42,7 @@ func interact() -> void:
 				That's incorrect.
 				While implementing a document tracking system can be beneficial for monitoring the movement and disposal of sensitive client documents, it may not be as effective in proactively identifying and detecting potential mishandling or unauthorized disposal.
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""
 				),
 			"$nochange1":
@@ -53,7 +51,7 @@ func interact() -> void:
 				That's incorrect.
 				Conducting surprise audits can be helpful in ensuring employees are following proper document disposal practices. However, it may not be as proactive in identifying potential mishandling or unauthorized disposal.
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[right]
 				"""
 				),
 		},

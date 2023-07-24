@@ -17,7 +17,7 @@ func interact() -> void:
 			"$begin":
 			Utils.dialog_part(
 				"""
-				[i]Sounds like they are having a conversation[/i]
+				[i]Sounds like they're having a conversation...[/i]
 				
 				[b]Patrick[/b]: Hey, have you heard about the new security measures they implemented?
 
@@ -27,7 +27,7 @@ func interact() -> void:
 
 				[b]Laticia[/b]: Really? That's surprising. I always thought our security was pretty solid.
 
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$continue][i]Continue Listening.[/i][/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$continue][i]Continue listening.[/i][/url]?>[/right]
 				"""
 			),
 		 	"$continue":
@@ -43,9 +43,9 @@ func interact() -> void:
 
 				[b]Patrick[/b]: That sounds like a plan. Let's be cautious about it though. We don't want to raise any suspicions.
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$right:correct][i]I think this is something serious, I should report this.[/i][/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$right:correct][i]This sounds serious. I should report this.[/i][/url]?>[/right]
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$wrong1:wrong][i]I should't be coming in wrong conclusions, let's leave them alone.[/i][/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$wrong1:wrong][i]I shouldn't make my own conclusions, let's leave them alone.[/i][/url]?>[/right]
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$wrong2:wrong][i]Maybe I should clarify their intentions.[/i][/url]?>[/right]
 				"""
@@ -55,35 +55,36 @@ func interact() -> void:
 				"""
 				That's the right thing to do!
 				
-				If there is anything you find suspicious, it is not wrong to report to the relavant personnel.
+				If there's anything you find suspicious, reporting them to the relavant personnel is the safest choice.
 				Let them take the appropriate measures.
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""
 				),
 			"$wrong":
 				Utils.dialog_part(
 				"""
 				Wrong choice.
-				There are many factors that suggests that this is something to be reported.
-				These 2 overall points shows that there are malicious intents.
 				
-				-Patrick's hesitation about reporting the concerns.
-				-Mention to gather evidence discreetly
+				There are many factors that suggest that this is something to be reported.
+				These two points shows that they have malicious intent.
 				
-
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				1. Patrick's hesitation about reporting his concerns.
+				2. Mentioning gathering evidence discreetly.
+				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""
 				),
 			"$wrong2":
 				Utils.dialog_part(
 				"""
-				You are almost right, but not good enough.
+				Almost correct.
 				
-				It is unadvisable to directly confront the individuals involved in the matter, as you might alert them unnecessarily. 
+				It is unadvisable to directly confront the individuals involved in the matter, as you might unnecessarily alert them that someone has noticed their plans. 
 				
-				You should have report it to the relevant higher ups instead.
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				You should have reported it to the relevant higher ups instead.
+				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""
 				),
 		},

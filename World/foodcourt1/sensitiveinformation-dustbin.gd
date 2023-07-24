@@ -18,12 +18,10 @@ func interact() -> void:
 			Utils.dialog_part(
 				"""
 				There are sensitive client documents in the trash.
-				Looks like someone accidentally threw them away. What is the best course of action?
-
+				Looks like someone accidentally threw them away. What should I do now?
+				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:correct]I'll destroy the documents using a secure shredder.[/url]?>[/right]
-				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]I'll just leave it. It's unlikely that anyone would look at these documents.[/url]?>[/right]
-				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange1:wrong]I'll notify the employees about the presence of sensitive documents.[/url]?>[/right]
 				"""
 			),
@@ -32,34 +30,36 @@ func interact() -> void:
 				"""
 				That's the right decision.
 				By properly destroying the documents, we can safeguard sensitive data and maintain the trust of our clients.
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""
 				),
 			"$nochange":
 				Utils.dialog_part(
 				"""
 				That's risky.
+				
 				While it may seem unlikely, leaving sensitive documents unattended can still pose a risk. 
-
+				
 				It's crucial to handle such documents properly to prevent unauthorized access and protect client confidentiality.
-
-				It's important to prioritize data security and take appropriate measures to dispose of sensitive information.
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				
+				It's also important to prioritize data security and take appropriate measures to dispose of sensitive information.
+				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""
 				),
 			"$nochange1":
 				Utils.dialog_part(
 				"""
 				While it's important to raise awareness among employees, directly notifying them may increase the risk of unauthorized access. 
-
+				
 				It's better to use a secure shredder for proper document disposal. 
 				
 				Shredding the documents prevents unauthorized access and minimizes the chances of data breaches.
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""
 				),
-
 		},
 		"policy"
 	)

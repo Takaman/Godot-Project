@@ -17,10 +17,11 @@ func interact() -> void:
 			"$begin":
 			Utils.dialog_part(
 				"""
-				Someone should check with that thumbdrive before something goes bad.
-
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Thanks, I should check it out.[/url]?>[/right]
-
+				[b]Tom[/b]
+				
+				Someone should check out that thumbdrive.
+				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]I'll take a look.[/url]?>[/right]
 				"""
 			),
 		},

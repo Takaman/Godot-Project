@@ -17,10 +17,9 @@ func interact() -> void:
 			"$begin":
 			Utils.dialog_part(
 				"""
-				You should use the machine on my right to get your drink.
-
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Thanks, I should check it out.[/url]?>[/right]
-
+				You can use the machine on my right to get your drink.
+				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Thanks, I'll check it out.[/url]?>[/right]
 				"""
 			),
 		},

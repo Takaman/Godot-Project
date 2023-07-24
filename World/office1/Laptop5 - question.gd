@@ -17,15 +17,15 @@ func interact() -> void:
 			"$begin":
 			Utils.dialog_part(
 				"""
-				Important updates are pending. The newest Windows feature update is ready to install. Would you like to initiate the download now or choose a later time?
+				The are important updates pending. The newest Windows feature update is ready to install. Would you like to initiate the download now or postpone it?
 				
 				[center][img=180x180]res://World/office1/images/Question/Windows11Update.jpg[/img][/center]
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:correct]Choose a suitable time to initiate the download [/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:correct]Choose a suitable time to initiate the download.[/url]?>[/right]
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]Ignore the update and choose a later time indefinitely. [/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]Ignore the update and choose a later time.[/url]?>[/right]
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:correct]Initiate the download immediately. [/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:correct]Initiate the download immediately.[/url]?>[/right]
 				
 				
 				"""
@@ -35,10 +35,9 @@ func interact() -> void:
 				"""
 				Correct.
 				
-				It is a good practice to download the latest window features update.
+				It's a good practice to download the latest feature updates as they often contain security patches.
 				
-				If you are currently working on something important or time-sensitive, 
-				it might be better to choose a later time for the update, rather than distrupting your workflow.
+				If you are currently working on something important or time-sensitive, it might be better to choose a later time for the update, rather than distrupting your workflow.
 				
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
@@ -49,7 +48,7 @@ func interact() -> void:
 				"""
 				That's not ideal.
 				
-				Without the latest features/patches, you become more vulnerable to security breaches through your device.
+				Without the latest updates, you become more vulnerable to security breaches through your device.
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""

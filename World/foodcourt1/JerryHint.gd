@@ -17,10 +17,9 @@ func interact() -> void:
 			"$begin":
 			Utils.dialog_part(
 				"""
-				Don't you think that there is a better way than storing our password on this whiteboard?
-
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Yea, I should check it out.[/url]?>[/right]
-
+				Don't you think that there's a better way to store our passwords than on this whiteboard?
+				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]I'll take a look.[/url]?>[/right]
 				"""
 			),
 		},

@@ -29,7 +29,7 @@ func interact() -> void:
 					"""
 					[b]Sofia[/b]
 					
-					The conference room is located behind you. Turn around, and you'll find the conference room
+					The conference room is located behind you. Turn around, go straight, and you'll find it.
 					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$last]Exit[/url]?>[/right]
 					"""
@@ -39,7 +39,7 @@ func interact() -> void:
 					"""
 					[b]Sofia[/b]
 					
-					The snack area is situated on the right-hand side. Simply walk down the hallway, and you'll spot it a short distance away.
+					The snack area is situated on the right. Simply walk down the hallway, and you'll spot it a short distance away.
 					
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$last]Exit[/url]?>[/right]
 					"""
@@ -49,11 +49,11 @@ func interact() -> void:
 					"""
 					[b]Sofia[/b]
 					
-					By any chance you were to go to the snack room, you would be able to meet my colleague there!
+					If by any chance you were to go to the snack room, you would be able to meet my colleague there!
 					
-					[i]Notice that theres a laptop without anyone mannning it.[/i]
+					[i]Notice that there's an unlocked computer on its own.[/i]
 					
-					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Oh thank you![/url]?>[/right]
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Oh, I see.[/url]?>[/right]
 					"""
 					)
 		},
