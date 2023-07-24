@@ -334,10 +334,10 @@ def ep_Generate_report():
                 
         # send the csv in the email  
         print(f"Sending csv email to {email}...")
-        name = "Game Report" #TODO CHANGE TO RETRIEVE FROM DB FOR DYNAMIC
+        name = "Administrator" 
         subject = "Your Report has Arrived"
         email_csv = Message(subject, sender = 'sititpgroup11@gmail.com', recipients = [email])
-        email_csv.body = f"Hi {name},\nAttached is the csv report generated."
+        email_csv.body = f"Hi {name},\nPlease find attached the csv report generated."
         with app.open_resource(f"static_csv/{csv_name}") as file:
             email_csv.attach(csv_name,"text/csv",file.read())
 
