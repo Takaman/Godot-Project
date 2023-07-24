@@ -7,14 +7,14 @@
 metadata/_edit_horizontal_guides_ = []
 
 [node name="Statue" type="Sprite2D" parent="."]
-position = Vector2(51, 30)
+position = Vector2(48, 33)
 texture = ExtResource("1_5188h")
 hframes = 38
 vframes = 14
 frame = 75
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-10, -2)
+position = Vector2(-13, 1.90735e-06)
 scale = Vector2(1.09375, 2.0625)
 polygon = PackedVector2Array(48, 8, 64, 8, 64, 24, 48, 24, 48, 8, 48, 8)
 
@@ -34,11 +34,12 @@ anchors_preset = -1
 anchor_left = -0.6
 anchor_right = -0.6
 anchor_bottom = 0.941
-offset_left = 49.8655
+offset_left = 48.3374
 offset_top = 43.2941
-offset_right = 87.8655
+offset_right = 86.3374
 offset_bottom = -19.2779
 theme_override_font_sizes/font_size = 6
 text = "Online 
 Leaderboard"
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
