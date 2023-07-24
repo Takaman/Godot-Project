@@ -25,12 +25,24 @@ offset_bottom = 294.0
 texture = ExtResource("2_ksemx")
 expand_mode = 1
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 122.0
+offset_right = 355.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.2, 0.4, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.8, 0.4, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "Security Defender: Office Edition"
+horizontal_alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 140.0
-offset_top = 142.0
-offset_right = 216.0
-offset_bottom = 242.0
+offset_left = 103.0
+offset_top = 162.0
+offset_right = 257.0
+offset_bottom = 262.0
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)

@@ -76,4 +76,16 @@ tab_size = 0
 
 [node name="HTTPRequest_COMPANY" type="HTTPRequest" parent="Control/Login"]
 
+[node name="Label" type="Label" parent="Control/Login"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 359.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.2, 0.4, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.8, 0.4, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "Security Defender: Office Edition"
+horizontal_alignment = 1
+
 [connection signal="button_down" from="Control/Login/LoginBtn" to="Control/Login" method="_on_login_btn_button_down"]
