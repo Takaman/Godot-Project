@@ -285,6 +285,53 @@ def ep_update_Interactions():
     except InvalidSignatureError:
         return "Unauthorised token", 401
 
+# Retrieve leaderboard for all users 
+@app.route('/get_Leader_Admin', methods=['POST'])
+def ep_Get_Leader_All():
+
+    try:
+        #Authenticate the user in Nakama, verifies the user identity, throws an error if there is an issue.
+        decode_jwt()
+        # JSON input parameters:
+            # Company
+        # Recieve request
+        data = json.loads(request.data)
+        company = data.get("company")
+        print("retrieving...."+company)
+
+        print(f"---Retrieving Leaderboards from Database for all players---")
+        
+        conn = create_mysql_connection()
+        if conn is None:
+            return jsonify({"error": "Failed to connect to MySQL"})
+        try:
+            cursor = conn.cursor()
+            if(company=="Admin"):
+                cursor.execute("SELECT name, username, company, points , comp_rate FROM PlayerProgress WHERE accountStatus = 'Active' and company!='Admin' ORDER BY points DESC")
+            else:
+                cursor.execute("SELECT name, username, company, points , comp_rate FROM PlayerProgress WHERE accountStatus = 'Active' and company!='Admin' and company = %s ORDER BY points DESC", (company,))
+            board = cursor.fetchall()
+            if board is None:
+                return jsonify({"error": "No player leaderboard found"})
+            
+            print(f"Found {str(len(board))} results.")
+            return jsonify(board)
+        
+        except mysql.connector.Error as error:
+            print("Error retrieving all players leaderboard:", error)
+            return jsonify({"error": "Failed to retrieve all players leaderboard"})
+
+        finally:
+            if conn is not None:
+                conn.close()
+
+    except InvalidSignatureError:
+        return "Unauthorised token", 401
+
+    # send back json reply
+    return jsonify(board)
+
+
 
 # Retrieve leaderboard for users based on company
 @app.route('/generate_report', methods=['POST'])
@@ -294,10 +341,11 @@ def ep_Generate_report():
         #Authenticate the user in Nakama, verifies the user identity, throws an error if there is an issue.
         decode_jwt()
         # JSON input parameters:
-            # email
+            # email, company
         data = json.loads(request.data)
         print("RECIEVED JSON REQUEST: ")
         email = data.get("email")
+        company = data.get("company")
 
         # Generate the csv file''
         print("Starting CSV export.....")
@@ -309,7 +357,10 @@ def ep_Generate_report():
             return jsonify({"error": "Failed to connect to MySQL"})
         try:
             cursor = conn.cursor()
-            cursor.execute(f"SELECT name,username,company,date_joined,points,comp_rate,last_played,comp_date, accountStatus FROM PlayerProgress WHERE company!='Admin'")
+            if (company== "Admin"):
+                cursor.execute("SELECT name,username,company,date_joined,points,comp_rate,last_played,comp_date, accountStatus FROM PlayerProgress WHERE company!='Admin'")
+            else:
+                cursor.execute("SELECT name,username,company,date_joined,points,comp_rate,last_played,comp_date, accountStatus FROM PlayerProgress WHERE company!='Admin' AND company=%s", (company,))
             users = cursor.fetchall()
         
         except mysql.connector.Error as error:
@@ -512,84 +563,3 @@ def ep_Get_Leader_Player():
 
 
 
-# Retrieve leaderboard for all users 
-@app.route('/get_Leader_Admin', methods=['POST'])
-def ep_Get_Leader_All():
-
-    try:
-        #Authenticate the user in Nakama, verifies the user identity, throws an error if there is an issue.
-        decode_jwt()
-        # JSON input parameters:
-            # N/A
-        # Recieve request
-
-        print(f"---Retrieving Leaderboards from Database for all players---")
-        
-        conn = create_mysql_connection()
-        if conn is None:
-            return jsonify({"error": "Failed to connect to MySQL"})
-        try:
-            cursor = conn.cursor()
-            cursor.execute("SELECT name, username, company, points , comp_rate FROM PlayerProgress WHERE accountStatus = 'Active' and company!='Admin' ORDER BY points DESC")
-            board = cursor.fetchall()
-            if board is None:
-                return jsonify({"error": "No player leaderboard found"})
-            
-            print(f"Found {str(len(board))} results.")
-            return jsonify(board)
-        
-        except mysql.connector.Error as error:
-            print("Error retrieving all players leaderboard:", error)
-            return jsonify({"error": "Failed to retrieve all players leaderboard"})
-
-        finally:
-            if conn is not None:
-                conn.close()
-
-    except InvalidSignatureError:
-        return "Unauthorised token", 401
-
-    # send back json reply
-    return jsonify(board)
-
-
-# Retrieve leaderboard for all users 
-@app.route('/get_Leader_Admin_Sort', methods=['POST'])
-def ep_Get_Leader_All_Sort():
-
-    try:
-        #Authenticate the user in Nakama, verifies the user identity, throws an error if there is an issue.
-        decode_jwt()
-
-        # JSON input parameters:
-            # column_name
-        # Recieve request
-        data = json.loads(request.data)
-        print("RECIEVED JSON REQUEST: ")
-        column_name = data.get("column_name")
-        print(f"---Retrieving Leaderboards from Database for all players order by {column_name}---")
-        
-        conn = create_mysql_connection()
-        if conn is None:
-            return jsonify({"error": "Failed to connect to MySQL"})
-        try:
-            cursor = conn.cursor()
-            cursor.execute(f"SELECT name, username, company, points , comp_rate FROM PlayerProgress WHERE accountStatus = 'Active' ORDER BY {column_name}")
-            board = cursor.fetchall()
-            if board is None:
-                return jsonify({"error": "No player leaderboard found"})
-            print(f"Found {str(len(board))} results.")
-            return jsonify(board)
-
-        except mysql.connector.Error as error:
-            print("Error retrieving all players leaderboard:", error)
-            return jsonify({"error": "Failed to retrieve all players leaderboard"})
-        
-        finally:
-            if conn is not None:
-                conn.close()
-
-        # send back json reply
-        return jsonify(board)
-    except InvalidSignatureError:
-        return "Unauthorised token", 401
