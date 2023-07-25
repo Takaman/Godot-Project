@@ -19,8 +19,10 @@ func interact() -> void:
 				There's a password written on the whiteboard for everyone to see.
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$change:correct]Let's erase the password from the whiteboard now and report this incident.[/url]?>[/right]
+				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]Leave it. It provides a convenient way for the team to remeber the password.[/url]?>[/right]
 				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nochange:wrong]Take a photo before erasing it, so that they won't forget.[/url]?>[/right
 				"""
 			),
 			"$change":

@@ -21,6 +21,9 @@ func interact() -> void:
 				There are also some confidential financial documents on display. 
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$leave:wrong]Leave it as it is.[/url]?>[/right]
+				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$read:wrong]Read whats on the documents.[/url]?>[/right]
+				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$report:correct]Keep the financial documents at a secure private location and report this incident to management.[/url]?>[/right]
 				"""
 			),
@@ -34,6 +37,22 @@ func interact() -> void:
 				This policy ensures that all important documents and confidential letters are removed from a desk and locked away when not in use or when an employee leaves their workstation.
 				
 				Ignoring this can result in unauthorized access to the company’s information or client data.
+				
+				[center]<#[url=https://blog.usecure.io/what-is-a-clean-desk-policy-and-should-my-company-have-it]Click here to learn more.[/url]#>[/center]
+				
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
+				"""
+				),
+				"$read":
+				Utils.dialog_part(
+				"""
+				That's a bad idea.
+				
+				Resists the urge to violate the owner's privacy that could lead to unauthorise access to important information.
+				
+				You should also help in maintaining a Clean Desk Policy.
+				
+				This policy ensures that all important documents and confidential letters are removed from a desk and locked away when not in use or when an employee leaves their workstation.
 				
 				[center]<#[url=https://blog.usecure.io/what-is-a-clean-desk-policy-and-should-my-company-have-it]Click here to learn more.[/url]#>[/center]
 				

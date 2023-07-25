@@ -97,7 +97,7 @@ func interact() -> void:
 					"""
 					Your phone is unusable... the app you downloaded seems to have been some kind of ransomware.
 					
-					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next]I think I made a mistake.[/url]?>[/right]
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next:wrong]I think I made a mistake.[/url]?>[/right]
 					"""
 				),
 				"$next":
@@ -107,7 +107,7 @@ func interact() -> void:
 					
 					What's going on? I can't use my phone anymore!
 					
-					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next2:wrong]We downloaded a ransomware. We can only pay the ransom or reset our phones and delete our data...[/url]?>[/right]
+					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$next2]We downloaded a ransomware. We can only pay the ransom or reset our phones and delete our data...[/url]?>[/right]
 					"""
 				),
 				"$next2":

@@ -25,7 +25,7 @@ func interact() -> void:
 						
 						[center][img=100x100]res://World/office1/images/Question/adware.png[/img][/center]
 						
-						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$help:correct]Did you install anything lately?[/url]?>[/right]
+						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$help]Did you install anything lately?[/url]?>[/right]
 						
 						[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nohelp:wrong]Ignore it and it might go away after some time.[/url]?>[/right]
 						"""
@@ -38,7 +38,9 @@ func interact() -> void:
 							Yes! I installed this third party toolbar and it's really useful for translation!
 							
 							
-							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$help2]Looks like you installed some kind of Adware. Uninstalling the toolbar might solve the issue.[/url]?>[/right]
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$nohelp2:wrong]Looks like you installed some kind of Adware. Uninstalling the toolbar might solve the issue.[/url]?>[/right]
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$help2:correct]Looks like you installed some kind of Adware. Let's immediately report this matter.[/url]?>[/right]
 							"""
 							
 						),
@@ -53,12 +55,22 @@ func interact() -> void:
 							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Perhaps I should reconsider the issue...[/url]?>[/right]
 							"""
 						),
+					"$nohelp2":
+						Utils.dialog_part(
+							"""
+							That is wrong
+							
+							Avoid solving the matter on your own as it might lead to unintended consequences!
+							
+							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Perhaps I should reconsider the issue...[/url]?>[/right]
+							"""
+						),
 					"$help2":
 						Utils.dialog_part(
 							"""
 							[b]Emily[/b]
 							
-							Wow, that seemed to work! The popups are no longer randomly appearing on my screen! Thanks a lot for your help!
+							I think that is the right procedure to do so! Thanks a lot for your help!
 							
 							[center]Be careful when installing third party tools.[/center]
 							
