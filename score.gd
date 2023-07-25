@@ -164,6 +164,7 @@ func send_interactions_to_server(breakdown: Dictionary):
 	var socialeng_scores = Score.get_training_scores("socialengineering")
 	var malware_scores = Score.get_training_scores("malware")
 	
+	
 	var socialengineering_completed = socialeng_scores["correct"] + socialeng_scores["wrong"]
 	var socialengineering_correct = socialeng_scores["correct"]
 	
@@ -173,12 +174,12 @@ func send_interactions_to_server(breakdown: Dictionary):
 	var malware_completed = malware_scores["correct"] + malware_scores["wrong"]
 	var malware_correct = malware_scores["correct"]
 	var total_completed = policy_completed+socialengineering_completed+malware_completed
-	var comp_rate = (policy_completed + socialengineering_completed + malware_completed) * 5
+	var comp_rate = snapped((policy_completed + socialengineering_completed + malware_completed) * (100/22),0.01)
 	
 	print("COMPLETION RATE:"+str(comp_rate))
 	print(comp_rate)
 	var breakdownJSON = JSON.stringify(breakdown)	
-	var data_to_send = {"email":username, "score":get_total_points(), "comp_rate": comp_rate, "se_correct": socialengineering_correct,"se_completed":socialengineering_completed, "policy_correct":policy_correct,"policy_completed":policy_completed,"malware_correct":malware_correct,"malware_completed":malware_completed,"breakdown":breakdownJSON  }
+	var data_to_send = {"email":username, "score":snappedf(get_total_points(),0.01), "comp_rate": comp_rate, "se_correct": socialengineering_correct,"se_completed":socialengineering_completed, "policy_correct":policy_correct,"policy_completed":policy_completed,"malware_correct":malware_correct,"malware_completed":malware_completed,"breakdown":breakdownJSON  }
 	var jsonPayload = JSON.stringify(data_to_send)
 	print("DATA TO SEND:")
 	print(data_to_send)
