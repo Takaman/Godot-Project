@@ -59,7 +59,6 @@ func _on_register_btn_button_down():
 		print("User: "+ authCompany)
 		auth = true
 
-			var subject = "Your xxx account has been created" #TODO CHANGE THE APP NAME
 	
 	
 	if auth:
@@ -85,9 +84,8 @@ func _on_register_btn_button_down():
 				print(sessionVar._session.get("token"))
 				
 				print("********* Attempting to send email *********")
-				var subject = "Your xxx account has been created" #TODO CHANGE THE APP NAME
-				var body = "An xxx account has been Created for you on behalf of "+company+".\n Username: "+email+"\nPassword: "+createPwd
-				#var body = "An xxx account has been Created for you on behalf of xxx.\n Username: kdfjk@fas.com \nPassword: sdfsdf"
+				var subject = "Your Security Defender: Office Edition account has been created"
+				var body = "An Security Defender: Office Edition account has been Created for you on behalf of "+company+".\n Username: "+email+"\nPassword: "+createPwd
 				data_to_send = {"email":email,"subject":subject,"body":body}
 				print("DATA TO SEND: ")
 				print(data_to_send)
