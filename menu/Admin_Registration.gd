@@ -47,59 +47,70 @@ func _on_register_btn_button_down():
 	var name = $NameTxt.text.strip_edges()
 	var result := OK
 	var createPwd = pwd
+	var authCompany = sessionVar.company.lstrip("Admin_")
+	var auth = false
 	
+	# Check if the admin is authorised to create the user
+	if (sessionVar.company == "Admin"):
+		print("User: Superuser")
+		auth = true
 	
-	print("Creating with PASSWORD: " + createPwd)
-	
+	if (authCompany == company):
+		print("User: "+ authCompany)
+		auth = true
 
-	print("********* CREATING USER *********")
-	var x: NakamaSession = await client.authenticate_email_async(email, createPwd, email, true)
-	if not x.is_exception():
-		print(x)
-		
-		if !x.created:
-			$ErrorLbl.text="User already registered"
+	
+	
+	if auth:
+		print("********* CREATING USER *********")
+		var x: NakamaSession = await client.authenticate_email_async(email, createPwd, email, true)
+		if not x.is_exception():
+			print(x)
+			
+			if !x.created:
+				$ErrorLbl.text="User already registered"
+			else:
+				$ErrorLbl.text="User created."
+				
+				print("********* USER HAS BEEN CREATED *********")
+				print("********* INITIALISING PLAYER DATA ********* ")
+				#TODO ADD THE INITIALISE PLAYER API CALL
+				var data_to_send = {"email":email,"company":company,"name":name}
+				var url = api_svr + "/init_Player"
+				var jsonPayload = JSON.stringify(data_to_send)
+				var headers = ["Content-Type: application/json", "Authorization: Bearer " + sessionVar._session.get("token")]
+				$HTTPRequest.request(url,headers,HTTPClient.METHOD_POST, jsonPayload)
+				print("TOKEN IS HERE")
+				print(sessionVar._session.get("token"))
+				
+				print("********* Attempting to send email *********")
+				var subject = "Your Security Defender: Office Edition account has been created"
+				var body = "An Security Defender: Office Edition account has been Created for you on behalf of "+company+".\n Username: "+email+"\nPassword: "+createPwd
+				data_to_send = {"email":email,"subject":subject,"body":body}
+				print("DATA TO SEND: ")
+				print(data_to_send)
+				url = api_svr+"/send_Mail"
+				print(url)
+				jsonPayload = JSON.stringify(data_to_send)
+				$HTTPRequest_email.request(url,headers,HTTPClient.METHOD_POST, jsonPayload)
+				print("EMAIL SENT...")
+				
 		else:
-			$ErrorLbl.text="User created."
-			
-			print("********* USER HAS BEEN CREATED *********")
-			print("********* INITIALISING PLAYER DATA ********* ")
-			#TODO ADD THE INITIALISE PLAYER API CALL
-			var data_to_send = {"email":email,"company":company,"name":name}
-			var url = api_svr + "/init_Player"
-			var jsonPayload = JSON.stringify(data_to_send)
-			var headers = ["Content-Type: application/json", "Authorization: Bearer " + sessionVar._session.get("token")]
-			$HTTPRequest.request(url,headers,HTTPClient.METHOD_POST, jsonPayload)
-			print("TOKEN IS HERE")
-			print(sessionVar._session.get("token"))
-			
-			print("********* Attempting to send email *********")
-			var subject = "Your xxx account has been created" #TODO CHANGE THE APP NAME
-			var body = "An xxx account has been Created for you on behalf of "+company+".\n Username: "+email+"\nPassword: "+createPwd
-			#var body = "An xxx account has been Created for you on behalf of xxx.\n Username: kdfjk@fas.com \nPassword: sdfsdf"
-			data_to_send = {"email":email,"subject":subject,"body":body}
-			print("DATA TO SEND: ")
-			print(data_to_send)
-			url = api_svr+"/send_Mail"
-			print(url)
-			jsonPayload = JSON.stringify(data_to_send)
-			$HTTPRequest_email.request(url,headers,HTTPClient.METHOD_POST, jsonPayload)
-			print("EMAIL SENT...")
-			
+			result = x.get_exception().status_code
+			var e = x.get_exception().message
+			if(e=="Invalid credentials."):
+				e="User exits."
+			$ErrorLbl.text=e
 	else:
-		result = x.get_exception().status_code
-		var e = x.get_exception().message
-		if(e=="Invalid credentials."):
-			e="User exits."
-		$ErrorLbl.text=e
+		if (company.begins_with("Admin_")):
+			$ErrorLbl.text = "You are not authorized to create another admin."
+		else:
+			$ErrorLbl.text= " You are not authorized to create user for "+ company
 	
 
-	
-	pass
 	
 func _on_request_completed_pwd(result, response_code, headers, body):
 	pwd = body.get_string_from_utf8()
-	print(pwd)
 
 
 

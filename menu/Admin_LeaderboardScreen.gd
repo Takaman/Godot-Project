@@ -25,8 +25,16 @@ func get_records():
 	print("REQUESTING FOR RESULTS....")
 	var url = api_svr + "/get_Leader_Admin"
 	$HTTPRequest.request_completed.connect(_on_request_completed)
+	var data_to_send = ""
+	if (sessionVar.company == "Admin"):
+		data_to_send = {"company":sessionVar.company}
+	else:
+		var authCompany = sessionVar.company.lstrip("Admin_")
+		print("ACompany = " + authCompany)
+		data_to_send = {"company":authCompany}
+	var jsonPayload = JSON.stringify(data_to_send)
 	var headers = ["Content-Type: application/json", "Authorization: Bearer " + sessionVar._session.get("token")]
-	await $HTTPRequest.request(url,headers, HTTPClient.METHOD_POST)
+	await $HTTPRequest.request(url,headers, HTTPClient.METHOD_POST, jsonPayload)
 	
 	
 func populate_data():	
@@ -58,7 +66,14 @@ func _on_export_btn_button_down():
 	print("Triggering the export")
 	var url = api_svr+"/generate_report"
 	var headers = ["Content-Type: application/json", "Authorization: Bearer " + sessionVar._session.get("token")]
-	var data_to_send = {"email":username}
+	#var data_to_send = {"email":username, "company":sessionVar.company.lstrip("Admin_")}
+	var data_to_send = ""
+	if (sessionVar.company == "Admin"):
+		data_to_send = {"email":username, "company":sessionVar.company}
+	else:
+		var authCompany = sessionVar.company.lstrip("Admin_")
+		print("ACompany = " + authCompany)
+		data_to_send = {"email":username, "company":authCompany}
 	var jsonPayload = JSON.stringify(data_to_send)
 			
 	#add email
