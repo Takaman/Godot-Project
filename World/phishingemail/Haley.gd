@@ -129,7 +129,7 @@ func interact() -> void:
 							"""
 							[b]Haley[/b]
 							
-							Really? It's going to take a while to get a response... but I suppose it's safer. Come back in a bit when I get a reply/
+							Really? It's going to take a while to get a response... but I suppose it's safer. Come back in a bit when I get a reply.
 							
 							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Ok.[/url]?>[/right]
 							"""
