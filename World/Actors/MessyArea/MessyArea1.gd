@@ -22,7 +22,7 @@ func interact() -> void:
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$leave:wrong]Leave it as it is.[/url]?>[/right]
 				
-				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$read:wrong]Read whats on the documents.[/url]?>[/right]
+				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$read:wrong]Read what's on the documents.[/url]?>[/right]
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$report:correct]Keep the financial documents at a secure private location and report this incident to management.[/url]?>[/right]
 				"""
@@ -48,7 +48,7 @@ func interact() -> void:
 				"""
 				That's a bad idea.
 				
-				Resists the urge to violate the owner's privacy that could lead to unauthorise access to important information.
+				Resist the urge to violate the owner's privacy that could lead to unauthorise access to important information.
 				
 				You should also help in maintaining a Clean Desk Policy.
 				

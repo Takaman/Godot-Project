@@ -58,7 +58,7 @@ func interact() -> void:
 					"$nohelp2":
 						Utils.dialog_part(
 							"""
-							That is wrong
+							That is wrong.
 							
 							Avoid solving the matter on your own as it might lead to unintended consequences!
 							
@@ -70,7 +70,7 @@ func interact() -> void:
 							"""
 							[b]Emily[/b]
 							
-							I think that is the right procedure to do so! Thanks a lot for your help!
+							I think that is the right procedure! Thanks a lot for your help!
 							
 							[center]Be careful when installing third party tools.[/center]
 							
