@@ -48,7 +48,7 @@ func interact() -> void:
 				"""
 				That's a bad idea.
 				
-				Resist the urge to violate the owner's privacy that could lead to unauthorise access to important information.
+				Resist the urge to violate the owner's privacy that could lead to unauthorized access to important information.
 				
 				You should also help in maintaining a Clean Desk Policy.
 				
