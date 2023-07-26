@@ -40,7 +40,11 @@ func interact() -> void:
 							
 							Always report incidents to the IT department as it can help them minimise the impact.
 							Most of us aren't trained to solve these problems, so remember to always follow your company's protocol.
+						
+							[center]<#[url=https://en.wikipedia.org/wiki/CryptoLocker] Click here to learn more about specific attack[/url]#>[/center]
 							
+							[center]<#[url=https://www.microsoft.com/en-us/security/business/security-101/what-is-ransomware] Click here to learn more about ransomeware[/url]#>[/center]
+
 							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 							"""
 							
@@ -50,12 +54,15 @@ func interact() -> void:
 							"""
 							Oh no...
 							
-							Attempting to resolve problems without the proper knowledge or tools can lead to further damage or unsuccessful recovery attempts.
+							You should not avoid something that you deemed suspicious.
+							You might not know what kind of damage it can bring.
 							
 							You should instead have disconnected from the network and contacted a cybersecurity professional.
 							
-							[center]<#[url=https://en.wikipedia.org/wiki/CryptoLocker] Click here to learn more.[/url]#>[/center]
+							[center]<#[url=https://en.wikipedia.org/wiki/CryptoLocker] Click here to learn more about specific attack[/url]#>[/center]
 							
+							[center]<#[url=https://www.microsoft.com/en-us/security/business/security-101/what-is-ransomware] Click here to learn more about ransomeware[/url]#>[/center]
+
 							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 							"""
 						),
@@ -68,8 +75,9 @@ func interact() -> void:
 							
 							You should instead have disconnected from the network and contacted a cybersecurity professional.
 							
-							[center]<#[url=https://en.wikipedia.org/wiki/CryptoLocker] Click here to learn more.[/url]#>[/center]
+							[center]<#[url=https://en.wikipedia.org/wiki/CryptoLocker] Click here to learn more about specific attack[/url]#>[/center]
 							
+							[center]<#[url=https://www.microsoft.com/en-us/security/business/security-101/what-is-ransomware] Click here to learn more about ransomeware[/url]#>[/center]
 							[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 							"""
 						),

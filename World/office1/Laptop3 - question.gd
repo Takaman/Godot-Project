@@ -80,6 +80,8 @@ func interact() -> void:
 					
 					[i]Disclaimer: Please do not reveal your password to anyone.[/i]
 					
+					[center]<#[url=https://learn.microsoft.com/en-us/microsoft-365/admin/misc/password-policy-recommendations?view=o365-worldwide]Click here to learn more.[/url]#>[/center]
+				
 					[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]No problem, I'm glad to be of help.[/url]?>[/right]
 					"""
 				)
