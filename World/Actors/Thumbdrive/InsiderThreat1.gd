@@ -58,6 +58,8 @@ func interact() -> void:
 				If there's anything you find suspicious, reporting them to the relavant personnel is the safest choice.
 				Let them take the appropriate measures.
 				
+				[center]<#[url=https://www.cisa.gov/topics/physical-security/insider-threat-mitigation/defining-insider-threats]Click here to learn more.[/url]#>[/center]
+				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""
 				),
@@ -72,6 +74,8 @@ func interact() -> void:
 				1. Patrick's hesitation about reporting his concerns.
 				2. Mentioning gathering evidence discreetly.
 				
+				[center]<#[url=https://www.cisa.gov/topics/physical-security/insider-threat-mitigation/defining-insider-threats]Click here to learn more.[/url]#>[/center]
+				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""
 				),
@@ -83,6 +87,8 @@ func interact() -> void:
 				It is unadvisable to directly confront the individuals involved in the matter, as you might unnecessarily alert them that someone has noticed their plans. 
 				
 				You should have reported it to the relevant higher ups instead.
+				
+				[center]<#[url=https://www.cisa.gov/topics/physical-security/insider-threat-mitigation/defining-insider-threats]Click here to learn more.[/url]#>[/center]
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""
