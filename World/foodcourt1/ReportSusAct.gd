@@ -32,6 +32,8 @@ func interact() -> void:
 				That's the right decision.
 				It's never too much to be extra safe, and helping to report such scenarios might prevent any unnessary risks.
 				
+				[center]<#[url=https://www.cisa.gov/topics/physical-security/insider-threat-mitigation/defining-insider-threats]Click here to learn more.[/url]#>[/center]
+				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""
 				),
@@ -42,6 +44,8 @@ func interact() -> void:
 				You should be more wary of your surroundings.
 				
 				Helping to play your part and reporting any suspicious activity can go a long way to improving our security.
+				
+				[center]<#[url=https://www.cisa.gov/topics/physical-security/insider-threat-mitigation/defining-insider-threats]Click here to learn more.[/url]#>[/center]
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]Exit[/url]?>[/right]
 				"""

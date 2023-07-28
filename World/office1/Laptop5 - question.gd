@@ -38,7 +38,8 @@ func interact() -> void:
 				It's a good practice to download the latest feature updates as they often contain security patches.
 				
 				If you are currently working on something important or time-sensitive, it might be better to choose a later time for the update, rather than distrupting your workflow.
-				
+			
+				[center]<#[url=https://us.norton.com/blog/how-to/the-importance-of-general-software-updates-and-patches]Click here to learn more.[/url]#>[/center]
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""
@@ -49,6 +50,8 @@ func interact() -> void:
 				That's not ideal.
 				
 				Without the latest updates, you become more vulnerable to security breaches through your device.
+				
+				[center]<#[url=https://us.norton.com/blog/how-to/the-importance-of-general-software-updates-and-patches]Click here to learn more.[/url]#>[/center]
 				
 				[right][img=12x12]res://World/HUD/Pointer.png[/img]<?[url=$end]EXIT[/url]?>[/right]
 				"""
