@@ -11,5 +11,4 @@ func _ready():
 	if SeshVar._session:
 		var username = SeshVar._session.get("username")
 	else:
-		#SceneTransition.change_scene("res://../menu/Login.tscn")
-		pass # Replace with function body.
+		SceneTransition.change_scene("res://../menu/Login.tscn")
