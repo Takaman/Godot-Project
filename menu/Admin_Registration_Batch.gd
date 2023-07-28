@@ -17,7 +17,7 @@ var Email = []
 var Company = []
 var totalCount = 0
 var isProcessingRequest := false
-var characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789!@#$%^&*()_+'
+var characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()_+`-='
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -131,9 +131,9 @@ func registerUser(temp_name,temp_email,temp_company):
 
 	else:
 		if (company.begins_with("Admin_")):
-			$ErrorLbl.text = "You are not authorized to create another admin."
+			$ErrorLbl.text += "You are not authorized to create another admin.\n"
 		else:
-			$ErrorLbl.text = " You are not authorized to create " + name + " for " + company
+			$ErrorLbl.text += "No authorization to create " + name + " for " + company + "\n"
 
 func generate_word(chars, length):
 	var word: String

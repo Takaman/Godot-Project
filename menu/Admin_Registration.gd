@@ -8,7 +8,7 @@ var client := Nakama.create_client(server_key, host, port, scheme)
 var pwd = "" 
 var loggedIn = ""
 var api_svr = ""
-var characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789!@#$%^&*()_+'
+var characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()_+`-='
 
 @onready var sessionVar = get_node("/root/SeshVar")
 
