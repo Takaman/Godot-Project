@@ -107,7 +107,7 @@ func _on_back_btn_button_down():
 	SceneTransition.change_scene("res://../menu/Admin_LandingPage.tscn")
 
 func _on_batch_register_btn_button_down():
-	get_tree().change_scene_to_file("res://menu/Admin_Registration_Batch_Instruction.tscn")
+	get_tree().change_scene_to_file("res://menu/Admin_Registration_Batch.tscn")
 
 func generate_word(chars, length):
 	var word: String

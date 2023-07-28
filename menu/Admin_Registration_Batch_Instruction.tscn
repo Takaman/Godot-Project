@@ -1,8 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6b6abj4eeobw"]
+[gd_scene load_steps=4 format=3 uid="uid://dejk1njfgsc00"]
 
-[ext_resource type="Script" path="res://menu/BatchInstruction.gd" id="1_mli26"]
 [ext_resource type="Texture2D" uid="uid://bvqndt2cinf8o" path="res://menu/image/Format.png" id="2_1ee7h"]
 [ext_resource type="Texture2D" uid="uid://b03f7f2qa1tl" path="res://menu/image/CSVType.png" id="3_5wiqx"]
+
+[sub_resource type="GDScript" id="GDScript_dlvr3"]
+script/source = "extends Node
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	if SeshVar._session:
+		var username = SeshVar._session.get(\"username\")
+	else:
+		SceneTransition.change_scene(\"res://../menu/Login.tscn\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_continue_btn_button_down():
+	SceneTransition.change_scene(\"res://menu/Admin_Registration_Batch.tscn\")
+
+
+func _on_back_btn_button_down():
+	SceneTransition.change_scene(\"res://../menu/Admin_LandingPage.tscn\")
+"
 
 [node name="Registration" type="Node2D"]
 
@@ -11,7 +35,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 361.0
 offset_bottom = 180.0
-script = ExtResource("1_mli26")
+script = SubResource("GDScript_dlvr3")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="Control"]
