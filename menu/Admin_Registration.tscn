@@ -27,6 +27,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_agvpa")
 
+[node name="BatchRegisterBtn" type="Button" parent="Control/Registration"]
+offset_left = 279.0
+offset_top = 143.0
+offset_right = 351.0
+offset_bottom = 174.0
+text = "Batch
+"
+
 [node name="NamelLbl" type="RichTextLabel" parent="Control/Registration"]
 layout_mode = 0
 offset_left = 18.0
@@ -102,5 +110,6 @@ offset_bottom = 178.0
 theme_override_font_sizes/font_size = 8
 text = "Back to Menu"
 
+[connection signal="button_down" from="Control/Registration/BatchRegisterBtn" to="Control/Registration" method="_on_batch_register_btn_button_down"]
 [connection signal="button_down" from="Control/Registration/RegisterBtn" to="Control/Registration" method="_on_register_btn_button_down"]
 [connection signal="button_down" from="BackBtn" to="Control/Registration" method="_on_back_btn_button_down"]
