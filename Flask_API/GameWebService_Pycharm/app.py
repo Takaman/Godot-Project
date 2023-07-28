@@ -210,8 +210,8 @@ def ep_update_score():
         data = json.loads(request.data)
         print("RECIEVED JSON REQUEST: ")
         email = data.get("email")
-        score = data.get("score")
-        comp_rate = data.get("comp_rate")
+        score = round(data.get("score"),2)
+        comp_rate = round(data.get("comp_rate"),2)
         se_completed = data.get("se_completed")
         se_correct = data.get("se_correct")
         policy_completed = data.get("policy_completed")
@@ -307,9 +307,9 @@ def ep_Get_Leader_All():
         try:
             cursor = conn.cursor()
             if(company=="Admin"):
-                cursor.execute("SELECT name, username, company, points , comp_rate FROM PlayerProgress WHERE accountStatus = 'Active' and company!='Admin' ORDER BY points DESC")
+                cursor.execute("SELECT name, username, company, points , comp_rate FROM PlayerProgress WHERE accountStatus = 'Active' and company not like 'Admin%' ORDER BY points DESC")
             else:
-                cursor.execute("SELECT name, username, company, points , comp_rate FROM PlayerProgress WHERE accountStatus = 'Active' and company!='Admin' and company = %s ORDER BY points DESC", (company,))
+                cursor.execute("SELECT name, username, company, points , comp_rate FROM PlayerProgress WHERE accountStatus = 'Active' and company not like 'Admin%' and company = %s ORDER BY points DESC", (company,))
             board = cursor.fetchall()
             if board is None:
                 return jsonify({"error": "No player leaderboard found"})
@@ -360,7 +360,7 @@ def ep_Generate_report():
             if (company== "Admin"):
                 cursor.execute("SELECT name,username,company,date_joined,points,comp_rate,last_played,comp_date, accountStatus FROM PlayerProgress WHERE company!='Admin'")
             else:
-                cursor.execute("SELECT name,username,company,date_joined,points,comp_rate,last_played,comp_date, accountStatus FROM PlayerProgress WHERE company!='Admin' AND company=%s", (company,))
+                cursor.execute("SELECT name,username,company,date_joined,points,comp_rate,last_played,comp_date, accountStatus FROM PlayerProgress WHERE company not like 'Admin%' AND company=%s", (company,))
             users = cursor.fetchall()
         
         except mysql.connector.Error as error:
@@ -560,6 +560,3 @@ def ep_Get_Leader_Player():
     
     except InvalidSignatureError:
         return "Unauthorised token", 401
-
-
-
