@@ -11,10 +11,13 @@ var api_svr = ""
 
 @onready var sessionVar = get_node("/root/SeshVar")
 @onready var file_dialog = $"../../FileDialog"
+@onready var file_dialog_save = $"../../FileDialogSave"
+
 
 var Name = []
 var Email = []
 var Company = []
+var Result = []
 var totalCount = 0
 var isProcessingRequest := false
 var characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()_+`-='
@@ -47,7 +50,8 @@ func _on_register_btn_button_down():
 
 func processRegistration(totalCount):
 	for i in range(0, totalCount):
-		await (registerUser(Name[i], Email[i], Company[i]))
+		await (registerUser(Name[i], Email[i], Company[i], i))
+	$ErrorLbl.text += "Completed.\n"
 	isProcessingRequest = false
 
 func _on_back_btn_button_down():
@@ -69,7 +73,7 @@ func _on_file_dialog_file_selected(path):
 		$ErrorLbl.text = "File Does not exists."
 
 
-func registerUser(temp_name,temp_email,temp_company):
+func registerUser(temp_name,temp_email,temp_company,count):
 	var email = temp_email
 	var company = temp_company
 	var name = temp_name
@@ -95,8 +99,10 @@ func registerUser(temp_name,temp_email,temp_company):
 			
 			if !x.created:
 				$ErrorLbl.text += name + " User already registered\n"
+				Result.append("Unsuccessful,Already registered")
 			else:
 				$ErrorLbl.text += name + " User created\n"
+				Result.append("Successful")
 				
 				print("********* USER HAS BEEN CREATED *********")
 				print("********* INITIALISING PLAYER DATA ********* ")
@@ -116,8 +122,6 @@ func registerUser(temp_name,temp_email,temp_company):
 				print("DATA TO SEND: ")
 				print(data_to_send)
 				url = api_svr+"/send_Mail"
-				print("DEBUGGGING")
-				print($HTTPRequest_email)
 				jsonPayload = JSON.stringify(data_to_send)
 				$HTTPRequest_email.request(url,headers,HTTPClient.METHOD_POST, jsonPayload)
 				print("EMAIL SENT...")
@@ -128,12 +132,15 @@ func registerUser(temp_name,temp_email,temp_company):
 			if(e=="Invalid credentials."):
 				e = name + ", User already exits."
 			$ErrorLbl.text+=e + "\n"
+			Result.append("Unsuccessful,Already registered")
 
 	else:
 		if (company.begins_with("Admin_")):
 			$ErrorLbl.text += "You are not authorized to create another admin.\n"
+			Result.append("Unsuccessful,Unauthorized to create another admin")
 		else:
 			$ErrorLbl.text += "No authorization to create " + name + " for " + company + "\n"
+			Result.append("Unsuccessful,No Authorization to create outside of your own company")
 
 func generate_word(chars, length):
 	var word: String
@@ -141,3 +148,16 @@ func generate_word(chars, length):
 	for i in range(length):
 		word += chars[randi()% n_char]
 	return word
+
+
+func _on_print_btn_button_down():
+	file_dialog_save.visible = true
+
+
+func _on_file_dialog_save_file_selected(path):
+	var save_file = FileAccess.open(path, FileAccess.WRITE)
+	var temp_line = ""
+	for i in range(0, totalCount):
+		temp_line = Name[i] +","+ Email[i] +","+ Company[i] +","+ Result[i]
+		save_file.store_line(temp_line)
+

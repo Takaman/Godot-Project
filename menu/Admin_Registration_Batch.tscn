@@ -66,6 +66,16 @@ metadata/_edit_use_anchors_ = true
 
 [node name="HTTPRequest_email" type="HTTPRequest" parent="Control/Registration"]
 
+[node name="PrintBtn" type="Button" parent="Control/Registration"]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 154.0
+offset_right = 347.0
+offset_bottom = 174.0
+theme_override_font_sizes/font_size = 8
+text = "Print Results"
+metadata/_edit_use_anchors_ = true
+
 [node name="BackBtn" type="Button" parent="."]
 offset_left = 3.0
 offset_top = 158.0
@@ -75,6 +85,16 @@ theme_override_font_sizes/font_size = 8
 text = "Back to Menu"
 metadata/_edit_use_anchors_ = true
 
+[node name="FileDialogSave" type="FileDialog" parent="."]
+initial_position = 1
+title = "Open a File"
+size = Vector2i(500, 400)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+
 [connection signal="file_selected" from="FileDialog" to="Control/Registration" method="_on_file_dialog_file_selected"]
 [connection signal="button_down" from="Control/Registration/RegisterBtn" to="Control/Registration" method="_on_register_btn_button_down"]
+[connection signal="button_down" from="Control/Registration/PrintBtn" to="Control/Registration" method="_on_print_btn_button_down"]
 [connection signal="button_down" from="BackBtn" to="Control/Registration" method="_on_back_btn_button_down"]
+[connection signal="file_selected" from="FileDialogSave" to="Control/Registration" method="_on_file_dialog_save_file_selected"]
