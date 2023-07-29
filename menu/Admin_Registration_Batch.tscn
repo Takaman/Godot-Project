@@ -73,7 +73,7 @@ offset_top = 154.0
 offset_right = 347.0
 offset_bottom = 174.0
 theme_override_font_sizes/font_size = 8
-text = "Print Results"
+text = "Export Results"
 metadata/_edit_use_anchors_ = true
 
 [node name="BackBtn" type="Button" parent="."]
@@ -87,10 +87,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="FileDialogSave" type="FileDialog" parent="."]
 initial_position = 1
-title = "Open a File"
 size = Vector2i(500, 400)
-ok_button_text = "Open"
-file_mode = 0
+ok_button_text = "Save"
 access = 2
 
 [connection signal="file_selected" from="FileDialog" to="Control/Registration" method="_on_file_dialog_file_selected"]
