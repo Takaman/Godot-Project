@@ -8,7 +8,6 @@ var client := Nakama.create_client(server_key, host, port, scheme)
 var pwd = "" 
 var loggedIn = ""
 var api_svr = ""
-var characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()_+`-='
 
 @onready var sessionVar = get_node("/root/SeshVar")
 
@@ -44,7 +43,7 @@ func _on_register_btn_button_down():
 	var company = $CompanyTxt.text.strip_edges()
 	var name = $NameTxt.text.strip_edges()
 	var result := OK
-	var createPwd = generate_word(characters, 10)
+	var createPwd = generatePassword(12)
 	var authCompany = sessionVar.company.lstrip("Admin_")
 	var auth = false
 	
@@ -105,12 +104,40 @@ func _on_register_btn_button_down():
 func _on_back_btn_button_down():
 	SceneTransition.change_scene("res://../menu/Admin_LandingPage.tscn")
 
+
 func _on_batch_register_btn_button_down():
 	get_tree().change_scene_to_file("res://menu/Admin_Registration_Batch.tscn")
 
-func generate_word(chars, length):
-	var word: String
-	var n_char = len(chars)
-	for i in range(length):
-		word += chars[randi()% n_char]
-	return word
+func generatePassword(length: int) -> String:
+	
+	# Characters to use in the password
+	var upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	var lowerChars = "abcdefghijklmnopqrstuvwxyz"
+	var numberChars = "0123456789"
+	var specialChars = "!@#$%^&*()_-+=[]{}|:;<>,.?/~"
+	var basePassword = ""
+	var randomizer = RandomNumberGenerator.new()
+	randomizer.randomize()
+
+	while basePassword.length() < 8:
+		var charType = randomizer.randi() % 4
+
+		if charType == 0:
+			basePassword += upperChars[randomizer.randi() % upperChars.length()]
+
+		elif charType == 1:
+			basePassword += lowerChars[randomizer.randi() % lowerChars.length()]
+
+		elif charType == 2:
+			basePassword += numberChars[randomizer.randi() % numberChars.length()]
+
+		elif charType == 3:
+			basePassword += specialChars[randomizer.randi() % specialChars.length()]
+
+	# Add additional random characters to achieve the desired length
+	var password = basePassword
+	while password.length() < length:
+		var charSet = upperChars + lowerChars + numberChars + specialChars
+		password += charSet[randomizer.randi() % charSet.length()]
+
+	return password

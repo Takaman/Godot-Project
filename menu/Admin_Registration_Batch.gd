@@ -20,7 +20,6 @@ var Company = []
 var Result = []
 var totalCount = 0
 var isProcessingRequest := false
-var characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()_+`-='
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,14 +43,12 @@ func _process(delta):
 
 
 func _on_register_btn_button_down():
-	if !isProcessingRequest:
-		isProcessingRequest = true
-		processRegistration(totalCount)
+	file_dialog.visible = true
 
 func processRegistration(totalCount):
 	for i in range(0, totalCount):
 		await (registerUser(Name[i], Email[i], Company[i], i))
-	$ErrorLbl.text += "Completed.\n"
+	$ErrorLbl.text += "Register Completed.\n"
 	isProcessingRequest = false
 
 func _on_back_btn_button_down():
@@ -71,6 +68,9 @@ func _on_file_dialog_file_selected(path):
 				totalCount += 1
 	else:
 		$ErrorLbl.text = "File Does not exists."
+	if !isProcessingRequest:
+		isProcessingRequest = true
+		processRegistration(totalCount)
 
 
 func registerUser(temp_name,temp_email,temp_company,count):
@@ -78,7 +78,7 @@ func registerUser(temp_name,temp_email,temp_company,count):
 	var company = temp_company
 	var name = temp_name
 	var result := OK
-	var createPwd = generate_word(characters, 10)
+	var createPwd = generatePassword(12)
 	var authCompany = sessionVar.company.lstrip("Admin_")
 	var auth = false
 
@@ -141,14 +141,6 @@ func registerUser(temp_name,temp_email,temp_company,count):
 			$ErrorLbl.text += "No authorization to create " + name + " for " + company + "\n"
 			Result.append("Unsuccessful,No Authorization to create outside of your own company")
 
-func generate_word(chars, length):
-	var word: String
-	var n_char = len(chars)
-	for i in range(length):
-		word += chars[randi()% n_char]
-	return word
-
-
 func _on_print_btn_button_down():
 	file_dialog_save.visible = true
 
@@ -159,4 +151,38 @@ func _on_file_dialog_save_file_selected(path):
 	for i in range(0, totalCount):
 		temp_line = Name[i] +","+ Email[i] +","+ Company[i] +","+ Result[i]
 		save_file.store_line(temp_line)
+	$ErrorLbl.text+= "Export Completed\n"
 
+func generatePassword(length: int) -> String:
+	
+	# Characters to use in the password
+	var upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	var lowerChars = "abcdefghijklmnopqrstuvwxyz"
+	var numberChars = "0123456789"
+	var specialChars = "!@#$%^&*()_-+=[]{}|:;<>,.?/~"
+	var basePassword = ""
+	var randomizer = RandomNumberGenerator.new()
+	randomizer.randomize()
+
+	while basePassword.length() < 8:
+		var charType = randomizer.randi() % 4
+
+		if charType == 0:
+			basePassword += upperChars[randomizer.randi() % upperChars.length()]
+
+		elif charType == 1:
+			basePassword += lowerChars[randomizer.randi() % lowerChars.length()]
+
+		elif charType == 2:
+			basePassword += numberChars[randomizer.randi() % numberChars.length()]
+
+		elif charType == 3:
+			basePassword += specialChars[randomizer.randi() % specialChars.length()]
+
+	# Add additional random characters to achieve the desired length
+	var password = basePassword
+	while password.length() < length:
+		var charSet = upperChars + lowerChars + numberChars + specialChars
+		password += charSet[randomizer.randi() % charSet.length()]
+
+	return password
