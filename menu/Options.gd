@@ -2,7 +2,14 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if DisplayServer.window_get_mode() == 3:
+		$VBoxContainer2/FullScreen.button_pressed = true
+	if DisplayServer.window_get_mode() == 0:
+		$VBoxContainer2/FullScreen.button_pressed = false
+	if DisplayServer.window_get_mode() == 2:
+		$VBoxContainer2/CheckBox2.button_pressed = true
+	if DisplayServer.window_get_mode() == 0:
+		$VBoxContainer2/CheckBox2.button_pressed = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
