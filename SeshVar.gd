@@ -24,7 +24,6 @@ func _ready():
 		api_svr = config.get_value("url", "api_svr")
 		host = config.get_value("url","host")
 		print("Retrieved from config:")
-		print(scheme)
 	
 	else:
 		print("Failed to load config file: ", config_path)

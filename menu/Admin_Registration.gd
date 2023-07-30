@@ -28,7 +28,7 @@ func _ready():
 		print(loggedIn)
 		
 	else:
-		print("FELLA NOT LOGGED IN")
+		print("NOT LOGGED IN")
 		SceneTransition.change_scene("res://../menu/Login.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -76,7 +76,6 @@ func _on_register_btn_button_down():
 				var jsonPayload = JSON.stringify(data_to_send)
 				var headers = ["Content-Type: application/json", "Authorization: Bearer " + sessionVar._session.get("token")]
 				$HTTPRequest.request(url,headers,HTTPClient.METHOD_POST, jsonPayload)
-				print("TOKEN IS HERE")
 				print(sessionVar._session.get("token"))
 				
 				print("********* Attempting to send email *********")

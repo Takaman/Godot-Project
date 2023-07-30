@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 SeshVar="*res://SeshVar.gd"
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Nakama="*res://addons/com.heroiclabs.nakama/Nakama.gd"
 Global="*res://global.gd"
 Score="*res://score.gd"
@@ -39,10 +38,6 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="Godot Project"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/YATI/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")
 
 [importer_defaults]
 

@@ -112,7 +112,6 @@ func registerUser(temp_name,temp_email,temp_company,count):
 				var jsonPayload = JSON.stringify(data_to_send)
 				var headers = ["Content-Type: application/json", "Authorization: Bearer " + sessionVar._session.get("token")]
 				$HTTPRequest.request(url,headers,HTTPClient.METHOD_POST, jsonPayload)
-				print("TOKEN IS HERE")
 				print(sessionVar._session.get("token"))
 				
 				print("********* Attempting to send email *********")

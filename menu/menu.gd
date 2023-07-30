@@ -7,7 +7,6 @@ func _ready():
 	var username = sessionVar._session.get("username")
 	print("SHOWING MENU")
 	print(username)
-	#print(username.get("username"))#test for session logged in 
 	var urlprogress = api_svr + "/get_Progress"
 	var urlinteracted = api_svr + "/get_Interactions"
 	

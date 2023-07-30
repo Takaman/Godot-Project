@@ -59,7 +59,6 @@ def decode_jwt():
     print("Trying to authenticate user")
 
     if not account_data:
-        print('HERE')
         return "Invalid token", 401
     
     if user_id != account_data["user"]["id"]:
@@ -111,7 +110,6 @@ mail = Mail(app)
 def string_example():
     data = json.loads(request.data)
     print("RECIEVED JSON REQUEST: ")
-    print(data)
     return data
 
 @app.route('/pwd_Gen', methods=['POST','GET'])
@@ -121,7 +119,6 @@ def ep_Pwd_Gen():
     password = ''.join(random.choice(characters) for _ in range(10))
     password += ''.join(random.choice(punctuation) for _ in range(2))
     password = ''.join(random.sample(password,len(password)))
-    print(password)
     return password
 
 # Initialise User Record

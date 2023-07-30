@@ -45,7 +45,6 @@ def create_mysql_connection():
 
 def decode_jwt():
     token = request.headers.get("Authorization","").replace("Bearer ","")
-    #print(token)
     if not token:
         return jsonify({"error": "No token provided"}), 400
     
@@ -59,7 +58,6 @@ def decode_jwt():
     print("Trying to authenticate user")
 
     if not account_data:
-        print('HERE')
         return "Invalid token", 401
     
     if user_id != account_data["user"]["id"]:
