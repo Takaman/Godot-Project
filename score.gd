@@ -173,8 +173,9 @@ func send_interactions_to_server(breakdown: Dictionary):
 	
 	var malware_completed = malware_scores["correct"] + malware_scores["wrong"]
 	var malware_correct = malware_scores["correct"]
+	
 	var total_completed = policy_completed+socialengineering_completed+malware_completed
-	var comp_rate = snapped((policy_completed + socialengineering_completed + malware_completed) * (100/22),0.01)
+	var comp_rate = snapped((total_completed/22) * 100,0.01)
 	
 	print("COMPLETION RATE:"+str(comp_rate))
 	print(comp_rate)
