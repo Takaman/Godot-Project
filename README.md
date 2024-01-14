@@ -1,4 +1,4 @@
-This README contains instructions on how to set up and deploy the project.
+This README contains instructions on how to set up and deploy the project. Project is OLD and Deprecated. You have to setup your own servers and security. 
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -16,7 +16,24 @@ For IT departments or Administrators seeking to teach employees or anyone the ba
 * Live leaderboard
 * Generate CSV files on company's statistics
 
-## Getting Started
+## Screenshots
+* Start of the Game
+![image](https://github.com/Takaman/Godot-Project/assets/91510432/0965ee84-4cc3-4433-83fc-29b1e9801a6d)
+
+* NPC interactions Guide
+![image](https://github.com/Takaman/Godot-Project/assets/91510432/4ba394ac-0ba7-41b7-9718-b115d810ae81)
+
+* NPC interaction
+![image](https://github.com/Takaman/Godot-Project/assets/91510432/df611422-8c53-402e-8608-fa501cf9ebc2)
+
+
+* Progress Checker
+![image](https://github.com/Takaman/Godot-Project/assets/91510432/893fa2ac-f6e2-485b-ab84-25777eddb3e0)
+
+
+* Online Leaderboard
+![image](https://github.com/Takaman/Godot-Project/assets/91510432/ece1a366-9d5c-41de-92ac-4127fc1efff6)
+
 
 
 
